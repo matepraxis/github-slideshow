@@ -62,6 +62,14 @@ const close=()=>new Promise(resolve=>server.close(resolve));
    }));
    assert.ok(image.loaded&&image.width>400,'Figura '+n+' no carga en alta resolución');
    assert.ok(image.src.endsWith('galanin-fig'+n+'.webp'),'La figura '+n+' está intercambiada');
+   const bounds=await page.evaluate(()=>{
+    const fig=document.querySelector('.paper-original-figure').getBoundingClientRect();
+    const caption=document.querySelector('.example-graph .graph-caption').getBoundingClientRect();
+    const source=document.querySelector('#source-line').getBoundingClientRect();
+    return {figureBottom:fig.bottom,captionTop:caption.top,captionBottom:caption.bottom,sourceTop:source.top};
+   });
+   assert.ok(bounds.figureBottom <= bounds.captionTop+3,'Figura '+n+' invade su pie explicativo');
+   assert.ok(bounds.captionBottom+8 < bounds.sourceTop,'Figura '+n+' invade el pie bibliográfico');
    await capture('0'+(n-6)+'-figura'+n+'-original.png');
   }
   await go(27);
