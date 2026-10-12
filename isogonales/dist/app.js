@@ -99,12 +99,32 @@ function exampleSVG(kind){
  let range=kind==='biology'?45:kind.startsWith('hyperbola')?3.25:6;
  const scale=185/range,fx=x=>220+x*scale,fy=y=>220-y*scale;
  const defs=svgEl('defs'),clip=svgEl('clipPath',{id:'example-clip'});clip.append(svgEl('rect',{x:25,y:25,width:390,height:390}));defs.append(clip);svg.append(defs);
- svg.append(svgEl('path',{d:'M25,220H415 M220,415V25',fill:'none',stroke:'#bac5bd','stroke-width':1.2}));
+ if(kind!=='application-result')svg.append(svgEl('path',{d:'M25,220H415 M220,415V25',fill:'none',stroke:'#bac5bd','stroke-width':1.2}));
  const lbl=(s,p,c,dx=6,dy=-6)=>svg.append(svgEl('text',{x:fx(p[0])+dx,y:fy(p[1])+dy,fill:c},s));
  const curve=(pts,c,width=2.5,dash='')=>svg.append(svgEl('path',{d:dpath(pts,fx,fy),fill:'none',stroke:c,'stroke-width':width,'stroke-dasharray':dash,'clip-path':'url(#example-clip)'}));
  const point=(p,c=colors.ink)=>svg.append(svgEl('circle',{cx:fx(p[0]),cy:fy(p[1]),r:4,fill:c,stroke:'white','stroke-width':1.2}));
- lbl('x',[range,0],colors.gray,-3,23);lbl('y',[0,range],colors.gray,10,3);
- if(kind.startsWith('hyperbola')){
+ if(kind!=='application-result'){lbl('x',[range,0],colors.gray,-3,23);lbl('y',[0,range],colors.gray,10,3);}
+
+ if(kind==='application-result'){
+  svg.append(svgEl('text',{x:50,y:65,fill:colors.ink,'font-size':18},'Salpicaduras relativas'));
+  svg.append(svgEl('text',{x:50,y:105,fill:colors.purple,'font-size':16},'Modelo comercial: 100 %'));
+  svg.append(svgEl('rect',{x:50,y:118,width:305,height:46,rx:4,fill:colors.purple,opacity:.8}));
+  svg.append(svgEl('text',{x:50,y:230,fill:colors.green,'font-size':16},'Diseño estudiado: 1,4 %'));
+  svg.append(svgEl('rect',{x:50,y:245,width:305*.014,height:46,rx:1,fill:colors.green}));
+  svg.append(svgEl('path',{d:'M57,266 H95 V305',fill:'none',stroke:colors.green,'stroke-width':1.8,'stroke-dasharray':'4 4'}));
+  svg.append(svgEl('text',{x:100,y:315,fill:colors.green,'font-size':18},'1,4 %'));
+  svg.append(svgEl('text',{x:50,y:375,fill:colors.gray,'font-size':13},'Misma escala relativa; ensayo reportado en PNAS Nexus.'));
+ }else if(kind.startsWith('application')){
+  for(let j=0;j<12;j++){const a=j*Math.PI/12;curve([[-6*Math.cos(a),-6*Math.sin(a)],[6*Math.cos(a),6*Math.sin(a)]],colors.purple,1.55,'7 5');}
+  if(kind==='application-spiral'){
+   const gamma=30*Math.PI/180,theta0=.4,r0=2;
+   const polarSpiral=theta=>{const r=r0*Math.exp((theta-theta0)/Math.tan(gamma));return [r*Math.cos(theta),r*Math.sin(theta)];};
+   curve(Array.from({length:140},(_,i)=>polarSpiral(-.65+i*1.62/139)),colors.green,3.8);
+   const p=polarSpiral(theta0),tangentAngle=theta0+gamma;
+   point(p);curve([[p[0]-1.6*Math.cos(tangentAngle),p[1]-1.6*Math.sin(tangentAngle)],[p[0]+1.6*Math.cos(tangentAngle),p[1]+1.6*Math.sin(tangentAngle)]],colors.green,2,'6 4');
+   lbl('γ ≈ 30°',p,colors.orange,12,25);
+  }
+ }else if(kind.startsWith('hyperbola')){
   const C=.5,K=-2+Math.log(3);curve(Array.from({length:160},(_,i)=>{const y=.28+2.95*i/159;return [1/y-C,y];}),colors.purple);
   curve(Array.from({length:180},(_,i)=>{const y=1.03+2.2*i/179;return [-y+Math.log(Math.abs((1+y)/(1-y)))-K,y];}),colors.green);
   point([0,2]);lbl('P = (0, 2)',[0,2],colors.ink,9,-9);lbl('f',[1.5,.5],colors.purple,7,0);lbl('h',[-1.4,2.8],colors.green);
@@ -147,10 +167,10 @@ function renderSlide(){
  else if(s.kind==='video'){
   const video=document.createElement('video');video.className='film';video.controls=true;video.playsInline=true;video.preload='metadata';video.src='assets/isogonales.mp4';video.setAttribute('aria-label','Animación de las trayectorias isogonales,95 segundos');content.append(video);const p=document.createElement('p');p.innerHTML=prose(s.body[0].value);content.append(p);
  }else if(s.kind==='references'){
-  content.innerHTML='<div class="references"><p><a href="https://es.scribd.com/document/728964611/N-Piskunov-Calculo-Diferencial-e-Integral-Tomo-II-Editorial-Mir-1977-Esp" target="_blank" rel="noopener">Piskunov, N. (1977). <i>Cálculo diferencial e integral</i>, tomo II.</a><span class="ref-detail">Mir. § 15, pp. 48–53. Fuente principal del desarrollo.</span></p><p><a href="https://es.scribd.com/document/233056262/Ecuaciones-Diferenciales-Jaime-Escobar" target="_blank" rel="noopener">Escobar A., J. (s. f.). <i>Ecuaciones diferenciales con aplicaciones en Maple.</i></a><span class="ref-detail">Universidad de Antioquia. § 3.1.1, pp. 49–51.</span></p><p>Trujillo Salazar, C. A. (2026). <i>ED 1.8.</i><span class="ref-detail">Apuntes del curso. Universidad del Quindío.</span></p><p><a href="https://doi.org/10.2307/1301992" target="_blank" rel="noopener">Raup, D. M. (1966). Geometric analysis of shell coiling: General problems.</a><span class="ref-detail"><i>Journal of Paleontology, 40</i>(5), 1178–1190.</span></p></div>';
+  content.innerHTML='<div class="references"><p><a href="https://doi.org/10.1093/pnasnexus/pgaf087" target="_blank" rel="noopener">Thurairajah, K., et al. (2025). <i>Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations.</i></a><span class="ref-detail"><i>PNAS Nexus, 4</i>(4), pgaf087. Aplicación experimental de curvas isogonales.</span></p><p><a href="https://es.scribd.com/document/728964611/N-Piskunov-Calculo-Diferencial-e-Integral-Tomo-II-Editorial-Mir-1977-Esp" target="_blank" rel="noopener">Piskunov, N. (1977). <i>Cálculo diferencial e integral</i>, tomo II.</a><span class="ref-detail">Mir. § 15, pp. 48–53. Fuente principal del desarrollo.</span></p><p><a href="https://es.scribd.com/document/233056262/Ecuaciones-Diferenciales-Jaime-Escobar" target="_blank" rel="noopener">Escobar A., J. (s. f.). <i>Ecuaciones diferenciales con aplicaciones en Maple.</i></a><span class="ref-detail">Universidad de Antioquia. § 3.1.1, pp. 49–51.</span></p><p>Trujillo Salazar, C. A. (2026). <i>ED 1.8.</i><span class="ref-detail">Apuntes del curso. Universidad del Quindío.</span></p><p><a href="https://doi.org/10.2307/1301992" target="_blank" rel="noopener">Raup, D. M. (1966). Geometric analysis of shell coiling: General problems.</a><span class="ref-detail"><i>Journal of Paleontology, 40</i>(5), 1178–1190.</span></p></div>';
  }else if(s.graph&&!radialSlide(state.slide)){
   const graph=document.createElement('div');graph.className='example-graph';graph.append(exampleSVG(s.graph));
-  const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
+  const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':s.graph==='application-rays'?'Proyección superior: familia de rayos (esquema conceptual).':s.graph==='application-spiral'?'Rayos conocidos morados y curva isogonal verde (esquema ilustrativo, no medidas experimentales).':s.graph==='application-result'?'Comparación relativa de salpicaduras del estudio (comercial = 100 %).':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
   const copy=document.createElement('div');copy.className='example-copy';copy.innerHTML=bodyHTML(s);content.append(graph,copy);
  }else content.innerHTML=bodyHTML(s);
  if(s.action!==undefined){const btn=document.createElement('button');btn.className='show-phase';btn.textContent=phaseActions[s.action];btn.addEventListener('click',()=>dispatch({type:'phase',phase:s.action}));content.append(btn);}

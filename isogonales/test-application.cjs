@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict');
+const M=require('./dist/model.js');
+assert.equal(M.slides.length,34);
+assert.equal(M.slides.filter(s=>!s.optional).length,29);
+assert.equal(M.slides.filter(s=>s.optional).length,5);
+assert.equal(M.slides.reduce((seconds,s)=>seconds+s.duration,0),1200);
+const s=M.slides.filter(slide=>slide.graph?.startsWith('application'));
+assert.equal(s.length,3);
+assert.deepEqual(s.map(x=>x.graph),['application-rays','application-spiral','application-result']);
+const all=s.flatMap(x=>x.body).map(x=>x.tex||x.value).join(' ');
+assert.ok(all.includes('30^\\circ'));
+assert.ok(all.includes('Ae^{\\theta/k}'));
+assert.ok(all.includes('0.014'));
+assert.ok(s.every(x=>x.source?.includes('10.1093/pnasnexus/pgaf087')));
+assert.ok(M.slides.some(x=>x.optional&&x.title.includes('expansión radial')));
+console.log('Aplicación: 3 láminas, DOI, ángulo, proporción experimental y 20 minutos.');
