@@ -51,6 +51,8 @@ const close=()=>new Promise(resolve=>server.close(resolve));
   await capture('03-polares-escritorio.png');
   await go(24);
   assert.ok((await page.locator('.paper-link').getAttribute('href')).endsWith('#page=10'));
+  const original=await page.locator('.paper-original-figure').evaluate(img=>({loaded:img.complete&&img.naturalWidth>0,width:img.naturalWidth}));
+  assert.ok(original.loaded&&original.width>150,'La figura original 10 no cargó en el navegador');
   await capture('04-figura10-reconstruida.png');
   await go(27);
   for(let i=1;i<5;i++)await page.keyboard.press('ArrowRight');
