@@ -90,8 +90,7 @@ function renderSlide(){
  $('slide-title').textContent=s.title;$('geometry').hidden=s.kind!=='theory';$('source-line').textContent=s.source||'';
  content.innerHTML='';
  if(s.kind==='cover'){
-  content.innerHTML='<p class="cover-title">TRAYECTORIAS ISOGONALES</p><p class="cover-author">Diego Alejandro Marulanda<br>Maestría en Biomatemáticas</p><p class="cover-course">Ecuaciones Diferenciales<br>Docente: Carlos Andrés Trujillo Salazar</p><button class="start">Iniciar presentación</button>';
-  content.querySelector('.start').addEventListener('click',()=>dispatch({type:'navigate',delta:1}));
+  content.innerHTML='<p class="cover-title">TRAYECTORIAS ISOGONALES</p><p class="cover-author">Diego Alejandro Marulanda<br>Maestría en Biomatemáticas</p><p class="cover-course">Ecuaciones Diferenciales<br>Docente: Carlos Andrés Trujillo Salazar</p>';
  }else if(s.kind==='closing')content.innerHTML='<p class="closing-title">Gracias</p><p>Preguntas y discusión</p>';
  else if(s.kind==='video'){
   const video=document.createElement('video');video.className='film';video.controls=true;video.playsInline=true;video.preload='metadata';video.src='assets/isogonales.mp4';video.setAttribute('aria-label','Animación de las trayectorias isogonales,95 segundos');content.append(video);const p=document.createElement('p');p.textContent=s.body[0].value;content.append(p);
