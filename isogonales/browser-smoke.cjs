@@ -42,7 +42,7 @@ const close=()=>new Promise(resolve=>server.close(resolve));
   assert.equal(await page.locator('#slide-content .reveal-block:visible').count(),3);
   assert.ok((await page.locator('#slide-content').innerText()).includes('ln'),'La integral no está visible');
   await page.screenshot({path:path.join(screenshots,'02-integracion-escritorio.png')});
-  await go(21);
+  await go(20);
   assert.equal(await page.locator('#example-phase').inputValue(),'6');
   await page.screenshot({path:path.join(screenshots,'03-polares-escritorio.png')});
   await go(24);
