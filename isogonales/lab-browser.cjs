@@ -23,7 +23,8 @@ const server=http.createServer((request,response)=>{
   assert.ok((await page.title()).includes('IsogonalLab'));
   assert.equal(await page.locator('.family-tab').count(),4);
   assert.ok(await page.locator('canvas#plot').isVisible());
-  assert.ok((await page.locator('.katex').count())>=9,'No se mostraron las ecuaciones');
+  assert.ok((await page.locator('.katex').count())>=8,'No se mostraron las ecuaciones');
+  assert.equal(await page.locator('#math-ode .katex').count(),1,'La EDO no usa KaTeX');
   assert.equal(await page.locator('#slope-known').innerText(),'0.500');
   await page.screenshot({path:path.join(out,'01-radiales-escritorio.png')});
   await page.locator('[data-family=hyper]').click();
