@@ -22,6 +22,6 @@ assert.ok(M.slides[27].referenceUrl.endsWith('#page=10'));
 assert.ok(M.slides[28].referenceUrl.endsWith('#page=16'));
 assert.ok(M.slides[28].body.some(b=>(b.tex||'').includes('\\omega_1=\\omega_2')));
 assert.ok(M.slides[28].body.some(b=>(b.value||'').includes('par complejo conjugado')));
-assert.ok(M.slides[28].body.some(b=>(b.value||'').includes('cuatro raíces son reales')));
+assert.ok(M.slides[28].body.some(b=>(b.value||'').includes('cuatro raíces reales')));
 assert.ok(M.slides[19].body.some(b=>(b.tex||'').includes('\\int')));
 console.log('Aplicación: materiales 2017/2019, 3 patrones, DOI, fuentes y 20 minutos.');
