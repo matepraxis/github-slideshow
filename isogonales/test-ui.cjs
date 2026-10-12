@@ -50,7 +50,7 @@ nodes.next.click();assert.equal(nodes['example-phase'].value,8);
 const polarLayer=nodes['example-svg'].children.find(e=>e.attrs['data-e-from']==='6'&&e.attrs['data-e-until']==='8');
 assert.equal(polarLayer.attrs['is-hidden'],false);
 nodes['example-phase'].listeners.input({target:{value:'0'}});
-assert.equal(nodes['example-phase'].value,'0');
+assert.equal(nodes['example-phase'].value,0);
 assert.equal(JSON.parse(storage.value).examplePhase,0);
 
 console.log('Interacciones: el SVG conserva sus nodos y etapa en '+M.slides.length+' diapositivas.');
