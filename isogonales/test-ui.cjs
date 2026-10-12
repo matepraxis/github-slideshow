@@ -32,4 +32,25 @@ for(let i=0;i<M.slides.length;i++){
  const allHTML=e=>e.innerHTML+e.children.map(allHTML).join('');
  assert.ok(!allHTML(nodes['slide-content']).includes('NaN'));
 }
+// Recorrido de aceptación: rectas, selección, cálculo, polares y verificación.
+buttons()[14].click();
+assert.equal(nodes['example-phase'].value,0);
+assert.equal(JSON.parse(storage.value).reveal,1);
+nodes.next.click();assert.equal(nodes['example-phase'].value,0);
+nodes.next.click();assert.equal(nodes['example-phase'].value,1);
+nodes.next.click();assert.equal(nodes['example-phase'].value,1);
+nodes.next.click();assert.equal(nodes['example-phase'].value,2);
+nodes.next.click();assert.equal(nodes['example-phase'].value,2);
+nodes.next.click();assert.equal(JSON.parse(storage.value).slide,15);
+assert.equal(nodes['example-phase'].value,3);
+buttons()[20].click();assert.equal(nodes['example-phase'].value,6);
+buttons()[21].click();assert.equal(nodes['example-phase'].value,7);
+nodes.next.click();assert.equal(nodes['example-phase'].value,7);
+nodes.next.click();assert.equal(nodes['example-phase'].value,8);
+const polarLayer=nodes['example-svg'].children.find(e=>e.attrs['data-e-from']==='6'&&e.attrs['data-e-until']==='8');
+assert.equal(polarLayer.attrs['is-hidden'],false);
+nodes['example-phase'].listeners.input({target:{value:'0'}});
+assert.equal(nodes['example-phase'].value,0);
+assert.equal(JSON.parse(storage.value).examplePhase,0);
+
 console.log('Interacciones: el SVG conserva sus nodos y etapa en '+M.slides.length+' diapositivas.');
