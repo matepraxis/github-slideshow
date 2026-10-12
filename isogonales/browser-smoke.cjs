@@ -81,7 +81,7 @@ const close=()=>new Promise(resolve=>server.close(resolve));
   }
   await go(28);
   for(let i=1;i<5;i++)await page.keyboard.press('ArrowRight');
-  assert.ok((await page.locator('#slide-content').innerText()).includes('cuatro raíces son reales'));
+  assert.ok((await page.locator('#slide-content').innerText()).includes('cuatro raíces reales'));
   await capture('05-resultado-materiales.png');
   await page.setViewportSize({width:700,height:1080});
   await go(1);
