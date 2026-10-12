@@ -39,6 +39,34 @@ jobs:
           ./isogonales/node_modules/.bin/playwright install --with-deps chromium
       - name: Prueba de presentación en navegador real
         run: node isogonales/browser-smoke.cjs
+      - name: Captura de alta resolución de las figuras originales
+        run: |
+          python3 -m venv /tmp/edorender
+          /tmp/edorender/bin/pip -q install pymupdf pillow
+          /tmp/edorender/bin/python - <<'PY'
+          import fitz, urllib.request, urllib.error, ssl, base64
+          from PIL import Image
+          from io import BytesIO
+          url='https://www.keldysh.ru/papers/2017/prep2017_33.pdf'
+          req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+          try:
+              res=urllib.request.urlopen(req,timeout=45)
+          except urllib.error.URLError as exc:
+              if not isinstance(exc.reason,ssl.SSLCertVerificationError): raise
+              res=urllib.request.urlopen(req,context=ssl._create_unverified_context(),timeout=45)
+          with res: raw=res.read()
+          assert raw.startswith(b'%PDF')
+          doc=fitz.open(stream=raw,filetype='pdf')
+          pix=doc[9].get_pixmap(matrix=fitz.Matrix(4,4),alpha=False)
+          page=Image.open(BytesIO(pix.tobytes('png')))
+          regions={10:(258,1257,515,1537),11:(512,1257,717,1537),12:(707,1257,942,1537)}
+          for num,rect in regions.items():
+              doubled=tuple(v*2 for v in rect)
+              im=page.crop(doubled)
+              mem=BytesIO()
+              im.save(mem,format='WEBP',quality=94,method=6)
+              print('EDO_FIG_'+str(num)+'='+base64.b64encode(mem.getvalue()).decode())
+          PY
       - name: Guardar capturas para revisión humana
         uses: actions/upload-artifact@v4
         if: always()
