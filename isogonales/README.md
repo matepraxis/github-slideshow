@@ -37,3 +37,7 @@ Son PR apilados: revisar en orden y ajustar las bases al integrarlos. No fusiona
 ## Revelado progresivo
 
 Cada bloque del argumento se revela de uno en uno con navegación bidireccional. La presentación conserva la etapa geométrica y el paso visible al recargar. Se respeta `prefers-reduced-motion`. La revisión visual de escala tipográfica en tablet sigue pendiente.
+
+## Ejemplo geométrico sincronizado
+
+El ejemplo `y=Cx` tiene un plano SVG y un deslizador propio de etapas 0–8 en las ocho láminas de resolución. Se muestran la familia de rectas, la elección `C₀=1`, la pendiente y la EDO isogonal, la sustitución homogénea, la transición de retícula cartesiana a polar, la espiral logarítmica y la verificación geométrica de 80°. Los pasos algebraicos activan la etapa visual correspondiente; se permite explorar manualmente el deslizador. No confundir una espiral matemática con mediciones biológicas.
