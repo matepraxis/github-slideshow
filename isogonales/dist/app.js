@@ -121,24 +121,32 @@ function exampleSVG(kind){
  const point=(p,c=colors.ink)=>svg.append(svgEl('circle',{cx:fx(p[0]),cy:fy(p[1]),r:4,fill:c,stroke:'white','stroke-width':1.2}));
  if(kind!=='application-result'){lbl('x',[range,0],colors.gray,-3,23);lbl('y',[0,range],colors.gray,10,3);}
 
- if(kind==='application-result'){
-  svg.append(svgEl('text',{x:50,y:65,fill:colors.ink,'font-size':18},'Salpicaduras relativas'));
-  svg.append(svgEl('text',{x:50,y:105,fill:colors.purple,'font-size':16},'Modelo comercial: 100 %'));
-  svg.append(svgEl('rect',{x:50,y:118,width:305,height:46,rx:4,fill:colors.purple,opacity:.8}));
-  svg.append(svgEl('text',{x:50,y:230,fill:colors.green,'font-size':16},'Diseño estudiado: 1,4 %'));
-  svg.append(svgEl('rect',{x:50,y:245,width:305*.014,height:46,rx:1,fill:colors.green}));
-  svg.append(svgEl('path',{d:'M57,266 H95 V305',fill:'none',stroke:colors.green,'stroke-width':1.8,'stroke-dasharray':'4 4'}));
-  svg.append(svgEl('text',{x:100,y:315,fill:colors.green,'font-size':18},'1,4 %'));
-  svg.append(svgEl('text',{x:50,y:375,fill:colors.gray,'font-size':13},'Misma escala relativa; ensayo reportado en PNAS Nexus.'));
- }else if(kind.startsWith('application')){
-  for(let j=0;j<12;j++){const a=j*Math.PI/12;curve([[-6*Math.cos(a),-6*Math.sin(a)],[6*Math.cos(a),6*Math.sin(a)]],colors.purple,1.55,'7 5');}
-  if(kind==='application-spiral'){
-   const gamma=30*Math.PI/180,theta0=.4,r0=2;
-   const polarSpiral=theta=>{const r=r0*Math.exp((theta-theta0)/Math.tan(gamma));return [r*Math.cos(theta),r*Math.sin(theta)];};
-   curve(Array.from({length:140},(_,i)=>polarSpiral(-.65+i*1.62/139)),colors.green,3.8);
-   const p=polarSpiral(theta0),tangentAngle=theta0+gamma;
-   point(p);curve([[p[0]-1.6*Math.cos(tangentAngle),p[1]-1.6*Math.sin(tangentAngle)],[p[0]+1.6*Math.cos(tangentAngle),p[1]+1.6*Math.sin(tangentAngle)]],colors.green,2,'6 4');
-   lbl('γ ≈ 30°',p,colors.orange,12,25);
+ if(kind.startsWith('materials')){
+  const structure=kind==='materials-intro'||kind==='materials-2019';
+  const comparison=kind==='materials-results';
+  const kMatch=kind.match(/^materials-k([123])$/),k=kMatch?Number(kMatch[1]):2;
+  const paths=comparison?[1,2,3]:[k];
+  for(let j=0;j<12;j++){
+   const a=j*Math.PI/12;
+   curve([[-6*Math.cos(a),-6*Math.sin(a)],[6*Math.cos(a),6*Math.sin(a)]],colors.purple,1.25,'6 6');
+  }
+  const palette={1:colors.green,2:'#1b65a4',3:colors.orange};
+  for(const value of paths){
+   const pts=Array.from({length:650},(_,i)=>{
+    const th=-5.2*value+(5.2*value+2.25)*i/649;
+    const rad=2*Math.exp(th/value);
+    return [rad*Math.cos(th),rad*Math.sin(th)];
+   });
+   curve(pts,palette[value],comparison?2.8:3.7);
+  }
+  if(comparison){
+   lbl('k=1',[.5,4.9],colors.green);lbl('k=2',[-4.8,4.1],'#1b65a4');lbl('k=3',[-4.8,3.2],colors.orange);
+  }else if(structure){
+   lbl('fibras radiales',[.7,4.85],colors.purple);
+   lbl('trayectoria isogonal',[-4.8,-4.5],colors.green);
+  }else{
+   lbl('k='+k,[-4.7,4.7],colors.orange);
+   lbl('r = A e^(θ/'+k+')',[-4.7,-4.6],palette[k]);
   }
  }else if(kind.startsWith('hyperbola')){
   const C=.5,K=-2+Math.log(3);curve(Array.from({length:160},(_,i)=>{const y=.28+2.95*i/159;return [1/y-C,y];}),colors.purple);
@@ -183,11 +191,22 @@ function renderSlide(){
  else if(s.kind==='video'){
   const video=document.createElement('video');video.className='film';video.controls=true;video.playsInline=true;video.preload='metadata';video.src='assets/isogonales.mp4';video.setAttribute('aria-label','Animación de las trayectorias isogonales,95 segundos');content.append(video);const p=document.createElement('p');p.innerHTML=prose(s.body[0].value);content.append(p);
  }else if(s.kind==='references'){
-  content.innerHTML='<div class="references"><p><a href="https://doi.org/10.1093/pnasnexus/pgaf087" target="_blank" rel="noopener">Thurairajah, K., et al. (2025). <i>Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations.</i></a><span class="ref-detail"><i>PNAS Nexus, 4</i>(4), pgaf087. Aplicación experimental de curvas isogonales.</span></p><p><a href="https://es.scribd.com/document/728964611/N-Piskunov-Calculo-Diferencial-e-Integral-Tomo-II-Editorial-Mir-1977-Esp" target="_blank" rel="noopener">Piskunov, N. (1977). <i>Cálculo diferencial e integral</i>, tomo II.</a><span class="ref-detail">Mir. § 15, pp. 48–53. Fuente principal del desarrollo.</span></p><p><a href="https://es.scribd.com/document/233056262/Ecuaciones-Diferenciales-Jaime-Escobar" target="_blank" rel="noopener">Escobar A., J. (s. f.). <i>Ecuaciones diferenciales con aplicaciones en Maple.</i></a><span class="ref-detail">Universidad de Antioquia. § 3.1.1, pp. 49–51.</span></p><p>Trujillo Salazar, C. A. (2026). <i>ED 1.8.</i><span class="ref-detail">Apuntes del curso. Universidad del Quindío.</span></p><p><a href="https://doi.org/10.2307/1301992" target="_blank" rel="noopener">Raup, D. M. (1966). Geometric analysis of shell coiling: General problems.</a><span class="ref-detail"><i>Journal of Paleontology, 40</i>(5), 1178–1190.</span></p></div>';
+  content.innerHTML='<div class="references">'
+  +'<p><a href="https://es.scribd.com/document/728964611/N-Piskunov-Calculo-Diferencial-e-Integral-Tomo-II-Editorial-Mir-1977-Esp" target="_blank" rel="noopener">Piskunov, N. (1977). <i>Cálculo diferencial e integral</i>, tomo II.</a><span class="ref-detail">Editorial Mir, § 15. Base conceptual de la demostración y las trayectorias.</span></p>'
+  +'<p>Trujillo Salazar, C. A. (2026). <i>ED 1.7: EDO homogéneas.</i><span class="ref-detail">Apuntes de clase, Universidad del Quindío. Procedimiento de sustitución homogénea.</span></p>'
+  +'<p><a href="https://doi.org/10.20948/prepr-2017-33" target="_blank" rel="noopener">Galanin, M. P., y Feodorova, N. A. (2017). <i>Reinforcement of Planar Constructions along Isogonal Trajectories.</i></a><span class="ref-detail">Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.</span></p>'
+  +'<p><a href="https://doi.org/10.4028/www.scientific.net/MSF.945.338" target="_blank" rel="noopener">Feodorova, N. (2019). <i>Determination of Fiber-Structure for the Effective Reinforcement of Planar Composite-Material Constructions.</i></a><span class="ref-detail">Materials Science Forum, 945, 338–343.</span></p>'
+  +'<p><a href="https://doi.org/10.2307/1301992" target="_blank" rel="noopener">Raup, D. M. (1966). <i>Geometric analysis of shell coiling: General problems.</i></a><span class="ref-detail">Journal of Paleontology, 40(5), 1178–1190. Complemento opcional.</span></p></div>';
  }else if(s.graph&&!radialSlide(state.slide)){
   const graph=document.createElement('div');graph.className='example-graph';graph.append(exampleSVG(s.graph));
-  const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':s.graph==='application-rays'?'Proyección superior: familia de rayos (esquema conceptual).':s.graph==='application-spiral'?'Rayos conocidos morados y curva isogonal verde (esquema ilustrativo, no medidas experimentales).':s.graph==='application-result'?'Comparación relativa de salpicaduras del estudio (comercial = 100 %).':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
-  const copy=document.createElement('div');copy.className='example-copy';copy.innerHTML=bodyHTML(s);content.append(graph,copy);
+  const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':s.graph?.startsWith('materials')?'Reconstrucción matemática de las trayectorias; las figuras originales están en la fuente enlazada.':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
+  const copy=document.createElement('div');copy.className='example-copy';copy.innerHTML=bodyHTML(s);
+  if(s.referenceUrl){
+   const link=document.createElement('a');link.className='paper-link';link.href=s.referenceUrl;link.target='_blank';link.rel='noopener';
+   link.textContent=s.graph?.startsWith('materials-k')?'Abrir figuras 10–12 originales (artículo PDF)':s.graph==='materials-2019'?'Consultar artículo de Feodorova (2019)':'Consultar publicación original';
+   copy.append(link);
+  }
+  content.append(graph,copy);
  }else content.innerHTML=bodyHTML(s);
  if(s.action!==undefined){const btn=document.createElement('button');btn.className='show-phase';btn.textContent=phaseActions[s.action];btn.addEventListener('click',()=>{
  if(s.action===0){dispatch({type:'toggle-families'});btn.textContent=familiesVisible?'Ocultar las familias':'Mostrar las familias';}
@@ -216,7 +235,7 @@ function dispatch(action){
   state=M.transition(state,action);
   if(state.slide!==previous.slide){reveal=action.type==='navigate'&&action.delta<0?countFor(M.slides[state.slide]):1;manualExampleStage=false;renderSlide();}
   if(state.phase!==previous.phase)updateGeometry();
-  if(action.type==='toggle-families'){familiesVisible=!familiesVisible;updateGeometry();}
+  if(action.type==='toggle-families'){state.phase=0;familiesVisible=!familiesVisible;updateGeometry();}
   if(action.type==='example-phase'){examplePhase=Math.max(0,Math.min(8,Number(action.phase)||0));manualExampleStage=true;updateRadialExample();}
  }
  try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible}));}catch(_){}
