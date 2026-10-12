@@ -140,14 +140,14 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "m_f=f^{\\prime}(x_0)=\\tan\\beta",
+        "tex": "f^{\\prime}(x_0)=\\tan\\beta",
         "alt": "m_f=f^{\\prime}(x_0)=\\tan\\beta",
         "color": "purple",
         "emphasis": false
       },
       {
         "type": "eq",
-        "tex": "m_h=h^{\\prime}(x_0)=\\tan\\alpha",
+        "tex": "h^{\\prime}(x_0)=\\tan\\alpha",
         "alt": "m_h=h^{\\prime}(x_0)=\\tan\\alpha",
         "color": "green",
         "emphasis": false
