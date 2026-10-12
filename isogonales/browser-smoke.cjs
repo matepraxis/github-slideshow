@@ -35,21 +35,21 @@ const close=()=>new Promise(resolve=>server.close(resolve));
    await page.locator('#index').click();
    await page.locator('#contents-list button').nth(index).click();
   }
-  await go(1);
+  await go(2);
   const control=page.locator('.show-phase');
   assert.ok(await control.count(),'Falta botón de familias');
   await control.click();
   assert.equal(await page.locator('#geometry-svg [data-family-preview]').getAttribute('aria-hidden'),'false');
   await capture('01-familias-escritorio.png');
-  await go(18);
+  await go(19);
   for(let i=1;i<8;i++)await page.keyboard.press('ArrowRight');
   assert.equal(await page.locator('#slide-content .reveal-block:visible').count(),3);
   assert.ok((await page.locator('#slide-content').innerText()).includes('ln'),'La integral no está visible');
   await capture('02-integracion-escritorio.png');
-  await go(20);
+  await go(21);
   assert.equal(await page.locator('#example-phase').inputValue(),'6');
   await capture('03-polares-escritorio.png');
-  for(const [idx,n] of [[24,10],[25,11],[26,12]]){
+  for(const [idx,n] of [[25,10],[26,11],[27,12]]){
    await go(idx);
    assert.ok((await page.locator('.paper-link').getAttribute('href')).endsWith('#page=10'));
    await page.waitForFunction(()=>{
@@ -72,12 +72,12 @@ const close=()=>new Promise(resolve=>server.close(resolve));
    assert.ok(bounds.captionBottom+8 < bounds.sourceTop,'Figura '+n+' invade el pie bibliográfico');
    await capture('0'+(n-6)+'-figura'+n+'-original.png');
   }
-  await go(27);
+  await go(28);
   for(let i=1;i<5;i++)await page.keyboard.press('ArrowRight');
   assert.ok((await page.locator('#slide-content').innerText()).includes('cuatro raíces son reales'));
   await capture('05-resultado-materiales.png');
   await page.setViewportSize({width:700,height:1080});
-  await go(18);
+  await go(19);
   for(let i=1;i<8;i++)await page.keyboard.press('ArrowRight');
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
   assert.ok(overflow<=2,'Desbordamiento horizontal en tablet: '+overflow);
