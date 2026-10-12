@@ -22,7 +22,7 @@ const slides=[
   {
     "title": "Dos familias monoparamétricas",
     "kind": "theory",
-    "duration": 45,
+    "duration": 40,
     "body": [
       {
         "type": "text",
@@ -54,7 +54,7 @@ const slides=[
   {
     "title": "Una curva de cada familia",
     "kind": "theory",
-    "duration": 45,
+    "duration": 40,
     "body": [
       {
         "type": "text",
@@ -85,7 +85,7 @@ const slides=[
   {
     "title": "La curva conocida",
     "kind": "theory",
-    "duration": 45,
+    "duration": 40,
     "body": [
       {
         "type": "text",
@@ -426,7 +426,7 @@ const slides=[
   {
     "title": "Ejemplo: familia de rectas",
     "kind": "example",
-    "duration": 80,
+    "duration": 65,
     "body": [
       {
         "type": "text",
@@ -468,7 +468,7 @@ const slides=[
   {
     "title": "Sustituimos la pendiente conocida",
     "kind": "example",
-    "duration": 55,
+    "duration": 45,
     "body": [
       {
         "type": "text",
@@ -499,7 +499,7 @@ const slides=[
   {
     "title": "Sustitución homogénea",
     "kind": "example",
-    "duration": 55,
+    "duration": 45,
     "body": [
       {
         "type": "text",
@@ -530,7 +530,7 @@ const slides=[
   {
     "title": "Reducimos a una sola fracción",
     "kind": "example",
-    "duration": 55,
+    "duration": 45,
     "body": [
       {
         "type": "text",
@@ -561,7 +561,7 @@ const slides=[
   {
     "title": "Separamos e integramos",
     "kind": "example",
-    "duration": 55,
+    "duration": 45,
     "body": [
       {
         "type": "text",
@@ -592,7 +592,7 @@ const slides=[
   {
     "title": "Regresamos a las variables originales",
     "kind": "example",
-    "duration": 55,
+    "duration": 45,
     "body": [
       {
         "type": "text",
@@ -623,7 +623,7 @@ const slides=[
   {
     "title": "Pasamos a coordenadas polares",
     "kind": "example",
-    "duration": 55,
+    "duration": 45,
     "body": [
       {
         "type": "text",
@@ -658,7 +658,7 @@ const slides=[
   {
     "title": "Verificamos el ángulo constante",
     "kind": "example",
-    "duration": 55,
+    "duration": 45,
     "body": [
       {
         "type": "text",
@@ -698,6 +698,100 @@ const slides=[
     ],
     "notes": "Reproducir la animación propia completa de95 segundos. Señalar el radio, la tangente y la conservación del ángulo mientras se mueve el punto. El video no tiene audio, lo que permite explicarlo durante la reproducción. El video original se conserva; sus colores son los del material original, independientes de la leyenda de las gráficas interactivas.",
     "source": "Animación original del expositor, 95 segundos"
+  },
+  {
+    "title": "Aplicación: controlar el ángulo de impacto",
+    "kind": "example",
+    "graph": "application-rays",
+    "duration": 35,
+    "body": [
+      {
+        "type": "text",
+        "value": "Un chorro al chocar contra una superficie puede producir salpicaduras."
+      },
+      {
+        "type": "text",
+        "value": "El estudio considera el ángulo entre el chorro y la tangente de la superficie."
+      },
+      {
+        "type": "eq",
+        "tex": "\\gamma\\lesssim 30^\\circ",
+        "alt": "\\gamma\\lesssim 30^\\circ",
+        "color": "orange",
+        "emphasis": true
+      },
+      {
+        "type": "text",
+        "value": "Este es un umbral aproximado del estudio, no una regla universal para todos los fluidos."
+      }
+    ],
+    "notes": "La aplicación propuesta es el trabajo de Thurairajah y colaboradores (2025), PNAS Nexus. El ángulo crítico aproximado se obtuvo bajo condiciones de micción humana. Se requiere una geometría que mantenga un ángulo suficientemente pequeño.",
+    "source": "Thurairajah, K., et al. (2025). Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations. PNAS Nexus, 4(4), pgaf087. https://doi.org/10.1093/pnasnexus/pgaf087"
+  },
+  {
+    "title": "La geometría del diseño es isogonal",
+    "kind": "example",
+    "graph": "application-spiral",
+    "duration": 35,
+    "body": [
+      {
+        "type": "text",
+        "value": "En vista superior, los chorros se proyectan como una familia de rayos."
+      },
+      {
+        "type": "text",
+        "value": "Buscamos curvas que corten esos rayos bajo un ángulo prescrito."
+      },
+      {
+        "type": "eq",
+        "tex": "y=Cx\\quad\\longrightarrow\\quad r=Ae^{\\theta/k}",
+        "alt": "y=Cx\\quad\\longrightarrow\\quad r=Ae^{\\theta/k}",
+        "color": "green",
+        "emphasis": true
+      },
+      {
+        "type": "eq",
+        "tex": "k=\\tan\\gamma",
+        "alt": "k=\\tan\\gamma",
+        "color": "orange",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Esta espiral aparece en el diseño llamado «Nautilus». La vista lateral se modela por separado con parábolas."
+      }
+    ],
+    "notes": "El artículo modela las trayectorias proyectadas en dos planos. Vista superior: rayos e isogonales espirales. Vista lateral: familia de parábolas y su correspondiente problema isogonal. No confundir la espiral del ejemplo expositivo a 80 grados con el objetivo de 30 grados aplicado.",
+    "source": "Thurairajah, K., et al. (2025). Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations. PNAS Nexus, 4(4), pgaf087. https://doi.org/10.1093/pnasnexus/pgaf087"
+  },
+  {
+    "title": "Validación experimental de la aplicación",
+    "kind": "example",
+    "graph": "application-result",
+    "duration": 30,
+    "body": [
+      {
+        "type": "text",
+        "value": "Los investigadores construyeron diseños y midieron salpicaduras con chorros controlados."
+      },
+      {
+        "type": "eq",
+        "tex": "\\frac{Q_{\\mathrm{diseño}}}{Q_{\\mathrm{comercial}}}\\approx 0.014",
+        "alt": "\\frac{Q_{\\mathrm{diseño}}}{Q_{\\mathrm{comercial}}}\\approx 0.014",
+        "color": "green",
+        "emphasis": true
+      },
+      {
+        "type": "text",
+        "value": "En el ensayo reportado, los diseños redujeron las salpicaduras hasta aproximadamente el 1,4 % de las del modelo comercial de referencia."
+      },
+      {
+        "type": "text",
+        "value": "La EDO orienta el diseño; el ensayo contrasta su funcionamiento."
+      }
+    ],
+    "notes": "El artículo reporta salpicaduras de hasta solo 1,4% del urinario comercial común. Es una comparación experimental específica y no una garantía de rendimiento en cualquier situación. Fuente PNAS Nexus 4(4), pgaf087.",
+    "source": "Thurairajah, K., et al. (2025). Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations. PNAS Nexus, 4(4), pgaf087. https://doi.org/10.1093/pnasnexus/pgaf087"
   },
   {
     "title": "Complemento: familia hiperbólica",
