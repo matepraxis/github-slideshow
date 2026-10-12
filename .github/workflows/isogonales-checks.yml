@@ -39,6 +39,23 @@ jobs:
           ./isogonales/node_modules/.bin/playwright install --with-deps chromium
       - name: Prueba de presentación en navegador real
         run: node isogonales/browser-smoke.cjs
+      - name: Recuperar página original del estudio de 2017
+        run: |
+          python3 -m venv /tmp/edoref
+          /tmp/edoref/bin/pip -q install pymupdf
+          /tmp/edoref/bin/python - <<'PY'
+          import fitz, urllib.request, os
+          url='https://www.keldysh.ru/papers/2017/prep2017_33.pdf'
+          req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (educational slide review)'})
+          with urllib.request.urlopen(req,timeout=45) as response:
+              pdf=response.read()
+          if not pdf.startswith(b'%PDF'): raise RuntimeError('La respuesta no es PDF')
+          doc=fitz.open(stream=pdf,filetype='pdf')
+          page=doc[9]
+          print('Referencia original:', len(doc),'páginas; página 10:', page.rect)
+          os.makedirs('isogonales/screenshots',exist_ok=True)
+          page.get_pixmap(matrix=fitz.Matrix(2,2),alpha=False).save('isogonales/screenshots/07-original-articulo-p10.png')
+          PY
       - name: Guardar capturas para revisión humana
         uses: actions/upload-artifact@v4
         if: always()
