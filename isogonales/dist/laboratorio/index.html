@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101e2b">
+<meta name="description" content="IsogonalLab: cuatro familias de curvas, campos de direcciones, trazado desde un punto y aplicación a materiales compuestos.">
+<title>IsogonalLab · Laboratorio interactivo</title>
+<link rel="stylesheet" href="../vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="../vendor/katex/katex.min.js"></script>
+<script defer src="math.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#lab">Ir al laboratorio</a>
+<header class="site-header">
+ <a class="brand" href="./" aria-label="IsogonalLab, inicio"><span class="brand-mark">∠</span><span>Isogonal<span class="accent">Lab</span></span></a>
+ <nav class="top-nav" aria-label="Navegación">
+ <a href="../" class="nav-link">← Presentación</a>
+ <a href="#laboratorio" class="nav-link">Laboratorio</a>
+ <a href="#fuentes" class="nav-link">Fuentes</a>
+ </nav>
+</header>
+<main id="lab">
+ <section class="hero">
+ <div class="eyebrow"><span class="dot"></span> Laboratorio de ecuaciones diferenciales · Universidad del Quindío</div>
+ <h1>Descubre las curvas<br><em>antes de resolverlas.</em></h1>
+ <p>Elige una familia conocida, cambia el ángulo isogonal y pulsa cualquier punto del plano. El campo de direcciones trazará la trayectoria buscada.</p>
+ <div class="hero-meta"><span>4 familias matemáticas</span><span>Campo interactivo</span><span>Construcción numérica</span></div>
+ </section>
+
+ <section id="laboratorio" class="workspace" aria-label="Laboratorio de exploración">
+  <div class="section-head">
+   <div><div class="section-kicker">01 / Explorar</div><h2>Tu plano. Tus decisiones.</h2></div>
+   <span class="live-label"><span class="dot"></span> Modelo en tiempo real</span>
+  </div>
+  <div class="family-picker" role="group" aria-label="Familia matemática">
+   <button class="family-tab" type="button" data-family="parallel" aria-pressed="false"><span>01</span> Rectas paralelas</button>
+   <button class="family-tab" type="button" data-family="radial" aria-pressed="true"><span>02</span> Rectas radiales</button>
+   <button class="family-tab" type="button" data-family="hyper" aria-pressed="false"><span>03</span> Hipérbolas</button>
+   <button class="family-tab" type="button" data-family="parab" aria-pressed="false"><span>04</span> Parábolas</button>
+  </div>
+  <div class="lab-grid">
+   <section class="plot-card" aria-label="Plano interactivo">
+    <div class="plot-top"><div class="plot-title">Plano de trayectorias <small id="plot-subtitle">Rectas radiales</small></div><button type="button" id="reset" class="icon-button">↺ Restablecer</button></div>
+    <div class="plot-surface">
+      <canvas id="plot" tabindex="0" role="img" aria-label="Plano cartesiano interactivo: toca o haz clic para trazar una trayectoria desde un punto"></canvas>
+      <div class="plot-help"> <span class="click-icon">⊕</span> Haz clic o toca para elegir un punto P</div>
+    </div>
+    <div class="plot-bottom">
+      <div class="legend"><span><i class="swatch purple"></i> Familia conocida</span><span><i class="swatch green"></i> Trayectoria buscada</span><span><i class="swatch amber"></i> Tangentes en P</span></div>
+      <span id="point-readout" class="monospace">P = (2.00, 1.00)</span>
+    </div>
+   </section>
+   <aside class="control-card" aria-label="Controles del laboratorio">
+    <h3>Ajusta el problema</h3>
+    <p id="family-description" class="quiet"></p>
+    <div class="range-head"><label for="angle">Ángulo isogonal <em>γ</em></label><strong id="angle-value">55°</strong></div>
+    <input id="angle" type="range" min="10" max="80" step="1" value="55">
+    <div class="range-ticks"><span>10°</span><span>45°</span><span>80°</span></div>
+    <div class="control-divider"></div>
+    <h4>Capas visibles</h4>
+    <label class="toggle"><input id="show-known" type="checkbox" checked><span>Familia conocida</span></label>
+    <label class="toggle"><input id="show-field" type="checkbox" checked><span>Campo de direcciones</span></label>
+    <label class="toggle"><input id="show-tangents" type="checkbox" checked><span>Tangentes y ángulo</span></label>
+    <label class="toggle"><input id="show-curve" type="checkbox" checked><span>Trayectoria buscada</span></label>
+    <div class="control-divider"></div>
+    <div class="stat"><span>Parámetro de exposición <em>k = tan γ</em></span><strong id="k-value" class="monospace">1.428</strong></div>
+    <div class="stat"><span>Pendiente conocida en P</span><strong id="slope-known" class="monospace"></strong></div>
+    <div class="stat"><span>Pendiente buscada en P</span><strong id="slope-sought" class="monospace"></strong></div>
+    <div class="stat"><span>Ángulo comprobado</span><strong id="angle-measured" class="monospace"></strong></div>
+    <p id="plot-status" role="status" class="status">Toca un punto para generar una solución.</p>
+   </aside>
+  </div>
+ </section>
+
+ <section id="ecuaciones" class="equations-section">
+  <div class="section-head"><div><div class="section-kicker">02 / Comprender</div><h2>De la geometría a la EDO.</h2></div></div>
+  <div class="equation-grid">
+   <article class="equation-card"><span class="card-number">01 · FAMILIA DADA</span><h3 id="given-title">Familia conocida</h3><div id="math-given" class="math-display"></div><p id="known-explanation"></p></article>
+   <article class="equation-card"><span class="card-number">02 · PENDIENTE</span><h3>Derivamos y eliminamos el parámetro</h3><div id="math-derivative" class="math-display"></div><p>El valor de la derivada depende del punto en la familia conocida.</p></article>
+   <article class="equation-card"><span class="card-number">03 · ISOGONAL</span><h3>Aplicamos el ángulo constante</h3><div id="math-ode" class="math-display"></div><p>La pendiente de la curva buscada se obtiene de la rotación de las tangentes.</p></article>
+   <article class="equation-card equation-card-accent"><span class="card-number">04 · FAMILIA BUSCADA</span><h3>Integramos la EDO</h3><div id="math-solution" class="math-display"></div><p id="method"></p></article>
+  </div>
+  <details class="math-details">
+   <summary>Ver por qué aparece esta fórmula <span>+</span></summary>
+   <div class="derivation">
+    <p>En un punto regular, la familia conocida tiene pendiente <span class="math-inline" data-formula="f'(x)=\tan\beta"></span>, mientras que la buscada tiene <span class="math-inline" data-formula="y'=\tan\alpha"></span>. Como <span class="math-inline" data-formula="\gamma=\alpha-\beta"></span>, se aplica la identidad de la tangente de una diferencia.</p>
+    <div class="math-display" data-formula="y'=\dfrac{f'(x)+k}{1-k f'(x)},\qquad k=\tan\gamma"></div>
+    <p>En caso de tangente vertical, la representación como pendiente no está definida. Por eso el trazador utiliza vectores tangentes, que también describen esa dirección.</p>
+   </div>
+  </details>
+ </section>
+
+ <section id="desafio" class="challenge-section">
+  <div class="section-head"><div><div class="section-kicker">03 / Comprobar</div><h2>¿Puedes alcanzar el ángulo?</h2></div></div>
+  <div class="challenge-grid">
+   <div><p>Sin cambiar de familia, usa el deslizador superior hasta construir una trayectoria que forme el ángulo solicitado con la familia conocida. Después verifica tu aproximación.</p>
+    <button type="button" id="new-challenge" class="secondary-btn">↻ Nuevo desafío</button></div>
+   <div class="challenge-card"><span class="card-number">TU MISIÓN</span><p>Construir un ángulo de <strong id="target-angle">60°</strong></p>
+     <button type="button" id="check-challenge" class="primary-btn">Comprobar mi construcción →</button><p id="challenge-feedback" role="status" aria-live="polite"></p>
+   </div>
+  </div>
+ </section>
+
+ <section id="materiales" class="research-section">
+  <div class="section-head"><div><div class="section-kicker">04 / Aplicar</div><h2>De las trayectorias a los materiales.</h2></div></div>
+  <p class="research-intro">Galanin y Feodorova estudiaron la disposición de fibras en construcciones planas de materiales compuestos. La orientación de las fibras entra en un modelo mecánico de elasticidad; las trayectorias isogonales sirven para explorar configuraciones geométricas de refuerzo.</p>
+  <div class="paper-grid">
+   <figure class="paper-figure"><img loading="lazy" src="../assets/galanin-fig10.webp" alt="Figura 10 original del estudio de 2017, patrón de trayectorias isogonales k=1"><figcaption><strong>Figura 10 · k = 1</strong><small>Galanin y Feodorova, 2017</small></figcaption></figure>
+   <figure class="paper-figure"><img loading="lazy" src="../assets/galanin-fig11.webp" alt="Figura 11 original del estudio de 2017, patrón de trayectorias isogonales k=2"><figcaption><strong>Figura 11 · k = 2</strong><small>Galanin y Feodorova, 2017</small></figcaption></figure>
+   <figure class="paper-figure"><img loading="lazy" src="../assets/galanin-fig12.webp" alt="Figura 12 original del estudio de 2017, patrón de trayectorias isogonales k=3"><figcaption><strong>Figura 12 · k = 3</strong><small>Galanin y Feodorova, 2017</small></figcaption></figure>
+  </div>
+  <p class="science-note"><strong>Precisión científica:</strong> el parámetro <em>k</em> de estas figuras corresponde al modelo del artículo; no se identifica automáticamente con nuestro <em>k = tan γ</em>. La web no calcula resistencia, tensiones ni otros resultados mecánicos sin un modelo validado.</p>
+  <div class="paper-links"><a href="https://doi.org/10.20948/prepr-2017-33" target="_blank" rel="noopener">Estudio de Galanin y Feodorova (2017) ↗</a><a href="https://doi.org/10.4028/www.scientific.net/MSF.945.338" target="_blank" rel="noopener">Investigación de Feodorova (2019) ↗</a></div>
+ </section>
+</main>
+<footer id="fuentes"><div><strong>IsogonalLab</strong><p>Herramienta de exploración, Universidad del Quindío. Modelo geométrico y soluciones verificables. La integración numérica utiliza Runge–Kutta de orden cuatro.</p></div><div><p>Fuentes: Piskunov (1977), tomo II, § 15; Trujillo Salazar, ED 1.7 y ED 1.8 (2026); Galanin y Feodorova (2017); Feodorova (2019).</p><a href="../">Regresar a la presentación ↗</a></div></footer>
+<noscript>Este laboratorio requiere JavaScript para construir trayectorias y mostrar ecuaciones.</noscript>
+</body>
+</html>

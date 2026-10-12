@@ -24,6 +24,8 @@ jobs:
           node --check isogonales/dist/model.js
           node --check isogonales/dist/app.js
           node --check isogonales/dist/latex.js
+          node --check isogonales/dist/laboratorio/math.js
+          node --check isogonales/dist/laboratorio/app.js
       - name: Ejecutar pruebas matemáticas y de interfaz
         run: |
           node isogonales/test.cjs
@@ -34,17 +36,27 @@ jobs:
           node isogonales/test-application.cjs
           node isogonales/test-notation.cjs
           node isogonales/test-context.cjs
+          node isogonales/lab-tests.cjs
 
       - name: Instalar Chromium para revisión visual
         run: |
           npm --prefix isogonales install --no-save --no-audit --no-fund playwright@1.55.1
           ./isogonales/node_modules/.bin/playwright install --with-deps chromium
       - name: Prueba de presentación en navegador real
-        run: node isogonales/browser-smoke.cjs
+        run: |
+          node isogonales/browser-smoke.cjs
+          node isogonales/lab-browser.cjs
       - name: Guardar capturas para revisión humana
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: isogonales-capturas
           path: isogonales/screenshots/*.png
+          if-no-files-found: warn
+      - name: Capturas IsogonalLab
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: isogonallab-capturas
+          path: isogonales/lab-screenshots/*.png
           if-no-files-found: warn
