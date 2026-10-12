@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trayectorias isogonales: una construcción geométrica y su demostración. Diego Alejandro Marulanda, Maestría en Biomatemáticas, Universidad del Quindío.">
+  <meta name="theme-color" content="#138e68">
+  <title>Trayectorias isogonales · Universidad del Quindío</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath fill='none' stroke='%23138e68' stroke-width='5' d='M5 40Q30 0 55 40'/%3E%3Cpath fill='none' stroke='%23774fc4' stroke-width='5' d='M8 15Q30 55 55 10'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="model.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+  <main id="presentation" aria-label="Presentación de trayectorias isogonales">
+    <div id="stage">
+      <header><h1 id="slide-title"></h1></header>
+      <div id="layout">
+        <aside id="geometry" aria-label="Construcción geométrica persistente" hidden>
+          <div class="family-legend"><span class="green">𝓕 = {f<sub>C</sub>}</span><span class="purple">𝓗 = {h<sub>K</sub>}</span></div>
+          <svg id="geometry-svg" viewBox="0 0 520 400" role="img" aria-labelledby="geometry-title geometry-desc"><title id="geometry-title">Curvas isogonales y tangentes en P</title><desc id="geometry-desc">La construcción aparece por etapas: curva conocida, curva buscada, tangentes y triángulo con sus ángulos.</desc></svg>
+          <div class="phase-control"><label for="phase">Construcción <output id="phase-value">0 de 4</output></label><input id="phase" type="range" min="0" max="4" step="1" value="0" aria-describedby="phase-caption"><div id="phase-caption"></div></div>
+        </aside>
+        <section id="slide-content" aria-labelledby="slide-title"></section>
+      </div>
+      <p id="source-line"></p>
+    </div>
+  </main>
+  <nav id="controls" aria-label="Controles de presentación">
+    <button id="previous" aria-label="Diapositiva anterior" title="Anterior (←)">←</button>
+    <button id="index" title="Índice (I)"><span id="slide-number">1 / 23</span></button>
+    <button id="next" aria-label="Diapositiva siguiente" title="Siguiente (→)">→</button>
+    <span class="control-divider"></span>
+    <button id="notes-button" title="Notas del expositor (N)">Notas</button>
+    <button id="fullscreen" title="Pantalla completa (F)">Pantalla completa</button>
+  </nav>
+  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <dialog id="notes"><form method="dialog"><button class="close" aria-label="Cerrar notas">×</button></form><h2 id="notes-title"></h2><p id="notes-time"></p><p id="notes-body"></p><p id="notes-source"></p><p class="hint">← / → diapositivas · Mayús + ← / → construcción · N notas · I índice · F pantalla completa</p></dialog>
+  <dialog id="contents"><form method="dialog"><button class="close" aria-label="Cerrar índice">×</button></form><h2>Diapositivas</h2><ol id="contents-list"></ol></dialog>
+  <noscript>Activa JavaScript para usar el deslizador y navegar por la presentación.</noscript>
+</body>
+</html>
