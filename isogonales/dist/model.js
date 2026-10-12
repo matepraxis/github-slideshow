@@ -10,7 +10,7 @@ const mf=SUB('m','f'), mh=SUB('m','h'), C0=SUB('C','0'), K0=SUB('K','0');
 const f0=SUB('f',C0),h0=SUB('h',K0),T=R('tan',true),L=R('ln',true),At=R('arctan',true);
 const eq=(alt,ast,color='',emphasis=false)=>({type:'eq',alt,ast,color,emphasis});
 const text=value=>({type:'text',value});
-const source={pisk:'Piskunov, N. (1977). Cálculo diferencial e integral, tomo II. Mir, § 15.',clase:'Trujillo Salazar, C. A. (2026). ED 1.7. Apuntes del curso, Universidad del Quindío.',raup:'Raup, D. M. (1966). Geometric analysis of shell coiling: General problems. Journal of Paleontology, 40(5), 1178–1190.'};
+const source={pisk:'Piskunov, N. (1977). Cálculo diferencial e integral, tomo II. Mir, § 15.',clase:'Trujillo Salazar, C. A. (2026). ED 1.7. Apuntes del curso, Universidad del Quindío.',trayectorias:'Trujillo Salazar, C. A. (2026). ED 1.8. Apuntes de clase: trayectorias ortogonales e isogonales, Universidad del Quindío.',raup:'Raup, D. M. (1966). Geometric analysis of shell coiling: General problems. Journal of Paleontology, 40(5), 1178–1190.'};
 const slides=[
   {
     "title": "Trayectorias isogonales",
@@ -48,7 +48,7 @@ const slides=[
       }
     ],
     "notes": "F representa la familia conocida, morada; H representa la buscada, verde. C y lambda son parámetros diferentes. La primera gráfica aislada del desarrollo matemático conserva un color anterior: aquí se unifican las etiquetas con la gráfica conjunta.",
-    "source": "Piskunov, N. (1977), tomo II, § 15.",
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
     "action": 0
   },
   {
@@ -73,7 +73,7 @@ const slides=[
       }
     ],
     "notes": "Se distinguen familia y curva particular sin escribir F(x,f(x),C0)=0 ni H(x,h(x),lambda0)=0. f conocida en morado y h buscada en verde.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "La curva conocida",
@@ -97,7 +97,7 @@ const slides=[
       }
     ],
     "notes": "En el gráfico conocido se usa una espiral; la familia buscada son círculos concéntricos. Esta elección reproduce la orientación creciente de f y decreciente de h del desarrollo matemático.",
-    "source": "Piskunov, N. (1977), tomo II, § 15.",
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
     "action": 1
   },
   {
@@ -122,7 +122,7 @@ const slides=[
       }
     ],
     "notes": "Compartir un punto no basta: debe mantenerse el ángulo al cortar todas las curvas de la familia conocida.",
-    "source": "Piskunov, N. (1977), tomo II, § 15.",
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
     "action": 2
   },
   {
@@ -158,7 +158,7 @@ const slides=[
       }
     ],
     "notes": "Justificar las rectas tangentes a partir de la interpretación geométrica de la derivada. Beta corresponde a la conocida, alpha a la buscada; gamma es su diferencia.",
-    "source": "Piskunov, N. (1977), tomo II, § 15.",
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
     "action": 3
   },
   {
@@ -183,7 +183,7 @@ const slides=[
       }
     ],
     "notes": "No incluir la comprobación numérica 135=55+80; explicar únicamente la relación geométrica y orientar al punto P en la figura.",
-    "source": "Piskunov, N. (1977), tomo II, § 15.",
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
     "action": 4
   },
   {
@@ -222,7 +222,7 @@ const slides=[
       }
     ],
     "notes": "Aplicar la identidad de diferencia, no de suma. Las derivadas se evalúan en la intersección; se omite el subíndice para seguir la escritura del desarrollo matemático.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "La derivada de la curva buscada",
@@ -256,7 +256,7 @@ const slides=[
       }
     ],
     "notes": "y prima corresponde ahora a la curva desconocida h. k es la tangente del ángulo entre las curvas, no la pendiente de una de ellas. Multiplicamos y distribuimos.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "Agrupamos y despejamos",
@@ -286,7 +286,7 @@ const slides=[
       }
     ],
     "notes": "Sumamos f prima y restamos k en ambos lados; luego sacamos factor común f prima y dividimos por 1+k y prima cuando es no nulo. Este es el despeje marcado con una estrella en el desarrollo matemático.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "De la familia a su EDO",
@@ -321,7 +321,7 @@ const slides=[
       }
     ],
     "notes": "Derivar respecto a x con C fijo y eliminar C. No crear p como notación adicional. El tercer argumento de G expresa la derivada conocida en notación de Leibniz.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "EDO de las trayectorias isogonales",
@@ -359,7 +359,7 @@ const slides=[
       }
     ],
     "notes": "La flecha indica reemplazo de argumento, no igualdad de dos derivadas. En G se sustituye dy/dx de la conocida por (y'-k)/(1+ky') de la buscada.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "Pendiente de la trayectoria",
@@ -397,7 +397,7 @@ const slides=[
       }
     ],
     "notes": "Es la misma relación, ahora despejada para resolver ejemplos. No se cambia de orientación: gamma=alpha-beta durante toda la presentación.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "La relación que utilizaremos",
@@ -421,7 +421,7 @@ const slides=[
       }
     ],
     "notes": "Transición breve al ejemplo de rectas, y evitar introducciones ajenas al ejemplo.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "Ejemplo: familia de rectas",
@@ -463,7 +463,7 @@ const slides=[
       }
     ],
     "notes": "Con C constante, la derivada de la recta conocida es dy/dx=C. Para x no nulo, despejamos C=y/x; eliminando el parámetro queda la EDO dy/dx=y/x. El punto P y la curva seleccionada se mantienen visibles.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "Sustituimos la pendiente conocida",
@@ -505,7 +505,7 @@ const slides=[
       }
     ],
     "notes": "Durante la relación isogonal, y' nombra la pendiente desconocida. Solo tras sustituir f'(x)=y/x se cambia a notación dy/dx al resolver la EDO.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.8."
   },
   {
     "title": "Sustitución homogénea",
@@ -547,7 +547,7 @@ const slides=[
       }
     ],
     "notes": "Aquí y' se representa por dy/dx para resolver. EDO homogénea: z=y/x, y=xz, regla del producto. ED 1.7 desarrolla este método.",
-    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
+    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas)."
   },
   {
     "title": "Reducimos a una sola fracción",
@@ -578,7 +578,7 @@ const slides=[
       }
     ],
     "notes": "Justificar el signo menos y la cancelación de z. Dominios locales.",
-    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
+    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas)."
   },
   {
     "title": "Integración a ambos lados",
@@ -631,7 +631,7 @@ const slides=[
       }
     ],
     "notes": "Revelar separacion, ecuación integral completa, descomposición y primitivas, manteniendo fracciones verticales \\dfrac en modo de exhibición.",
-    "source": "Trujillo Salazar, C. A. (2026), ED 1.7, EDO homogéneas."
+    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas)."
   },
   {
     "title": "Regresamos a las variables originales",
@@ -662,7 +662,7 @@ const slides=[
       }
     ],
     "notes": "Recordar propiedad del logaritmo de un cociente y cancelación.",
-    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
+    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas)."
   },
   {
     "title": "Pasamos a coordenadas polares",
@@ -1234,7 +1234,7 @@ const slides=[
     "kind": "references",
     "duration": 20,
     "body": [],
-    "notes": "Piskunov sustenta el desarrollo de las trayectorias; los apuntes ED 1.7 sustentan el método de EDO homogénea; Galanin y Feodorova (2017), y Feodorova (2019), aportan la conexión aplicada al refuerzo de materiales. La bibliografía recoge únicamente las fuentes utilizadas y el complemento bibliográfico indicado."
+    "notes": "La demostración fue elaborada para la exposición a partir de Piskunov. ED 1.8 aporta el marco de trayectorias isogonales y el procedimiento de derivación y eliminación del parámetro. ED 1.7 sustenta el método de EDO homogéneas y su integración. Galanin y Feodorova (2017) y Feodorova (2019) aportan el contexto científico de materiales."
   },
   {
     "title": "Gracias",
