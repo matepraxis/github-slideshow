@@ -758,10 +758,10 @@ const slides=[
       },
       {
         "type": "text",
-        "value": "Observamos una espiral de expansión radial rápida. Gráfico reconstruido matemáticamente; figura 10 original disponible en la fuente."
+        "value": "La figura 10 original ilustra el caso k=1: una disposición de refuerzo que satisface la condición isogonal."
       }
     ],
-    "notes": "El esquema procede de la ecuación r=A exp(theta/k); no es una reproducción de la figura editorial. Remitir a la figura 10 en el PDF original de 2017. PDF: página 10 del archivo para Fig. 10, 11 y 12.",
+    "notes": "Se presenta un recorte de la figura 10 original de Galanin y Feodorova (2017), página 10 del PDF, identificada allí con k=1. Es una ilustración del estudio de refuerzo de construcciones planas; la fórmula r=Ae^(θ/k) de nuestro ejemplo es una referencia algebraica para el paralelismo geométrico, sin atribuir al artículo una fórmula que no se haya corroborado línea por línea. Distinguir figura publicada y explicación matemática propia.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 10.",
     "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
   },
@@ -784,10 +784,10 @@ const slides=[
       },
       {
         "type": "text",
-        "value": "El crecimiento radial por unidad de ángulo es menor que con k=1. Comparar con la figura 11 del artículo."
+        "value": "La figura 11 original ilustra el caso k=2: al variar k, cambia la geometría de las trayectorias."
       }
     ],
-    "notes": "La reconstrucción matemática mantiene la misma A y la misma escala. Comparar con figura 11 original; no afirmar que la ilustración fue extraída del PDF. PDF: página 10 del archivo para Fig. 10, 11 y 12.",
+    "notes": "Se presenta un recorte de la figura 11 original de Galanin y Feodorova (2017), página 10 del PDF, identificada allí con k=2. Es una ilustración del estudio de refuerzo de construcciones planas; la fórmula r=Ae^(θ/k) de nuestro ejemplo es una referencia algebraica para el paralelismo geométrico, sin atribuir al artículo una fórmula que no se haya corroborado línea por línea. Distinguir figura publicada y explicación matemática propia.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 11.",
     "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
   },
@@ -810,10 +810,10 @@ const slides=[
       },
       {
         "type": "text",
-        "value": "La espiral se enrolla más antes de alcanzar el mismo crecimiento radial. Corresponde al caso de la figura 12."
+        "value": "La figura 12 original ilustra el caso k=3: la nueva distribución puede compararse con las figuras anteriores."
       }
     ],
-    "notes": "Mantener radios y escalas; el gráfico es reconstrucción analítica y no la figura original. Consultar PDF del preprint. PDF: página 10 del archivo para Fig. 10, 11 y 12.",
+    "notes": "Se presenta un recorte de la figura 12 original de Galanin y Feodorova (2017), página 10 del PDF, identificada allí con k=3. Es una ilustración del estudio de refuerzo de construcciones planas; la fórmula r=Ae^(θ/k) de nuestro ejemplo es una referencia algebraica para el paralelismo geométrico, sin atribuir al artículo una fórmula que no se haya corroborado línea por línea. Distinguir figura publicada y explicación matemática propia.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 12.",
     "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
   },
