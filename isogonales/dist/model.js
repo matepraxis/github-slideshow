@@ -22,7 +22,7 @@ const slides=[
   {
     "title": "Dos familias monoparamétricas",
     "kind": "theory",
-    "duration": 40,
+    "duration": 35,
     "body": [
       {
         "type": "text",
@@ -54,7 +54,7 @@ const slides=[
   {
     "title": "Elegimos una curva de cada familia",
     "kind": "theory",
-    "duration": 40,
+    "duration": 35,
     "body": [
       {
         "type": "text",
@@ -78,7 +78,7 @@ const slides=[
   {
     "title": "La curva conocida",
     "kind": "theory",
-    "duration": 40,
+    "duration": 35,
     "body": [
       {
         "type": "text",
@@ -103,7 +103,7 @@ const slides=[
   {
     "title": "La curva buscada",
     "kind": "theory",
-    "duration": 45,
+    "duration": 40,
     "body": [
       {
         "type": "text",
@@ -128,7 +128,7 @@ const slides=[
   {
     "title": "¿Por qué trazamos las tangentes?",
     "kind": "theory",
-    "duration": 45,
+    "duration": 40,
     "body": [
       {
         "type": "text",
@@ -164,7 +164,7 @@ const slides=[
   {
     "title": "El ángulo constante",
     "kind": "theory",
-    "duration": 45,
+    "duration": 40,
     "body": [
       {
         "type": "text",
@@ -710,98 +710,158 @@ const slides=[
     "source": "Animación original del expositor, 95 segundos"
   },
   {
-    "title": "Aplicación: controlar el ángulo de impacto",
+    "title": "Aplicación: refuerzo de materiales compuestos",
     "kind": "example",
-    "graph": "application-rays",
-    "duration": 35,
+    "graph": "materials-intro",
+    "duration": 25,
     "body": [
       {
         "type": "text",
-        "value": "Un chorro al chocar contra una superficie puede producir salpicaduras."
+        "value": "En una placa reforzada con fibras, la dirección de esas fibras influye en el comportamiento mecánico."
       },
       {
         "type": "text",
-        "value": "El estudio considera el ángulo entre el chorro y la tangente de la superficie."
+        "value": "Galanin y Feodorova (2017) estudian geometrías de refuerzo curvilíneas mediante trayectorias isogonales."
       },
       {
         "type": "eq",
-        "tex": "\\gamma\\lesssim 30^\\circ",
-        "alt": "\\gamma\\lesssim 30^\\circ",
-        "color": "orange",
-        "emphasis": true
-      },
-      {
-        "type": "text",
-        "value": "Este es un umbral aproximado del estudio, no una regla universal para todos los fluidos."
-      }
-    ],
-    "notes": "La aplicación propuesta es el trabajo de Thurairajah y colaboradores (2025), PNAS Nexus. El ángulo crítico aproximado se obtuvo bajo condiciones de micción humana. Se requiere una geometría que mantenga un ángulo suficientemente pequeño.",
-    "source": "Thurairajah, K., et al. (2025). Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations. PNAS Nexus, 4(4), pgaf087. https://doi.org/10.1093/pnasnexus/pgaf087"
-  },
-  {
-    "title": "La geometría del diseño es isogonal",
-    "kind": "example",
-    "graph": "application-spiral",
-    "duration": 35,
-    "body": [
-      {
-        "type": "text",
-        "value": "En vista superior, los chorros se proyectan como una familia de rayos."
-      },
-      {
-        "type": "text",
-        "value": "Buscamos curvas que corten esos rayos bajo un ángulo prescrito."
-      },
-      {
-        "type": "eq",
-        "tex": "y=Cx\\quad\\longrightarrow\\quad r=Ae^{\\theta/k}",
-        "alt": "y=Cx\\quad\\longrightarrow\\quad r=Ae^{\\theta/k}",
-        "color": "green",
-        "emphasis": true
-      },
-      {
-        "type": "eq",
-        "tex": "k=\\tan\\gamma",
-        "alt": "k=\\tan\\gamma",
-        "color": "orange",
-        "emphasis": false
-      },
-      {
-        "type": "text",
-        "value": "Esta espiral aparece en el diseño llamado «Nautilus». La vista lateral se modela por separado con parábolas."
-      }
-    ],
-    "notes": "El artículo modela las trayectorias proyectadas en dos planos. Vista superior: rayos e isogonales espirales. Vista lateral: familia de parábolas y su correspondiente problema isogonal. No confundir la espiral del ejemplo expositivo a 80 grados con el objetivo de 30 grados aplicado.",
-    "source": "Thurairajah, K., et al. (2025). Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations. PNAS Nexus, 4(4), pgaf087. https://doi.org/10.1093/pnasnexus/pgaf087"
-  },
-  {
-    "title": "Validación experimental de la aplicación",
-    "kind": "example",
-    "graph": "application-result",
-    "duration": 30,
-    "body": [
-      {
-        "type": "text",
-        "value": "Los investigadores construyeron diseños y midieron salpicaduras con chorros controlados."
-      },
-      {
-        "type": "eq",
-        "tex": "\\frac{Q_{\\mathrm{nuevo}}}{Q_{\\mathrm{comercial}}}\\approx 0.014",
-        "alt": "\\frac{Q_{\\mathrm{diseño}}}{Q_{\\mathrm{comercial}}}\\approx 0.014",
+        "tex": "r=Ae^{\\theta/k}",
+        "alt": "r=Ae^{\\theta/k}",
         "color": "green",
         "emphasis": true
       },
       {
         "type": "text",
-        "value": "En el ensayo reportado, los diseños redujeron las salpicaduras hasta aproximadamente el 1,4 % de las del modelo comercial de referencia."
+        "value": "La ecuación que acabamos de resolver conduce a una de las configuraciones geométricas del artículo."
+      }
+    ],
+    "notes": "Presentar la contribución como diseño y modelación, no como un experimento de impacto ni una reducción cuantitativa universal. El artículo de 2017 formula sistemas diferenciales asociados a un problema de elasticidad lineal heterogénea y anisótropa.",
+    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+  },
+  {
+    "title": "Diseño isogonal: figura 10 (k=1)",
+    "kind": "example",
+    "graph": "materials-k1",
+    "duration": 15,
+    "body": [
+      {
+        "type": "text",
+        "value": "El trabajo presenta familias radiales y trayectorias isogonales de refuerzo."
+      },
+      {
+        "type": "eq",
+        "tex": "k=1\\quad\\Longrightarrow\\quad r=Ae^{\\theta}",
+        "alt": "k=1\\quad\\Longrightarrow\\quad r=Ae^{\\theta}",
+        "color": "green",
+        "emphasis": true
       },
       {
         "type": "text",
-        "value": "La EDO orienta el diseño; el ensayo contrasta su funcionamiento."
+        "value": "Observamos una espiral de expansión radial rápida. Gráfico reconstruido matemáticamente; figura 10 original disponible en la fuente."
       }
     ],
-    "notes": "El artículo reporta salpicaduras de hasta solo 1,4% del urinario comercial común. Es una comparación experimental específica y no una garantía de rendimiento en cualquier situación. Fuente PNAS Nexus 4(4), pgaf087.",
-    "source": "Thurairajah, K., et al. (2025). Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations. PNAS Nexus, 4(4), pgaf087. https://doi.org/10.1093/pnasnexus/pgaf087"
+    "notes": "El esquema procede de la ecuación r=A exp(theta/k); no es una reproducción de la figura editorial. Remitir a la figura 10 en el PDF original de 2017.",
+    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+  },
+  {
+    "title": "Diseño isogonal: figura 11 (k=2)",
+    "kind": "example",
+    "graph": "materials-k2",
+    "duration": 15,
+    "body": [
+      {
+        "type": "text",
+        "value": "Manteniendo la familia de radios, cambiamos únicamente el parámetro."
+      },
+      {
+        "type": "eq",
+        "tex": "k=2\\quad\\Longrightarrow\\quad r=Ae^{\\theta/2}",
+        "alt": "k=2\\quad\\Longrightarrow\\quad r=Ae^{\\theta/2}",
+        "color": "green",
+        "emphasis": true
+      },
+      {
+        "type": "text",
+        "value": "El crecimiento radial por unidad de ángulo es menor que con k=1. Comparar con la figura 11 del artículo."
+      }
+    ],
+    "notes": "La reconstrucción matemática mantiene la misma A y la misma escala. Comparar con figura 11 original; no afirmar que la ilustración fue extraída del PDF.",
+    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+  },
+  {
+    "title": "Diseño isogonal: figura 12 (k=3)",
+    "kind": "example",
+    "graph": "materials-k3",
+    "duration": 15,
+    "body": [
+      {
+        "type": "text",
+        "value": "El cambio de k produce otra distribución de las trayectorias de refuerzo."
+      },
+      {
+        "type": "eq",
+        "tex": "k=3\\quad\\Longrightarrow\\quad r=Ae^{\\theta/3}",
+        "alt": "k=3\\quad\\Longrightarrow\\quad r=Ae^{\\theta/3}",
+        "color": "green",
+        "emphasis": true
+      },
+      {
+        "type": "text",
+        "value": "La espiral se enrolla más antes de alcanzar el mismo crecimiento radial. Corresponde al caso de la figura 12."
+      }
+    ],
+    "notes": "Mantener radios y escalas; el gráfico es reconstrucción analítica y no la figura original. Consultar PDF del preprint.",
+    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+  },
+  {
+    "title": "Resultado matemático del estudio de 2017",
+    "kind": "example",
+    "graph": "materials-results",
+    "duration": 35,
+    "body": [
+      {
+        "type": "text",
+        "value": "El artículo obtiene sistemas diferenciales para estudiar las deformaciones de las estructuras reforzadas."
+      },
+      {
+        "type": "text",
+        "value": "El parámetro \\(k\\), junto con las propiedades y proporciones de los materiales, afecta el tipo de las raíces de la ecuación característica."
+      },
+      {
+        "type": "text",
+        "value": "La tabla 1 del artículo permite comparar configuraciones; no se interpreta como una medición experimental directa."
+      }
+    ],
+    "notes": "No presentar valores de raíces no contrastados con el texto completo de la tabla 1. Explicar la diferencia entre un resultado matemático del sistema característico y el comportamiento físico completo de la placa. La fuente original ofrece la tabla 1.",
+    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+  },
+  {
+    "title": "Continuidad de la investigación: Feodorova (2019)",
+    "kind": "example",
+    "graph": "materials-2019",
+    "duration": 25,
+    "body": [
+      {
+        "type": "text",
+        "value": "Feodorova formula un modelo de elasticidad lineal bidimensional no homogénea para estructuras reforzadas con fibras."
+      },
+      {
+        "type": "text",
+        "value": "Compara disposiciones curvilíneas basadas en líneas coordenadas, trayectorias isogonales y trayectorias helicoidales."
+      },
+      {
+        "type": "text",
+        "value": "El vínculo de nuestra exposición: una EDO permite construir geometrías que después se estudian en un modelo mecánico."
+      }
+    ],
+    "notes": "Fuente de 2019 disponible en resumen editorial. Evitar atribuir mejoras cuantitativas no verificadas o presentar un ensayo experimental que la publicación no describe.",
+    "source": "Feodorova, N. (2019). Determination of Fiber-Structure for the Effective Reinforcement of Planar Composite-Material Constructions. Materials Science Forum, 945, 338–343. DOI: 10.4028/www.scientific.net/MSF.945.338.",
+    "referenceUrl": "https://doi.org/10.4028/www.scientific.net/MSF.945.338"
   },
   {
     "title": "Complemento: familia hiperbólica",
@@ -1129,7 +1189,7 @@ const slides=[
     "kind": "references",
     "duration": 20,
     "body": [],
-    "notes": "Piskunov sustenta el ejemplo radial; Escobar aporta la familia hiperbólica. Las páginas 1–6 del desarrollo de la exposición guían la notación y el desarrollo. Raup corresponde solo al complemento de expansión radial."
+    "notes": "Piskunov sustenta el desarrollo de las trayectorias; los apuntes ED 1.7 sustentan el método de EDO homogénea; Galanin y Feodorova (2017), y Feodorova (2019), aportan la conexión aplicada al refuerzo de materiales. No se cita a Escobar porque no se utilizó."
   },
   {
     "title": "Gracias",
