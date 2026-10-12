@@ -1,0 +1,34 @@
+name: Presentación EDO · validación
+on:
+  pull_request:
+    paths:
+      - "isogonales/**"
+      - ".github/workflows/isogonales-checks.yml"
+  push:
+    branches:
+      - "edo-trayectorias-isogonales-2026"
+    paths:
+      - "isogonales/**"
+      - ".github/workflows/isogonales-checks.yml"
+jobs:
+  isogonales:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validar sintaxis
+        run: |
+          node --check isogonales/dist/model.js
+          node --check isogonales/dist/app.js
+          node --check isogonales/dist/latex.js
+      - name: Ejecutar pruebas matemáticas y de interfaz
+        run: |
+          node isogonales/test.cjs
+          node isogonales/test-ui.cjs
+          node isogonales/test-latex.cjs
+          node isogonales/test-examples.cjs
+          node isogonales/test-radial.cjs
+          node isogonales/test-application.cjs
