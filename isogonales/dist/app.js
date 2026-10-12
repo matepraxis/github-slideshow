@@ -24,7 +24,7 @@ const phaseNames=['Familias','Curva conocida y punto P','Segunda curva por P','R
 const phaseActions=['Mostrar las familias','Mostrar la curva conocida','Añadir la curva buscada','Trazar las tangentes','Mostrar los ángulos'];
 const colors={green:'#138e68',purple:'#774fc4',orange:'#bb650c',blue:'#1b65a4',gray:'#a2ada6',ink:'#343a38'};
 function renderMath(tex,display=true){return katex.renderToString(tex,{displayMode:display,throwOnError:true,strict:'error',trust:false,output:'htmlAndMathml'});}
-function prose(value){return escape(value).replace(/\\\((.*?)\\\)/g,(_,tex)=>renderMath(tex.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>'),false));}
+function prose(value){return escape(value).replace(/\\\((.*?)\\\)/g,(_,tex)=>renderMath(tex.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&#39;/g,"'").replace(/&quot;/g,'"'),false));}
 function bodyHTML(slide){return slide.body.map((b,i)=>'<div class="reveal-block" data-reveal-index="'+i+'"'+(i>=reveal?' hidden':'')+'>'+(b.type==='eq'?'<div class="equation '+escape(b.color||'')+(b.emphasis?' emphasis':'')+'">'+renderMath(b.tex||PresentationLatex.fromAST(b.ast))+'</div>':'<p>'+prose(b.value)+'</p>')+'</div>').join('');}
 function svgEl(tag,attrs={},text){const e=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));if(text!==undefined)e.textContent=text;return e;}
 const X=x=>35+58*x,Y=y=>360-58*y;
