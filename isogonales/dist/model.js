@@ -744,58 +744,63 @@ const slides=[
     "source": "Animación original del expositor, 95 segundos"
   },
   {
-    "title": "Aplicación: refuerzo de materiales compuestos",
+    "title": "¿Qué problema resuelve la investigación?",
     "kind": "example",
     "graph": "materials-intro",
     "duration": 25,
     "body": [
       {
         "type": "text",
-        "value": "En una placa reforzada con fibras, la dirección de esas fibras influye en el comportamiento mecánico."
+        "value": "Una placa de material compuesto combina una matriz con fibras que ayudan a soportar cargas."
       },
       {
         "type": "text",
-        "value": "Galanin y Feodorova (2017) estudian geometrías de refuerzo curvilíneas mediante trayectorias isogonales."
-      },
-      {
-        "type": "eq",
-        "tex": "r=Ae^{\\theta/k}",
-        "alt": "r=Ae^{\\theta/k}",
-        "color": "green",
-        "emphasis": true
+        "value": "No siempre es conveniente orientar las fibras en líneas rectas: cerca de agujeros y cambios de sección las tensiones y deformaciones pueden variar mucho."
       },
       {
         "type": "text",
-        "value": "La ecuación que acabamos de resolver conduce a una de las configuraciones geométricas del artículo."
+        "value": "Galanin y Feodorova (2017) estudian cómo diseñar distribuciones curvilíneas de refuerzo mediante trayectorias isogonales."
+      },
+      {
+        "type": "text",
+        "value": "Su objetivo es modelar estas estructuras y analizar los sistemas diferenciales que describen sus deformaciones."
+      },
+      {
+        "type": "text",
+        "value": "Pregunta que conecta con nuestro trabajo: ¿cómo construir una familia de curvas con una orientación angular prescrita?"
       }
     ],
-    "notes": "Presentar la contribución como diseño y modelación, no como un experimento de impacto ni una reducción cuantitativa universal. El artículo de 2017 formula sistemas diferenciales asociados a un problema de elasticidad lineal heterogénea y anisótropa.",
+    "notes": "Describir primero el material compuesto, placa, matriz y fibras. Indicar que el artículo de 2017 desarrolla sistemas diferenciales de elasticidad lineal anisótropa no homogénea y analiza el tipo de sistemas por un método determinantal. No afirmar ensayos, resistencia mayor, reducción de masa ni mejoras cuantitativas no probadas. La limitación de refuerzo rectilíneo cerca de aberturas está descrita en la introducción del artículo de Feodorova (2019).",
     "source": "Galanin y Feodorova (2017), Preprint 33.",
     "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf"
   },
   {
-    "title": "Diseño isogonal: figura 10 (k=1)",
+    "title": "De la geometría al diseño: figura 10",
     "kind": "example",
     "graph": "materials-k1",
     "duration": 15,
     "body": [
       {
         "type": "text",
-        "value": "El trabajo presenta familias radiales y trayectorias isogonales de refuerzo."
+        "value": "En la investigación se parte de líneas coordenadas de referencia y se construyen familias de refuerzo con direcciones isogonales."
+      },
+      {
+        "type": "text",
+        "value": "La figura 10 muestra una configuración publicada para el valor \\(k=1\\)."
       },
       {
         "type": "eq",
-        "tex": "k=1\\quad\\Longrightarrow\\quad r=Ae^{\\theta}",
-        "alt": "k=1\\quad\\Longrightarrow\\quad r=Ae^{\\theta}",
+        "tex": "k=1",
+        "alt": "k=1",
         "color": "green",
         "emphasis": true
       },
       {
         "type": "text",
-        "value": "La figura 10 original ilustra el caso k=1: una disposición de refuerzo que satisface la condición isogonal."
+        "value": "El parámetro de la figura pertenece al modelo científico del artículo; no debemos identificarlo automáticamente con nuestra constante \\(k=\\tan\\gamma\\)."
       }
     ],
-    "notes": "Se presenta un recorte de la figura 10 original de Galanin y Feodorova (2017), página 10 del PDF, identificada allí con k=1. Es una ilustración del estudio de refuerzo de construcciones planas; la fórmula r=Ae^(θ/k) de nuestro ejemplo es una referencia algebraica para el paralelismo geométrico, sin atribuir al artículo una fórmula que no se haya corroborado línea por línea. Distinguir figura publicada y explicación matemática propia.",
+    "notes": "Es una figura de la publicación de 2017, no una reconstrucción. Subrayar que la convención de parámetros del artículo debe interpretarse en su modelo; nuestra k=tan gamma fue definida en el ejemplo de la exposición y no implica que la k del artículo tenga el mismo significado. Referencia PDF página 10, figura 10.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 10.",
     "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
   },
@@ -807,21 +812,21 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "Manteniendo la familia de radios, cambiamos únicamente el parámetro."
+        "value": "Mantenemos el mismo problema de diseño, pero observamos el caso identificado como \\(k=2\\)."
       },
       {
         "type": "eq",
-        "tex": "k=2\\quad\\Longrightarrow\\quad r=Ae^{\\theta/2}",
-        "alt": "k=2\\quad\\Longrightarrow\\quad r=Ae^{\\theta/2}",
+        "tex": "k=2",
+        "alt": "k=2",
         "color": "green",
         "emphasis": true
       },
       {
         "type": "text",
-        "value": "La figura 11 original ilustra el caso k=2: al variar k, cambia la geometría de las trayectorias."
+        "value": "La figura 11 muestra otra disposición de fibras: comparar visualmente sus trayectorias con la figura anterior."
       }
     ],
-    "notes": "Se presenta un recorte de la figura 11 original de Galanin y Feodorova (2017), página 10 del PDF, identificada allí con k=2. Es una ilustración del estudio de refuerzo de construcciones planas; la fórmula r=Ae^(θ/k) de nuestro ejemplo es una referencia algebraica para el paralelismo geométrico, sin atribuir al artículo una fórmula que no se haya corroborado línea por línea. Distinguir figura publicada y explicación matemática propia.",
+    "notes": "Figura 11 original del preprint de 2017. Comparación geométrica cualitativa. No convertir el valor k del artículo en el ángulo de nuestras espirales ni afirmar mejor rendimiento mecánico.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 11.",
     "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
   },
@@ -833,33 +838,37 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "El cambio de k produce otra distribución de las trayectorias de refuerzo."
+        "value": "La figura 12 presenta otra configuración de refuerzo, identificada por los autores con \\(k=3\\)."
       },
       {
         "type": "eq",
-        "tex": "k=3\\quad\\Longrightarrow\\quad r=Ae^{\\theta/3}",
-        "alt": "k=3\\quad\\Longrightarrow\\quad r=Ae^{\\theta/3}",
+        "tex": "k=3",
+        "alt": "k=3",
         "color": "green",
         "emphasis": true
       },
       {
         "type": "text",
-        "value": "La figura 12 original ilustra el caso k=3: la nueva distribución puede compararse con las figuras anteriores."
+        "value": "Las tres ilustraciones muestran cómo el método genera distintas geometrías de refuerzo, que después se incorporan al modelo mecánico."
       }
     ],
-    "notes": "Se presenta un recorte de la figura 12 original de Galanin y Feodorova (2017), página 10 del PDF, identificada allí con k=3. Es una ilustración del estudio de refuerzo de construcciones planas; la fórmula r=Ae^(θ/k) de nuestro ejemplo es una referencia algebraica para el paralelismo geométrico, sin atribuir al artículo una fórmula que no se haya corroborado línea por línea. Distinguir figura publicada y explicación matemática propia.",
+    "notes": "Figura 12 original del preprint de 2017. Hacer explícito el hilo: trayectorias geométricas → direcciones de fibras → sistema diferencial que modela deformaciones.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 12.",
     "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
   },
   {
-    "title": "Resultado matemático del estudio de 2017",
+    "title": "¿Qué obtuvieron matemáticamente?",
     "kind": "example",
     "graph": "materials-results",
     "duration": 35,
     "body": [
       {
         "type": "text",
-        "value": "Tomamos el caso de la tabla 1: matriz de cobre y fibras de wolframio."
+        "value": "El estudio no se limita a dibujar fibras: formula sistemas diferenciales para estudiar deformaciones en placas reforzadas."
+      },
+      {
+        "type": "text",
+        "value": "Ejemplo de la tabla 1: matriz de cobre y refuerzo de wolframio."
       },
       {
         "type": "eq",
@@ -870,41 +879,41 @@ const slides=[
       },
       {
         "type": "text",
-        "value": "Para \\(k=1\\), la ecuación característica tiene dos raíces reales y un par complejo conjugado."
+        "value": "Con \\(k=1\\), la ecuación característica tiene dos raíces reales y un par complejo conjugado."
       },
       {
         "type": "text",
-        "value": "Para \\(k=3\\), las cuatro raíces son reales."
-      },
-      {
-        "type": "text",
-        "value": "Cambiar la orientación isogonal modifica el tipo del sistema diferencial; no equivale por sí solo a demostrar un mejor rendimiento."
+        "value": "Con \\(k=3\\), tiene cuatro raíces reales. La comparación informa sobre el tipo del sistema, no prueba por sí misma una mejora de resistencia."
       }
     ],
-    "notes": "Resultado textual cotejado con tabla 1, página 16 del PDF: cobre+wolframio, ω1=ω2=0.2. Con k=1 aparecen dos raíces reales y un par complejo conjugado; con k=3, cuatro raíces reales. El artículo relaciona el tipo del sistema con las características y orientaciones de refuerzo. No afirmar mejora cuantitativa experimental.",
+    "notes": "Tabla 1, página 16 del PDF original. Explicar que el estudio obtiene ODE para deformaciones; sus raíces características cambian con materiales/estructura y el parámetro del modelo. No inferir un resultado experimental sobre capacidad de carga.",
     "source": "Galanin y Feodorova (2017), tabla 1.",
     "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=16"
   },
   {
-    "title": "Continuidad de la investigación: Feodorova (2019)",
+    "title": "Investigación posterior: Feodorova (2019)",
     "kind": "example",
     "graph": "materials-2019",
     "duration": 25,
     "body": [
       {
         "type": "text",
-        "value": "Feodorova formula un modelo de elasticidad lineal bidimensional no homogénea para estructuras reforzadas con fibras."
+        "value": "En 2019, Feodorova desarrolla un modelo estructural bidimensional de elasticidad lineal no homogénea para materiales compuestos con fibras curvilíneas."
       },
       {
         "type": "text",
-        "value": "Compara disposiciones curvilíneas basadas en líneas coordenadas, trayectorias isogonales y trayectorias helicoidales."
+        "value": "Estudia tres enfoques de disposición: líneas coordenadas, trayectorias isogonales y trayectorias helicoidales."
       },
       {
         "type": "text",
-        "value": "El vínculo de nuestra exposición: una EDO permite construir geometrías que después se estudian en un modelo mecánico."
+        "value": "Obtiene soluciones particulares de problemas de contorno y plantea recomendaciones para el refuerzo de construcciones planas."
+      },
+      {
+        "type": "text",
+        "value": "Conexión con nuestra exposición: una ecuación diferencial construye una geometría; otra modelación analiza su comportamiento mecánico."
       }
     ],
-    "notes": "Fuente de 2019 disponible en resumen editorial. Evitar atribuir mejoras cuantitativas no verificadas o presentar un ensayo experimental que la publicación no describe.",
+    "notes": "Basado en el resumen editorial del artículo 2019 (Materials Science Forum 945, 338–343). Es continuación temática de 2017, no sostener comparaciones cuantitativas que no constan en el resumen.",
     "source": "Feodorova (2019), Materials Science Forum, 945, 338–343.",
     "referenceUrl": "https://doi.org/10.4028/www.scientific.net/MSF.945.338"
   },
