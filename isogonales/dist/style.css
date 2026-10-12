@@ -75,3 +75,7 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 .paper-link{display:inline-block;margin-top:8px;color:#1b65a4;font-size:clamp(12px,1.1cqw,16px);text-underline-offset:3px}
 #stage.example .graph-caption{max-width:100%;font-size:clamp(11px,.98cqw,14px)}
 @media(max-width:760px){.references{font-size:16px;gap:13px}.paper-link{font-size:14px}}
+
+/* Figuras primarias del estudio de 2017, frente a nuestras reconstrucciones. */
+.paper-original-figure{display:block;width:auto;max-width:88%;height:auto;max-height:89%;margin:auto;object-fit:contain}
+@media(max-width:760px){.paper-original-figure{max-width:90%;max-height:355px}}
