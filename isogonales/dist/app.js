@@ -99,11 +99,11 @@ function exampleSVG(kind){
  let range=kind==='biology'?45:kind.startsWith('hyperbola')?3.25:6;
  const scale=185/range,fx=x=>220+x*scale,fy=y=>220-y*scale;
  const defs=svgEl('defs'),clip=svgEl('clipPath',{id:'example-clip'});clip.append(svgEl('rect',{x:25,y:25,width:390,height:390}));defs.append(clip);svg.append(defs);
- svg.append(svgEl('path',{d:'M25,220H415 M220,415V25',fill:'none',stroke:'#bac5bd','stroke-width':1.2}));
+ if(kind!=='application-result')svg.append(svgEl('path',{d:'M25,220H415 M220,415V25',fill:'none',stroke:'#bac5bd','stroke-width':1.2}));
  const lbl=(s,p,c,dx=6,dy=-6)=>svg.append(svgEl('text',{x:fx(p[0])+dx,y:fy(p[1])+dy,fill:c},s));
  const curve=(pts,c,width=2.5,dash='')=>svg.append(svgEl('path',{d:dpath(pts,fx,fy),fill:'none',stroke:c,'stroke-width':width,'stroke-dasharray':dash,'clip-path':'url(#example-clip)'}));
  const point=(p,c=colors.ink)=>svg.append(svgEl('circle',{cx:fx(p[0]),cy:fy(p[1]),r:4,fill:c,stroke:'white','stroke-width':1.2}));
- lbl('x',[range,0],colors.gray,-3,23);lbl('y',[0,range],colors.gray,10,3);
+ if(kind!=='application-result'){lbl('x',[range,0],colors.gray,-3,23);lbl('y',[0,range],colors.gray,10,3);}
 
  if(kind==='application-result'){
   svg.append(svgEl('text',{x:50,y:65,fill:colors.ink,'font-size':18},'Salpicaduras relativas'));
