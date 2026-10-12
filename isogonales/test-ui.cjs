@@ -17,7 +17,7 @@ const nodes=Object.fromEntries(ids.map(id=>[id,new Element('div',id)]));
 const groups=()=>nodes['geometry-svg'].children.filter(e=>e.dataset.stage);
 const buttons=()=>nodes['contents-list'].children.map(e=>e.children[0]);
 const storage={value:JSON.stringify({slide:6,phase:4}),getItem(){return this.value},setItem(k,v){this.value=v}};
-const context={PresentationModel:M,document:{getElementById:id=>nodes[id],createElement:tag=>new Element(tag),createElementNS:(ns,tag)=>new Element(tag),querySelectorAll:s=>s.includes('data-stage')?groups():s.includes('contents-list')?buttons():[],addEventListener(){},activeElement:null,documentElement:{}},localStorage:storage};
+const context={PresentationModel:M,PresentationLatex:require('./dist/latex.js'),katex:require('./dist/vendor/katex/katex.min.js'),window:{matchMedia:()=>({matches:true})},document:{getElementById:id=>nodes[id],createElement:tag=>new Element(tag),createElementNS:(ns,tag)=>new Element(tag),querySelector:()=>new Element('div'),querySelectorAll:s=>s.includes('data-stage')?groups():s.includes('contents-list')?buttons():[],addEventListener(){},activeElement:null,documentElement:{}},localStorage:storage};
 context.globalThis=context;vm.runInNewContext(fs.readFileSync(__dirname+'/dist/app.js','utf8'),context);
 const svg=nodes['geometry-svg'],sameGroups=groups();
 assert.equal(sameGroups.length,6);
@@ -26,9 +26,9 @@ buttons()[14].click();assert.equal(nodes.geometry.hidden,true);assert.equal(node
 buttons()[9].click();assert.equal(nodes.geometry.hidden,false);assert.equal(nodes.phase.value,4);assert.deepEqual(groups(),sameGroups);
 nodes.phase.listeners.input({target:{value:'2'}});assert.equal(JSON.parse(storage.value).phase,2);
 nodes.previous.click();assert.equal(nodes.phase.value,2);
-for(let i=0;i<23;i++){
+for(let i=0;i<M.slides.length;i++){
  buttons()[i].click();assert.equal(nodes.phase.value,2);assert.deepEqual(groups(),sameGroups);
  const allHTML=e=>e.innerHTML+e.children.map(allHTML).join('');
- for(const e of allHTML(nodes['slide-content']).matchAll(/<math[^>]*>[\s\S]*?<\/math>/g))fs.appendFileSync(__dirname+'/mathml-check.xml',e[0]+'\n');
+ assert.ok(!allHTML(nodes['slide-content']).includes('NaN'));
 }
-console.log('Interacciones del cliente verificadas: el SVG conserva sus nodos y su etapa al navegar por las23 diapositivas.');
+console.log('Interacciones: el SVG conserva sus nodos y etapa en '+M.slides.length+' diapositivas.');

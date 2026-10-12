@@ -1,11 +1,35 @@
 # Trayectorias isogonales
 
-Presentación de Diego Alejandro Marulanda para Ecuaciones Diferenciales, Maestría en Biomatemáticas, Universidad del Quindío.
+Presentación de Diego Alejandro Marulanda, Maestría en Biomatemáticas, Universidad del Quindío.
 
-Sitio estático sin dependencias. Abrir `dist/index.html` para usarlo sin conexión. En Render, publicar `isogonales/dist` desde la rama dedicada. Comando de compilación: `true`. Variable de compilación: `SKIP_INSTALL_DEPS=true`.
+## Revisión de octubre
 
-Controles: flechas para diapositivas, Mayús y flechas para el deslizador, N para notas, I para índice y F para pantalla completa. El gráfico de teoría conserva su etapa al navegar y al volver desde un ejemplo. La posición también se conserva en el navegador. El deslizador permite reiniciar la construcción de forma deliberada.
+El manuscrito `Versión final.pdf` (páginas 1–6) guía la demostración y el ejemplo radial. Familia conocida F morada, familia buscada H verde; f'=tan(beta), h'=tan(alpha), gamma=alpha-beta. G nombra la EDO asociada para distinguirla de F.
 
-Ejecutar `node test.cjs` para verificar el modelo de estados y las identidades matemáticas.
+La ruta principal tiene 26 diapositivas y 20 minutos sugeridos, incluido el video original de 95 segundos. El índice ofrece 5 diapositivas complementarias; las flechas las omiten durante el recorrido principal. La aplicación experimental indexada sigue pendiente de selección y no se presenta el modelo radial de Raup como sustituto de ella.
 
-Las imágenes de la plantilla institucional y el video original los aportó el expositor. Las referencias académicas aparecen en la presentación.
+## Uso
+
+Sitio estático: abrir `dist/index.html`. KaTeX 0.19.0 y sus fuentes están incluidos; no depende de un CDN para las ecuaciones. Los enlaces bibliográficos sí requieren conexión. El video original conserva sus colores.
+
+Flechas: navegar. Mayús + flechas: construcción. N: notas. I: índice. F: pantalla completa. El deslizador conserva su etapa al navegar, volver desde ejemplos o recargar.
+
+## Verificación
+
+```sh
+node isogonales/test.cjs
+node isogonales/test-ui.cjs
+node isogonales/test-latex.cjs
+node isogonales/test-examples.cjs
+node --check isogonales/dist/app.js
+```
+
+Las pruebas cubren identidad angular, pendientes, integración de ejemplos, soluciones constantes, persistencia, duración y compilación LaTeX. No sustituyen la revisión visual pendiente en escritorio y tablet.
+
+## Revisión y fusión
+
+PR #2: LaTeX y transiciones, sobre `edo-trayectorias-isogonales-2026`.
+PR #3: manuscrito y geometría, sobre la rama del PR #2.
+La rama `edo/ejemplos-paso-a-paso` continúa sobre el PR #3.
+
+Son PR apilados: revisar en orden y ajustar las bases al integrarlos. No fusionar automáticamente. Render publica automáticamente los commits de `edo-trayectorias-isogonales-2026`; ninguna de las ramas de revisión debe sustituirla antes de la aprobación del expositor.
