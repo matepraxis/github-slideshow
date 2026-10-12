@@ -7,7 +7,7 @@ for(let phase=0;phase<=4;phase++){
  let state=M.initial({slide:1,phase});
  for(let i=0;i<22;i++){state=M.transition(state,{type:'navigate',delta:1});assert.equal(state.phase,phase);}
  for(let i=0;i<22;i++){state=M.transition(state,{type:'navigate',delta:-1});assert.equal(state.phase,phase);}
- state=M.transition(state,{type:'go',slide:14});assert.equal(state.phase,phase);
+ state=M.transition(state,{type:'go',slide:15});assert.equal(state.phase,phase);
  assert.deepEqual(M.initial(JSON.parse(JSON.stringify(state))),state);
 }
 assert.deepEqual(M.initial({slide:999,phase:-8}),{slide:M.slides.length-1,phase:0});

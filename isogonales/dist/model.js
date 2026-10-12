@@ -17,12 +17,21 @@ const slides=[
     "kind": "cover",
     "duration": 15,
     "body": [],
-    "notes": "Exposición de 20 minutos sin los complementos. El índice permite acceder a estos para preguntas. La animación original dura 95 segundos."
+    "notes": "Exposición de 20 minutos sin los complementos. El índice permite acceder a estos para preguntas. La animación original dura 95 segundos.",
+    "section": "Introducción"
+  },
+  {
+    "title": "Contenido de la exposición",
+    "kind": "agenda",
+    "duration": 30,
+    "body": [],
+    "notes": "Presentar la ruta: fundamentos geométricos, demostración, ejemplo, aplicación científica y conclusiones con referencias. Cada apartado es un botón que lleva a su primera diapositiva. Destinar aproximadamente treinta segundos.",
+    "section": "Introducción"
   },
   {
     "title": "Dos familias monoparamétricas",
     "kind": "theory",
-    "duration": 35,
+    "duration": 30,
     "body": [
       {
         "type": "text",
@@ -49,12 +58,13 @@ const slides=[
     ],
     "notes": "F representa la familia conocida, morada; H representa la buscada, verde. C y lambda son parámetros diferentes. La primera gráfica aislada del desarrollo matemático conserva un color anterior: aquí se unifican las etiquetas con la gráfica conjunta.",
     "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
-    "action": 0
+    "action": 0,
+    "section": "Fundamentos geométricos"
   },
   {
     "title": "Elegimos una curva de cada familia",
     "kind": "theory",
-    "duration": 35,
+    "duration": 30,
     "body": [
       {
         "type": "text",
@@ -73,12 +83,13 @@ const slides=[
       }
     ],
     "notes": "Se distinguen familia y curva particular sin escribir F(x,f(x),C0)=0 ni H(x,h(x),lambda0)=0. f conocida en morado y h buscada en verde.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Fundamentos geométricos"
   },
   {
     "title": "La curva conocida",
     "kind": "theory",
-    "duration": 35,
+    "duration": 30,
     "body": [
       {
         "type": "text",
@@ -98,12 +109,13 @@ const slides=[
     ],
     "notes": "En el gráfico conocido se usa una espiral; la familia buscada son círculos concéntricos. Esta elección reproduce la orientación creciente de f y decreciente de h del desarrollo matemático.",
     "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
-    "action": 1
+    "action": 1,
+    "section": "Fundamentos geométricos"
   },
   {
     "title": "La curva buscada",
     "kind": "theory",
-    "duration": 40,
+    "duration": 35,
     "body": [
       {
         "type": "text",
@@ -123,12 +135,13 @@ const slides=[
     ],
     "notes": "Compartir un punto no basta: debe mantenerse el ángulo al cortar todas las curvas de la familia conocida.",
     "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
-    "action": 2
+    "action": 2,
+    "section": "Fundamentos geométricos"
   },
   {
     "title": "¿Por qué trazamos las tangentes?",
     "kind": "theory",
-    "duration": 40,
+    "duration": 35,
     "body": [
       {
         "type": "text",
@@ -159,12 +172,13 @@ const slides=[
     ],
     "notes": "Justificar las rectas tangentes a partir de la interpretación geométrica de la derivada. Beta corresponde a la conocida, alpha a la buscada; gamma es su diferencia.",
     "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
-    "action": 3
+    "action": 3,
+    "section": "Fundamentos geométricos"
   },
   {
     "title": "El ángulo constante",
     "kind": "theory",
-    "duration": 40,
+    "duration": 35,
     "body": [
       {
         "type": "text",
@@ -184,7 +198,8 @@ const slides=[
     ],
     "notes": "No incluir la comprobación numérica 135=55+80; explicar únicamente la relación geométrica y orientar al punto P en la figura.",
     "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
-    "action": 4
+    "action": 4,
+    "section": "Fundamentos geométricos"
   },
   {
     "title": "Tangente de una diferencia",
@@ -222,7 +237,8 @@ const slides=[
       }
     ],
     "notes": "Aplicar la identidad de diferencia, no de suma. Las derivadas se evalúan en la intersección; se omite el subíndice para seguir la escritura del desarrollo matemático.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Demostración matemática"
   },
   {
     "title": "La derivada de la curva buscada",
@@ -256,7 +272,8 @@ const slides=[
       }
     ],
     "notes": "y prima corresponde ahora a la curva desconocida h. k es la tangente del ángulo entre las curvas, no la pendiente de una de ellas. Multiplicamos y distribuimos.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Demostración matemática"
   },
   {
     "title": "Agrupamos y despejamos",
@@ -286,7 +303,8 @@ const slides=[
       }
     ],
     "notes": "Sumamos f prima y restamos k en ambos lados; luego sacamos factor común f prima y dividimos por 1+k y prima cuando es no nulo. Este es el despeje marcado con una estrella en el desarrollo matemático.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Demostración matemática"
   },
   {
     "title": "De la familia a su EDO",
@@ -321,7 +339,8 @@ const slides=[
       }
     ],
     "notes": "Derivar respecto a x con C fijo y eliminar C. No crear p como notación adicional. El tercer argumento de G expresa la derivada conocida en notación de Leibniz.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Demostración matemática"
   },
   {
     "title": "EDO de las trayectorias isogonales",
@@ -359,7 +378,8 @@ const slides=[
       }
     ],
     "notes": "La flecha indica reemplazo de argumento, no igualdad de dos derivadas. En G se sustituye dy/dx de la conocida por (y'-k)/(1+ky') de la buscada.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Demostración matemática"
   },
   {
     "title": "Pendiente de la trayectoria",
@@ -397,7 +417,8 @@ const slides=[
       }
     ],
     "notes": "Es la misma relación, ahora despejada para resolver ejemplos. No se cambia de orientación: gamma=alpha-beta durante toda la presentación.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Demostración matemática"
   },
   {
     "title": "La relación que utilizaremos",
@@ -421,7 +442,8 @@ const slides=[
       }
     ],
     "notes": "Transición breve al ejemplo de rectas, y evitar introducciones ajenas al ejemplo.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Demostración matemática"
   },
   {
     "title": "Ejemplo: familia de rectas",
@@ -463,7 +485,8 @@ const slides=[
       }
     ],
     "notes": "Con C constante, la derivada de la recta conocida es dy/dx=C. Para x no nulo, despejamos C=y/x; eliminando el parámetro queda la EDO dy/dx=y/x. El punto P y la curva seleccionada se mantienen visibles.",
-    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Ejemplo desarrollado"
   },
   {
     "title": "Sustituimos la pendiente conocida",
@@ -505,7 +528,8 @@ const slides=[
       }
     ],
     "notes": "Durante la relación isogonal, y' nombra la pendiente desconocida. Solo tras sustituir f'(x)=y/x se cambia a notación dy/dx al resolver la EDO.",
-    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.8."
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.8.",
+    "section": "Ejemplo desarrollado"
   },
   {
     "title": "Sustitución homogénea",
@@ -547,7 +571,8 @@ const slides=[
       }
     ],
     "notes": "Aquí y' se representa por dy/dx para resolver. EDO homogénea: z=y/x, y=xz, regla del producto. ED 1.7 desarrolla este método.",
-    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas)."
+    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas).",
+    "section": "Ejemplo desarrollado"
   },
   {
     "title": "Reducimos a una sola fracción",
@@ -578,7 +603,8 @@ const slides=[
       }
     ],
     "notes": "Justificar el signo menos y la cancelación de z. Dominios locales.",
-    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas)."
+    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas).",
+    "section": "Ejemplo desarrollado"
   },
   {
     "title": "Integración a ambos lados",
@@ -631,7 +657,8 @@ const slides=[
       }
     ],
     "notes": "Revelar separacion, ecuación integral completa, descomposición y primitivas, manteniendo fracciones verticales \\dfrac en modo de exhibición.",
-    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas)."
+    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas).",
+    "section": "Ejemplo desarrollado"
   },
   {
     "title": "Regresamos a las variables originales",
@@ -662,7 +689,8 @@ const slides=[
       }
     ],
     "notes": "Recordar propiedad del logaritmo de un cociente y cancelación.",
-    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas)."
+    "source": "Trujillo Salazar (2026), ED 1.7 (método de EDO homogéneas).",
+    "section": "Ejemplo desarrollado"
   },
   {
     "title": "Pasamos a coordenadas polares",
@@ -697,7 +725,8 @@ const slides=[
       }
     ],
     "notes": "El ángulo polar es local y se prolonga por continuidad; A=e^C1 es positivo.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15.",
+    "section": "Ejemplo desarrollado"
   },
   {
     "title": "Verificamos el ángulo constante",
@@ -728,7 +757,8 @@ const slides=[
       }
     ],
     "notes": "La tangente polar tiene componente radial dr/dθ y transversal r.",
-    "source": "Piskunov, N. (1977), tomo II, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15.",
+    "section": "Ejemplo desarrollado"
   },
   {
     "title": "El ángulo constante en movimiento",
@@ -741,7 +771,8 @@ const slides=[
       }
     ],
     "notes": "Reproducir la animación propia completa de95 segundos. Señalar el radio, la tangente y la conservación del ángulo mientras se mueve el punto. El video no tiene audio, lo que permite explicarlo durante la reproducción. El video original se conserva; sus colores son los del material original, independientes de la leyenda de las gráficas interactivas.",
-    "source": "Animación original del expositor, 95 segundos"
+    "source": "Animación original del expositor, 95 segundos",
+    "section": "Ejemplo desarrollado"
   },
   {
     "title": "¿Qué problema resuelve la investigación?",
@@ -772,7 +803,8 @@ const slides=[
     ],
     "notes": "Describir primero el material compuesto, placa, matriz y fibras. Indicar que el artículo de 2017 desarrolla sistemas diferenciales de elasticidad lineal anisótropa no homogénea y analiza el tipo de sistemas por un método determinantal. No afirmar ensayos, resistencia mayor, reducción de masa ni mejoras cuantitativas no probadas. La limitación de refuerzo rectilíneo cerca de aberturas está descrita en la introducción del artículo de Feodorova (2019).",
     "source": "Galanin y Feodorova (2017), Preprint 33.",
-    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf"
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf",
+    "section": "Aplicación científica"
   },
   {
     "title": "De la geometría al diseño: figura 10",
@@ -802,7 +834,8 @@ const slides=[
     ],
     "notes": "Es una figura de la publicación de 2017, no una reconstrucción. Subrayar que la convención de parámetros del artículo debe interpretarse en su modelo; nuestra k=tan gamma fue definida en el ejemplo de la exposición y no implica que la k del artículo tenga el mismo significado. Referencia PDF página 10, figura 10.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 10.",
-    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10",
+    "section": "Aplicación científica"
   },
   {
     "title": "Diseño isogonal: figura 11 (k=2)",
@@ -828,7 +861,8 @@ const slides=[
     ],
     "notes": "Figura 11 original del preprint de 2017. Comparación geométrica cualitativa. No convertir el valor k del artículo en el ángulo de nuestras espirales ni afirmar mejor rendimiento mecánico.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 11.",
-    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10",
+    "section": "Aplicación científica"
   },
   {
     "title": "Diseño isogonal: figura 12 (k=3)",
@@ -854,7 +888,8 @@ const slides=[
     ],
     "notes": "Figura 12 original del preprint de 2017. Hacer explícito el hilo: trayectorias geométricas → direcciones de fibras → sistema diferencial que modela deformaciones.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 12.",
-    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10",
+    "section": "Aplicación científica"
   },
   {
     "title": "¿Qué obtuvieron matemáticamente?",
@@ -888,7 +923,8 @@ const slides=[
     ],
     "notes": "Tabla 1, página 16 del PDF original. Explicar que el estudio obtiene ODE para deformaciones; sus raíces características cambian con materiales/estructura y el parámetro del modelo. No inferir un resultado experimental sobre capacidad de carga.",
     "source": "Galanin y Feodorova (2017), tabla 1.",
-    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=16"
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=16",
+    "section": "Aplicación científica"
   },
   {
     "title": "Investigación posterior: Feodorova (2019)",
@@ -915,7 +951,8 @@ const slides=[
     ],
     "notes": "Basado en el resumen editorial del artículo 2019 (Materials Science Forum 945, 338–343). Es continuación temática de 2017, no sostener comparaciones cuantitativas que no constan en el resumen.",
     "source": "Feodorova (2019), Materials Science Forum, 945, 338–343.",
-    "referenceUrl": "https://doi.org/10.4028/www.scientific.net/MSF.945.338"
+    "referenceUrl": "https://doi.org/10.4028/www.scientific.net/MSF.945.338",
+    "section": "Aplicación científica"
   },
   {
     "title": "Complemento: familia hiperbólica",
@@ -954,7 +991,8 @@ const slides=[
     "notes": "Derivar el producto manteniendo C fijo. Eliminar C mediante x+C=1/y. Se mantiene la misma orientación gamma=alpha-beta de la demostración.",
     "source": "Ejemplo complementario: verificación algebraica propia.",
     "graph": "hyperbola",
-    "optional": true
+    "optional": true,
+    "section": "Complementos"
   },
   {
     "title": "Complemento: EDO e integración",
@@ -992,7 +1030,8 @@ const slides=[
     ],
     "notes": "La integración vale en intervalos que no contienen y=±1. El logaritmo de 1-y aporta un signo menos. Al dividir por 1-y² se pierden dos soluciones constantes, que se recuperan enseguida.",
     "source": "Ejemplo complementario: verificación algebraica propia.",
-    "optional": true
+    "optional": true,
+    "section": "Complementos"
   },
   {
     "title": "Complemento: soluciones constantes",
@@ -1024,7 +1063,8 @@ const slides=[
     ],
     "notes": "Estas soluciones se perderían al separar variables. En la curva original la pendiente es -1 cuando y=±1, así que la trayectoria horizontal forma 45 grados con ella.",
     "source": "Ejemplo complementario: verificación algebraica propia.",
-    "optional": true
+    "optional": true,
+    "section": "Complementos"
   },
   {
     "title": "Complemento: verificación en un punto",
@@ -1060,7 +1100,8 @@ const slides=[
     "notes": "Ambas curvas pasan por P. Las inclinaciones son aproximadamente beta=104,04 grados y alpha=149,04 grados. Su diferencia es 45 grados. La rama dibujada tiene y>1.",
     "source": "Ejemplo complementario: verificación algebraica propia.",
     "graph": "hyperbola-check",
-    "optional": true
+    "optional": true,
+    "section": "Complementos"
   },
   {
     "title": "Complemento: expansión radial",
@@ -1209,7 +1250,8 @@ const slides=[
     ],
     "notes": "Modelo geométrico complementario; no sustituye la aplicación indexada de trayectorias isogonales que aún debe elegirse. Raup1966 desarrolla un modelo geométrico de enrollamiento de conchas con varios parámetros. Aquí mostramos únicamente su componente de expansión radial. W=2 es una ilustración matemática, no mediciones de un organismo. b=ln2/(2π)≈0.1103 y el ángulo radio-tangente≈83.7°. No afirmar que toda concha sigue este modelo ni que se trata de la espiral áurea.",
     "source": "Raup (1966), pp. 1179–1181. Valores ilustrativos",
-    "optional": true
+    "optional": true,
+    "section": "Complementos"
   },
   {
     "title": "La construcción y la ecuación",
@@ -1236,23 +1278,27 @@ const slides=[
       }
     ],
     "notes": "Recuperar la idea central y permitir volver al diagrama con el índice si hay preguntas. No añadir nuevos resultados.",
-    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7.",
+    "section": "Conclusiones y referencias"
   },
   {
     "title": "Referencias",
     "kind": "references",
     "duration": 20,
     "body": [],
-    "notes": "La demostración fue elaborada para la exposición a partir de Piskunov. ED 1.8 aporta el marco de trayectorias isogonales y el procedimiento de derivación y eliminación del parámetro. ED 1.7 sustenta el método de EDO homogéneas y su integración. Galanin y Feodorova (2017) y Feodorova (2019) aportan el contexto científico de materiales."
+    "notes": "La demostración fue elaborada para la exposición a partir de Piskunov. ED 1.8 aporta el marco de trayectorias isogonales y el procedimiento de derivación y eliminación del parámetro. ED 1.7 sustenta el método de EDO homogéneas y su integración. Galanin y Feodorova (2017) y Feodorova (2019) aportan el contexto científico de materiales.",
+    "section": "Conclusiones y referencias"
   },
   {
     "title": "Gracias",
     "kind": "closing",
     "duration": 0,
     "body": [],
-    "notes": "Espacio para preguntas después de los20 minutos de exposición."
+    "notes": "Espacio para preguntas después de los20 minutos de exposición.",
+    "section": "Conclusiones y referencias"
   }
 ];
+const sections=[{"title":"Fundamentos geométricos","slide":2},{"title":"Demostración matemática","slide":8},{"title":"Ejemplo desarrollado","slide":15},{"title":"Aplicación científica","slide":24},{"title":"Conclusiones y referencias","slide":35}];
 const clamp=(value,max)=>Math.max(0,Math.min(max,Number.isFinite(Number(value))?Math.round(Number(value)):0));
 function initial(saved){return {slide:clamp(saved?.slide,slides.length-1),phase:clamp(saved?.phase,4)};}
 function transition(state,action){
@@ -1271,6 +1317,6 @@ const geometry={P:[3,3],A:[6,0],B:[3-3/Math.tan(beta),0],mf:Math.tan(beta),mh:-1
 const circlePoints=Array.from({length:160},(_,i)=>{const x=.15+4.075*i/159;return [x,Math.sqrt(18-x*x)];});
 const spiralPoints=Array.from({length:180},(_,i)=>{const t=Math.PI/4-.30+.4*i/179,r=Math.sqrt(18)*Math.exp(geometry.b*(t-Math.PI/4));return [r*Math.cos(t),r*Math.sin(t)];});
 const knownPoints=spiralPoints,soughtPoints=circlePoints;
-const api={slides,source,initial,transition,geometry,knownPoints,soughtPoints,degrees};
+const api={slides,sections,source,initial,transition,geometry,knownPoints,soughtPoints,degrees};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.PresentationModel=api;
 })(typeof globalThis==='undefined'?this:globalThis);

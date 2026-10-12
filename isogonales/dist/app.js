@@ -4,13 +4,19 @@ const M=globalThis.PresentationModel,$=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let saved;try{saved=JSON.parse(localStorage.getItem('uq-isogonales-v1')||'null');}catch(_){}
+// Migrar marcadores guardados de la versión anterior a la nueva diapositiva de contenido.
+if(saved&&saved.schema!==2&&Number.isInteger(saved.slide)&&saved.slide>=1)saved.slide+=1;
 let state=M.initial(saved);
 const blockCount=slide=>slide?.body?.length||0;
 const countFor=slide=>Math.max(1,blockCount(slide));
 let reveal=Math.max(1,Math.min(countFor(M.slides[state.slide]),Number.isFinite(+saved?.reveal)?Math.round(+saved.reveal):1));
-const radialSlide=index=>index>=14&&index<=21;
+const radialStart=M.slides.findIndex(s=>s.title==='Ejemplo: familia de rectas');
+const radialSlide=index=>index>=radialStart&&index<=radialStart+7;
 const exampleScenes=['Familia de rectas','Recta particular por P','Pendiente f de la recta','Tangente de la buscada','Sustitución z=y/x','Separación e integración','Retícula polar','Espiral logarítmica','Comprobación angular'];
-const defaultExamplePhase=(slide,step)=>slide===14?(step<=2?0:step<=4?1:2):slide===15?3:slide===16||slide===17?4:slide===18||slide===19?5:slide===20?6:slide===21?(step>=3?8:7):0;
+const defaultExamplePhase=(slide,step)=>{
+ const relative=slide-radialStart;
+ return relative===0?(step<=2?0:step<=4?1:2):relative===1?3:relative===2||relative===3?4:relative===4||relative===5?5:relative===6?6:relative===7?(step>=3?8:7):0;
+};
 let examplePhase=Number.isFinite(+saved?.examplePhase)?Math.max(0,Math.min(8,Math.round(+saved.examplePhase))):defaultExamplePhase(state.slide,reveal);
 let manualExampleStage=false;
 let familiesVisible=Boolean(saved?.familiesVisible);
@@ -18,7 +24,7 @@ const phaseNames=['Familias','Curva conocida y punto P','Segunda curva por P','R
 const phaseActions=['Mostrar las familias','Mostrar la curva conocida','Añadir la curva buscada','Trazar las tangentes','Mostrar los ángulos'];
 const colors={green:'#138e68',purple:'#774fc4',orange:'#bb650c',blue:'#1b65a4',gray:'#a2ada6',ink:'#343a38'};
 function renderMath(tex,display=true){return katex.renderToString(tex,{displayMode:display,throwOnError:true,strict:'error',trust:false,output:'htmlAndMathml'});}
-function prose(value){return escape(value).replace(/\\\((.*?)\\\)/g,(_,tex)=>renderMath(tex.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>'),false));}
+function prose(value){return escape(value).replace(/\\\((.*?)\\\)/g,(_,tex)=>renderMath(tex.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&#39;/g,"'").replace(/&quot;/g,'"'),false));}
 function bodyHTML(slide){return slide.body.map((b,i)=>'<div class="reveal-block" data-reveal-index="'+i+'"'+(i>=reveal?' hidden':'')+'>'+(b.type==='eq'?'<div class="equation '+escape(b.color||'')+(b.emphasis?' emphasis':'')+'">'+renderMath(b.tex||PresentationLatex.fromAST(b.ast))+'</div>':'<p>'+prose(b.value)+'</p>')+'</div>').join('');}
 function svgEl(tag,attrs={},text){const e=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));if(text!==undefined)e.textContent=text;return e;}
 const X=x=>35+58*x,Y=y=>360-58*y;
@@ -170,7 +176,7 @@ function syncReveal(){
  const s=M.slides[state.slide],total=blockCount(s);
  document.querySelectorAll('#slide-content [data-reveal-index]').forEach(e=>{
   const index=Number(e.getAttribute('data-reveal-index'));
-  e.hidden=index>=reveal||(state.slide===18&&index<Math.max(0,reveal-3));
+  e.hidden=index>=reveal||(state.slide===radialStart+4&&index<Math.max(0,reveal-3));
   e.classList.toggle('just-revealed',index===reveal-1&&index<reveal);
  });
  $('previous').disabled=state.slide===0&&reveal<=1;
@@ -182,11 +188,25 @@ function syncReveal(){
 function renderSlide(){
  const s=M.slides[state.slide],content=$('slide-content'),stage=$('stage');
  content.querySelectorAll('video').forEach(v=>v.pause());
- stage.className=radialSlide(state.slide)?'example-workspace'+(state.slide===18?' integral-focus':''):s.kind+(s.graph?' example':s.kind==='example'||s.kind==='recap'||s.kind==='references'?' wide':'');
- $('slide-title').textContent=s.title;$('geometry').hidden=s.kind!=='theory';$('example-geometry').hidden=!radialSlide(state.slide);$('source-line').textContent=s.source||'';
+ stage.className=radialSlide(state.slide)?'example-workspace'+(state.slide===radialStart+4?' integral-focus':''):s.kind+(s.graph?' example':s.kind==='example'||s.kind==='recap'||s.kind==='references'?' wide':'');
+ $('slide-title').textContent=s.title;
+ $('section-current').textContent=s.section&&s.kind!=='cover'&&s.kind!=='agenda'?s.section:'';
+ $('geometry').hidden=s.kind!=='theory';$('example-geometry').hidden=!radialSlide(state.slide);$('source-line').textContent=s.source||'';
  content.innerHTML='';
  if(s.kind==='cover'){
   content.innerHTML='<p class="cover-title">TRAYECTORIAS ISOGONALES</p><p class="cover-author">Diego Alejandro Marulanda<br>Maestría en Biomatemáticas</p><p class="cover-course">Ecuaciones Diferenciales<br>Docente: Carlos Andrés Trujillo Salazar</p>';
+ }else if(s.kind==='agenda'){
+  const list=document.createElement('ol');list.className='agenda-list';
+  M.sections.forEach((section,index)=>{
+   const li=document.createElement('li'),button=document.createElement('button');
+   button.type='button';button.className='agenda-link';
+   const count=document.createElement('span');count.className='agenda-counter';count.textContent=String(index+1).padStart(2,'0');
+   const title=document.createElement('span');title.textContent=section.title;
+   button.append(count,title);
+   button.addEventListener('click',()=>dispatch({type:'go',slide:section.slide}));
+   li.append(button);list.append(li);
+  });
+  content.append(list);
  }else if(s.kind==='closing')content.innerHTML='<p class="closing-title">Gracias</p><p>Preguntas y discusión</p>';
  else if(s.kind==='video'){
   const video=document.createElement('video');video.className='film';video.controls=true;video.playsInline=true;video.preload='metadata';video.src='assets/isogonales.mp4';video.setAttribute('aria-label','Animación de las trayectorias isogonales,95 segundos');content.append(video);const p=document.createElement('p');p.innerHTML=prose(s.body[0].value);content.append(p);
@@ -247,7 +267,7 @@ function dispatch(action){
   if(action.type==='toggle-families'){state.phase=0;familiesVisible=!familiesVisible;updateGeometry();}
   if(action.type==='example-phase'){examplePhase=Math.max(0,Math.min(8,Number(action.phase)||0));manualExampleStage=true;updateRadialExample();}
  }
- try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible}));}catch(_){}
+ try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible,schema:2}));}catch(_){}
 }
 function toggleDialog(id){const d=$(id);if(d.open)d.close();else d.showModal();}
 function fullscreen(){if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch(()=>{});}

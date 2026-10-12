@@ -4,7 +4,7 @@ Presentación web de Diego Alejandro Marulanda, Maestría en Biomatemáticas, Un
 
 ## Recorrido
 
-Presentación de 32 diapositivas principales, 5 complementarias opcionales y un tiempo sugerido de 20 minutos (incluye el video original de 95 segundos). El deslizador de geometría es persistente. El ejemplo `y=Cx` mantiene un segundo plano y un deslizador independiente desde las rectas hasta las espirales polares.
+Presentación de 33 diapositivas principales, 5 complementarias opcionales y un tiempo sugerido de 20 minutos (incluye el video original de 95 segundos). El deslizador de geometría es persistente. El ejemplo `y=Cx` mantiene un segundo plano y un deslizador independiente desde las rectas hasta las espirales polares.
 
 Las ecuaciones se revelan progresivamente. La integración se desarrolla en etapas: separación de variables → ecuación integral completa → descomposición → primitivas. El gráfico de la espiral se prolonga hacia el origen, al cual **se aproxima sin alcanzarlo**.
 
@@ -24,6 +24,10 @@ El desarrollo de la demostración es trabajo del expositor, fundamentado en Pisk
 Se presentan el problema de refuerzo de materiales compuestos, tres reconstrucciones matemáticas de las distribuciones radiales e isogonales para `k=1`, `k=2` y `k=3`, el tipo de resultado matemático en el preprint de 2017 y la continuidad del trabajo en 2019. Cada caso incluye un enlace al texto original.
 
 Las diapositivas de k=1, k=2 y k=3 presentan recortes de las **figuras originales 10, 11 y 12** del preprint de Galanin y Feodorova (2017), p. 10 del PDF, con atribución visible. Los demás gráficos de la aplicación son reconstrucciones matemáticas propias, distinguidas expresamente. Fuente: https://www.keldysh.ru/papers/2017/prep2017_33.pdf.
+
+## Tabla de contenido
+
+Después de la portada se muestra un índice interactivo con cinco secciones, enlazadas a su primera diapositiva. Cada lámina principal muestra un indicador discreto de la sección actual. El índice del panel inferior sigue ofreciendo navegación por todas las láminas. La ruta mantiene 20 minutos sugeridos.
 
 ## Uso
 
