@@ -430,37 +430,40 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "Hallar las trayectorias isogonales de la familia:"
+        "value": "Partimos de todas las rectas que pasan por el origen."
       },
       {
         "type": "eq",
         "tex": "y=Cx",
+        "alt": "y=Cx",
         "color": "purple",
-        "emphasis": false,
-        "alt": "y=Cx"
+        "emphasis": false
       },
       {
         "type": "text",
-        "value": "El ángulo constante es \\(\\gamma\\), con \\(k=\\tan\\gamma\\ne0\\)."
+        "value": "Elegimos \\(C_0=1\\): la recta \\(y=x\\) pasa por \\(P=(2,2)\\). Derivando respecto a \\(x\\), con \\(C\\) constante:"
       },
       {
         "type": "eq",
-        "tex": "f^{\\prime}(x)=C,\\qquad C=\\frac{y}{x}",
-        "color": "",
-        "emphasis": false,
-        "alt": "f^{\\prime}(x)=C,\\qquad C=\\frac{y}{x}"
-      },
-      {
-        "type": "eq",
-        "tex": "f^{\\prime}(x)=\\frac{y}{x},\\qquad x\\ne0",
+        "tex": "f^{\\prime}(x)=C",
+        "alt": "f^{\\prime}(x)=C",
         "color": "purple",
-        "emphasis": true,
-        "alt": "f^{\\prime}(x)=\\frac{y}{x},\\qquad x\\ne0"
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Dividiendo ambos miembros de \\(y=Cx\\) entre \\(x\\) (\\(x\\ne0\\)) y eliminando el parámetro:"
+      },
+      {
+        "type": "eq",
+        "tex": "f^{\\prime}(x)=\\frac yx",
+        "alt": "f^{\\prime}(x)=\\frac yx",
+        "color": "purple",
+        "emphasis": true
       }
     ],
-    "notes": "Primero derivamos con C fijo; luego despejamos C en la ecuación de la familia y lo eliminamos. El ángulo se llama gamma, corrigiendo el alpha aislado del enunciado manuscrito. El caso k=0 da la misma familia de rectas. El caso ortogonal da círculos.",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15.",
-    "graph": "rays"
+    "notes": "Derivamos con C constante. x no debe ser cero al dividir. La recta C0=1 pasa por P=(2,2).",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
   },
   {
     "title": "Sustituimos la pendiente conocida",
@@ -468,35 +471,29 @@ const slides=[
     "duration": 55,
     "body": [
       {
-        "type": "eq",
-        "tex": "f^{\\prime}(x)=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}",
-        "color": "",
-        "emphasis": false,
-        "alt": "f^{\\prime}(x)=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}"
+        "type": "text",
+        "value": "Usamos la relación entre las pendientes demostrada antes, con \\(k=\\tan\\gamma\\)."
       },
       {
         "type": "eq",
         "tex": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
-        "color": "",
-        "emphasis": false,
-        "alt": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}"
+        "alt": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
+        "color": "green",
+        "emphasis": false
       },
       {
-        "type": "eq",
-        "tex": "y^{\\prime}=\\frac{\\frac{y}{x}+k}{1-k\\frac{y}{x}}",
-        "color": "",
-        "emphasis": false,
-        "alt": "y^{\\prime}=\\frac{\\frac{y}{x}+k}{1-k\\frac{y}{x}}"
+        "type": "text",
+        "value": "Sustituyendo \\(f^{\\prime}=y/x\\) y multiplicando numerador y denominador por \\(x\\):"
       },
       {
         "type": "eq",
         "tex": "y^{\\prime}=\\frac{y+kx}{x-ky}",
+        "alt": "y^{\\prime}=\\frac{y+kx}{x-ky}",
         "color": "green",
-        "emphasis": true,
-        "alt": "y^{\\prime}=\\frac{y+kx}{x-ky}"
+        "emphasis": true
       }
     ],
-    "notes": "La orientación es la misma que en la demostración. Multiplicar numerador y denominador por x permite reconocer la EDO homogénea. No confundir un denominador cero con ausencia de trayectoria.",
+    "notes": "Usamos la orientación de la demostración y multiplicamos arriba y abajo por x.",
     "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
   },
   {
@@ -505,35 +502,29 @@ const slides=[
     "duration": 55,
     "body": [
       {
-        "type": "eq",
-        "tex": "z=\\frac{y}{x}\\quad\\Longrightarrow\\quad y=xz",
-        "color": "",
-        "emphasis": false,
-        "alt": "z=\\frac{y}{x}\\quad\\Longrightarrow\\quad y=xz"
+        "type": "text",
+        "value": "La EDO es homogénea. Aplicamos la sustitución \\(z=\\frac yx\\)."
       },
       {
         "type": "eq",
-        "tex": "\\frac{dy}{dx}=z+x\\frac{dz}{dx}",
-        "color": "",
-        "emphasis": false,
-        "alt": "\\frac{dy}{dx}=z+x\\frac{dz}{dx}"
+        "tex": "y=xz,\\qquad y^{\\prime}=z+x\\frac{dz}{dx}",
+        "alt": "y=xz,\\qquad y^{\\prime}=z+x\\frac{dz}{dx}",
+        "color": "purple",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Sustituyendo \\(y=xz\\) y \\(y^{\\prime}\\) en la ecuación diferencial:"
       },
       {
         "type": "eq",
         "tex": "z+x\\frac{dz}{dx}=\\frac{z+k}{1-kz}",
-        "color": "",
-        "emphasis": false,
-        "alt": "z+x\\frac{dz}{dx}=\\frac{z+k}{1-kz}"
-      },
-      {
-        "type": "eq",
-        "tex": "x\\frac{dz}{dx}=\\frac{z+k}{1-kz}-z",
-        "color": "",
-        "emphasis": false,
-        "alt": "x\\frac{dz}{dx}=\\frac{z+k}{1-kz}-z"
+        "alt": "z+x\\frac{dz}{dx}=\\frac{z+k}{1-kz}",
+        "color": "green",
+        "emphasis": true
       }
     ],
-    "notes": "Usar z, como en el manuscrito. Al derivar y=xz aplicamos la regla del producto y z depende de x.",
+    "notes": "Aplicamos y=xz y la regla del producto, pues z depende de x.",
     "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
   },
   {
@@ -542,28 +533,29 @@ const slides=[
     "duration": 55,
     "body": [
       {
-        "type": "eq",
-        "tex": "x\\frac{dz}{dx}=\\frac{z+k-z(1-kz)}{1-kz}",
-        "color": "",
-        "emphasis": false,
-        "alt": "x\\frac{dz}{dx}=\\frac{z+k-z(1-kz)}{1-kz}"
+        "type": "text",
+        "value": "Restando \\(z\\) a ambos lados y usando el mismo denominador:"
       },
       {
         "type": "eq",
-        "tex": "x\\frac{dz}{dx}=\\frac{z+k-z+kz^2}{1-kz}",
-        "color": "",
-        "emphasis": false,
-        "alt": "x\\frac{dz}{dx}=\\frac{z+k-z+kz^2}{1-kz}"
+        "tex": "x\\frac{dz}{dx}=\\frac{z+k-z(1-kz)}{1-kz}",
+        "alt": "x\\frac{dz}{dx}=\\frac{z+k-z(1-kz)}{1-kz}",
+        "color": "green",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Distribuyendo el signo menos y reduciendo términos semejantes:"
       },
       {
         "type": "eq",
         "tex": "x\\frac{dz}{dx}=\\frac{k(1+z^2)}{1-kz}",
+        "alt": "x\\frac{dz}{dx}=\\frac{k(1+z^2)}{1-kz}",
         "color": "green",
-        "emphasis": true,
-        "alt": "x\\frac{dz}{dx}=\\frac{k(1+z^2)}{1-kz}"
+        "emphasis": true
       }
     ],
-    "notes": "Mostrar la distribución del signo menos y la cancelación de z. Se trabaja localmente donde x y los denominadores no son nulos.",
+    "notes": "Justificar el signo menos y la cancelación de z. Dominios locales.",
     "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
   },
   {
@@ -572,28 +564,29 @@ const slides=[
     "duration": 55,
     "body": [
       {
-        "type": "eq",
-        "tex": "\\frac{dx}{x}=\\frac{1}{k}\\frac{1-kz}{1+z^2}\\,dz",
-        "color": "",
-        "emphasis": false,
-        "alt": "\\frac{dx}{x}=\\frac{1}{k}\\frac{1-kz}{1+z^2}\\,dz"
+        "type": "text",
+        "value": "Dividiendo ambos lados entre los factores correspondientes y separando \\(x\\) de \\(z\\):"
       },
       {
         "type": "eq",
-        "tex": "\\int\\frac{dx}{x}=\\frac1k\\int\\frac{dz}{1+z^2}-\\int\\frac{z\\,dz}{1+z^2}",
-        "color": "",
-        "emphasis": false,
-        "alt": "\\int\\frac{dx}{x}=\\frac1k\\int\\frac{dz}{1+z^2}-\\int\\frac{z\\,dz}{1+z^2}"
+        "tex": "\\frac{dx}{x}=\\frac1k\\frac{1-kz}{1+z^2}\\,dz",
+        "alt": "\\frac{dx}{x}=\\frac1k\\frac{1-kz}{1+z^2}\\,dz",
+        "color": "green",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Integrando ambos miembros; \\(\\int\\frac{dz}{1+z^2}=\\arctan z\\) y usando \\(u=1+z^2\\):"
       },
       {
         "type": "eq",
         "tex": "\\ln|x|=\\frac1k\\arctan z-\\frac12\\ln(1+z^2)+C_1",
+        "alt": "\\ln|x|=\\frac1k\\arctan z-\\frac12\\ln(1+z^2)+C_1",
         "color": "green",
-        "emphasis": true,
-        "alt": "\\ln|x|=\\frac1k\\arctan z-\\frac12\\ln(1+z^2)+C_1"
+        "emphasis": true
       }
     ],
-    "notes": "La primera integral es arctangente. Para la segunda usamos u=1+z², du=2z dz, por eso aparece 1/2. El argumento 1+z² es positivo.",
+    "notes": "Separamos, integramos y explicamos la primitiva de z/(1+z²).",
     "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
   },
   {
@@ -602,28 +595,29 @@ const slides=[
     "duration": 55,
     "body": [
       {
-        "type": "eq",
-        "tex": "\\ln|x|=\\frac1k\\arctan\\left(\\frac yx\\right)-\\frac12\\ln\\left(1+\\frac{y^2}{x^2}\\right)+C_1",
-        "color": "",
-        "emphasis": false,
-        "alt": "\\ln|x|=\\frac1k\\arctan\\left(\\frac yx\\right)-\\frac12\\ln\\left(1+\\frac{y^2}{x^2}\\right)+C_1"
+        "type": "text",
+        "value": "Volviendo a las variables originales mediante \\(z=\\frac yx\\):"
       },
       {
         "type": "eq",
-        "tex": "\\ln\\left(\\frac{x^2+y^2}{x^2}\\right)=\\ln(x^2+y^2)-2\\ln|x|",
-        "color": "",
-        "emphasis": false,
-        "alt": "\\ln\\left(\\frac{x^2+y^2}{x^2}\\right)=\\ln(x^2+y^2)-2\\ln|x|"
+        "tex": "\\ln|x|=\\frac1k\\arctan\\left(\\frac yx\\right)-\\frac12\\ln\\left(1+\\frac{y^2}{x^2}\\right)+C_1",
+        "alt": "\\ln|x|=\\frac1k\\arctan\\left(\\frac yx\\right)-\\frac12\\ln\\left(1+\\frac{y^2}{x^2}\\right)+C_1",
+        "color": "green",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Aplicando las propiedades de los logaritmos y cancelando \\(\\ln|x|\\) a ambos lados:"
       },
       {
         "type": "eq",
         "tex": "\\frac12\\ln(x^2+y^2)=\\frac1k\\arctan\\left(\\frac yx\\right)+C_1",
+        "alt": "\\frac12\\ln(x^2+y^2)=\\frac1k\\arctan\\left(\\frac yx\\right)+C_1",
         "color": "green",
-        "emphasis": true,
-        "alt": "\\frac12\\ln(x^2+y^2)=\\frac1k\\arctan\\left(\\frac yx\\right)+C_1"
+        "emphasis": true
       }
     ],
-    "notes": "Sustituimos z=y/x. Al usar el logaritmo del cociente aparece +ln|x| a la derecha y se cancela con el de la izquierda. La constante no es el parámetro C de las rectas.",
+    "notes": "Recordar propiedad del logaritmo de un cociente y cancelación.",
     "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
   },
   {
@@ -632,35 +626,33 @@ const slides=[
     "duration": 55,
     "body": [
       {
-        "type": "eq",
-        "tex": "r=\\sqrt{x^2+y^2},\\qquad \\theta=\\arctan\\left(\\frac yx\\right)",
-        "color": "",
-        "emphasis": false,
-        "alt": "r=\\sqrt{x^2+y^2},\\qquad \\theta=\\arctan\\left(\\frac yx\\right)"
+        "type": "text",
+        "value": "En una rama angular continua, sustituimos \\(r=\\sqrt{x^2+y^2}\\) y \\(\\theta=\\arctan(y/x)\\)."
       },
       {
         "type": "eq",
         "tex": "\\ln r=\\frac{\\theta}{k}+C_1",
-        "color": "",
-        "emphasis": false,
-        "alt": "\\ln r=\\frac{\\theta}{k}+C_1"
+        "alt": "\\ln r=\\frac{\\theta}{k}+C_1",
+        "color": "green",
+        "emphasis": false
       },
       {
-        "type": "eq",
-        "tex": "r=e^{C_1}e^{\\theta/k}",
-        "color": "",
-        "emphasis": false,
-        "alt": "r=e^{C_1}e^{\\theta/k}"
+        "type": "text",
+        "value": "Exponenciando ambos lados y escribiendo \\(A=e^{C_1}>0\\):"
       },
       {
         "type": "eq",
         "tex": "r=Ae^{\\theta/k},\\qquad A>0",
+        "alt": "r=Ae^{\\theta/k},\\qquad A>0",
         "color": "green",
-        "emphasis": true,
-        "alt": "r=Ae^{\\theta/k},\\qquad A>0"
+        "emphasis": true
+      },
+      {
+        "type": "text",
+        "value": "Ahora la gráfica abandona la retícula cartesiana y utiliza coordenadas polares."
       }
     ],
-    "notes": "La igualdad theta=arctan(y/x) usa una rama local. Luego prolongamos el ángulo polar continuamente. Se toma r>0 y A=e^{C1}. Así obtenemos la familia de espirales logarítmicas.",
+    "notes": "El ángulo polar es local y se prolonga por continuidad; A=e^C1 es positivo.",
     "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
   },
   {
@@ -669,31 +661,30 @@ const slides=[
     "duration": 55,
     "body": [
       {
+        "type": "text",
+        "value": "Comprobamos que la curva verde corta cada recta radial con el mismo ángulo."
+      },
+      {
         "type": "eq",
-        "tex": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad\\frac{dr}{d\\theta}=\\frac r k",
-        "color": "",
-        "emphasis": false,
-        "alt": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad\\frac{dr}{d\\theta}=\\frac r k"
+        "tex": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad \\frac{dr}{d\\theta}=\\frac r k",
+        "alt": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad \\frac{dr}{d\\theta}=\\frac r k",
+        "color": "green",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Dividiendo la componente transversal \\(r\\) entre la radial \\(dr/d\\theta\\):"
       },
       {
         "type": "eq",
         "tex": "\\tan\\gamma=\\frac{r}{dr/d\\theta}=k",
+        "alt": "\\tan\\gamma=\\frac{r}{dr/d\\theta}=k",
         "color": "orange",
-        "emphasis": true,
-        "alt": "\\tan\\gamma=\\frac{r}{dr/d\\theta}=k"
-      },
-      {
-        "type": "text",
-        "value": "Para la gráfica tomamos \\(\\gamma=80^\\circ\\)."
-      },
-      {
-        "type": "text",
-        "value": "La recta radial y la tangente a la espiral conservan el ángulo."
+        "emphasis": true
       }
     ],
-    "notes": "En coordenadas polares el vector tangente tiene componente radial dr/dtheta y componente perpendicular r. Su cociente da la tangente del ángulo con el radio. La gráfica usa A=1,7 y una orientación positiva.",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15.",
-    "graph": "spiral"
+    "notes": "La tangente polar tiene componente radial dr/dθ y transversal r.",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
   },
   {
     "title": "El ángulo constante en movimiento",
