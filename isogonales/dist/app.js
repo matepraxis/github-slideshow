@@ -8,6 +8,11 @@ let state=M.initial(saved);
 const blockCount=slide=>slide?.body?.length||0;
 const countFor=slide=>Math.max(1,blockCount(slide));
 let reveal=Math.max(1,Math.min(countFor(M.slides[state.slide]),Number.isFinite(+saved?.reveal)?Math.round(+saved.reveal):1));
+const radialSlide=index=>index>=14&&index<=21;
+const exampleScenes=['Familia de rectas','Recta particular por P','Pendiente f de la recta','Tangente de la buscada','Sustitución z=y/x','Separación e integración','Retícula polar','Espiral logarítmica','Comprobación angular'];
+const defaultExamplePhase=(slide,step)=>slide===14?(step<=2?0:step<=4?1:2):slide===15?3:slide===16||slide===17?4:slide===18||slide===19?5:slide===20?6:slide===21?(step>=3?8:7):0;
+let examplePhase=Number.isFinite(+saved?.examplePhase)?Math.max(0,Math.min(8,Math.round(+saved.examplePhase))):defaultExamplePhase(state.slide,reveal);
+let manualExampleStage=false;
 const phaseNames=['Familias','Curva conocida y punto P','Segunda curva por P','Rectas tangentes','Triángulo y ángulos'];
 const phaseActions=['Mostrar las familias','Mostrar la curva conocida','Añadir la curva buscada','Trazar las tangentes','Mostrar los ángulos'];
 const colors={green:'#138e68',purple:'#774fc4',orange:'#bb650c',blue:'#1b65a4',gray:'#a2ada6',ink:'#343a38'};
@@ -46,6 +51,49 @@ function updateGeometry(){
  document.querySelectorAll('#geometry-svg [data-stage]').forEach(e=>{const hide=Number(e.dataset.stage)>state.phase;e.classList.toggle('is-hidden',hide);e.setAttribute('aria-hidden',hide);});
  $('geometry-desc').textContent='Etapa '+state.phase+' de cuatro. '+phaseNames[state.phase]+'. La curva conocida es morada y la curva buscada es verde. En la etapa final, α es el ángulo exterior de un triángulo y equivale a β más γ.';
 }
+
+function buildRadialExample(){
+ const svg=$('example-svg'),sx=x=>260+43*x,sy=y=>214-43*y;
+ const plot=pts=>pts.map((p,i)=>(i?'L':'M')+sx(p[0]).toFixed(2)+','+sy(p[1]).toFixed(2)).join(' ');
+ const group=(from,until)=>{const g=svgEl('g',{'data-e-from':from,'data-e-until':until,class:'example-layer'});svg.append(g);return g;};
+ const path=(g,pts,color,width=2,dash='')=>g.append(svgEl('path',{d:plot(pts),stroke:color,fill:'none','stroke-width':width,'stroke-dasharray':dash,'clip-path':'url(#example-plot-clip)'}));
+ const label=(g,txt,x,y,color=colors.ink)=>g.append(svgEl('text',{x:sx(x),y:sy(y),fill:color,class:'example-label'},txt));
+ const defs=svgEl('defs'),clip=svgEl('clipPath',{id:'example-plot-clip'});clip.append(svgEl('rect',{x:22,y:14,width:478,height:403}));defs.append(clip);svg.append(defs);
+ const cart=group(0,5);
+ for(let i=-5;i<=5;i++){path(cart,[[-5.45,i],[5.45,i]],'#e2eae5',.75);path(cart,[[i,-4.5],[i,4.5]],'#e2eae5',.75);}
+ path(cart,[[-5.45,0],[5.45,0]],'#8b9d93',1.7);path(cart,[[0,-4.5],[0,4.5]],'#8b9d93',1.7);label(cart,'x',5.25,-.35);label(cart,'y',.25,4.45);
+ const polar=group(6,8);
+ for(let i=1;i<=5;i++)polar.append(svgEl('circle',{cx:sx(0),cy:sy(0),r:43*i,stroke:'#e2eae5',fill:'none','stroke-width':1}));
+ for(let i=0;i<12;i++){const a=i*Math.PI/6;path(polar,[[0,0],[5.6*Math.cos(a),5.6*Math.sin(a)]],'#e2eae5',1);}
+ label(polar,'r',4.5,-.4);label(polar,'θ',1.6,.75,colors.orange);
+ const rays=group(0,8);
+ for(let i=0;i<12;i++){const a=i*Math.PI/12;path(rays,[[-5.8*Math.cos(a),-5.8*Math.sin(a)],[5.8*Math.cos(a),5.8*Math.sin(a)]],colors.purple,1.45,'5 5');}
+ const chosen=group(1,8);path(chosen,[[-5,-5],[5,5]],colors.purple,3.6);label(chosen,'f',3.4,3.75,colors.purple);
+ const marker=group(1,8);marker.append(svgEl('circle',{cx:sx(2),cy:sy(2),r:5,fill:colors.ink,stroke:'#fff','stroke-width':2}));label(marker,'P',2.22,2.33);
+ const knownTangent=group(2,8);path(knownTangent,[[.65,.65],[3.5,3.5]],colors.purple,3);
+ const k=Math.tan(80*Math.PI/180),t0=Math.PI/4,r0=Math.sqrt(8),b=1/k;
+ const spiral=t=>{const r=r0*Math.exp(b*(t-t0));return [r*Math.cos(t),r*Math.sin(t)];};
+ const tang=group(3,8),m=(1+k)/(1-k);
+ path(tang,[[2-.72,2-.72*m],[2+.72,2+.72*m]],colors.green,3.3,'7 4');
+ const partial=group(5,6);path(partial,Array.from({length:90},(_,i)=>spiral(t0-.62+i*1.24/89)),colors.green,3.5);
+ const full=group(7,8);path(full,Array.from({length:480},(_,i)=>spiral(-3.8+i*7.6/479)),colors.green,3.7);
+ const arc=group(8,8);
+ path(arc,Array.from({length:50},(_,i)=>{const a=(45+80*i/49)*Math.PI/180;return [2+.54*Math.cos(a),2+.54*Math.sin(a)];}),colors.orange,3.5);
+ label(arc,'γ=80°',.62,3.02,colors.orange);
+ label(group(0,8),'O',.13,-.34);
+}
+function updateRadialExample(){
+ if(!radialSlide(state.slide))return;
+ $('example-phase').value=examplePhase;
+ $('example-phase-value').textContent=examplePhase+' de 8';
+ $('example-phase-caption').textContent=exampleScenes[examplePhase];
+ $('example-description').textContent='Paso '+examplePhase+' de 8: '+exampleScenes[examplePhase]+'. Morado: rectas conocidas; verde: trayectoria isogonal.';
+ document.querySelectorAll('#example-svg [data-e-from]').forEach(g=>{
+  const hide=examplePhase<Number(g.getAttribute('data-e-from'))||examplePhase>Number(g.getAttribute('data-e-until'));
+  g.classList.toggle('is-hidden',hide);g.setAttribute('aria-hidden',hide);
+ });
+}
+
 function exampleSVG(kind){
  const svg=svgEl('svg',{viewBox:'0 0 440 440',class:'example-svg',role:'img','aria-label':kind==='biology'?'Espiral logarítmica con radios de10,20y40milímetros':kind.startsWith('hyperbola')?'Curva de la familia hiperbólica y trayectoria que se cortan en el punto0,2': 'Rectas radiales y espiral logarítmica con ángulo80grados'});
  let range=kind==='biology'?45:kind.startsWith('hyperbola')?3.25:6;
@@ -74,6 +122,7 @@ function exampleSVG(kind){
 }
 let slideAnimation;
 function syncReveal(){
+ if(radialSlide(state.slide)&&!manualExampleStage){examplePhase=defaultExamplePhase(state.slide,reveal);updateRadialExample();}
  const s=M.slides[state.slide],total=blockCount(s);
  document.querySelectorAll('#slide-content [data-reveal-index]').forEach(e=>{
   const index=Number(e.getAttribute('data-reveal-index'));
@@ -89,8 +138,8 @@ function syncReveal(){
 function renderSlide(){
  const s=M.slides[state.slide],content=$('slide-content'),stage=$('stage');
  content.querySelectorAll('video').forEach(v=>v.pause());
- stage.className=s.kind+(s.graph?' example':s.kind==='example'||s.kind==='recap'||s.kind==='references'?' wide':'');
- $('slide-title').textContent=s.title;$('geometry').hidden=s.kind!=='theory';$('source-line').textContent=s.source||'';
+ stage.className=radialSlide(state.slide)?'example-workspace':s.kind+(s.graph?' example':s.kind==='example'||s.kind==='recap'||s.kind==='references'?' wide':'');
+ $('slide-title').textContent=s.title;$('geometry').hidden=s.kind!=='theory';$('example-geometry').hidden=!radialSlide(state.slide);$('source-line').textContent=s.source||'';
  content.innerHTML='';
  if(s.kind==='cover'){
   content.innerHTML='<p class="cover-title">TRAYECTORIAS ISOGONALES</p><p class="cover-author">Diego Alejandro Marulanda<br>Maestría en Biomatemáticas</p><p class="cover-course">Ecuaciones Diferenciales<br>Docente: Carlos Andrés Trujillo Salazar</p>';
@@ -99,7 +148,7 @@ function renderSlide(){
   const video=document.createElement('video');video.className='film';video.controls=true;video.playsInline=true;video.preload='metadata';video.src='assets/isogonales.mp4';video.setAttribute('aria-label','Animación de las trayectorias isogonales,95 segundos');content.append(video);const p=document.createElement('p');p.innerHTML=prose(s.body[0].value);content.append(p);
  }else if(s.kind==='references'){
   content.innerHTML='<div class="references"><p><a href="https://es.scribd.com/document/728964611/N-Piskunov-Calculo-Diferencial-e-Integral-Tomo-II-Editorial-Mir-1977-Esp" target="_blank" rel="noopener">Piskunov, N. (1977). <i>Cálculo diferencial e integral</i>, tomo II.</a><span class="ref-detail">Mir. § 15, pp. 48–53. Fuente principal del desarrollo.</span></p><p><a href="https://es.scribd.com/document/233056262/Ecuaciones-Diferenciales-Jaime-Escobar" target="_blank" rel="noopener">Escobar A., J. (s. f.). <i>Ecuaciones diferenciales con aplicaciones en Maple.</i></a><span class="ref-detail">Universidad de Antioquia. § 3.1.1, pp. 49–51.</span></p><p>Trujillo Salazar, C. A. (2026). <i>ED 1.8.</i><span class="ref-detail">Apuntes del curso. Universidad del Quindío.</span></p><p><a href="https://doi.org/10.2307/1301992" target="_blank" rel="noopener">Raup, D. M. (1966). Geometric analysis of shell coiling: General problems.</a><span class="ref-detail"><i>Journal of Paleontology, 40</i>(5), 1178–1190.</span></p></div>';
- }else if(s.graph){
+ }else if(s.graph&&!radialSlide(state.slide)){
   const graph=document.createElement('div');graph.className='example-graph';graph.append(exampleSVG(s.graph));
   const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
   const copy=document.createElement('div');copy.className='example-copy';copy.innerHTML=bodyHTML(s);content.append(graph,copy);
@@ -118,23 +167,25 @@ function dispatch(action){
  if(action.type==='step'){
   const direction=Math.sign(action.delta);
   const total=countFor(M.slides[state.slide]);
-  if(direction>0&&reveal<total){reveal++;syncReveal();}
-  else if(direction<0&&reveal>1){reveal--;syncReveal();}
+  if(direction>0&&reveal<total){reveal++;manualExampleStage=false;syncReveal();}
+  else if(direction<0&&reveal>1){reveal--;manualExampleStage=false;syncReveal();}
   else {
    state=M.transition(state,{type:'navigate',delta:direction});
-   if(state.slide!==previous.slide){reveal=direction<0?countFor(M.slides[state.slide]):1;renderSlide();}
+   if(state.slide!==previous.slide){reveal=direction<0?countFor(M.slides[state.slide]):1;manualExampleStage=false;renderSlide();}
   }
  }else{
   state=M.transition(state,action);
-  if(state.slide!==previous.slide){reveal=action.type==='navigate'&&action.delta<0?countFor(M.slides[state.slide]):1;renderSlide();}
+  if(state.slide!==previous.slide){reveal=action.type==='navigate'&&action.delta<0?countFor(M.slides[state.slide]):1;manualExampleStage=false;renderSlide();}
   if(state.phase!==previous.phase)updateGeometry();
+  if(action.type==='example-phase'){examplePhase=Math.max(0,Math.min(8,Number(action.phase)||0));manualExampleStage=true;updateRadialExample();}
  }
- try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal}));}catch(_){}
+ try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase}));}catch(_){}
 }
 function toggleDialog(id){const d=$(id);if(d.open)d.close();else d.showModal();}
 function fullscreen(){if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch(()=>{});}
 document.querySelector('.family-legend').innerHTML='<span class="purple">'+renderMath('F(x,y,C)=0',false)+'</span><span class="green">'+renderMath('H(x,y,\\lambda)=0',false)+'</span>';
-buildGeometry();updateGeometry();
+buildGeometry();updateGeometry();buildRadialExample();updateRadialExample();
+$('example-phase').addEventListener('input',e=>dispatch({type:'example-phase',phase:e.target.value}));
 M.slides.forEach((s,i)=>{const li=document.createElement('li'),b=document.createElement('button');b.textContent=s.title+(s.optional?' · opcional':'');b.addEventListener('click',()=>{dispatch({type:'go',slide:i});$('contents').close();});li.append(b);$('contents-list').append(li);});
 $('phase').addEventListener('input',e=>dispatch({type:'phase',phase:e.target.value}));$('previous').addEventListener('click',()=>dispatch({type:'step',delta:-1}));$('next').addEventListener('click',()=>dispatch({type:'step',delta:1}));$('index').addEventListener('click',()=>toggleDialog('contents'));$('notes-button').addEventListener('click',()=>toggleDialog('notes'));$('fullscreen').addEventListener('click',fullscreen);
 document.addEventListener('keydown',e=>{
