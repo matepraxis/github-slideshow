@@ -42,7 +42,7 @@ jobs:
       - name: Recuperar página original del estudio de 2017
         run: |
           python3 -m venv /tmp/edoref
-          /tmp/edoref/bin/pip -q install pymupdf
+          /tmp/edoref/bin/pip -q install pymupdf pillow
           /tmp/edoref/bin/python - <<'PY'
           import fitz, urllib.request, os, ssl
           url='https://www.keldysh.ru/papers/2017/prep2017_33.pdf'
@@ -63,6 +63,16 @@ jobs:
           print('Referencia original:', len(doc),'páginas; página 10:', page.rect)
           os.makedirs('isogonales/screenshots',exist_ok=True)
           page.get_pixmap(matrix=fitz.Matrix(2,2),alpha=False).save('isogonales/screenshots/07-original-articulo-p10.png')
+          from PIL import Image
+          from io import BytesIO
+          import base64
+          image=Image.open('isogonales/screenshots/07-original-articulo-p10.png')
+          rectangles={10:(258,1257,515,1537),11:(512,1257,717,1537),12:(707,1257,942,1537)}
+          for number,rect in rectangles.items():
+              crop=image.crop(rect)
+              output=BytesIO()
+              crop.save(output,'WEBP',quality=94,method=6)
+              print('GALANIN_ORIGINAL_FIG_'+str(number)+'='+base64.b64encode(output.getvalue()).decode('ascii'))
           PY
       - name: Guardar capturas para revisión humana
         uses: actions/upload-artifact@v4
