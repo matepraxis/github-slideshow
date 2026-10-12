@@ -68,3 +68,10 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 #stage.integral-focus #slide-content .equation.emphasis{border-block:2px solid #d7e6dd;padding-block:10px!important}
 @media(max-width:760px){#stage.integral-focus #layout{display:flex;flex-direction:column}
 #stage.integral-focus #slide-content .equation{font-size:clamp(19px,4.5vw,27px)}}
+
+/* Bibliografía completa y enlaces a documentos científicos. */
+.references{gap:clamp(7px,.9cqw,12px);font-size:clamp(14px,1.27cqw,19px);line-height:1.26}
+.references .ref-detail{margin-top:2px;line-height:1.25}
+.paper-link{display:inline-block;margin-top:8px;color:#1b65a4;font-size:clamp(12px,1.1cqw,16px);text-underline-offset:3px}
+#stage.example .graph-caption{max-width:100%;font-size:clamp(11px,.98cqw,14px)}
+@media(max-width:760px){.references{font-size:16px;gap:13px}.paper-link{font-size:14px}}
