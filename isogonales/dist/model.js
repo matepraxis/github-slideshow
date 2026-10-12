@@ -408,7 +408,7 @@ const slides=[
         "value": "Primero obtenemos \\(f^{\\prime}\\) de la familia dada; después sustituimos y resolvemos la EDO de la familia buscada."
       }
     ],
-    "notes": "Transición breve al ejemplo de rectas, sin caso ortogonal ni ecuaciones tangenciales nuevas.",
+    "notes": "Transición breve al ejemplo de rectas, y evitar introducciones ajenas al ejemplo.",
     "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
@@ -736,7 +736,7 @@ const slides=[
       }
     ],
     "notes": "Presentar la contribución como diseño y modelación, no como un experimento de impacto ni una reducción cuantitativa universal. El artículo de 2017 formula sistemas diferenciales asociados a un problema de elasticidad lineal heterogénea y anisótropa.",
-    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "source": "Galanin y Feodorova (2017), Preprint 33.",
     "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
   },
   {
@@ -762,7 +762,7 @@ const slides=[
       }
     ],
     "notes": "El esquema procede de la ecuación r=A exp(theta/k); no es una reproducción de la figura editorial. Remitir a la figura 10 en el PDF original de 2017.",
-    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "source": "Galanin y Feodorova (2017), Preprint 33, figura 10.",
     "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
   },
   {
@@ -788,7 +788,7 @@ const slides=[
       }
     ],
     "notes": "La reconstrucción matemática mantiene la misma A y la misma escala. Comparar con figura 11 original; no afirmar que la ilustración fue extraída del PDF.",
-    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "source": "Galanin y Feodorova (2017), Preprint 33, figura 11.",
     "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
   },
   {
@@ -814,7 +814,7 @@ const slides=[
       }
     ],
     "notes": "Mantener radios y escalas; el gráfico es reconstrucción analítica y no la figura original. Consultar PDF del preprint.",
-    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "source": "Galanin y Feodorova (2017), Preprint 33, figura 12.",
     "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
   },
   {
@@ -837,7 +837,7 @@ const slides=[
       }
     ],
     "notes": "No presentar valores de raíces no contrastados con el texto completo de la tabla 1. Explicar la diferencia entre un resultado matemático del sistema característico y el comportamiento físico completo de la placa. La fuente original ofrece la tabla 1.",
-    "source": "Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of planar constructions along isogonal trajectories. Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.",
+    "source": "Galanin y Feodorova (2017), Preprint 33.",
     "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
   },
   {
@@ -860,7 +860,7 @@ const slides=[
       }
     ],
     "notes": "Fuente de 2019 disponible en resumen editorial. Evitar atribuir mejoras cuantitativas no verificadas o presentar un ensayo experimental que la publicación no describe.",
-    "source": "Feodorova, N. (2019). Determination of Fiber-Structure for the Effective Reinforcement of Planar Composite-Material Constructions. Materials Science Forum, 945, 338–343. DOI: 10.4028/www.scientific.net/MSF.945.338.",
+    "source": "Feodorova (2019), Materials Science Forum, 945, 338–343.",
     "referenceUrl": "https://doi.org/10.4028/www.scientific.net/MSF.945.338"
   },
   {
@@ -1189,7 +1189,7 @@ const slides=[
     "kind": "references",
     "duration": 20,
     "body": [],
-    "notes": "Piskunov sustenta el desarrollo de las trayectorias; los apuntes ED 1.7 sustentan el método de EDO homogénea; Galanin y Feodorova (2017), y Feodorova (2019), aportan la conexión aplicada al refuerzo de materiales. No se cita a Escobar porque no se utilizó."
+    "notes": "Piskunov sustenta el desarrollo de las trayectorias; los apuntes ED 1.7 sustentan el método de EDO homogénea; Galanin y Feodorova (2017), y Feodorova (2019), aportan la conexión aplicada al refuerzo de materiales. La bibliografía recoge únicamente las fuentes utilizadas y el complemento bibliográfico indicado."
   },
   {
     "title": "Gracias",
