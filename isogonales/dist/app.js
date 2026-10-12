@@ -13,6 +13,7 @@ const exampleScenes=['Familia de rectas','Recta particular por P','Pendiente f d
 const defaultExamplePhase=(slide,step)=>slide===14?(step<=2?0:step<=4?1:2):slide===15?3:slide===16||slide===17?4:slide===18||slide===19?5:slide===20?6:slide===21?(step>=3?8:7):0;
 let examplePhase=Number.isFinite(+saved?.examplePhase)?Math.max(0,Math.min(8,Math.round(+saved.examplePhase))):defaultExamplePhase(state.slide,reveal);
 let manualExampleStage=false;
+let familiesVisible=Boolean(saved?.familiesVisible);
 const phaseNames=['Familias','Curva conocida y punto P','Segunda curva por P','Rectas tangentes','Triángulo y ángulos'];
 const phaseActions=['Mostrar las familias','Mostrar la curva conocida','Añadir la curva buscada','Trazar las tangentes','Mostrar los ángulos'];
 const colors={green:'#138e68',purple:'#774fc4',orange:'#bb650c',blue:'#1b65a4',gray:'#a2ada6',ink:'#343a38'};
@@ -27,6 +28,14 @@ function buildGeometry(){
  const svg=$('geometry-svg');
  const defs=svgEl('defs');const clip=svgEl('clipPath',{id:'geo-clip'});clip.append(svgEl('rect',{x:22,y:5,width:476,height:383}));defs.append(clip);svg.append(defs);
  function group(stage){const g=svgEl('g',{'data-stage':stage,class:'construction'});svg.append(g);return g;}
+ const preview=svgEl('g',{'data-family-preview':'true',class:'construction'});
+ svg.append(preview);
+ const previewLine=(pts,color)=>preview.append(svgEl('path',{d:dpath(pts),fill:'none',stroke:color,'stroke-width':2,opacity:.55,'clip-path':'url(#geo-clip)'}));
+ for(const factor of [.78,1.16,1.34])previewLine(M.knownPoints.map(([x,y])=>[x*factor,y*factor]),colors.purple);
+ for(const radius of [2.9,3.7,5.4]){
+  const arc=Array.from({length:140},(_,i)=>{const a=.05+(Math.PI/2-.1)*i/139;return [radius*Math.cos(a),radius*Math.sin(a)];});
+  previewLine(arc,colors.green);
+ }
  const axes=group(1);
  axes.append(svgEl('path',{d:'M22,360H495 M35,390V8',fill:'none',stroke:colors.gray,'stroke-width':1.4}));
  axes.append(svgEl('path',{d:'M488,356L495,360L488,364 M31,15L35,8L39,15',fill:'none',stroke:colors.gray,'stroke-width':1.4}));
@@ -49,6 +58,7 @@ function buildGeometry(){
 function updateGeometry(){
  $('phase').value=state.phase;$('phase-value').textContent=state.phase+' de 4';$('phase-caption').textContent=phaseNames[state.phase];
  document.querySelectorAll('#geometry-svg [data-stage]').forEach(e=>{const hide=Number(e.dataset.stage)>state.phase;e.classList.toggle('is-hidden',hide);e.setAttribute('aria-hidden',hide);});
+ document.querySelectorAll('#geometry-svg [data-family-preview]').forEach(e=>{const hide=!familiesVisible||state.phase!==0;e.classList.toggle('is-hidden',hide);e.setAttribute('aria-hidden',hide);});
  $('geometry-desc').textContent='Etapa '+state.phase+' de cuatro. '+phaseNames[state.phase]+'. La curva conocida es morada y la curva buscada es verde. En la etapa final, α es el ángulo exterior de un triángulo y equivale a β más γ.';
 }
 
@@ -66,8 +76,10 @@ function buildRadialExample(){
  for(let i=1;i<=5;i++)polar.append(svgEl('circle',{cx:sx(0),cy:sy(0),r:43*i,stroke:'#e2eae5',fill:'none','stroke-width':1}));
  for(let i=0;i<12;i++){const a=i*Math.PI/6;path(polar,[[0,0],[5.6*Math.cos(a),5.6*Math.sin(a)]],'#e2eae5',1);}
  label(polar,'r',4.5,-.4);label(polar,'θ',1.6,.75,colors.orange);
- const rays=group(0,8);
+ const rays=group(0,5);
  for(let i=0;i<12;i++){const a=i*Math.PI/12;path(rays,[[-5.8*Math.cos(a),-5.8*Math.sin(a)],[5.8*Math.cos(a),5.8*Math.sin(a)]],colors.purple,1.45,'5 5');}
+ const sparseRays=group(6,8);
+ for(let i=0;i<6;i++){const a=i*Math.PI/6;path(sparseRays,[[-5.8*Math.cos(a),-5.8*Math.sin(a)],[5.8*Math.cos(a),5.8*Math.sin(a)]],colors.purple,1.1,'5 7');}
  const chosen=group(1,8);path(chosen,[[-5,-5],[5,5]],colors.purple,3.6);label(chosen,'f',3.4,3.75,colors.purple);
  const marker=group(1,8);marker.append(svgEl('circle',{cx:sx(2),cy:sy(2),r:5,fill:colors.ink,stroke:'#fff','stroke-width':2}));label(marker,'P',2.22,2.33);
  const knownTangent=group(2,8);path(knownTangent,[[.65,.65],[3.5,3.5]],colors.purple,3);
@@ -76,7 +88,11 @@ function buildRadialExample(){
  const tang=group(3,8),m=(1+k)/(1-k);
  path(tang,[[2-.72,2-.72*m],[2+.72,2+.72*m]],colors.green,3.3,'7 4');
  const partial=group(5,6);path(partial,Array.from({length:90},(_,i)=>spiral(t0-.62+i*1.24/89)),colors.green,3.5);
- const full=group(7,8);path(full,Array.from({length:480},(_,i)=>spiral(-3.8+i*7.6/479)),colors.green,3.7);
+ const full=group(7,8);
+ // La espiral logarítmica nunca pasa por el origen: r -> 0 cuando theta -> -infinito.
+ // El trazado comienza con radio prácticamente nulo para evitar el corte abrupto.
+ const thetaMin=t0-33,thetaMax=t0+4;
+ path(full,Array.from({length:1100},(_,i)=>spiral(thetaMin+i*(thetaMax-thetaMin)/1099)),colors.green,3.7);
  const arc=group(8,8);
  path(arc,Array.from({length:50},(_,i)=>{const a=(45+80*i/49)*Math.PI/180;return [2+.54*Math.cos(a),2+.54*Math.sin(a)];}),colors.orange,3.5);
  label(arc,'γ=80°',.62,3.02,colors.orange);
@@ -173,7 +189,10 @@ function renderSlide(){
   const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':s.graph==='application-rays'?'Proyección superior: familia de rayos (esquema conceptual).':s.graph==='application-spiral'?'Rayos conocidos morados y curva isogonal verde (esquema ilustrativo, no medidas experimentales).':s.graph==='application-result'?'Comparación relativa de salpicaduras del estudio (comercial = 100 %).':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
   const copy=document.createElement('div');copy.className='example-copy';copy.innerHTML=bodyHTML(s);content.append(graph,copy);
  }else content.innerHTML=bodyHTML(s);
- if(s.action!==undefined){const btn=document.createElement('button');btn.className='show-phase';btn.textContent=phaseActions[s.action];btn.addEventListener('click',()=>dispatch({type:'phase',phase:s.action}));content.append(btn);}
+ if(s.action!==undefined){const btn=document.createElement('button');btn.className='show-phase';btn.textContent=phaseActions[s.action];btn.addEventListener('click',()=>{
+ if(s.action===0){dispatch({type:'toggle-families'});btn.textContent=familiesVisible?'Ocultar las familias':'Mostrar las familias';}
+ else dispatch({type:'phase',phase:s.action});
+});content.append(btn);}
  syncReveal();
  document.title=s.title+' · Trayectorias isogonales UQ';
  slideAnimation?.cancel();
@@ -197,9 +216,10 @@ function dispatch(action){
   state=M.transition(state,action);
   if(state.slide!==previous.slide){reveal=action.type==='navigate'&&action.delta<0?countFor(M.slides[state.slide]):1;manualExampleStage=false;renderSlide();}
   if(state.phase!==previous.phase)updateGeometry();
+  if(action.type==='toggle-families'){familiesVisible=!familiesVisible;updateGeometry();}
   if(action.type==='example-phase'){examplePhase=Math.max(0,Math.min(8,Number(action.phase)||0));manualExampleStage=true;updateRadialExample();}
  }
- try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase}));}catch(_){}
+ try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible}));}catch(_){}
 }
 function toggleDialog(id){const d=$(id);if(d.open)d.close();else d.showModal();}
 function fullscreen(){if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch(()=>{});}
