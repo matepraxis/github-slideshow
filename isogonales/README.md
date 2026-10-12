@@ -49,3 +49,15 @@ Thurairajah, K., et al. (2025). *Splash-free urinals for global sustainability a
 En la vista superior, el trabajo trata las proyecciones de chorros como rayos y diseña curvas isogonales que conducen a espirales logarítmicas; en el plano vertical trata trayectorias parabólicas. El ángulo crítico de incidencia cercano a 30° se refiere a las condiciones del estudio. La comparación experimental reportada llega a un 1,4 % de salpicaduras respecto del urinario comercial de referencia. La figura comparativa es un esquema construido a partir de los valores publicados, no una reproducción de mediciones crudas. Las diapositivas distinguen la espiral ilustrativa del ejemplo (80°) del diseño aplicado (cerca de 30°).
 
 La ruta principal contiene 29 láminas, además de 5 complementos opcionales, y conserva un total sugerido de 20 minutos.
+
+## Lista de aceptación antes de publicar
+
+1. En escritorio y tablet, comprobar que cada flecha revela solo un paso y que RePág/AvPág cambia de diapositiva.
+2. En la familia de rectas, avanzar: familia completa → selección C₀=1 y P=(2,2) → pendiente.
+3. Seguir el paso algebraico y comprobar que el plano no se reconstruye ni pierde el punto P.
+4. Verificar el cambio de retícula cartesiana a polar, el trazado de la espiral y la marca γ=80°.
+5. Retroceder, mover el deslizador manualmente y recargar: no debe perderse la etapa guardada.
+6. Comprobar la aplicación en tres láminas: aproximación 30°, rayos/isogonales, comparación experimental 1,4%; distinguir esquema de datos medidos.
+7. Confirmar 20 minutos más las pausas reales del expositor y revisar el video original de 95 segundos.
+
+El workflow de GitHub Actions es una condición automática de regresión, pero no reemplaza esta inspección visual con un navegador real.
