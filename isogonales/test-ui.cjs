@@ -25,7 +25,7 @@ nodes.next.click();assert.equal(JSON.parse(storage.value).slide,6);assert.equal(
 buttons()[14].click();assert.equal(nodes.geometry.hidden,true);assert.equal(nodes.phase.value,4);
 buttons()[9].click();assert.equal(nodes.geometry.hidden,false);assert.equal(nodes.phase.value,4);assert.deepEqual(groups(),sameGroups);
 nodes.phase.listeners.input({target:{value:'2'}});assert.equal(JSON.parse(storage.value).phase,2);
-nodes.previous.click();assert.equal(nodes.phase.value,2);assert.equal(JSON.parse(storage.value).reveal,1);
+nodes.previous.click();assert.equal(nodes.phase.value,2);assert.equal(JSON.parse(storage.value).reveal,M.slides[8].body.length);
 for(let i=0;i<M.slides.length;i++){
  buttons()[i].click();assert.equal(nodes.phase.value,2);assert.deepEqual(groups(),sameGroups);
  const allHTML=e=>e.innerHTML+e.children.map(allHTML).join('');
