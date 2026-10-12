@@ -82,3 +82,14 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 
 #stage.example .example-graph:has(.paper-original-figure){min-height:0;justify-content:center;gap:8px}
 #stage.example .example-graph:has(.paper-original-figure) .graph-caption{margin-top:0!important;line-height:1.2}
+
+/* Tabla de contenido interactiva y brújula discreta de la exposición. */
+#section-current{font-size:clamp(10px,.85cqw,12px);line-height:1.15;margin:2px 0 0;color:#64736b;font-style:normal;font-weight:500;letter-spacing:.025em}
+#stage.agenda #layout{display:block;top:20%;left:16%;right:14%;bottom:13%}
+#stage.agenda #slide-content{height:auto;display:block}
+.agenda-list{display:grid;grid-template-columns:1fr;gap:clamp(7px,.82cqw,12px);list-style:none;margin:0;padding:0}
+.agenda-link{width:100%;display:flex;align-items:center;gap:clamp(12px,1.6cqw,22px);text-align:left;background:#f7f9f8;border:1px solid #e0e8e1;border-radius:8px;color:#34443a;padding:clamp(9px,1cqw,15px) clamp(13px,1.4cqw,20px);font-size:clamp(17px,1.7cqw,24px);font-weight:500;transition:background .2s,transform .2s}
+.agenda-link:hover,.agenda-link:focus-visible{background:#e8f3ec;transform:translateX(2px)}
+.agenda-counter{font-variant-numeric:tabular-nums;color:var(--green);font-weight:700;font-size:.82em;flex:none}
+@media(max-width:760px){#stage.agenda #layout{left:7%;right:7%;top:17%}.agenda-link{padding:10px;font-size:clamp(14px,3vw,20px)}.agenda-list{gap:7px}}
+@media(prefers-reduced-motion:reduce){.agenda-link{transition:none}}
