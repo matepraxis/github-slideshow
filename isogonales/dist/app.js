@@ -235,7 +235,7 @@ function dispatch(action){
   state=M.transition(state,action);
   if(state.slide!==previous.slide){reveal=action.type==='navigate'&&action.delta<0?countFor(M.slides[state.slide]):1;manualExampleStage=false;renderSlide();}
   if(state.phase!==previous.phase)updateGeometry();
-  if(action.type==='toggle-families'){familiesVisible=!familiesVisible;updateGeometry();}
+  if(action.type==='toggle-families'){state.phase=0;familiesVisible=!familiesVisible;updateGeometry();}
   if(action.type==='example-phase'){examplePhase=Math.max(0,Math.min(8,Number(action.phase)||0));manualExampleStage=true;updateRadialExample();}
  }
  try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible}));}catch(_){}
