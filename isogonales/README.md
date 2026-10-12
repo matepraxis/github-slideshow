@@ -12,11 +12,12 @@ Las ecuaciones se revelan progresivamente. La integración se desarrolla en etap
 
 - Piskunov, N. (1977). *Cálculo diferencial e integral*, tomo II. Mir, § 15. Fundamentación teórica de la demostración.
 - Trujillo Salazar, C. A. (2026). *ED 1.7. EDO homogéneas*. Apuntes de clase, Universidad del Quindío. Sustitución homogénea e integración.
+- Trujillo Salazar, C. A. (2026). *ED 1.8. Trayectorias ortogonales e isogonales*. Apuntes de clase, Universidad del Quindío. Planteamiento geométrico y procedimiento de eliminación del parámetro.
 - Galanin, M. P., y Feodorova, N. A. (2017). *Reinforcement of Planar Constructions along Isogonal Trajectories*. Keldysh Institute Preprint 33. https://doi.org/10.20948/prepr-2017-33
 - Feodorova, N. (2019). *Determination of Fiber-Structure for the Effective Reinforcement of Planar Composite-Material Constructions*. *Materials Science Forum*, 945, 338–343. https://doi.org/10.4028/www.scientific.net/MSF.945.338
 - Raup, D. M. (1966). Modelo de expansión radial. Complemento opcional, no presentado como evidencia del estudio de materiales.
 
-La construcción y adaptación de la demostración es trabajo del expositor a partir de Piskunov; no se cita el documento manuscrito propio como una fuente independiente. No se incluye la referencia a Escobar.
+El desarrollo de la demostración es trabajo del expositor, fundamentado en Piskunov y el curso. El documento manuscrito propio no se cita como fuente externa. No se incluye la referencia a Escobar.
 
 ## Aplicación científica
 
