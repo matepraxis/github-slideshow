@@ -21,11 +21,11 @@ const context={PresentationModel:M,PresentationLatex:require('./dist/latex.js'),
 context.globalThis=context;vm.runInNewContext(fs.readFileSync(__dirname+'/dist/app.js','utf8'),context);
 const svg=nodes['geometry-svg'],sameGroups=groups();
 assert.equal(sameGroups.length,6);
-nodes.next.click();assert.equal(nodes['geometry-svg'],svg);assert.equal(nodes.phase.value,4);assert.deepEqual(groups(),sameGroups);
+nodes.next.click();assert.equal(JSON.parse(storage.value).slide,6);assert.equal(JSON.parse(storage.value).reveal,2);assert.equal(nodes['geometry-svg'],svg);assert.equal(nodes.phase.value,4);assert.deepEqual(groups(),sameGroups);
 buttons()[14].click();assert.equal(nodes.geometry.hidden,true);assert.equal(nodes.phase.value,4);
 buttons()[9].click();assert.equal(nodes.geometry.hidden,false);assert.equal(nodes.phase.value,4);assert.deepEqual(groups(),sameGroups);
 nodes.phase.listeners.input({target:{value:'2'}});assert.equal(JSON.parse(storage.value).phase,2);
-nodes.previous.click();assert.equal(nodes.phase.value,2);
+nodes.previous.click();assert.equal(nodes.phase.value,2);assert.equal(JSON.parse(storage.value).reveal,1);
 for(let i=0;i<M.slides.length;i++){
  buttons()[i].click();assert.equal(nodes.phase.value,2);assert.deepEqual(groups(),sameGroups);
  const allHTML=e=>e.innerHTML+e.children.map(allHTML).join('');
