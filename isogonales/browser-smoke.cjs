@@ -35,6 +35,13 @@ const close=()=>new Promise(resolve=>server.close(resolve));
    await page.locator('#index').click();
    await page.locator('#contents-list button').nth(index).click();
   }
+  await go(1);
+  assert.equal(await page.locator('#slide-title').innerText(),'Contenido de la exposición');
+  assert.equal(await page.locator('.agenda-link').count(),5);
+  await capture('00-contenido-escritorio.png');
+  await page.locator('.agenda-link').nth(2).click();
+  assert.equal(await page.locator('#slide-title').innerText(),'Ejemplo: familia de rectas');
+  assert.equal(await page.locator('#section-current').innerText(),'Ejemplo desarrollado');
   await go(2);
   const control=page.locator('.show-phase');
   assert.ok(await control.count(),'Falta botón de familias');
@@ -74,9 +81,11 @@ const close=()=>new Promise(resolve=>server.close(resolve));
   }
   await go(28);
   for(let i=1;i<5;i++)await page.keyboard.press('ArrowRight');
-  assert.ok((await page.locator('#slide-content').innerText()).includes('cuatro raíces son reales'));
+  assert.ok((await page.locator('#slide-content').innerText()).includes('cuatro raíces reales'));
   await capture('05-resultado-materiales.png');
   await page.setViewportSize({width:700,height:1080});
+  await go(1);
+  await capture('08-contenido-tablet.png',true);
   await go(19);
   for(let i=1;i<8;i++)await page.keyboard.press('ArrowRight');
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);

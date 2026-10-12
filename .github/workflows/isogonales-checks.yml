@@ -32,6 +32,8 @@ jobs:
           node isogonales/test-examples.cjs
           node isogonales/test-radial.cjs
           node isogonales/test-application.cjs
+          node isogonales/test-notation.cjs
+          node isogonales/test-context.cjs
 
       - name: Instalar Chromium para revisión visual
         run: |
