@@ -16,5 +16,12 @@ for(const slide of M.slides)for(const block of slide.body){
  assert.ok(!/Thurairajah|urinal|orina|salpicaduras|splash.free/i.test(value));
  assert.ok(!/Escobar/i.test(value));
 }
+assert.ok(M.slides[24].referenceUrl.endsWith('#page=10'));
+assert.ok(M.slides[25].referenceUrl.endsWith('#page=10'));
+assert.ok(M.slides[26].referenceUrl.endsWith('#page=10'));
+assert.ok(M.slides[27].referenceUrl.endsWith('#page=16'));
+assert.ok(M.slides[27].body.some(b=>(b.tex||'').includes('\\omega_1=\\omega_2')));
+assert.ok(M.slides[27].body.some(b=>(b.value||'').includes('par complejo conjugado')));
+assert.ok(M.slides[27].body.some(b=>(b.value||'').includes('cuatro raíces son reales')));
 assert.ok(M.slides[18].body.some(b=>(b.tex||'').includes('\\int')));
 console.log('Aplicación: materiales 2017/2019, 3 patrones, DOI, fuentes y 20 minutos.');
