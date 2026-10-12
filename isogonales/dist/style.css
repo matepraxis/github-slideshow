@@ -32,3 +32,10 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 #slide-content .equation{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:5px 0}
 #stage.wide #slide-content{gap:clamp(12px,1.5cqw,22px)}
 #stage.wide .equation{font-size:clamp(21px,2.3cqw,32px)}
+
+/* Un solo argumento matemático nuevo por interacción, sin perder el contexto visible. */
+.reveal-block{min-width:0;max-width:100%;animation:reveal-step .28s ease-out both}
+.reveal-block[hidden]{display:none!important}
+@keyframes reveal-step{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.reveal-block{animation:none}}
+@media print{.reveal-block[hidden]{display:block!important}}
