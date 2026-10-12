@@ -93,3 +93,8 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 .agenda-counter{font-variant-numeric:tabular-nums;color:var(--green);font-weight:700;font-size:.82em;flex:none}
 @media(max-width:760px){#stage.agenda #layout{left:7%;right:7%;top:17%}.agenda-link{padding:10px;font-size:clamp(14px,3vw,20px)}.agenda-list{gap:7px}}
 @media(prefers-reduced-motion:reduce){.agenda-link{transition:none}}
+
+/* Enlace discreto de la presentación al laboratorio independiente. */
+#controls .lab-shortcut{font-size:clamp(11px,1.02cqw,14px);font-weight:650;text-decoration:none;color:#126b52;background:#eaf6ef;border:1px solid #c9e5d5;border-radius:7px;padding:7px 10px;white-space:nowrap}
+#controls .lab-shortcut:hover{background:#d6efdf}
+@media(max-width:640px){#controls .lab-shortcut{font-size:11px;padding:6px 7px}}
