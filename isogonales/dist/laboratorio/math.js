@@ -95,7 +95,7 @@ function mathAt(family,angle,seed){
  const k=Math.tan(rad(validateAngle(angle))),f=families[validateFamily(family)];
  return {k,known:f.given,knownDerivative:f.known,ode:f.ode,solution:f.solution,method:f.method,givenConstant:seed?pointConstant(family,...seed):null};
 }
-const api={TAU,rad,families,validateFamily,validateAngle,knownTangent,soughtTangent,knownSlope,searchedSlope,pointConstant,invariant,rk4,trace,angleBetweenUnoriented,mathAt};
+const api={TAU,rad,families,validateFamily,validateAngle,unit,knownTangent,soughtTangent,knownSlope,searchedSlope,pointConstant,invariant,rk4,trace,angleBetweenUnoriented,mathAt};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 root.IsogonalMath=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
