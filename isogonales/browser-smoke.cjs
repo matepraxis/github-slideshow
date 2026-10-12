@@ -49,11 +49,17 @@ const close=()=>new Promise(resolve=>server.close(resolve));
   await go(20);
   assert.equal(await page.locator('#example-phase').inputValue(),'6');
   await capture('03-polares-escritorio.png');
-  await go(24);
-  assert.ok((await page.locator('.paper-link').getAttribute('href')).endsWith('#page=10'));
-  const original=await page.locator('.paper-original-figure').evaluate(img=>({loaded:img.complete&&img.naturalWidth>0,width:img.naturalWidth}));
-  assert.ok(original.loaded&&original.width>150,'La figura original 10 no cargó en el navegador');
-  await capture('04-figura10-reconstruida.png');
+  for(const [idx,n] of [[24,10],[25,11],[26,12]]){
+   await go(idx);
+   assert.ok((await page.locator('.paper-link').getAttribute('href')).endsWith('#page=10'));
+   const image=await page.locator('.paper-original-figure').evaluate(img=>({
+    loaded:img.complete&&img.naturalWidth>0,width:img.naturalWidth,
+    src:img.getAttribute('src')
+   }));
+   assert.ok(image.loaded&&image.width>400,'Figura '+n+' no carga en alta resolución');
+   assert.ok(image.src.endsWith('galanin-fig'+n+'.webp'),'La figura '+n+' está intercambiada');
+   await capture('0'+(n-6)+'-figura'+n+'-original.png');
+  }
   await go(27);
   for(let i=1;i<5;i++)await page.keyboard.press('ArrowRight');
   assert.ok((await page.locator('#slide-content').innerText()).includes('cuatro raíces son reales'));
