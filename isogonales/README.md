@@ -12,7 +12,7 @@ La ruta principal tiene 26 diapositivas y 20 minutos sugeridos, incluido el vide
 
 Sitio estático: abrir `dist/index.html`. KaTeX 0.19.0 y sus fuentes están incluidos; no depende de un CDN para las ecuaciones. Los enlaces bibliográficos sí requieren conexión. El video original conserva sus colores.
 
-Flechas: navegar. Mayús + flechas: construcción. N: notas. I: índice. F: pantalla completa. El deslizador conserva su etapa al navegar, volver desde ejemplos o recargar.
+Flechas izquierda/derecha: revelar o retroceder un paso matemático; al agotar pasos cambian de diapositiva. RePág/AvPág: saltar de diapositiva. Mayús + flechas: construcción geométrica. N: notas. I: índice. F: pantalla completa. El deslizador conserva su etapa al navegar, volver desde ejemplos o recargar.
 
 ## Verificación
 
@@ -33,3 +33,7 @@ PR #3: manuscrito y geometría, sobre la rama del PR #2.
 La rama `edo/ejemplos-paso-a-paso` continúa sobre el PR #3.
 
 Son PR apilados: revisar en orden y ajustar las bases al integrarlos. No fusionar automáticamente. Render publica automáticamente los commits de `edo-trayectorias-isogonales-2026`; ninguna de las ramas de revisión debe sustituirla antes de la aprobación del expositor.
+
+## Revelado progresivo
+
+Cada bloque del argumento se revela de uno en uno con navegación bidireccional. La presentación conserva la etapa geométrica y el paso visible al recargar. Se respeta `prefers-reduced-motion`. La revisión visual de escala tipográfica en tablet sigue pendiente.
