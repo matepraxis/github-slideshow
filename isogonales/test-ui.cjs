@@ -17,7 +17,7 @@ const nodes=Object.fromEntries(ids.map(id=>[id,new Element('div',id)]));
 const groups=()=>nodes['geometry-svg'].children.filter(e=>e.dataset.stage);
 const buttons=()=>nodes['contents-list'].children.map(e=>e.children[0]);
 const storage={value:JSON.stringify({slide:6,phase:4}),getItem(){return this.value},setItem(k,v){this.value=v}};
-const context={PresentationModel:M,PresentationLatex:require('./dist/latex.js'),katex:require('./dist/vendor/katex/katex.min.js'),window:{matchMedia:()=>({matches:true})},document:{getElementById:id=>nodes[id],createElement:tag=>new Element(tag),createElementNS:(ns,tag)=>new Element(tag),querySelector:()=>new Element('div'),querySelectorAll:s=>s.includes('data-stage')?groups():s.includes('data-e-from')?nodes['example-svg'].children.filter(e=>e.attrs['data-e-from']!==undefined):s.includes('contents-list')?buttons():[],addEventListener(){},activeElement:null,documentElement:{}},localStorage:storage};
+const context={PresentationModel:M,PresentationLatex:require('./dist/latex.js'),katex:require('./dist/vendor/katex/katex.min.js'),window:{matchMedia:()=>({matches:true})},document:{getElementById:id=>nodes[id],createElement:tag=>new Element(tag),createElementNS:(ns,tag)=>new Element(tag),querySelector:()=>new Element('div'),querySelectorAll:s=>s.includes('data-stage')?groups():s.includes('data-family-preview')?nodes['geometry-svg'].children.filter(e=>e.attrs['data-family-preview']!==undefined):s.includes('data-e-from')?nodes['example-svg'].children.filter(e=>e.attrs['data-e-from']!==undefined):s.includes('contents-list')?buttons():[],addEventListener(){},activeElement:null,documentElement:{}},localStorage:storage};
 context.globalThis=context;vm.runInNewContext(fs.readFileSync(__dirname+'/dist/app.js','utf8'),context);
 const svg=nodes['geometry-svg'],sameGroups=groups();
 assert.equal(sameGroups.length,6);
@@ -53,4 +53,16 @@ nodes['example-phase'].listeners.input({target:{value:'0'}});
 assert.equal(nodes['example-phase'].value,0);
 assert.equal(JSON.parse(storage.value).examplePhase,0);
 
+// El botón de familias debe cambiar efectivamente la visibilidad del SVG.
+buttons()[1].click();
+const preview=nodes['geometry-svg'].children.find(e=>e.attrs['data-family-preview']==='true');
+assert.ok(preview);
+const familyButton=nodes['slide-content'].children.find(e=>e.tagName==='BUTTON');
+assert.ok(familyButton);
+const before=preview.attrs['is-hidden'];
+familyButton.click();
+assert.notEqual(preview.attrs['is-hidden'],before);
+assert.equal(JSON.parse(storage.value).familiesVisible,true);
+familyButton.click();
+assert.equal(preview.attrs['is-hidden'],before);
 console.log('Interacciones: el SVG conserva sus nodos y etapa en '+M.slides.length+' diapositivas.');
