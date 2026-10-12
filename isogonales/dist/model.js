@@ -10,7 +10,7 @@ const mf=SUB('m','f'), mh=SUB('m','h'), C0=SUB('C','0'), K0=SUB('K','0');
 const f0=SUB('f',C0),h0=SUB('h',K0),T=R('tan',true),L=R('ln',true),At=R('arctan',true);
 const eq=(alt,ast,color='',emphasis=false)=>({type:'eq',alt,ast,color,emphasis});
 const text=value=>({type:'text',value});
-const source={pisk:'Piskunov, N. (1977). Cálculo diferencial e integral, tomo II. Mir. § 15, pp. 48–53.',esc:'Escobar A., J. (s. f.). Ecuaciones diferenciales con aplicaciones en Maple. Universidad de Antioquia. § 3.1.1, pp. 49–51.',clase:'Trujillo Salazar, C. A. (2026). ED 1.8. Apuntes del curso, Universidad del Quindío.',raup:'Raup, D. M. (1966). Geometric analysis of shell coiling: General problems. Journal of Paleontology, 40(5), 1178–1190.'};
+const source={pisk:'Piskunov, N. (1977). Cálculo diferencial e integral, tomo II. Mir, § 15.',clase:'Trujillo Salazar, C. A. (2026). ED 1.7. Apuntes del curso, Universidad del Quindío.',raup:'Raup, D. M. (1966). Geometric analysis of shell coiling: General problems. Journal of Paleontology, 40(5), 1178–1190.'};
 const slides=[
   {
     "title": "Trayectorias isogonales",
@@ -47,40 +47,33 @@ const slides=[
         "alt": "H(x,y,\\lambda)=0"
       }
     ],
-    "notes": "F representa la familia conocida, morada; H representa la buscada, verde. C y lambda son parámetros diferentes. La primera gráfica aislada del manuscrito conserva un color anterior: aquí se unifican las etiquetas con la gráfica conjunta.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15.",
+    "notes": "F representa la familia conocida, morada; H representa la buscada, verde. C y lambda son parámetros diferentes. La primera gráfica aislada del desarrollo matemático conserva un color anterior: aquí se unifican las etiquetas con la gráfica conjunta.",
+    "source": "Piskunov, N. (1977), tomo II, § 15.",
     "action": 0
   },
   {
-    "title": "Una curva de cada familia",
+    "title": "Elegimos una curva de cada familia",
     "kind": "theory",
     "duration": 40,
     "body": [
       {
         "type": "text",
-        "value": "Elegimos una curva de cada familia, fijando sus parámetros."
+        "value": "De la familia conocida elegimos una curva \\(f\\). De la familia buscada, una curva \\(h\\)."
       },
       {
         "type": "eq",
-        "tex": "F(x,f(x),C_0)=0",
-        "color": "purple",
-        "emphasis": false,
-        "alt": "F(x,f(x),C_0)=0"
-      },
-      {
-        "type": "eq",
-        "tex": "H(x,h(x),\\lambda_0)=0",
+        "tex": "f(x)\\quad\\text{y}\\quad h(x)",
+        "alt": "f(x)\\quad\\text{y}\\quad h(x)",
         "color": "green",
-        "emphasis": false,
-        "alt": "H(x,h(x),\\lambda_0)=0"
+        "emphasis": false
       },
       {
         "type": "text",
-        "value": "Nos concentramos en una intersección regular \\(P\\)."
+        "value": "Ambas se encuentran en un punto regular \\(P=(x_0,y_0)\\)."
       }
     ],
-    "notes": "F y H nombran ecuaciones de familias; f y h representan dos curvas concretas como funciones locales. No introducir nuevas letras para las curvas.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15."
+    "notes": "Se distinguen familia y curva particular sin escribir F(x,f(x),C0)=0 ni H(x,h(x),lambda0)=0. f conocida en morado y h buscada en verde.",
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "La curva conocida",
@@ -103,8 +96,8 @@ const slides=[
         "value": "La curva morada será la referencia de la construcción."
       }
     ],
-    "notes": "En el gráfico conocido se usa una espiral; la familia buscada son círculos concéntricos. Esta elección reproduce la orientación creciente de f y decreciente de h del manuscrito.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15.",
+    "notes": "En el gráfico conocido se usa una espiral; la familia buscada son círculos concéntricos. Esta elección reproduce la orientación creciente de f y decreciente de h del desarrollo matemático.",
+    "source": "Piskunov, N. (1977), tomo II, § 15.",
     "action": 1
   },
   {
@@ -129,74 +122,68 @@ const slides=[
       }
     ],
     "notes": "Compartir un punto no basta: debe mantenerse el ángulo al cortar todas las curvas de la familia conocida.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15.",
+    "source": "Piskunov, N. (1977), tomo II, § 15.",
     "action": 2
   },
   {
-    "title": "Las rectas tangentes",
+    "title": "¿Por qué trazamos las tangentes?",
     "kind": "theory",
     "duration": 45,
     "body": [
       {
         "type": "text",
-        "value": "Trazamos las tangentes en el punto de intersección."
+        "value": "En la intersección regular \\(P\\), cada curva derivable tiene una recta tangente."
+      },
+      {
+        "type": "text",
+        "value": "La derivada en \\(x_0\\) es la pendiente de esa tangente."
       },
       {
         "type": "eq",
         "tex": "f^{\\prime}(x_0)=\\tan\\beta",
+        "alt": "m_f=f^{\\prime}(x_0)=\\tan\\beta",
         "color": "purple",
-        "emphasis": false,
-        "alt": "f^{\\prime}(x_0)=\\tan\\beta"
+        "emphasis": false
       },
       {
         "type": "eq",
         "tex": "h^{\\prime}(x_0)=\\tan\\alpha",
+        "alt": "m_h=h^{\\prime}(x_0)=\\tan\\alpha",
         "color": "green",
-        "emphasis": false,
-        "alt": "h^{\\prime}(x_0)=\\tan\\alpha"
+        "emphasis": false
       },
       {
         "type": "text",
-        "value": "Las inclinaciones se miden desde el eje horizontal positivo."
+        "value": "Por la condición isogonal, el ángulo entre las tangentes se mantiene constante."
       }
     ],
-    "notes": "Respetar la asignación final: beta pertenece a f y alpha a h. En el esquema beta=55 grados y alpha=135 grados. No intercambiarlas.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15.",
+    "notes": "Justificar las rectas tangentes a partir de la interpretación geométrica de la derivada. Beta corresponde a la conocida, alpha a la buscada; gamma es su diferencia.",
+    "source": "Piskunov, N. (1977), tomo II, § 15.",
     "action": 3
   },
   {
-    "title": "Teorema del ángulo exterior",
+    "title": "El ángulo constante",
     "kind": "theory",
     "duration": 45,
     "body": [
       {
         "type": "text",
-        "value": "\\(\\alpha\\) es el ángulo exterior del triángulo; \\(\\beta\\) y \\(\\gamma\\), los interiores no adyacentes."
-      },
-      {
-        "type": "eq",
-        "tex": "\\alpha=\\beta+\\gamma",
-        "color": "orange",
-        "emphasis": true,
-        "alt": "\\alpha=\\beta+\\gamma"
+        "value": "Medimos las inclinaciones de las tangentes desde el eje horizontal positivo."
       },
       {
         "type": "eq",
         "tex": "\\gamma=\\alpha-\\beta",
+        "alt": "\\gamma=\\alpha-\\beta",
         "color": "orange",
-        "emphasis": false,
-        "alt": "\\gamma=\\alpha-\\beta"
+        "emphasis": true
       },
       {
-        "type": "eq",
-        "tex": "135^\\circ=55^\\circ+80^\\circ",
-        "color": "",
-        "emphasis": false,
-        "alt": "135^\\circ=55^\\circ+80^\\circ"
+        "type": "text",
+        "value": "La diferencia angular es constante en cada intersección regular: esa es la condición isogonal."
       }
     ],
-    "notes": "Señalar A, B y P antes de usar la igualdad. Es la justificación geométrica que aparece en la segunda página del manuscrito.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15.",
+    "notes": "No incluir la comprobación numérica 135=55+80; explicar únicamente la relación geométrica y orientar al punto P en la figura.",
+    "source": "Piskunov, N. (1977), tomo II, § 15.",
     "action": 4
   },
   {
@@ -205,29 +192,37 @@ const slides=[
     "duration": 45,
     "body": [
       {
+        "type": "text",
+        "value": "Como \\(\\gamma=\\alpha-\\beta\\), aplicamos la identidad trigonométrica de diferencia."
+      },
+      {
         "type": "eq",
         "tex": "\\tan\\gamma=\\tan(\\alpha-\\beta)",
-        "color": "",
-        "emphasis": false,
-        "alt": "\\tan\\gamma=\\tan(\\alpha-\\beta)"
+        "alt": "\\tan\\gamma=\\tan(\\alpha-\\beta)",
+        "color": "orange",
+        "emphasis": false
       },
       {
         "type": "eq",
         "tex": "\\tan\\gamma=\\frac{\\tan\\alpha-\\tan\\beta}{1+\\tan\\alpha\\tan\\beta}",
+        "alt": "\\tan\\gamma=\\frac{\\tan\\alpha-\\tan\\beta}{1+\\tan\\alpha\\tan\\beta}",
         "color": "",
-        "emphasis": false,
-        "alt": "\\tan\\gamma=\\frac{\\tan\\alpha-\\tan\\beta}{1+\\tan\\alpha\\tan\\beta}"
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Sustituyendo las pendientes de las dos tangentes:"
       },
       {
         "type": "eq",
         "tex": "\\tan\\gamma=\\frac{h^{\\prime}(x)-f^{\\prime}(x)}{1+h^{\\prime}(x)f^{\\prime}(x)}",
+        "alt": "\\tan\\gamma=\\frac{h^{\\prime}(x)-f^{\\prime}(x)}{1+h^{\\prime}(x)f^{\\prime}(x)}",
         "color": "orange",
-        "emphasis": true,
-        "alt": "\\tan\\gamma=\\frac{h^{\\prime}(x)-f^{\\prime}(x)}{1+h^{\\prime}(x)f^{\\prime}(x)}"
+        "emphasis": true
       }
     ],
-    "notes": "Aplicar la identidad de diferencia, no de suma. Las derivadas se evalúan en la intersección; se omite el subíndice para seguir la escritura del manuscrito.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15."
+    "notes": "Aplicar la identidad de diferencia, no de suma. Las derivadas se evalúan en la intersección; se omite el subíndice para seguir la escritura del desarrollo matemático.",
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "La derivada de la curva buscada",
@@ -261,7 +256,7 @@ const slides=[
       }
     ],
     "notes": "y prima corresponde ahora a la curva desconocida h. k es la tangente del ángulo entre las curvas, no la pendiente de una de ellas. Multiplicamos y distribuimos.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "Agrupamos y despejamos",
@@ -290,8 +285,8 @@ const slides=[
         "alt": "f^{\\prime}(x)=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}"
       }
     ],
-    "notes": "Sumamos f prima y restamos k en ambos lados; luego sacamos factor común f prima y dividimos por 1+k y prima cuando es no nulo. Este es el despeje marcado con una estrella en el manuscrito.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15."
+    "notes": "Sumamos f prima y restamos k en ambos lados; luego sacamos factor común f prima y dividimos por 1+k y prima cuando es no nulo. Este es el despeje marcado con una estrella en el desarrollo matemático.",
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "De la familia a su EDO",
@@ -322,7 +317,7 @@ const slides=[
       }
     ],
     "notes": "Distinguir F de G corrige la última expresión de la página 3: la ecuación que recibe una pendiente es G. p es un argumento auxiliar de esa ecuación, no una curva nueva.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "EDO de las trayectorias isogonales",
@@ -356,7 +351,7 @@ const slides=[
       }
     ],
     "notes": "La ecuación G espera la pendiente de f. La sustituimos por su expresión en términos de y prima, pendiente de h. Al integrar aparece la constante lambda de la familia buscada.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "Pendiente de la trayectoria",
@@ -390,38 +385,31 @@ const slides=[
       }
     ],
     "notes": "Es la misma relación, ahora despejada para resolver ejemplos. No se cambia de orientación: gamma=alpha-beta durante toda la presentación.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
-    "title": "Caso ortogonal y alcance local",
+    "title": "La relación que utilizaremos",
     "kind": "theory",
     "duration": 45,
     "body": [
       {
-        "type": "eq",
-        "tex": "\\gamma=90^\\circ",
-        "color": "",
-        "emphasis": false,
-        "alt": "\\gamma=90^\\circ"
-      },
-      {
         "type": "text",
-        "value": "La tangente del ángulo recto no está definida. Usamos perpendicularidad:"
+        "value": "De la demostración conservamos una sola regla para resolver el ejemplo."
       },
       {
         "type": "eq",
-        "tex": "f^{\\prime}(x)h^{\\prime}(x)=-1",
-        "color": "orange",
-        "emphasis": true,
-        "alt": "f^{\\prime}(x)h^{\\prime}(x)=-1"
+        "tex": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
+        "alt": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
+        "color": "green",
+        "emphasis": true
       },
       {
         "type": "text",
-        "value": "Las tangentes horizontales y verticales se tratan geométricamente."
+        "value": "Primero obtenemos \\(f^{\\prime}\\) de la familia dada; después sustituimos y resolvemos la EDO de la familia buscada."
       }
     ],
-    "notes": "El producto vale menos uno cuando las dos pendientes son finitas. Un denominador cero en las fórmulas anteriores puede indicar tangente vertical; no elimina la curva.",
-    "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15."
+    "notes": "Transición breve al ejemplo de rectas, sin caso ortogonal ni ecuaciones tangenciales nuevas.",
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "Ejemplo: familia de rectas",
@@ -463,7 +451,7 @@ const slides=[
       }
     ],
     "notes": "Derivamos con C constante. x no debe ser cero al dividir. La recta C0=1 pasa por P=(2,2).",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "Sustituimos la pendiente conocida",
@@ -494,7 +482,7 @@ const slides=[
       }
     ],
     "notes": "Usamos la orientación de la demostración y multiplicamos arriba y abajo por x.",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "Sustitución homogénea",
@@ -525,7 +513,7 @@ const slides=[
       }
     ],
     "notes": "Aplicamos y=xz y la regla del producto, pues z depende de x.",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
   },
   {
     "title": "Reducimos a una sola fracción",
@@ -556,7 +544,7 @@ const slides=[
       }
     ],
     "notes": "Justificar el signo menos y la cancelación de z. Dominios locales.",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
   },
   {
     "title": "Separamos e integramos",
@@ -587,7 +575,7 @@ const slides=[
       }
     ],
     "notes": "Separamos, integramos y explicamos la primitiva de z/(1+z²).",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
   },
   {
     "title": "Regresamos a las variables originales",
@@ -618,7 +606,7 @@ const slides=[
       }
     ],
     "notes": "Recordar propiedad del logaritmo de un cociente y cancelación.",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
   },
   {
     "title": "Pasamos a coordenadas polares",
@@ -653,7 +641,7 @@ const slides=[
       }
     ],
     "notes": "El ángulo polar es local y se prolonga por continuidad; A=e^C1 es positivo.",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "Verificamos el ángulo constante",
@@ -684,7 +672,7 @@ const slides=[
       }
     ],
     "notes": "La tangente polar tiene componente radial dr/dθ y transversal r.",
-    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+    "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
     "title": "El ángulo constante en movimiento",
@@ -828,7 +816,7 @@ const slides=[
       }
     ],
     "notes": "Derivar el producto manteniendo C fijo. Eliminar C mediante x+C=1/y. Se mantiene la misma orientación gamma=alpha-beta de la demostración.",
-    "source": "Familia de Escobar, § 3.1.1. Desarrollo con la orientación del manuscrito.",
+    "source": "Ejemplo complementario: verificación algebraica propia.",
     "graph": "hyperbola",
     "optional": true
   },
@@ -867,7 +855,7 @@ const slides=[
       }
     ],
     "notes": "La integración vale en intervalos que no contienen y=±1. El logaritmo de 1-y aporta un signo menos. Al dividir por 1-y² se pierden dos soluciones constantes, que se recuperan enseguida.",
-    "source": "Familia de Escobar, § 3.1.1. Desarrollo con la orientación del manuscrito.",
+    "source": "Ejemplo complementario: verificación algebraica propia.",
     "optional": true
   },
   {
@@ -899,7 +887,7 @@ const slides=[
       }
     ],
     "notes": "Estas soluciones se perderían al separar variables. En la curva original la pendiente es -1 cuando y=±1, así que la trayectoria horizontal forma 45 grados con ella.",
-    "source": "Familia de Escobar, § 3.1.1. Desarrollo con la orientación del manuscrito.",
+    "source": "Ejemplo complementario: verificación algebraica propia.",
     "optional": true
   },
   {
@@ -934,7 +922,7 @@ const slides=[
       }
     ],
     "notes": "Ambas curvas pasan por P. Las inclinaciones son aproximadamente beta=104,04 grados y alpha=149,04 grados. Su diferencia es 45 grados. La rama dibujada tiene y>1.",
-    "source": "Familia de Escobar, § 3.1.1. Desarrollo con la orientación del manuscrito.",
+    "source": "Ejemplo complementario: verificación algebraica propia.",
     "graph": "hyperbola-check",
     "optional": true
   },
@@ -1112,14 +1100,14 @@ const slides=[
       }
     ],
     "notes": "Recuperar la idea central y permitir volver al diagrama con el índice si hay preguntas. No añadir nuevos resultados.",
-    "source": "Piskunov, § 15. Escobar, § 3.1.1"
+    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
   },
   {
     "title": "Referencias",
     "kind": "references",
     "duration": 20,
     "body": [],
-    "notes": "Piskunov sustenta el ejemplo radial; Escobar aporta la familia hiperbólica. Las páginas 1–6 del manuscrito final guían la notación y el desarrollo. Raup corresponde solo al complemento de expansión radial."
+    "notes": "Piskunov sustenta el ejemplo radial; Escobar aporta la familia hiperbólica. Las páginas 1–6 del desarrollo de la exposición guían la notación y el desarrollo. Raup corresponde solo al complemento de expansión radial."
   },
   {
     "title": "Gracias",
