@@ -294,29 +294,33 @@ const slides=[
     "duration": 45,
     "body": [
       {
-        "type": "eq",
-        "tex": "F(x,y,C)=0",
-        "color": "purple",
-        "emphasis": false,
-        "alt": "F(x,y,C)=0"
-      },
-      {
         "type": "text",
-        "value": "Derivamos y eliminamos el parámetro de la familia conocida."
+        "value": "De la familia conocida \\(F(x,y,C)=0\\), derivamos respecto a \\(x\\) y eliminamos \\(C\\)."
       },
       {
         "type": "eq",
-        "tex": "G(x,y,p)=0,\\qquad p=f^{\\prime}(x)",
+        "tex": "F(x,y,C)=0",
+        "alt": "F(x,y,C)=0",
         "color": "purple",
-        "emphasis": true,
-        "alt": "G(x,y,p)=0,\\qquad p=f^{\\prime}(x)"
+        "emphasis": false
       },
       {
         "type": "text",
-        "value": "\\(F\\) representa la familia; \\(G\\), su ecuación diferencial."
+        "value": "La ecuación diferencial resultante se escribe con la derivada de Leibniz:"
+      },
+      {
+        "type": "eq",
+        "tex": "G\\left(x,y,\\dfrac{dy}{dx}\\right)=0",
+        "alt": "G\\left(x,y,\\dfrac{dy}{dx}\\right)=0",
+        "color": "purple",
+        "emphasis": true
+      },
+      {
+        "type": "text",
+        "value": "Aquí \\(\\dfrac{dy}{dx}\\) representa la pendiente de la familia conocida; todavía no hemos sustituido la buscada."
       }
     ],
-    "notes": "Distinguir F de G corrige la última expresión de la página 3: la ecuación que recibe una pendiente es G. p es un argumento auxiliar de esa ecuación, no una curva nueva.",
+    "notes": "Derivar respecto a x con C fijo y eliminar C. No crear p como notación adicional. El tercer argumento de G expresa la derivada conocida en notación de Leibniz.",
     "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
@@ -326,31 +330,35 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "Sustituimos en la EDO conocida el despeje obtenido:"
+        "value": "En la ecuación de la familia conocida sustituimos su pendiente por la expresión isogonal:"
       },
       {
         "type": "eq",
-        "tex": "p=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}",
-        "color": "purple",
-        "emphasis": false,
-        "alt": "p=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}"
+        "tex": "\\dfrac{dy}{dx}\\quad\\longrightarrow\\quad\\dfrac{y'-k}{1+ky'}",
+        "alt": "\\dfrac{dy}{dx}\\quad\\longrightarrow\\quad\\dfrac{y'-k}{1+ky'}",
+        "color": "orange",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Conservamos \\(y'\\) dentro de la sustitución para identificar la pendiente de la familia buscada."
       },
       {
         "type": "eq",
-        "tex": "G\\left(x,y,\\frac{y^{\\prime}-k}{1+ky^{\\prime}}\\right)=0",
+        "tex": "G\\left(x,y,\\dfrac{y'-k}{1+ky'}\\right)=0",
+        "alt": "G\\left(x,y,\\dfrac{y'-k}{1+ky'}\\right)=0",
         "color": "green",
-        "emphasis": true,
-        "alt": "G\\left(x,y,\\frac{y^{\\prime}-k}{1+ky^{\\prime}}\\right)=0"
+        "emphasis": true
       },
       {
         "type": "eq",
         "tex": "k=\\tan\\gamma",
-        "color": "",
-        "emphasis": false,
-        "alt": "k=\\tan\\gamma"
+        "alt": "k=\\tan\\gamma",
+        "color": "orange",
+        "emphasis": false
       }
     ],
-    "notes": "La ecuación G espera la pendiente de f. La sustituimos por su expresión en términos de y prima, pendiente de h. Al integrar aparece la constante lambda de la familia buscada.",
+    "notes": "La flecha indica reemplazo de argumento, no igualdad de dos derivadas. En G se sustituye dy/dx de la conocida por (y'-k)/(1+ky') de la buscada.",
     "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
@@ -360,28 +368,32 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "Cuando conocemos explícitamente la pendiente de la familia:"
+        "value": "Cuando podemos expresar explícitamente la pendiente de la familia conocida:"
       },
       {
         "type": "eq",
-        "tex": "f^{\\prime}(x)=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}",
-        "color": "",
-        "emphasis": false,
-        "alt": "f^{\\prime}(x)=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}"
+        "tex": "f'(x)=\\dfrac{y'-k}{1+ky'}",
+        "alt": "f'(x)=\\dfrac{y'-k}{1+ky'}",
+        "color": "purple",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Multiplicando ambos miembros por el denominador y agrupando términos en \\(y'\\):"
       },
       {
         "type": "eq",
-        "tex": "y^{\\prime}\\left(1-kf^{\\prime}(x)\\right)=f^{\\prime}(x)+k",
-        "color": "",
-        "emphasis": false,
-        "alt": "y^{\\prime}\\left(1-kf^{\\prime}(x)\\right)=f^{\\prime}(x)+k"
-      },
-      {
-        "type": "eq",
-        "tex": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
+        "tex": "y'\\left(1-kf'(x)\\right)=f'(x)+k",
+        "alt": "y'\\left(1-kf'(x)\\right)=f'(x)+k",
         "color": "green",
-        "emphasis": true,
-        "alt": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}"
+        "emphasis": false
+      },
+      {
+        "type": "eq",
+        "tex": "y'=\\dfrac{f'(x)+k}{1-kf'(x)}",
+        "alt": "y'=\\dfrac{f'(x)+k}{1-kf'(x)}",
+        "color": "green",
+        "emphasis": true
       }
     ],
     "notes": "Es la misma relación, ahora despejada para resolver ejemplos. No se cambia de orientación: gamma=alpha-beta durante toda la presentación.",
@@ -394,18 +406,18 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "De la demostración conservamos una sola regla para resolver el ejemplo."
+        "value": "Para el ejemplo basta con utilizar la pendiente de la familia conocida en esta relación:"
       },
       {
         "type": "eq",
-        "tex": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
-        "alt": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
+        "tex": "y'=\\dfrac{f'(x)+k}{1-kf'(x)}",
+        "alt": "y'=\\dfrac{f'(x)+k}{1-kf'(x)}",
         "color": "green",
         "emphasis": true
       },
       {
         "type": "text",
-        "value": "Primero obtenemos \\(f^{\\prime}\\) de la familia dada; después sustituimos y resolvemos la EDO de la familia buscada."
+        "value": "Después de sustituir pasaremos a \\(\\dfrac{dy}{dx}\\) para resolver e integrar la EDO de la familia buscada."
       }
     ],
     "notes": "Transición breve al ejemplo de rectas, y evitar introducciones ajenas al ejemplo.",
@@ -418,7 +430,7 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "Partimos de todas las rectas que pasan por el origen."
+        "value": "Partimos de las rectas que pasan por el origen."
       },
       {
         "type": "eq",
@@ -433,24 +445,24 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "f^{\\prime}(x)=C",
-        "alt": "f^{\\prime}(x)=C",
+        "tex": "\\dfrac{dy}{dx}=C",
+        "alt": "\\dfrac{dy}{dx}=C",
         "color": "purple",
         "emphasis": false
       },
       {
         "type": "text",
-        "value": "Dividiendo ambos miembros de \\(y=Cx\\) entre \\(x\\) (\\(x\\ne0\\)) y eliminando el parámetro:"
+        "value": "Dividiendo \\(y=Cx\\) entre \\(x\\) (con \\(x\\ne0\\)) y eliminando \\(C\\):"
       },
       {
         "type": "eq",
-        "tex": "f^{\\prime}(x)=\\frac yx",
-        "alt": "f^{\\prime}(x)=\\frac yx",
+        "tex": "\\dfrac{dy}{dx}=\\dfrac{y}{x}",
+        "alt": "\\dfrac{dy}{dx}=\\dfrac{y}{x}",
         "color": "purple",
         "emphasis": true
       }
     ],
-    "notes": "Derivamos con C constante. x no debe ser cero al dividir. La recta C0=1 pasa por P=(2,2).",
+    "notes": "Con C constante, la derivada de la recta conocida es dy/dx=C. Para x no nulo, despejamos C=y/x; eliminando el parámetro queda la EDO dy/dx=y/x. El punto P y la curva seleccionada se mantienen visibles.",
     "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
@@ -460,28 +472,39 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "Usamos la relación entre las pendientes demostrada antes, con \\(k=\\tan\\gamma\\)."
+        "value": "Aplicamos la relación isogonal, con \\(k=\\tan\\gamma\\). La prima corresponde a la familia buscada."
       },
       {
         "type": "eq",
-        "tex": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
-        "alt": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
+        "tex": "y'=\\dfrac{f'(x)+k}{1-kf'(x)}",
+        "alt": "y'=\\dfrac{f'(x)+k}{1-kf'(x)}",
         "color": "green",
         "emphasis": false
       },
       {
         "type": "text",
-        "value": "Sustituyendo \\(f^{\\prime}=y/x\\) y multiplicando numerador y denominador por \\(x\\):"
+        "value": "Sustituimos la pendiente de las rectas conocidas \\(f'(x)=\\dfrac{y}{x}\\)."
       },
       {
         "type": "eq",
-        "tex": "y^{\\prime}=\\frac{y+kx}{x-ky}",
-        "alt": "y^{\\prime}=\\frac{y+kx}{x-ky}",
+        "tex": "y'=\\dfrac{\\dfrac{y}{x}+k}{1-k\\dfrac{y}{x}}",
+        "alt": "y'=\\dfrac{\\dfrac{y}{x}+k}{1-k\\dfrac{y}{x}}",
+        "color": "green",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Multiplicando numerador y denominador por \\(x\\):"
+      },
+      {
+        "type": "eq",
+        "tex": "y'=\\dfrac{y+kx}{x-ky}",
+        "alt": "y'=\\dfrac{y+kx}{x-ky}",
         "color": "green",
         "emphasis": true
       }
     ],
-    "notes": "Usamos la orientación de la demostración y multiplicamos arriba y abajo por x.",
+    "notes": "Durante la relación isogonal, y' nombra la pendiente desconocida. Solo tras sustituir f'(x)=y/x se cambia a notación dy/dx al resolver la EDO.",
     "source": "Piskunov, N. (1977), tomo II, § 15."
   },
   {
@@ -491,28 +514,39 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "La EDO es homogénea. Aplicamos la sustitución \\(z=\\frac yx\\)."
+        "value": "Para resolver esta EDO, escribimos la derivada de la curva buscada como fracción vertical:"
       },
       {
         "type": "eq",
-        "tex": "y=xz,\\qquad y^{\\prime}=z+x\\frac{dz}{dx}",
-        "alt": "y=xz,\\qquad y^{\\prime}=z+x\\frac{dz}{dx}",
+        "tex": "\\dfrac{dy}{dx}=\\dfrac{y+kx}{x-ky}",
+        "alt": "\\dfrac{dy}{dx}=\\dfrac{y+kx}{x-ky}",
+        "color": "green",
+        "emphasis": true
+      },
+      {
+        "type": "text",
+        "value": "Es homogénea. Hacemos la sustitución \\(z=\\dfrac{y}{x}\\), de modo que \\(y=xz\\)."
+      },
+      {
+        "type": "eq",
+        "tex": "y=xz,\\qquad \\dfrac{dy}{dx}=z+x\\dfrac{dz}{dx}",
+        "alt": "y=xz,\\qquad \\dfrac{dy}{dx}=z+x\\dfrac{dz}{dx}",
         "color": "purple",
         "emphasis": false
       },
       {
         "type": "text",
-        "value": "Sustituyendo \\(y=xz\\) y \\(y^{\\prime}\\) en la ecuación diferencial:"
+        "value": "Sustituyendo en la ecuación diferencial:"
       },
       {
         "type": "eq",
-        "tex": "z+x\\frac{dz}{dx}=\\frac{z+k}{1-kz}",
-        "alt": "z+x\\frac{dz}{dx}=\\frac{z+k}{1-kz}",
+        "tex": "z+x\\dfrac{dz}{dx}=\\dfrac{z+k}{1-kz}",
+        "alt": "z+x\\dfrac{dz}{dx}=\\dfrac{z+k}{1-kz}",
         "color": "green",
-        "emphasis": true
+        "emphasis": false
       }
     ],
-    "notes": "Aplicamos y=xz y la regla del producto, pues z depende de x.",
+    "notes": "Aquí y' se representa por dy/dx para resolver. EDO homogénea: z=y/x, y=xz, regla del producto. ED 1.7 desarrolla este método.",
     "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
   },
   {
@@ -522,23 +556,23 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "Restando \\(z\\) a ambos lados y usando el mismo denominador:"
+        "value": "Restando \\(z\\) a ambos lados y reduciendo al mismo denominador:"
       },
       {
         "type": "eq",
-        "tex": "x\\frac{dz}{dx}=\\frac{z+k-z(1-kz)}{1-kz}",
-        "alt": "x\\frac{dz}{dx}=\\frac{z+k-z(1-kz)}{1-kz}",
+        "tex": "x\\dfrac{dz}{dx}=\\dfrac{z+k-z(1-kz)}{1-kz}",
+        "alt": "x\\dfrac{dz}{dx}=\\dfrac{z+k-z(1-kz)}{1-kz}",
         "color": "green",
         "emphasis": false
       },
       {
         "type": "text",
-        "value": "Distribuyendo el signo menos y reduciendo términos semejantes:"
+        "value": "Distribuyendo el signo menos y simplificando el numerador:"
       },
       {
         "type": "eq",
-        "tex": "x\\frac{dz}{dx}=\\frac{k(1+z^2)}{1-kz}",
-        "alt": "x\\frac{dz}{dx}=\\frac{k(1+z^2)}{1-kz}",
+        "tex": "x\\dfrac{dz}{dx}=\\dfrac{k(1+z^2)}{1-kz}",
+        "alt": "x\\dfrac{dz}{dx}=\\dfrac{k(1+z^2)}{1-kz}",
         "color": "green",
         "emphasis": true
       }
@@ -557,8 +591,8 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "\\frac{1-kz}{k(1+z^2)}\\,dz=\\frac{dx}{x}",
-        "alt": "\\frac{1-kz}{k(1+z^2)}\\,dz=\\frac{dx}{x}",
+        "tex": "\\dfrac{1-kz}{k(1+z^2)}\\,dz=\\dfrac{dx}{x}",
+        "alt": "\\dfrac{1-kz}{k(1+z^2)}\\,dz=\\dfrac{dx}{x}",
         "color": "green",
         "emphasis": false
       },
@@ -568,8 +602,8 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "\\int\\frac{1-kz}{k(1+z^2)}\\,dz=\\int\\frac{dx}{x}",
-        "alt": "\\int\\frac{1-kz}{k(1+z^2)}\\,dz=\\int\\frac{dx}{x}",
+        "tex": "\\int\\dfrac{1-kz}{k(1+z^2)}\\,dz=\\int\\dfrac{dx}{x}",
+        "alt": "\\int\\dfrac{1-kz}{k(1+z^2)}\\,dz=\\int\\dfrac{dx}{x}",
         "color": "green",
         "emphasis": true
       },
@@ -579,8 +613,8 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "\\frac1k\\int\\frac{dz}{1+z^2}-\\int\\frac{z\\,dz}{1+z^2}=\\int\\frac{dx}{x}",
-        "alt": "\\frac1k\\int\\frac{dz}{1+z^2}-\\int\\frac{z\\,dz}{1+z^2}=\\int\\frac{dx}{x}",
+        "tex": "\\dfrac1k\\int\\dfrac{dz}{1+z^2}-\\int\\dfrac{z\\,dz}{1+z^2}=\\int\\dfrac{dx}{x}",
+        "alt": "\\dfrac1k\\int\\dfrac{dz}{1+z^2}-\\int\\dfrac{z\\,dz}{1+z^2}=\\int\\dfrac{dx}{x}",
         "color": "green",
         "emphasis": false
       },
@@ -590,13 +624,13 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "\\ln|x|=\\frac1k\\arctan z-\\frac12\\ln(1+z^2)+C_1",
-        "alt": "\\ln|x|=\\frac1k\\arctan z-\\frac12\\ln(1+z^2)+C_1",
+        "tex": "\\ln|x|=\\dfrac1k\\arctan z-\\dfrac12\\ln(1+z^2)+C_1",
+        "alt": "\\ln|x|=\\dfrac1k\\arctan z-\\dfrac12\\ln(1+z^2)+C_1",
         "color": "green",
         "emphasis": true
       }
     ],
-    "notes": "Mostrar gradualmente la igualdad integral completa antes de cualquier primitiva. Descomponer: 1/k·1/(1+z²) - z/(1+z²). Para la segunda integral usar u=1+z², du=2z dz. Integrar en un intervalo con x distinto de cero y k distinto de cero.",
+    "notes": "Revelar separacion, ecuación integral completa, descomposición y primitivas, manteniendo fracciones verticales \\dfrac en modo de exhibición.",
     "source": "Trujillo Salazar, C. A. (2026), ED 1.7, EDO homogéneas."
   },
   {
@@ -610,8 +644,8 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "\\ln|x|=\\frac1k\\arctan\\left(\\frac yx\\right)-\\frac12\\ln\\left(1+\\frac{y^2}{x^2}\\right)+C_1",
-        "alt": "\\ln|x|=\\frac1k\\arctan\\left(\\frac yx\\right)-\\frac12\\ln\\left(1+\\frac{y^2}{x^2}\\right)+C_1",
+        "tex": "\\ln|x|=\\dfrac1k\\arctan\\left(\\dfrac yx\\right)-\\dfrac12\\ln\\left(1+\\dfrac{y^2}{x^2}\\right)+C_1",
+        "alt": "\\ln|x|=\\dfrac1k\\arctan\\left(\\dfrac yx\\right)-\\dfrac12\\ln\\left(1+\\dfrac{y^2}{x^2}\\right)+C_1",
         "color": "green",
         "emphasis": false
       },
@@ -621,8 +655,8 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "\\frac12\\ln(x^2+y^2)=\\frac1k\\arctan\\left(\\frac yx\\right)+C_1",
-        "alt": "\\frac12\\ln(x^2+y^2)=\\frac1k\\arctan\\left(\\frac yx\\right)+C_1",
+        "tex": "\\dfrac12\\ln(x^2+y^2)=\\dfrac1k\\arctan\\left(\\dfrac yx\\right)+C_1",
+        "alt": "\\dfrac12\\ln(x^2+y^2)=\\dfrac1k\\arctan\\left(\\dfrac yx\\right)+C_1",
         "color": "green",
         "emphasis": true
       }
@@ -641,8 +675,8 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "\\ln r=\\frac{\\theta}{k}+C_1",
-        "alt": "\\ln r=\\frac{\\theta}{k}+C_1",
+        "tex": "\\ln r=\\dfrac{\\theta}{k}+C_1",
+        "alt": "\\ln r=\\dfrac{\\theta}{k}+C_1",
         "color": "green",
         "emphasis": false
       },
@@ -676,8 +710,8 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad \\frac{dr}{d\\theta}=\\frac r k",
-        "alt": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad \\frac{dr}{d\\theta}=\\frac r k",
+        "tex": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad \\dfrac{dr}{d\\theta}=\\dfrac r k",
+        "alt": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad \\dfrac{dr}{d\\theta}=\\dfrac r k",
         "color": "green",
         "emphasis": false
       },
@@ -687,8 +721,8 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "\\tan\\gamma=\\frac{r}{dr/d\\theta}=k",
-        "alt": "\\tan\\gamma=\\frac{r}{dr/d\\theta}=k",
+        "tex": "\\tan\\gamma=\\dfrac{r}{dr/d\\theta}=k",
+        "alt": "\\tan\\gamma=\\dfrac{r}{dr/d\\theta}=k",
         "color": "orange",
         "emphasis": true
       }
