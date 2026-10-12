@@ -27,3 +27,8 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 
 .katex{font-size:1em}.katex-display{margin:.12em 0;text-align:left}.katex-display>.katex{text-align:left}.family-legend .katex{font-size:1em}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.family-legend{flex-wrap:wrap;gap:8px 20px;font-size:clamp(16px,1.65cqw,23px)}
+#slide-content .equation{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:5px 0}
+#stage.wide #slide-content{gap:clamp(12px,1.5cqw,22px)}
+#stage.wide .equation{font-size:clamp(21px,2.3cqw,32px)}

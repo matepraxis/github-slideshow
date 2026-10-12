@@ -17,7 +17,7 @@ const slides=[
     "kind": "cover",
     "duration": 15,
     "body": [],
-    "notes": "Presentar la pregunta: ¿cómo construir una familia que corte a otra con un ángulo constante? Exposición de Ecuaciones Diferenciales. Docente: Carlos Andrés Trujillo Salazar. Duración sugerida: 20 minutos, incluida la animación de 95 segundos."
+    "notes": "Exposición de 20 minutos sin los complementos. El índice permite acceder a estos para preguntas. La animación original dura 95 segundos."
   },
   {
     "title": "Dos familias monoparamétricas",
@@ -424,1061 +424,276 @@ const slides=[
     "source": "Manuscrito final del expositor, pp. 1–3. Piskunov, § 15."
   },
   {
-    "title": "Ejemplo 1: una familia hiperbólica",
+    "title": "Ejemplo: familia de rectas",
     "kind": "example",
-    "graph": "hyperbola",
-    "duration": 60,
+    "duration": 80,
     "body": [
       {
         "type": "text",
-        "value": "Este ejemplo usa el ángulo orientado opuesto al del esquema."
+        "value": "Hallar las trayectorias isogonales de la familia:"
       },
       {
         "type": "eq",
-        "alt": "y(x + C) = 1",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "y(x + C) = 1",
-              "plain": false
-            }
-          ]
-        },
-        "color": "green",
-        "emphasis": false
-      },
-      {
-        "type": "eq",
-        "alt": "m_f = −y²",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "sub",
-              "base": {
-                "t": "r",
-                "text": "m",
-                "plain": false
-              },
-              "sub": {
-                "t": "r",
-                "text": "f",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": " = −",
-              "plain": false
-            },
-            {
-              "t": "sup",
-              "base": {
-                "t": "r",
-                "text": "y",
-                "plain": false
-              },
-              "pow": {
-                "t": "r",
-                "text": "2",
-                "plain": false
-              }
-            }
-          ]
-        },
-        "color": "green",
-        "emphasis": false
+        "tex": "y=Cx",
+        "color": "purple",
+        "emphasis": false,
+        "alt": "y=Cx"
       },
       {
         "type": "text",
-        "value": "Buscamos trayectorias con γ = 45°."
+        "value": "El ángulo constante es \\(\\gamma\\), con \\(k=\\tan\\gamma\\ne0\\)."
       },
       {
         "type": "eq",
-        "alt": "y′ = (y² + 1)/(y² − 1)",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "y′ = ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "sup",
-                    "base": {
-                      "t": "r",
-                      "text": "y",
-                      "plain": false
-                    },
-                    "pow": {
-                      "t": "r",
-                      "text": "2",
-                      "plain": false
-                    }
-                  },
-                  {
-                    "t": "r",
-                    "text": " + 1",
-                    "plain": false
-                  }
-                ]
-              },
-              "den": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "sup",
-                    "base": {
-                      "t": "r",
-                      "text": "y",
-                      "plain": false
-                    },
-                    "pow": {
-                      "t": "r",
-                      "text": "2",
-                      "plain": false
-                    }
-                  },
-                  {
-                    "t": "r",
-                    "text": " − 1",
-                    "plain": false
-                  }
-                ]
-              }
-            }
-          ]
-        },
+        "tex": "f^{\\prime}(x)=C,\\qquad C=\\frac{y}{x}",
+        "color": "",
+        "emphasis": false,
+        "alt": "f^{\\prime}(x)=C,\\qquad C=\\frac{y}{x}"
+      },
+      {
+        "type": "eq",
+        "tex": "f^{\\prime}(x)=\\frac{y}{x},\\qquad x\\ne0",
         "color": "purple",
-        "emphasis": true
+        "emphasis": true,
+        "alt": "f^{\\prime}(x)=\\frac{y}{x},\\qquad x\\ne0"
       }
     ],
-    "notes": "Fuente: ejemplo de Escobar, sección 3.1.1. Derivar y(x+C)=1: y′(x+C)+y=0. Como x+C=1/y y y≠0, m_f=−y². Aplicar la fórmula con tan45°=1. El ejemplo usa la orientación del esquema.",
-    "source": "Escobar, § 3.1.1, pp. 49–51"
+    "notes": "Primero derivamos con C fijo; luego despejamos C en la ecuación de la familia y lo eliminamos. El ángulo se llama gamma, corrigiendo el alpha aislado del enunciado manuscrito. El caso k=0 da la misma familia de rectas. El caso ortogonal da círculos.",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15.",
+    "graph": "rays"
   },
   {
-    "title": "Integración de la trayectoria",
+    "title": "Sustituimos la pendiente conocida",
     "kind": "example",
-    "graph": "hyperbola",
-    "duration": 60,
+    "duration": 55,
     "body": [
       {
         "type": "eq",
-        "alt": "dx/dy = (y² − 1)/(y² + 1)",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "dx",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "dy",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": " = ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "sup",
-                    "base": {
-                      "t": "r",
-                      "text": "y",
-                      "plain": false
-                    },
-                    "pow": {
-                      "t": "r",
-                      "text": "2",
-                      "plain": false
-                    }
-                  },
-                  {
-                    "t": "r",
-                    "text": " − 1",
-                    "plain": false
-                  }
-                ]
-              },
-              "den": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "sup",
-                    "base": {
-                      "t": "r",
-                      "text": "y",
-                      "plain": false
-                    },
-                    "pow": {
-                      "t": "r",
-                      "text": "2",
-                      "plain": false
-                    }
-                  },
-                  {
-                    "t": "r",
-                    "text": " + 1",
-                    "plain": false
-                  }
-                ]
-              }
-            }
-          ]
-        },
+        "tex": "f^{\\prime}(x)=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}",
         "color": "",
-        "emphasis": false
+        "emphasis": false,
+        "alt": "f^{\\prime}(x)=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}"
       },
       {
         "type": "eq",
-        "alt": "dx/dy = 1 − 2/(1 + y²)",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "dx",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "dy",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": " = 1 − ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "2",
-                "plain": false
-              },
-              "den": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "r",
-                    "text": "1 + ",
-                    "plain": false
-                  },
-                  {
-                    "t": "sup",
-                    "base": {
-                      "t": "r",
-                      "text": "y",
-                      "plain": false
-                    },
-                    "pow": {
-                      "t": "r",
-                      "text": "2",
-                      "plain": false
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
+        "tex": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}",
         "color": "",
-        "emphasis": false
+        "emphasis": false,
+        "alt": "y^{\\prime}=\\frac{f^{\\prime}(x)+k}{1-kf^{\\prime}(x)}"
       },
       {
         "type": "eq",
-        "alt": "y − 2 arctan y = x + K",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "y − 2 ",
-              "plain": false
-            },
-            {
-              "t": "r",
-              "text": "arctan",
-              "plain": true
-            },
-            {
-              "t": "r",
-              "text": " y = x + K",
-              "plain": false
-            }
-          ]
-        },
-        "color": "purple",
-        "emphasis": true
+        "tex": "y^{\\prime}=\\frac{\\frac{y}{x}+k}{1-k\\frac{y}{x}}",
+        "color": "",
+        "emphasis": false,
+        "alt": "y^{\\prime}=\\frac{\\frac{y}{x}+k}{1-k\\frac{y}{x}}"
       },
       {
-        "type": "text",
-        "value": "La representación x = x(y) incluye los puntos donde la tangente es vertical."
+        "type": "eq",
+        "tex": "y^{\\prime}=\\frac{y+kx}{x-ky}",
+        "color": "green",
+        "emphasis": true,
+        "alt": "y^{\\prime}=\\frac{y+kx}{x-ky}"
       }
     ],
-    "notes": "Invertir la derivada en los intervalos donde sea válido y luego prolongar la solución implícita. En y=±1, dx/dy=0 y la tangente es vertical. La curva original tiene y≠0. Distinguir las restricciones de la forma explícita y de la curva implícita.",
-    "source": "Escobar, § 3.1.1, pp. 49–51"
+    "notes": "La orientación es la misma que en la demostración. Multiplicar numerador y denominador por x permite reconocer la EDO homogénea. No confundir un denominador cero con ausencia de trayectoria.",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
   },
   {
-    "title": "Verificación en P = (0, 2)",
+    "title": "Sustitución homogénea",
     "kind": "example",
-    "graph": "hyperbola-check",
-    "duration": 45,
+    "duration": 55,
     "body": [
       {
         "type": "eq",
-        "alt": "C = 1/2, K = 2 − 2 arctan 2",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "C = ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "1",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "2",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": ",   K = 2 − 2 ",
-              "plain": false
-            },
-            {
-              "t": "r",
-              "text": "arctan",
-              "plain": true
-            },
-            {
-              "t": "r",
-              "text": " 2",
-              "plain": false
-            }
-          ]
-        },
+        "tex": "z=\\frac{y}{x}\\quad\\Longrightarrow\\quad y=xz",
         "color": "",
-        "emphasis": false
+        "emphasis": false,
+        "alt": "z=\\frac{y}{x}\\quad\\Longrightarrow\\quad y=xz"
       },
       {
         "type": "eq",
-        "alt": "m_f = −4, m_h = 5/3",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "sub",
-              "base": {
-                "t": "r",
-                "text": "m",
-                "plain": false
-              },
-              "sub": {
-                "t": "r",
-                "text": "f",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": " = −4,   ",
-              "plain": false
-            },
-            {
-              "t": "sub",
-              "base": {
-                "t": "r",
-                "text": "m",
-                "plain": false
-              },
-              "sub": {
-                "t": "r",
-                "text": "h",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": " = ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "5",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "3",
-                "plain": false
-              }
-            }
-          ]
-        },
+        "tex": "\\frac{dy}{dx}=z+x\\frac{dz}{dx}",
         "color": "",
-        "emphasis": false
+        "emphasis": false,
+        "alt": "\\frac{dy}{dx}=z+x\\frac{dz}{dx}"
       },
       {
         "type": "eq",
-        "alt": "|(m_f − m_h)/(1 + m_f m_h)| = 1",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "|",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "sub",
-                    "base": {
-                      "t": "r",
-                      "text": "m",
-                      "plain": false
-                    },
-                    "sub": {
-                      "t": "r",
-                      "text": "f",
-                      "plain": false
-                    }
-                  },
-                  {
-                    "t": "r",
-                    "text": " − ",
-                    "plain": false
-                  },
-                  {
-                    "t": "sub",
-                    "base": {
-                      "t": "r",
-                      "text": "m",
-                      "plain": false
-                    },
-                    "sub": {
-                      "t": "r",
-                      "text": "h",
-                      "plain": false
-                    }
-                  }
-                ]
-              },
-              "den": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "r",
-                    "text": "1 + ",
-                    "plain": false
-                  },
-                  {
-                    "t": "sub",
-                    "base": {
-                      "t": "r",
-                      "text": "m",
-                      "plain": false
-                    },
-                    "sub": {
-                      "t": "r",
-                      "text": "f",
-                      "plain": false
-                    }
-                  },
-                  {
-                    "t": "r",
-                    "text": " ",
-                    "plain": false
-                  },
-                  {
-                    "t": "sub",
-                    "base": {
-                      "t": "r",
-                      "text": "m",
-                      "plain": false
-                    },
-                    "sub": {
-                      "t": "r",
-                      "text": "h",
-                      "plain": false
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "t": "r",
-              "text": "| = 1",
-              "plain": false
-            }
-          ]
-        },
+        "tex": "z+x\\frac{dz}{dx}=\\frac{z+k}{1-kz}",
+        "color": "",
+        "emphasis": false,
+        "alt": "z+x\\frac{dz}{dx}=\\frac{z+k}{1-kz}"
+      },
+      {
+        "type": "eq",
+        "tex": "x\\frac{dz}{dx}=\\frac{z+k}{1-kz}-z",
+        "color": "",
+        "emphasis": false,
+        "alt": "x\\frac{dz}{dx}=\\frac{z+k}{1-kz}-z"
+      }
+    ],
+    "notes": "Usar z, como en el manuscrito. Al derivar y=xz aplicamos la regla del producto y z depende de x.",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+  },
+  {
+    "title": "Reducimos a una sola fracción",
+    "kind": "example",
+    "duration": 55,
+    "body": [
+      {
+        "type": "eq",
+        "tex": "x\\frac{dz}{dx}=\\frac{z+k-z(1-kz)}{1-kz}",
+        "color": "",
+        "emphasis": false,
+        "alt": "x\\frac{dz}{dx}=\\frac{z+k-z(1-kz)}{1-kz}"
+      },
+      {
+        "type": "eq",
+        "tex": "x\\frac{dz}{dx}=\\frac{z+k-z+kz^2}{1-kz}",
+        "color": "",
+        "emphasis": false,
+        "alt": "x\\frac{dz}{dx}=\\frac{z+k-z+kz^2}{1-kz}"
+      },
+      {
+        "type": "eq",
+        "tex": "x\\frac{dz}{dx}=\\frac{k(1+z^2)}{1-kz}",
+        "color": "green",
+        "emphasis": true,
+        "alt": "x\\frac{dz}{dx}=\\frac{k(1+z^2)}{1-kz}"
+      }
+    ],
+    "notes": "Mostrar la distribución del signo menos y la cancelación de z. Se trabaja localmente donde x y los denominadores no son nulos.",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+  },
+  {
+    "title": "Separamos e integramos",
+    "kind": "example",
+    "duration": 55,
+    "body": [
+      {
+        "type": "eq",
+        "tex": "\\frac{dx}{x}=\\frac{1}{k}\\frac{1-kz}{1+z^2}\\,dz",
+        "color": "",
+        "emphasis": false,
+        "alt": "\\frac{dx}{x}=\\frac{1}{k}\\frac{1-kz}{1+z^2}\\,dz"
+      },
+      {
+        "type": "eq",
+        "tex": "\\int\\frac{dx}{x}=\\frac1k\\int\\frac{dz}{1+z^2}-\\int\\frac{z\\,dz}{1+z^2}",
+        "color": "",
+        "emphasis": false,
+        "alt": "\\int\\frac{dx}{x}=\\frac1k\\int\\frac{dz}{1+z^2}-\\int\\frac{z\\,dz}{1+z^2}"
+      },
+      {
+        "type": "eq",
+        "tex": "\\ln|x|=\\frac1k\\arctan z-\\frac12\\ln(1+z^2)+C_1",
+        "color": "green",
+        "emphasis": true,
+        "alt": "\\ln|x|=\\frac1k\\arctan z-\\frac12\\ln(1+z^2)+C_1"
+      }
+    ],
+    "notes": "La primera integral es arctangente. Para la segunda usamos u=1+z², du=2z dz, por eso aparece 1/2. El argumento 1+z² es positivo.",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+  },
+  {
+    "title": "Regresamos a las variables originales",
+    "kind": "example",
+    "duration": 55,
+    "body": [
+      {
+        "type": "eq",
+        "tex": "\\ln|x|=\\frac1k\\arctan\\left(\\frac yx\\right)-\\frac12\\ln\\left(1+\\frac{y^2}{x^2}\\right)+C_1",
+        "color": "",
+        "emphasis": false,
+        "alt": "\\ln|x|=\\frac1k\\arctan\\left(\\frac yx\\right)-\\frac12\\ln\\left(1+\\frac{y^2}{x^2}\\right)+C_1"
+      },
+      {
+        "type": "eq",
+        "tex": "\\ln\\left(\\frac{x^2+y^2}{x^2}\\right)=\\ln(x^2+y^2)-2\\ln|x|",
+        "color": "",
+        "emphasis": false,
+        "alt": "\\ln\\left(\\frac{x^2+y^2}{x^2}\\right)=\\ln(x^2+y^2)-2\\ln|x|"
+      },
+      {
+        "type": "eq",
+        "tex": "\\frac12\\ln(x^2+y^2)=\\frac1k\\arctan\\left(\\frac yx\\right)+C_1",
+        "color": "green",
+        "emphasis": true,
+        "alt": "\\frac12\\ln(x^2+y^2)=\\frac1k\\arctan\\left(\\frac yx\\right)+C_1"
+      }
+    ],
+    "notes": "Sustituimos z=y/x. Al usar el logaritmo del cociente aparece +ln|x| a la derecha y se cancela con el de la izquierda. La constante no es el parámetro C de las rectas.",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+  },
+  {
+    "title": "Pasamos a coordenadas polares",
+    "kind": "example",
+    "duration": 55,
+    "body": [
+      {
+        "type": "eq",
+        "tex": "r=\\sqrt{x^2+y^2},\\qquad \\theta=\\arctan\\left(\\frac yx\\right)",
+        "color": "",
+        "emphasis": false,
+        "alt": "r=\\sqrt{x^2+y^2},\\qquad \\theta=\\arctan\\left(\\frac yx\\right)"
+      },
+      {
+        "type": "eq",
+        "tex": "\\ln r=\\frac{\\theta}{k}+C_1",
+        "color": "",
+        "emphasis": false,
+        "alt": "\\ln r=\\frac{\\theta}{k}+C_1"
+      },
+      {
+        "type": "eq",
+        "tex": "r=e^{C_1}e^{\\theta/k}",
+        "color": "",
+        "emphasis": false,
+        "alt": "r=e^{C_1}e^{\\theta/k}"
+      },
+      {
+        "type": "eq",
+        "tex": "r=Ae^{\\theta/k},\\qquad A>0",
+        "color": "green",
+        "emphasis": true,
+        "alt": "r=Ae^{\\theta/k},\\qquad A>0"
+      }
+    ],
+    "notes": "La igualdad theta=arctan(y/x) usa una rama local. Luego prolongamos el ángulo polar continuamente. Se toma r>0 y A=e^{C1}. Así obtenemos la familia de espirales logarítmicas.",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15."
+  },
+  {
+    "title": "Verificamos el ángulo constante",
+    "kind": "example",
+    "duration": 55,
+    "body": [
+      {
+        "type": "eq",
+        "tex": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad\\frac{dr}{d\\theta}=\\frac r k",
+        "color": "",
+        "emphasis": false,
+        "alt": "r=Ae^{\\theta/k}\\quad\\Longrightarrow\\quad\\frac{dr}{d\\theta}=\\frac r k"
+      },
+      {
+        "type": "eq",
+        "tex": "\\tan\\gamma=\\frac{r}{dr/d\\theta}=k",
         "color": "orange",
-        "emphasis": true
+        "emphasis": true,
+        "alt": "\\tan\\gamma=\\frac{r}{dr/d\\theta}=k"
       },
       {
         "type": "text",
-        "value": "Las curvas pasan por P y el ángulo agudo entre tangentes es 45°."
-      }
-    ],
-    "notes": "El cociente orientado también vale +1. α≈104.04° y β≈59.04°, diferencia45°. La gráfica verde usa C=1/2 y la morada K=2−2arctan2. En el dibujo las tangentes confirman el cálculo.",
-    "source": "Cálculo y gráfica propios. Familia de Escobar"
-  },
-  {
-    "title": "Ejemplo 2: rectas radiales",
-    "kind": "example",
-    "graph": "rays",
-    "duration": 60,
-    "body": [
-      {
-        "type": "eq",
-        "alt": "y = Cx, m_f = y/x",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "y = Cx,   ",
-              "plain": false
-            },
-            {
-              "t": "sub",
-              "base": {
-                "t": "r",
-                "text": "m",
-                "plain": false
-              },
-              "sub": {
-                "t": "r",
-                "text": "f",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": " = ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "y",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "x",
-                "plain": false
-              }
-            }
-          ]
-        },
-        "color": "green",
-        "emphasis": false
+        "value": "Para la gráfica tomamos \\(\\gamma=80^\\circ\\)."
       },
       {
         "type": "text",
-        "value": "Aquí elegimos la orientación de Piskunov: β = α + γ. Tomamos k = tan γ > 0."
-      },
-      {
-        "type": "eq",
-        "alt": "y′ = (y + kx)/(x − ky)",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "y′ = ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "y + kx",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "x − ky",
-                "plain": false
-              }
-            }
-          ]
-        },
-        "color": "purple",
-        "emphasis": true
-      },
-      {
-        "type": "text",
-        "value": "La orientación opuesta se obtiene cambiando γ por −γ."
+        "value": "La recta radial y la tangente a la espiral conservan el ángulo."
       }
     ],
-    "notes": "Explicitar el cambio de orientación evita confundir signos. La fórmula anterior tenía γ=α−β. Aquí la tangente de la trayectoria gira en sentido positivo respecto de la recta radial. El ejemplo de Piskunov produce espirales logarítmicas.",
-    "source": "Piskunov, tomo II, § 15, pp. 51–53"
-  },
-  {
-    "title": "La ecuación homogénea",
-    "kind": "example",
-    "duration": 75,
-    "body": [
-      {
-        "type": "eq",
-        "alt": "y = ux, y′ = u + x du/dx",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "y = ux,   y′ = u + x ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "du",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "dx",
-                "plain": false
-              }
-            }
-          ]
-        },
-        "color": "",
-        "emphasis": false
-      },
-      {
-        "type": "eq",
-        "alt": "x du/dx = k(1 + u²)/(1 − ku)",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "x ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "du",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "dx",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": " = ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "r",
-                    "text": "k(1 + ",
-                    "plain": false
-                  },
-                  {
-                    "t": "sup",
-                    "base": {
-                      "t": "r",
-                      "text": "u",
-                      "plain": false
-                    },
-                    "pow": {
-                      "t": "r",
-                      "text": "2",
-                      "plain": false
-                    }
-                  },
-                  {
-                    "t": "r",
-                    "text": ")",
-                    "plain": false
-                  }
-                ]
-              },
-              "den": {
-                "t": "r",
-                "text": "1 − ku",
-                "plain": false
-              }
-            }
-          ]
-        },
-        "color": "",
-        "emphasis": false
-      },
-      {
-        "type": "eq",
-        "alt": "(1 − ku)/(1 + u²) du = k dx/x",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "1 − ku",
-                "plain": false
-              },
-              "den": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "r",
-                    "text": "1 + ",
-                    "plain": false
-                  },
-                  {
-                    "t": "sup",
-                    "base": {
-                      "t": "r",
-                      "text": "u",
-                      "plain": false
-                    },
-                    "pow": {
-                      "t": "r",
-                      "text": "2",
-                      "plain": false
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "t": "r",
-              "text": " du = k ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "dx",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "x",
-                "plain": false
-              }
-            }
-          ]
-        },
-        "color": "",
-        "emphasis": false
-      },
-      {
-        "type": "eq",
-        "alt": "arctan u − (k/2) ln(1 + u²) = k ln|x| + K",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "arctan",
-              "plain": true
-            },
-            {
-              "t": "r",
-              "text": " u − ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "k",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "2",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": " ",
-              "plain": false
-            },
-            {
-              "t": "r",
-              "text": "ln",
-              "plain": true
-            },
-            {
-              "t": "r",
-              "text": "(1 + ",
-              "plain": false
-            },
-            {
-              "t": "sup",
-              "base": {
-                "t": "r",
-                "text": "u",
-                "plain": false
-              },
-              "pow": {
-                "t": "r",
-                "text": "2",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": ") = k ",
-              "plain": false
-            },
-            {
-              "t": "r",
-              "text": "ln",
-              "plain": true
-            },
-            {
-              "t": "r",
-              "text": "|x| + K",
-              "plain": false
-            }
-          ]
-        },
-        "color": "purple",
-        "emphasis": true
-      }
-    ],
-    "notes": "Trabajar en x≠0 y en intervalos donde la separación está definida. Integrar du/(1+u²) y udu/(1+u²). La constante absorbe términos de la transformación posterior. arctan fija una rama local del ángulo.",
-    "source": "Piskunov, tomo II, § 15, pp. 51–53"
-  },
-  {
-    "title": "La espiral logarítmica",
-    "kind": "example",
-    "graph": "spiral",
-    "duration": 60,
-    "body": [
-      {
-        "type": "eq",
-        "alt": "x = r cos θ, y = r sin θ",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "x = r ",
-              "plain": false
-            },
-            {
-              "t": "r",
-              "text": "cos",
-              "plain": true
-            },
-            {
-              "t": "r",
-              "text": " θ,   y = r ",
-              "plain": false
-            },
-            {
-              "t": "r",
-              "text": "sin",
-              "plain": true
-            },
-            {
-              "t": "r",
-              "text": " θ",
-              "plain": false
-            }
-          ]
-        },
-        "color": "",
-        "emphasis": false
-      },
-      {
-        "type": "eq",
-        "alt": "ln r = θ/k + K",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "ln",
-              "plain": true
-            },
-            {
-              "t": "r",
-              "text": " r = ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "θ",
-                "plain": false
-              },
-              "den": {
-                "t": "r",
-                "text": "k",
-                "plain": false
-              }
-            },
-            {
-              "t": "r",
-              "text": " + K",
-              "plain": false
-            }
-          ]
-        },
-        "color": "",
-        "emphasis": false
-      },
-      {
-        "type": "eq",
-        "alt": "r = A e^(θ cot γ), A > 0",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "r = A ",
-              "plain": false
-            },
-            {
-              "t": "sup",
-              "base": {
-                "t": "r",
-                "text": "e",
-                "plain": false
-              },
-              "pow": {
-                "t": "seq",
-                "nodes": [
-                  {
-                    "t": "r",
-                    "text": "θ ",
-                    "plain": false
-                  },
-                  {
-                    "t": "r",
-                    "text": "cot",
-                    "plain": true
-                  },
-                  {
-                    "t": "r",
-                    "text": " γ",
-                    "plain": false
-                  }
-                ]
-              }
-            },
-            {
-              "t": "r",
-              "text": ",   A > 0",
-              "plain": false
-            }
-          ]
-        },
-        "color": "purple",
-        "emphasis": true
-      },
-      {
-        "type": "eq",
-        "alt": "tan γ = r/(dr/dθ)",
-        "ast": {
-          "t": "seq",
-          "nodes": [
-            {
-              "t": "r",
-              "text": "tan",
-              "plain": true
-            },
-            {
-              "t": "r",
-              "text": " γ = ",
-              "plain": false
-            },
-            {
-              "t": "frac",
-              "num": {
-                "t": "r",
-                "text": "r",
-                "plain": false
-              },
-              "den": {
-                "t": "frac",
-                "num": {
-                  "t": "r",
-                  "text": "dr",
-                  "plain": false
-                },
-                "den": {
-                  "t": "r",
-                  "text": "dθ",
-                  "plain": false
-                }
-              }
-            }
-          ]
-        },
-        "color": "orange",
-        "emphasis": false
-      },
-      {
-        "type": "text",
-        "value": "θ se mide en radianes. El radio y la tangente conservan el ángulo γ."
-      }
-    ],
-    "notes": "Usar 1+u²=r²/x² y θ=arctan u en una rama local. La expresión polar prolonga la espiral más allá de esa rama. La verificación tanγ=r/(dr/dθ) usa las componentes radial y angular del vector tangente.",
-    "source": "Piskunov, § 15. Deducción propia"
+    "notes": "En coordenadas polares el vector tangente tiene componente radial dr/dtheta y componente perpendicular r. Su cociente da la tangente del ángulo con el radio. La gráfica usa A=1,7 y una orientación positiva.",
+    "source": "Manuscrito final del expositor, pp. 4–6. Piskunov, § 15.",
+    "graph": "spiral"
   },
   {
     "title": "El ángulo constante en movimiento",
@@ -1487,17 +702,162 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "Rectas radiales y espirales logarítmicas con γ = 80°."
+        "value": "Rectas radiales y espirales logarítmicas con \\(\\gamma=80^\\circ\\)."
       }
     ],
-    "notes": "Reproducir la animación propia completa de95 segundos. Señalar el radio, la tangente y la conservación del ángulo mientras se mueve el punto. El video no tiene audio, lo que permite explicarlo durante la reproducción.",
+    "notes": "Reproducir la animación propia completa de95 segundos. Señalar el radio, la tangente y la conservación del ángulo mientras se mueve el punto. El video no tiene audio, lo que permite explicarlo durante la reproducción. El video original se conserva; sus colores son los del material original, independientes de la leyenda de las gráficas interactivas.",
     "source": "Animación original del expositor, 95 segundos"
   },
   {
-    "title": "Un modelo radial de crecimiento",
+    "title": "Complemento: familia hiperbólica",
+    "kind": "example",
+    "duration": 0,
+    "body": [
+      {
+        "type": "eq",
+        "tex": "y(x+C)=1,\\qquad y\\ne0",
+        "color": "purple",
+        "emphasis": false,
+        "alt": "y(x+C)=1,\\qquad y\\ne0"
+      },
+      {
+        "type": "eq",
+        "tex": "f^{\\prime}(x)(x+C)+y=0",
+        "color": "",
+        "emphasis": false,
+        "alt": "f^{\\prime}(x)(x+C)+y=0"
+      },
+      {
+        "type": "eq",
+        "tex": "x+C=\\frac1y\\quad\\Longrightarrow\\quad f^{\\prime}(x)=-y^2",
+        "color": "",
+        "emphasis": false,
+        "alt": "x+C=\\frac1y\\quad\\Longrightarrow\\quad f^{\\prime}(x)=-y^2"
+      },
+      {
+        "type": "eq",
+        "tex": "\\gamma=45^\\circ,\\quad k=1",
+        "color": "",
+        "emphasis": false,
+        "alt": "\\gamma=45^\\circ,\\quad k=1"
+      }
+    ],
+    "notes": "Derivar el producto manteniendo C fijo. Eliminar C mediante x+C=1/y. Se mantiene la misma orientación gamma=alpha-beta de la demostración.",
+    "source": "Familia de Escobar, § 3.1.1. Desarrollo con la orientación del manuscrito.",
+    "graph": "hyperbola",
+    "optional": true
+  },
+  {
+    "title": "Complemento: EDO e integración",
+    "kind": "example",
+    "duration": 0,
+    "body": [
+      {
+        "type": "eq",
+        "tex": "y^{\\prime}=\\frac{f^{\\prime}(x)+1}{1-f^{\\prime}(x)}=\\frac{1-y^2}{1+y^2}",
+        "color": "green",
+        "emphasis": false,
+        "alt": "y^{\\prime}=\\frac{f^{\\prime}(x)+1}{1-f^{\\prime}(x)}=\\frac{1-y^2}{1+y^2}"
+      },
+      {
+        "type": "eq",
+        "tex": "\\frac{dx}{dy}=\\frac{1+y^2}{1-y^2}=-1+\\frac{2}{1-y^2}",
+        "color": "",
+        "emphasis": false,
+        "alt": "\\frac{dx}{dy}=\\frac{1+y^2}{1-y^2}=-1+\\frac{2}{1-y^2}"
+      },
+      {
+        "type": "eq",
+        "tex": "\\frac{2}{1-y^2}=\\frac1{1+y}+\\frac1{1-y}",
+        "color": "",
+        "emphasis": false,
+        "alt": "\\frac{2}{1-y^2}=\\frac1{1+y}+\\frac1{1-y}"
+      },
+      {
+        "type": "eq",
+        "tex": "x+\\lambda=-y+\\ln\\left|\\frac{1+y}{1-y}\\right|",
+        "color": "green",
+        "emphasis": true,
+        "alt": "x+\\lambda=-y+\\ln\\left|\\frac{1+y}{1-y}\\right|"
+      }
+    ],
+    "notes": "La integración vale en intervalos que no contienen y=±1. El logaritmo de 1-y aporta un signo menos. Al dividir por 1-y² se pierden dos soluciones constantes, que se recuperan enseguida.",
+    "source": "Familia de Escobar, § 3.1.1. Desarrollo con la orientación del manuscrito.",
+    "optional": true
+  },
+  {
+    "title": "Complemento: soluciones constantes",
+    "kind": "example",
+    "duration": 0,
+    "body": [
+      {
+        "type": "eq",
+        "tex": "y=1\\qquad\\text{o}\\qquad y=-1",
+        "color": "green",
+        "emphasis": true,
+        "alt": "y=1\\qquad\\text{o}\\qquad y=-1"
+      },
+      {
+        "type": "eq",
+        "tex": "y^{\\prime}=0=\\frac{1-y^2}{1+y^2}",
+        "color": "",
+        "emphasis": false,
+        "alt": "y^{\\prime}=0=\\frac{1-y^2}{1+y^2}"
+      },
+      {
+        "type": "text",
+        "value": "También son trayectorias de la EDO y deben conservarse."
+      },
+      {
+        "type": "text",
+        "value": "La familia original requiere \\(y\\ne0\\); trabajamos en esos dominios."
+      }
+    ],
+    "notes": "Estas soluciones se perderían al separar variables. En la curva original la pendiente es -1 cuando y=±1, así que la trayectoria horizontal forma 45 grados con ella.",
+    "source": "Familia de Escobar, § 3.1.1. Desarrollo con la orientación del manuscrito.",
+    "optional": true
+  },
+  {
+    "title": "Complemento: verificación en un punto",
+    "kind": "example",
+    "duration": 0,
+    "body": [
+      {
+        "type": "eq",
+        "tex": "P=(0,2),\\quad C=\\frac12,\\quad\\lambda=-2+\\ln3",
+        "color": "",
+        "emphasis": false,
+        "alt": "P=(0,2),\\quad C=\\frac12,\\quad\\lambda=-2+\\ln3"
+      },
+      {
+        "type": "eq",
+        "tex": "f^{\\prime}(0)=-4,\\qquad h^{\\prime}(0)=-\\frac35",
+        "color": "",
+        "emphasis": false,
+        "alt": "f^{\\prime}(0)=-4,\\qquad h^{\\prime}(0)=-\\frac35"
+      },
+      {
+        "type": "eq",
+        "tex": "\\frac{h^{\\prime}(0)-f^{\\prime}(0)}{1+h^{\\prime}(0)f^{\\prime}(0)}=1",
+        "color": "orange",
+        "emphasis": true,
+        "alt": "\\frac{h^{\\prime}(0)-f^{\\prime}(0)}{1+h^{\\prime}(0)f^{\\prime}(0)}=1"
+      },
+      {
+        "type": "text",
+        "value": "El ángulo agudo entre tangentes es \\(45^\\circ\\)."
+      }
+    ],
+    "notes": "Ambas curvas pasan por P. Las inclinaciones son aproximadamente beta=104,04 grados y alpha=149,04 grados. Su diferencia es 45 grados. La rama dibujada tiene y>1.",
+    "source": "Familia de Escobar, § 3.1.1. Desarrollo con la orientación del manuscrito.",
+    "graph": "hyperbola-check",
+    "optional": true
+  },
+  {
+    "title": "Complemento: expansión radial",
     "kind": "example",
     "graph": "biology",
-    "duration": 75,
+    "duration": 0,
     "body": [
       {
         "type": "eq",
@@ -1635,11 +995,12 @@ const slides=[
       },
       {
         "type": "text",
-        "value": "Ilustración: r₀ = 10 mm y W = 2. Tras 0, 1 y 2 vueltas: 10, 20 y 40 mm."
+        "value": "Ilustración: \\(r_0=10\\,\\mathrm{mm}\\), \\(W=2\\); radios de \\(10\\), \\(20\\) y \\(40\\,\\mathrm{mm}\\)."
       }
     ],
-    "notes": "Raup1966 desarrolla un modelo geométrico de enrollamiento de conchas con varios parámetros. Aquí mostramos únicamente su componente de expansión radial. W=2 es una ilustración matemática, no mediciones de un organismo. b=ln2/(2π)≈0.1103 y el ángulo radio-tangente≈83.7°. No afirmar que toda concha sigue este modelo ni que se trata de la espiral áurea.",
-    "source": "Raup (1966), pp. 1179–1181. Valores ilustrativos"
+    "notes": "Modelo geométrico complementario; no sustituye la aplicación indexada de trayectorias isogonales que aún debe elegirse. Raup1966 desarrolla un modelo geométrico de enrollamiento de conchas con varios parámetros. Aquí mostramos únicamente su componente de expansión radial. W=2 es una ilustración matemática, no mediciones de un organismo. b=ln2/(2π)≈0.1103 y el ángulo radio-tangente≈83.7°. No afirmar que toda concha sigue este modelo ni que se trata de la espiral áurea.",
+    "source": "Raup (1966), pp. 1179–1181. Valores ilustrativos",
+    "optional": true
   },
   {
     "title": "La construcción y la ecuación",
@@ -1673,7 +1034,7 @@ const slides=[
     "kind": "references",
     "duration": 20,
     "body": [],
-    "notes": "Referencias principales: Piskunov para el desarrollo de trayectorias isogonales y el ejemplo radial. Escobar para el ejemplo hiperbólico. Los apuntes ED1.8 conectan con trayectorias ortogonales. Raup sustenta el ejemplo biomatemático. Las gráficas y animación son del expositor."
+    "notes": "Piskunov sustenta el ejemplo radial; Escobar aporta la familia hiperbólica. Las páginas 1–6 del manuscrito final guían la notación y el desarrollo. Raup corresponde solo al complemento de expansión radial."
   },
   {
     "title": "Gracias",
@@ -1687,7 +1048,10 @@ const clamp=(value,max)=>Math.max(0,Math.min(max,Number.isFinite(Number(value))?
 function initial(saved){return {slide:clamp(saved?.slide,slides.length-1),phase:clamp(saved?.phase,4)};}
 function transition(state,action){
  const next={...state};
- if(action.type==='navigate')next.slide=clamp(state.slide+action.delta,slides.length-1);
+ if(action.type==='navigate'){
+  next.slide=clamp(state.slide+action.delta,slides.length-1);
+  if(!slides[state.slide]?.optional)while(slides[next.slide]?.optional&&next.slide>0&&next.slide<slides.length-1)next.slide=clamp(next.slide+Math.sign(action.delta),slides.length-1);
+ }
  if(action.type==='go')next.slide=clamp(action.slide,slides.length-1);
  if(action.type==='phase')next.phase=clamp(action.phase,4);
  return next;
