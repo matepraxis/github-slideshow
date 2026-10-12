@@ -52,6 +52,10 @@ const close=()=>new Promise(resolve=>server.close(resolve));
   for(const [idx,n] of [[24,10],[25,11],[26,12]]){
    await go(idx);
    assert.ok((await page.locator('.paper-link').getAttribute('href')).endsWith('#page=10'));
+   await page.waitForFunction(()=>{
+    const img=document.querySelector('.paper-original-figure');
+    return img && img.complete && img.naturalWidth>400;
+   },null,{timeout:8000});
    const image=await page.locator('.paper-original-figure').evaluate(img=>({
     loaded:img.complete&&img.naturalWidth>0,width:img.naturalWidth,
     src:img.getAttribute('src')
