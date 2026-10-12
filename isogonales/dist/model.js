@@ -737,7 +737,7 @@ const slides=[
     ],
     "notes": "Presentar la contribución como diseño y modelación, no como un experimento de impacto ni una reducción cuantitativa universal. El artículo de 2017 formula sistemas diferenciales asociados a un problema de elasticidad lineal heterogénea y anisótropa.",
     "source": "Galanin y Feodorova (2017), Preprint 33.",
-    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf"
   },
   {
     "title": "Diseño isogonal: figura 10 (k=1)",
@@ -761,9 +761,9 @@ const slides=[
         "value": "Observamos una espiral de expansión radial rápida. Gráfico reconstruido matemáticamente; figura 10 original disponible en la fuente."
       }
     ],
-    "notes": "El esquema procede de la ecuación r=A exp(theta/k); no es una reproducción de la figura editorial. Remitir a la figura 10 en el PDF original de 2017.",
+    "notes": "El esquema procede de la ecuación r=A exp(theta/k); no es una reproducción de la figura editorial. Remitir a la figura 10 en el PDF original de 2017. PDF: página 10 del archivo para Fig. 10, 11 y 12.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 10.",
-    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
   },
   {
     "title": "Diseño isogonal: figura 11 (k=2)",
@@ -787,9 +787,9 @@ const slides=[
         "value": "El crecimiento radial por unidad de ángulo es menor que con k=1. Comparar con la figura 11 del artículo."
       }
     ],
-    "notes": "La reconstrucción matemática mantiene la misma A y la misma escala. Comparar con figura 11 original; no afirmar que la ilustración fue extraída del PDF.",
+    "notes": "La reconstrucción matemática mantiene la misma A y la misma escala. Comparar con figura 11 original; no afirmar que la ilustración fue extraída del PDF. PDF: página 10 del archivo para Fig. 10, 11 y 12.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 11.",
-    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
   },
   {
     "title": "Diseño isogonal: figura 12 (k=3)",
@@ -813,9 +813,9 @@ const slides=[
         "value": "La espiral se enrolla más antes de alcanzar el mismo crecimiento radial. Corresponde al caso de la figura 12."
       }
     ],
-    "notes": "Mantener radios y escalas; el gráfico es reconstrucción analítica y no la figura original. Consultar PDF del preprint.",
+    "notes": "Mantener radios y escalas; el gráfico es reconstrucción analítica y no la figura original. Consultar PDF del preprint. PDF: página 10 del archivo para Fig. 10, 11 y 12.",
     "source": "Galanin y Feodorova (2017), Preprint 33, figura 12.",
-    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=10"
   },
   {
     "title": "Resultado matemático del estudio de 2017",
@@ -825,20 +825,31 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "El artículo obtiene sistemas diferenciales para estudiar las deformaciones de las estructuras reforzadas."
+        "value": "Tomamos el caso de la tabla 1: matriz de cobre y fibras de wolframio."
+      },
+      {
+        "type": "eq",
+        "tex": "\\omega_1=\\omega_2=0.2",
+        "alt": "\\omega_1=\\omega_2=0.2",
+        "color": "purple",
+        "emphasis": true
       },
       {
         "type": "text",
-        "value": "El parámetro \\(k\\), junto con las propiedades y proporciones de los materiales, afecta el tipo de las raíces de la ecuación característica."
+        "value": "Para \\(k=1\\), la ecuación característica tiene dos raíces reales y un par complejo conjugado."
       },
       {
         "type": "text",
-        "value": "La tabla 1 del artículo permite comparar configuraciones; no se interpreta como una medición experimental directa."
+        "value": "Para \\(k=3\\), las cuatro raíces son reales."
+      },
+      {
+        "type": "text",
+        "value": "Cambiar la orientación isogonal modifica el tipo del sistema diferencial; no equivale por sí solo a demostrar un mejor rendimiento."
       }
     ],
-    "notes": "No presentar valores de raíces no contrastados con el texto completo de la tabla 1. Explicar la diferencia entre un resultado matemático del sistema característico y el comportamiento físico completo de la placa. La fuente original ofrece la tabla 1.",
-    "source": "Galanin y Feodorova (2017), Preprint 33.",
-    "referenceUrl": "https://keldysh.ru/papers/2017/prep2017_33.pdf"
+    "notes": "Resultado textual cotejado con tabla 1, página 16 del PDF: cobre+wolframio, ω1=ω2=0.2. Con k=1 aparecen dos raíces reales y un par complejo conjugado; con k=3, cuatro raíces reales. El artículo relaciona el tipo del sistema con las características y orientaciones de refuerzo. No afirmar mejora cuantitativa experimental.",
+    "source": "Galanin y Feodorova (2017), tabla 1.",
+    "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf#page=16"
   },
   {
     "title": "Continuidad de la investigación: Feodorova (2019)",
