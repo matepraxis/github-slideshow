@@ -39,3 +39,24 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 @keyframes reveal-step{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.reveal-block{animation:none}}
 @media print{.reveal-block[hidden]{display:block!important}}
+
+/* El plano del ejemplo no se destruye al cambiar de diapositiva. */
+#stage.example-workspace #layout{grid-template-columns:45% 50%;gap:5%}
+#stage.example-workspace #slide-content{display:flex;gap:clamp(8px,1.1cqw,16px);font-size:clamp(16px,1.5cqw,23px);justify-content:center;min-width:0}
+#stage.example-workspace #slide-content .equation{font-size:clamp(18px,1.78cqw,26px);line-height:1.35}
+#example-geometry{min-width:0;height:100%;display:flex;flex-direction:column}
+#example-svg{width:100%;min-height:0;flex:1}
+#example-svg .example-layer{transition:opacity .4s ease}
+#example-svg .example-layer.is-hidden{opacity:0;pointer-events:none}
+#example-svg text{paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round;font:italic 20px Cambria,Georgia,serif}
+.example-heading{text-align:center;color:#56625a;font-size:clamp(13px,1.15cqw,17px);font-weight:600;min-height:25px}
+.example-control input{accent-color:var(--green)}
+@media(max-width:760px){
+ #stage.example-workspace #layout{display:flex;flex-direction:column;gap:20px}
+ #example-geometry{width:100%;height:auto;max-width:520px;margin:0 auto}
+ #example-svg{height:280px;flex:none}
+ #stage.example-workspace #slide-content{font-size:20px;gap:12px}
+ #stage.example-workspace #slide-content .equation{font-size:clamp(18px,4.2vw,25px)}
+}
+@media(prefers-reduced-motion:reduce){#example-svg .example-layer{transition:none}}
+@media print{#example-geometry .phase-control{display:none!important}}
