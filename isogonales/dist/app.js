@@ -198,8 +198,16 @@ function renderSlide(){
   +'<p><a href="https://doi.org/10.4028/www.scientific.net/MSF.945.338" target="_blank" rel="noopener">Feodorova, N. (2019). <i>Determination of Fiber-Structure for the Effective Reinforcement of Planar Composite-Material Constructions.</i></a><span class="ref-detail">Materials Science Forum, 945, 338–343.</span></p>'
   +'<p><a href="https://doi.org/10.2307/1301992" target="_blank" rel="noopener">Raup, D. M. (1966). <i>Geometric analysis of shell coiling: General problems.</i></a><span class="ref-detail">Journal of Paleontology, 40(5), 1178–1190. Complemento opcional.</span></p></div>';
  }else if(s.graph&&!radialSlide(state.slide)){
-  const graph=document.createElement('div');graph.className='example-graph';graph.append(exampleSVG(s.graph));
-  const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':s.graph?.startsWith('materials')?'Reconstrucción matemática de las trayectorias; las figuras originales están en la fuente enlazada.':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
+  const graph=document.createElement('div');graph.className='example-graph';
+  const originalFigure=s.graph.match(/^materials-k([123])$/);
+  if(originalFigure){
+   const n=Number(originalFigure[1])+9;
+   const img=document.createElement('img');
+   img.className='paper-original-figure';img.src='assets/galanin-fig'+n+'.webp';
+   img.alt='Figura '+n+' original de Galanin y Feodorova (2017): geometría de refuerzo isogonal con k='+originalFigure[1];
+   graph.append(img);
+  }else graph.append(exampleSVG(s.graph));
+  const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':originalFigure?'Figura '+(Number(originalFigure[1])+9)+' original: Galanin y Feodorova (2017), p. 10 del PDF oficial.':s.graph?.startsWith('materials')?'Reconstrucción matemática para explicar el modelo.':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
   const copy=document.createElement('div');copy.className='example-copy';copy.innerHTML=bodyHTML(s);
   if(s.referenceUrl){
    const link=document.createElement('a');link.className='paper-link';link.href=s.referenceUrl;link.target='_blank';link.rel='noopener';

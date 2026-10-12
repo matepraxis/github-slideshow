@@ -22,7 +22,7 @@ La construcción y adaptación de la demostración es trabajo del expositor a pa
 
 Se presentan el problema de refuerzo de materiales compuestos, tres reconstrucciones matemáticas de las distribuciones radiales e isogonales para `k=1`, `k=2` y `k=3`, el tipo de resultado matemático en el preprint de 2017 y la continuidad del trabajo en 2019. Cada caso incluye un enlace al texto original.
 
-**Las gráficas locales son reconstrucciones calculadas desde la ecuación**, no copias de las figuras 10, 11 y 12. Para examinar dichas figuras originales debe abrirse el PDF del artículo: https://keldysh.ru/papers/2017/prep2017_33.pdf. No se han extraído directamente las imágenes originales porque no se tuvo acceso descargable al PDF desde este entorno.
+Las diapositivas de k=1, k=2 y k=3 presentan recortes de las **figuras originales 10, 11 y 12** del preprint de Galanin y Feodorova (2017), p. 10 del PDF, con atribución visible. Los demás gráficos de la aplicación son reconstrucciones matemáticas propias, distinguidas expresamente. Fuente: https://www.keldysh.ru/papers/2017/prep2017_33.pdf.
 
 ## Uso
 
