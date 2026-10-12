@@ -776,7 +776,7 @@ const slides=[
       },
       {
         "type": "eq",
-        "tex": "\\frac{Q_{\\mathrm{diseño}}}{Q_{\\mathrm{comercial}}}\\approx 0.014",
+        "tex": "\\frac{Q_{\\mathrm{nuevo}}}{Q_{\\mathrm{comercial}}}\\approx 0.014",
         "alt": "\\frac{Q_{\\mathrm{diseño}}}{Q_{\\mathrm{comercial}}}\\approx 0.014",
         "color": "green",
         "emphasis": true
