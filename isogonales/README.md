@@ -1,63 +1,49 @@
 # Trayectorias isogonales
 
-Presentación de Diego Alejandro Marulanda, Maestría en Biomatemáticas, Universidad del Quindío.
+Presentación web de Diego Alejandro Marulanda, Maestría en Biomatemáticas, Universidad del Quindío.
 
-## Revisión de octubre
+## Recorrido
 
-El manuscrito `Versión final.pdf` (páginas 1–6) guía la demostración y el ejemplo radial. Familia conocida F morada, familia buscada H verde; f'=tan(beta), h'=tan(alpha), gamma=alpha-beta. G nombra la EDO asociada para distinguirla de F.
+Presentación de 32 diapositivas principales, 5 complementarias opcionales y un tiempo sugerido de 20 minutos (incluye el video original de 95 segundos). El deslizador de geometría es persistente. El ejemplo `y=Cx` mantiene un segundo plano y un deslizador independiente desde las rectas hasta las espirales polares.
 
-La ruta principal tiene 29 diapositivas y 20 minutos sugeridos, incluido el video original de 95 segundos. El índice ofrece 5 diapositivas complementarias; las flechas las omiten durante el recorrido principal. Se ha incorporado como aplicación científica propuesta el estudio experimental de Thurairajah et al. (2025), PNAS Nexus, DOI 10.1093/pnasnexus/pgaf087, que usa explícitamente curvas isogonales. El modelo de Raup continúa como complemento geométrico distinto.
+Las ecuaciones se revelan progresivamente. La integración se desarrolla en etapas: separación de variables → ecuación integral completa → descomposición → primitivas. El gráfico de la espiral se prolonga hacia el origen, al cual **se aproxima sin alcanzarlo**.
+
+## Fuentes utilizadas
+
+- Piskunov, N. (1977). *Cálculo diferencial e integral*, tomo II. Mir, § 15. Fundamentación teórica de la demostración.
+- Trujillo Salazar, C. A. (2026). *ED 1.7. EDO homogéneas*. Apuntes de clase, Universidad del Quindío. Sustitución homogénea e integración.
+- Galanin, M. P., y Feodorova, N. A. (2017). *Reinforcement of Planar Constructions along Isogonal Trajectories*. Keldysh Institute Preprint 33. https://doi.org/10.20948/prepr-2017-33
+- Feodorova, N. (2019). *Determination of Fiber-Structure for the Effective Reinforcement of Planar Composite-Material Constructions*. *Materials Science Forum*, 945, 338–343. https://doi.org/10.4028/www.scientific.net/MSF.945.338
+- Raup, D. M. (1966). Modelo de expansión radial. Complemento opcional, no presentado como evidencia del estudio de materiales.
+
+La construcción y adaptación de la demostración es trabajo del expositor a partir de Piskunov; no se cita el documento manuscrito propio como una fuente independiente. No se incluye la referencia a Escobar.
+
+## Aplicación científica
+
+Se presentan el problema de refuerzo de materiales compuestos, tres reconstrucciones matemáticas de las distribuciones radiales e isogonales para `k=1`, `k=2` y `k=3`, el tipo de resultado matemático en el preprint de 2017 y la continuidad del trabajo en 2019. Cada caso incluye un enlace al texto original.
+
+**Las gráficas locales son reconstrucciones calculadas desde la ecuación**, no copias de las figuras 10, 11 y 12. Para examinar dichas figuras originales debe abrirse el PDF del artículo: https://keldysh.ru/papers/2017/prep2017_33.pdf. No se han extraído directamente las imágenes originales porque no se tuvo acceso descargable al PDF desde este entorno.
 
 ## Uso
 
-Sitio estático: abrir `dist/index.html`. KaTeX 0.19.0 y sus fuentes están incluidos; no depende de un CDN para las ecuaciones. Los enlaces bibliográficos sí requieren conexión. El video original conserva sus colores.
+Abrir `isogonales/dist/index.html` (sitio estático). KaTeX y fuentes se incluyen localmente. Los enlaces bibliográficos requieren internet.
 
-Flechas izquierda/derecha: revelar o retroceder un paso matemático; al agotar pasos cambian de diapositiva. RePág/AvPág: saltar de diapositiva. Mayús + flechas: construcción geométrica. N: notas. I: índice. F: pantalla completa. El deslizador conserva su etapa al navegar, volver desde ejemplos o recargar.
+- Flechas: revelar/retroceder pasos; al terminar pasa a la diapositiva siguiente.
+- RePág/AvPág: salto por diapositivas.
+- Mayús + flechas: etapa de geometría de la demostración.
+- Deslizadores: construcción de la demostración y del ejemplo.
+- N: notas; I: índice; F: pantalla completa.
 
-## Verificación
+## Pruebas
 
 ```sh
 node isogonales/test.cjs
 node isogonales/test-ui.cjs
 node isogonales/test-latex.cjs
 node isogonales/test-examples.cjs
+node isogonales/test-radial.cjs
+node isogonales/test-application.cjs
 node --check isogonales/dist/app.js
 ```
 
-Las pruebas cubren identidad angular, pendientes, integración de ejemplos, soluciones constantes, persistencia, duración y compilación LaTeX. No sustituyen la revisión visual pendiente en escritorio y tablet.
-
-## Revisión y fusión
-
-PR #2: LaTeX y transiciones, sobre `edo-trayectorias-isogonales-2026`.
-PR #3: manuscrito y geometría, sobre la rama del PR #2.
-La rama `edo/ejemplos-paso-a-paso` continúa sobre el PR #3.
-
-Son PR apilados: revisar en orden y ajustar las bases al integrarlos. No fusionar automáticamente. Render publica automáticamente los commits de `edo-trayectorias-isogonales-2026`; ninguna de las ramas de revisión debe sustituirla antes de la aprobación del expositor.
-
-## Revelado progresivo
-
-Cada bloque del argumento se revela de uno en uno con navegación bidireccional. La presentación conserva la etapa geométrica y el paso visible al recargar. Se respeta `prefers-reduced-motion`. La revisión visual de escala tipográfica en tablet sigue pendiente.
-
-## Ejemplo geométrico sincronizado
-
-El ejemplo `y=Cx` tiene un plano SVG y un deslizador propio de etapas 0–8 en las ocho láminas de resolución. Se muestran la familia de rectas, la elección `C₀=1`, la pendiente y la EDO isogonal, la sustitución homogénea, la transición de retícula cartesiana a polar, la espiral logarítmica y la verificación geométrica de 80°. Los pasos algebraicos activan la etapa visual correspondiente; se permite explorar manualmente el deslizador. No confundir una espiral matemática con mediciones biológicas.
-
-## Aplicación científica (propuesta sujeta a revisión del expositor)
-
-Thurairajah, K., et al. (2025). *Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations*. *PNAS Nexus, 4*(4), pgaf087. https://doi.org/10.1093/pnasnexus/pgaf087
-
-En la vista superior, el trabajo trata las proyecciones de chorros como rayos y diseña curvas isogonales que conducen a espirales logarítmicas; en el plano vertical trata trayectorias parabólicas. El ángulo crítico de incidencia cercano a 30° se refiere a las condiciones del estudio. La comparación experimental reportada llega a un 1,4 % de salpicaduras respecto del urinario comercial de referencia. La figura comparativa es un esquema construido a partir de los valores publicados, no una reproducción de mediciones crudas. Las diapositivas distinguen la espiral ilustrativa del ejemplo (80°) del diseño aplicado (cerca de 30°).
-
-La ruta principal contiene 29 láminas, además de 5 complementos opcionales, y conserva un total sugerido de 20 minutos.
-
-## Lista de aceptación antes de publicar
-
-1. En escritorio y tablet, comprobar que cada flecha revela solo un paso y que RePág/AvPág cambia de diapositiva.
-2. En la familia de rectas, avanzar: familia completa → selección C₀=1 y P=(2,2) → pendiente.
-3. Seguir el paso algebraico y comprobar que el plano no se reconstruye ni pierde el punto P.
-4. Verificar el cambio de retícula cartesiana a polar, el trazado de la espiral y la marca γ=80°.
-5. Retroceder, mover el deslizador manualmente y recargar: no debe perderse la etapa guardada.
-6. Comprobar la aplicación en tres láminas: aproximación 30°, rayos/isogonales, comparación experimental 1,4%; distinguir esquema de datos medidos.
-7. Confirmar 20 minutos más las pausas reales del expositor y revisar el video original de 95 segundos.
-
-El workflow de GitHub Actions es una condición automática de regresión, pero no reemplaza esta inspección visual con un navegador real.
+GitHub Actions ejecuta las pruebas tras las actualizaciones. Las pruebas automáticas no sustituyen la revisión visual real en escritorio y tablet. Los PR deben revisarse antes de fusionarse o desplegarse.
