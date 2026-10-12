@@ -23,25 +23,25 @@ function buildGeometry(){
  axes.append(svgEl('path',{d:'M22,360H495 M35,390V8',fill:'none',stroke:colors.gray,'stroke-width':1.4}));
  axes.append(svgEl('path',{d:'M488,356L495,360L488,364 M31,15L35,8L39,15',fill:'none',stroke:colors.gray,'stroke-width':1.4}));
  geoLabel(axes,'x',7.75,-.36,colors.gray);geoLabel(axes,'y',.16,5.91,colors.gray);geoLabel(axes,'O',-.23,-.35,colors.gray,{'font-size':17});
- const known=group(1);known.append(svgEl('path',{d:dpath(M.knownPoints),fill:'none',stroke:colors.green,'stroke-width':3.5,'clip-path':'url(#geo-clip)'}));geoLabel(known,'f',1.15,4.36,colors.green);geoLabel(known,'C₀',1.31,4.2,colors.green,{'font-size':14});
- const sought=group(2);sought.append(svgEl('path',{d:dpath(M.soughtPoints),fill:'none',stroke:colors.purple,'stroke-width':3.5,'clip-path':'url(#geo-clip)'}));geoLabel(sought,'h',4.7,4.95,colors.purple);geoLabel(sought,'K₀',4.9,4.8,colors.purple,{'font-size':14});
+ const known=group(1);known.append(svgEl('path',{d:dpath(M.knownPoints),fill:'none',stroke:colors.purple,'stroke-width':3.5,'clip-path':'url(#geo-clip)'}));geoLabel(known,'f',4.7,4.95,colors.purple);
+ const sought=group(2);sought.append(svgEl('path',{d:dpath(M.soughtPoints),fill:'none',stroke:colors.green,'stroke-width':3.5,'clip-path':'url(#geo-clip)'}));geoLabel(sought,'h',1.15,4.36,colors.green);
  const tangents=group(3);tangents.setAttribute('clip-path','url(#geo-clip)');
  tangents.append(svgEl('path',{d:dpath([[.15,5.85],[6.65,-.65]]),fill:'none',stroke:colors.green,'stroke-width':2,'stroke-dasharray':'8 5'}));
- tangents.append(svgEl('path',{d:dpath([[.45,3+M.geometry.mh*(.45-3)],[5.1,3+M.geometry.mh*(5.1-3)]]),fill:'none',stroke:colors.purple,'stroke-width':2,'stroke-dasharray':'8 5'}));
- geoLabel(tangents,'t',5.45,1.15,colors.green);geoLabel(tangents,'f',5.59,1.0,colors.green,{'font-size':14});geoLabel(tangents,'t',3.23,4.07,colors.purple);geoLabel(tangents,'h',3.4,3.92,colors.purple,{'font-size':14});
+ tangents.append(svgEl('path',{d:dpath([[.45,3+M.geometry.mf*(.45-3)],[5.1,3+M.geometry.mf*(5.1-3)]]),fill:'none',stroke:colors.purple,'stroke-width':2,'stroke-dasharray':'8 5'}));
+ geoLabel(tangents,'t',5.45,1.15,colors.green);geoLabel(tangents,'h',5.59,1.0,colors.green,{'font-size':14});geoLabel(tangents,'t',3.23,4.07,colors.purple);geoLabel(tangents,'f',3.4,3.92,colors.purple,{'font-size':14});
  const angles=group(4),{A,B,P}=M.geometry;
  angles.append(svgEl('path',{d:dpath([B,P,A,B]),fill:'#e2ece660',stroke:'#aab8af','stroke-width':1}));
  angles.append(svgEl('path',{d:dpath([B,A]),fill:'none',stroke:'#6e7c73','stroke-width':2.2}));
  const arc=(center,r,start,end,color)=>{const pts=Array.from({length:55},(_,i)=>{const a=(start+(end-start)*i/54)*Math.PI/180;return [center[0]+r*Math.cos(a),center[1]+r*Math.sin(a)];});angles.append(svgEl('path',{d:dpath(pts),fill:'none',stroke:color,'stroke-width':2.5}));};
- arc(A,.4,0,135,colors.green);arc(B,.43,0,55,colors.blue);arc(P,.48,235,315,colors.orange);
- geoLabel(angles,'α',6.35,.49,colors.green);geoLabel(angles,'β',B[0]+.51,.24,colors.blue);geoLabel(angles,'γ',3,2.30,colors.orange,{'text-anchor':'middle'});
+ arc(A,.4,0,135,colors.green);arc(B,.43,0,55,colors.purple);arc(P,.48,235,315,colors.orange);
+ geoLabel(angles,'α',6.35,.49,colors.green);geoLabel(angles,'β',B[0]+.51,.24,colors.purple);geoLabel(angles,'γ',3,2.30,colors.orange,{'text-anchor':'middle'});
  for(const [name,point] of [['A',A],['B',B]]){angles.append(svgEl('circle',{cx:X(point[0]),cy:Y(point[1]),r:3.4,fill:colors.ink}));geoLabel(angles,name,point[0],-.37,colors.ink,{'text-anchor':'middle',class:'point-name'});}
  const point=group(1);point.append(svgEl('circle',{cx:X(3),cy:Y(3),r:4.5,fill:colors.ink,stroke:'white','stroke-width':2}));geoLabel(point,'P',3.21,3.12,colors.ink,{class:'point-name'});
 }
 function updateGeometry(){
  $('phase').value=state.phase;$('phase-value').textContent=state.phase+' de 4';$('phase-caption').textContent=phaseNames[state.phase];
  document.querySelectorAll('#geometry-svg [data-stage]').forEach(e=>{const hide=Number(e.dataset.stage)>state.phase;e.classList.toggle('is-hidden',hide);e.setAttribute('aria-hidden',hide);});
- $('geometry-desc').textContent='Etapa '+state.phase+' de cuatro. '+phaseNames[state.phase]+'. La curva conocida es verde y la curva buscada es morada. En la etapa final, α es el ángulo exterior de un triángulo y equivale a β más γ.';
+ $('geometry-desc').textContent='Etapa '+state.phase+' de cuatro. '+phaseNames[state.phase]+'. La curva conocida es morada y la curva buscada es verde. En la etapa final, α es el ángulo exterior de un triángulo y equivale a β más γ.';
 }
 function exampleSVG(kind){
  const svg=svgEl('svg',{viewBox:'0 0 440 440',class:'example-svg',role:'img','aria-label':kind==='biology'?'Espiral logarítmica con radios de10,20y40milímetros':kind.startsWith('hyperbola')?'Curva de la familia hiperbólica y trayectoria que se cortan en el punto0,2': 'Rectas radiales y espiral logarítmica con ángulo80grados'});
@@ -100,6 +100,7 @@ function updateNotes(){const s=M.slides[state.slide],elapsed=M.slides.slice(0,st
 function dispatch(action){const previous=state;state=M.transition(state,action);if(state.slide!==previous.slide)renderSlide();if(state.phase!==previous.phase)updateGeometry();try{localStorage.setItem('uq-isogonales-v1',JSON.stringify(state));}catch(_){} }
 function toggleDialog(id){const d=$(id);if(d.open)d.close();else d.showModal();}
 function fullscreen(){if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch(()=>{});}
+document.querySelector('.family-legend').innerHTML='<span class="purple">'+renderMath('F(x,y,C)=0',false)+'</span><span class="green">'+renderMath('H(x,y,\\lambda)=0',false)+'</span>';
 buildGeometry();updateGeometry();
 M.slides.forEach((s,i)=>{const li=document.createElement('li'),b=document.createElement('button');b.textContent=s.title;b.addEventListener('click',()=>{dispatch({type:'go',slide:i});$('contents').close();});li.append(b);$('contents-list').append(li);});
 $('phase').addEventListener('input',e=>dispatch({type:'phase',phase:e.target.value}));$('previous').addEventListener('click',()=>dispatch({type:'navigate',delta:-1}));$('next').addEventListener('click',()=>dispatch({type:'navigate',delta:1}));$('index').addEventListener('click',()=>toggleDialog('contents'));$('notes-button').addEventListener('click',()=>toggleDialog('notes'));$('fullscreen').addEventListener('click',fullscreen);
