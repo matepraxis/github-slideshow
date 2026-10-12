@@ -8,23 +8,9 @@ let state=M.initial(saved);
 const phaseNames=['Familias','Curva conocida y punto P','Segunda curva por P','Rectas tangentes','Triángulo y ángulos'];
 const phaseActions=['Mostrar las familias','Mostrar la curva conocida','Añadir la curva buscada','Trazar las tangentes','Mostrar los ángulos'];
 const colors={green:'#138e68',purple:'#774fc4',orange:'#bb650c',blue:'#1b65a4',gray:'#a2ada6',ink:'#343a38'};
-function mathNode(n){
- if(n.t==='seq')return '<mrow>'+n.nodes.map(mathNode).join('')+'</mrow>';
- if(n.t==='r'){
-  if(n.plain)return '<mi mathvariant="normal">'+escape(n.text)+'</mi>';
-  return '<mrow>'+(n.text.match(/\s+|arctan|tan|cot|cos|sin|ln|\d+(?:\.\d+)?|./gu)||[]).map(x=>{
-   if(/^\s+$/.test(x))return '<mspace width="'+(x.length>2?'.6em':'.15em')+'"/>';
-   const tag=/^\d/.test(x)?'mn':/^[\p{L}𝓕𝓗]$/u.test(x)||/^(arctan|tan|cot|cos|sin|ln)$/.test(x)?'mi':'mo';
-   return '<'+tag+'>'+escape(x)+'</'+tag+'>';
-  }).join('')+'</mrow>';
- }
- if(n.t==='frac')return '<mfrac>'+mathNode(n.num)+mathNode(n.den)+'</mfrac>';
- if(n.t==='sub')return '<msub>'+mathNode(n.base)+mathNode(n.sub)+'</msub>';
- if(n.t==='sup')return '<msup>'+mathNode(n.base)+mathNode(n.pow)+'</msup>';
- if(n.t==='sqrt')return '<msqrt>'+mathNode(n.body)+'</msqrt>';
- throw new Error('Nodo matemático desconocido');
-}
-function bodyHTML(slide){return slide.body.map(b=>b.type==='eq'?'<div class="equation '+escape(b.color||'')+(b.emphasis?' emphasis':'')+'"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="'+escape(b.alt)+'"><mrow>'+mathNode(b.ast)+'</mrow></math></div>':'<p>'+escape(b.value)+'</p>').join('');}
+function renderMath(tex,display=true){return katex.renderToString(tex,{displayMode:display,throwOnError:true,strict:'error',trust:false,output:'htmlAndMathml'});}
+function prose(value){return escape(value).replace(/\\\((.*?)\\\)/g,(_,tex)=>renderMath(tex.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>'),false));}
+function bodyHTML(slide){return slide.body.map(b=>b.type==='eq'?'<div class="equation '+escape(b.color||'')+(b.emphasis?' emphasis':'')+'">'+renderMath(b.tex||PresentationLatex.fromAST(b.ast))+'</div>':'<p>'+prose(b.value)+'</p>').join('');}
 function svgEl(tag,attrs={},text){const e=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));if(text!==undefined)e.textContent=text;return e;}
 const X=x=>35+58*x,Y=y=>360-58*y;
 function dpath(points,fx=X,fy=Y){return points.map((p,i)=>(i?'L':'M')+fx(p[0]).toFixed(2)+','+fy(p[1]).toFixed(2)).join(' ');}
@@ -83,6 +69,7 @@ function exampleSVG(kind){
  }
  return svg;
 }
+let slideAnimation;
 function renderSlide(){
  const s=M.slides[state.slide],content=$('slide-content'),stage=$('stage');
  content.querySelectorAll('video').forEach(v=>v.pause());
@@ -104,6 +91,8 @@ function renderSlide(){
  if(s.action!==undefined){const btn=document.createElement('button');btn.className='show-phase';btn.textContent=phaseActions[s.action];btn.addEventListener('click',()=>dispatch({type:'phase',phase:s.action}));content.append(btn);}
  $('previous').disabled=state.slide===0;$('next').disabled=state.slide===M.slides.length-1;$('slide-number').textContent=(state.slide+1)+' / '+M.slides.length;
  document.title=s.title+' · Trayectorias isogonales UQ';
+ slideAnimation?.cancel();
+ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&content.animate)slideAnimation=content.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:240,easing:'ease-out'});
  updateNotes();document.querySelectorAll('#contents-list button').forEach((e,i)=>e.setAttribute('aria-current',i===state.slide?'true':'false'));
  $('announcement').textContent='Diapositiva '+(state.slide+1)+' de '+M.slides.length+': '+s.title;
 }

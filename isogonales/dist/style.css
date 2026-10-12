@@ -24,3 +24,6 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 @media print{body{background:white;padding:0}#controls,dialog,.phase-control,.show-phase,.start{display:none!important}#presentation{width:100%;box-shadow:none}}
 
 @media(max-width:760px){#slide-content .equation,.example-copy .equation{max-width:100%;overflow-x:auto;padding-bottom:6px}#stage.cover .cover-course{display:none}#stage.cover .cover-author{font-size:11px;line-height:1.4}#stage.cover .cover-title{font-size:clamp(14px,3.75cqw,22px);margin-bottom:4px!important}#stage.closing #layout{left:46%;top:17%}#stage.closing #slide-content{font-size:11px;gap:4px}#stage.closing .closing-title{font-size:20px;line-height:1.2}}
+
+.katex{font-size:1em}.katex-display{margin:.12em 0;text-align:left}.katex-display>.katex{text-align:left}.family-legend .katex{font-size:1em}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
