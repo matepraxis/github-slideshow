@@ -547,24 +547,46 @@ const slides=[
     "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
   },
   {
-    "title": "Separamos e integramos",
+    "title": "Integración a ambos lados",
     "kind": "example",
     "duration": 45,
     "body": [
       {
         "type": "text",
-        "value": "Dividiendo ambos lados entre los factores correspondientes y separando \\(x\\) de \\(z\\):"
+        "value": "Dividiendo entre los factores correspondientes y separando variables:"
       },
       {
         "type": "eq",
-        "tex": "\\frac{dx}{x}=\\frac1k\\frac{1-kz}{1+z^2}\\,dz",
-        "alt": "\\frac{dx}{x}=\\frac1k\\frac{1-kz}{1+z^2}\\,dz",
+        "tex": "\\frac{1-kz}{k(1+z^2)}\\,dz=\\frac{dx}{x}",
+        "alt": "\\frac{1-kz}{k(1+z^2)}\\,dz=\\frac{dx}{x}",
         "color": "green",
         "emphasis": false
       },
       {
         "type": "text",
-        "value": "Integrando ambos miembros; \\(\\int\\frac{dz}{1+z^2}=\\arctan z\\) y usando \\(u=1+z^2\\):"
+        "value": "Integramos a ambos lados de la igualdad:"
+      },
+      {
+        "type": "eq",
+        "tex": "\\int\\frac{1-kz}{k(1+z^2)}\\,dz=\\int\\frac{dx}{x}",
+        "alt": "\\int\\frac{1-kz}{k(1+z^2)}\\,dz=\\int\\frac{dx}{x}",
+        "color": "green",
+        "emphasis": true
+      },
+      {
+        "type": "text",
+        "value": "Descomponemos el primer miembro en dos integrales:"
+      },
+      {
+        "type": "eq",
+        "tex": "\\frac1k\\int\\frac{dz}{1+z^2}-\\int\\frac{z\\,dz}{1+z^2}=\\int\\frac{dx}{x}",
+        "alt": "\\frac1k\\int\\frac{dz}{1+z^2}-\\int\\frac{z\\,dz}{1+z^2}=\\int\\frac{dx}{x}",
+        "color": "green",
+        "emphasis": false
+      },
+      {
+        "type": "text",
+        "value": "Aplicando las primitivas \\(\\arctan z\\), \\(\\frac12\\ln(1+z^2)\\) y \\(\\ln|x|\\):"
       },
       {
         "type": "eq",
@@ -574,8 +596,8 @@ const slides=[
         "emphasis": true
       }
     ],
-    "notes": "Separamos, integramos y explicamos la primitiva de z/(1+z²).",
-    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7."
+    "notes": "Mostrar gradualmente la igualdad integral completa antes de cualquier primitiva. Descomponer: 1/k·1/(1+z²) - z/(1+z²). Para la segunda integral usar u=1+z², du=2z dz. Integrar en un intervalo con x distinto de cero y k distinto de cero.",
+    "source": "Trujillo Salazar, C. A. (2026), ED 1.7, EDO homogéneas."
   },
   {
     "title": "Regresamos a las variables originales",

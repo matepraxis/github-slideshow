@@ -60,3 +60,11 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 }
 @media(prefers-reduced-motion:reduce){#example-svg .example-layer{transition:none}}
 @media print{#example-geometry .phase-control{display:none!important}}
+
+/* La ecuación integral mantiene protagonismo sin desbordar la lámina. */
+#stage.integral-focus #layout{grid-template-columns:37% 58%;gap:5%}
+#stage.integral-focus #slide-content{gap:clamp(12px,1.38cqw,20px)}
+#stage.integral-focus #slide-content .equation{font-size:clamp(21px,2.13cqw,31px);line-height:1.48}
+#stage.integral-focus #slide-content .equation.emphasis{border-block:2px solid #d7e6dd;padding-block:10px!important}
+@media(max-width:760px){#stage.integral-focus #layout{display:flex;flex-direction:column}
+#stage.integral-focus #slide-content .equation{font-size:clamp(19px,4.5vw,27px)}}

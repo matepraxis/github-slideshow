@@ -162,7 +162,7 @@ function syncReveal(){
  const s=M.slides[state.slide],total=blockCount(s);
  document.querySelectorAll('#slide-content [data-reveal-index]').forEach(e=>{
   const index=Number(e.getAttribute('data-reveal-index'));
-  e.hidden=index>=reveal;
+  e.hidden=index>=reveal||(state.slide===18&&index<Math.max(0,reveal-3));
   e.classList.toggle('just-revealed',index===reveal-1&&index<reveal);
  });
  $('previous').disabled=state.slide===0&&reveal<=1;
@@ -174,7 +174,7 @@ function syncReveal(){
 function renderSlide(){
  const s=M.slides[state.slide],content=$('slide-content'),stage=$('stage');
  content.querySelectorAll('video').forEach(v=>v.pause());
- stage.className=radialSlide(state.slide)?'example-workspace':s.kind+(s.graph?' example':s.kind==='example'||s.kind==='recap'||s.kind==='references'?' wide':'');
+ stage.className=radialSlide(state.slide)?'example-workspace'+(state.slide===18?' integral-focus':''):s.kind+(s.graph?' example':s.kind==='example'||s.kind==='recap'||s.kind==='references'?' wide':'');
  $('slide-title').textContent=s.title;$('geometry').hidden=s.kind!=='theory';$('example-geometry').hidden=!radialSlide(state.slide);$('source-line').textContent=s.source||'';
  content.innerHTML='';
  if(s.kind==='cover'){
