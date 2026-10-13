@@ -797,8 +797,8 @@ const slides=[
         "value": "Rectas radiales y espirales logarítmicas con \\(\\gamma=80^\\circ\\)."
       }
     ],
-    "notes": "Reproducir la animación propia completa de95 segundos. Señalar el radio, la tangente y la conservación del ángulo mientras se mueve el punto. El video no tiene audio, lo que permite explicarlo durante la reproducción. El video original se conserva; sus colores son los del material original, independientes de la leyenda de las gráficas interactivas.",
-    "source": "Animación original del expositor, 95 segundos",
+    "notes": "Reproducir la animación propia completa de95 segundos. Señalar el radio, la tangente y la conservación del ángulo mientras se mueve el punto. El video no tiene audio, lo que permite explicarlo durante la reproducción. Se utiliza el video v7 en 4K UHD, con notación coherente con la demostración: y=Cx, k=tan(gamma), r=A exp(theta/k). Sus colores son independientes de la leyenda de las gráficas interactivas.",
+    "source": "Animación del expositor, versión 7 (4K UHD), 95 segundos",
     "section": "Ejemplo desarrollado"
   },
   {
