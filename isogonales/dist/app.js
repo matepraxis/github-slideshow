@@ -241,7 +241,7 @@ function renderSlide(){
   content.append(list);
  }else if(s.kind==='closing')content.innerHTML='<p class="closing-title">Gracias</p><p>Preguntas y discusión</p>';
  else if(s.kind==='video'){
-  const video=document.createElement('video');video.className='film';video.controls=true;video.playsInline=true;video.preload='metadata';video.src='assets/isogonales.mp4';video.setAttribute('aria-label','Animación de las trayectorias isogonales,95 segundos');content.append(video);const p=document.createElement('p');p.innerHTML=prose(s.body[0].value);content.append(p);
+  const video=document.createElement('video');video.className='film';video.controls=true;video.playsInline=true;video.preload='metadata';video.src='assets/isogonales.mp4?v=7';video.setAttribute('aria-label','Animación de las trayectorias isogonales,95 segundos');content.append(video);const p=document.createElement('p');p.innerHTML=prose(s.body[0].value);content.append(p);
  }else if(s.kind==='references'){
   content.innerHTML='<div class="references">'
   +'<p><a href="https://es.scribd.com/document/728964611/N-Piskunov-Calculo-Diferencial-e-Integral-Tomo-II-Editorial-Mir-1977-Esp" target="_blank" rel="noopener">Piskunov, N. (1977). <i>Cálculo diferencial e integral</i>, tomo II.</a><span class="ref-detail">Editorial Mir, § 15. Base conceptual de la demostración y las trayectorias.</span></p>'
