@@ -4,7 +4,7 @@ const material=M.slides.filter(s=>s.graph?.startsWith('materials'));
 assert.equal(material.length,6);
 const writing=s=>s.body.map(b=>b.value||b.tex||'').join(' ');
 const intro=writing(material[0]);
-assert.ok(intro.includes('matriz')&&intro.includes('fibras')&&intro.includes('deformaciones'));
+assert.ok(intro.includes('configuraciones')&&intro.includes('Galanin')&&intro.includes('deformaciones'));
 assert.ok(!intro.includes('\\tan\\gamma'),'El ángulo del ejemplo no debe atribuirse al estudio');
 for(let k=1;k<=3;k++){
  const slide=material[k];assert.ok(slide.graph==='materials-k'+k);

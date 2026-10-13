@@ -4,8 +4,11 @@ const M=globalThis.PresentationModel,$=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let saved;try{saved=JSON.parse(localStorage.getItem('uq-isogonales-v1')||'null');}catch(_){}
-// Migrar marcadores guardados de la versión anterior a la nueva diapositiva de contenido.
-if(saved&&saved.schema!==2&&Number.isInteger(saved.slide)&&saved.slide>=1)saved.slide+=1;
+// Migrar los índices guardados: v1 añadió contenido; v3 añade el reto tras el contenido.
+if(saved&&Number.isInteger(saved.slide)){
+ if(saved.schema!==2&&saved.schema!==3&&saved.slide>=1)saved.slide+=1;
+ if(saved.schema!==3&&saved.slide>=2)saved.slide+=1;
+}
 let state=M.initial(saved);
 const blockCount=slide=>slide?.body?.length||0;
 const countFor=slide=>Math.max(1,blockCount(slide));
@@ -116,7 +119,36 @@ function updateRadialExample(){
  });
 }
 
+function engineeringChallengeSVG(){
+ const svg=svgEl('svg',{viewBox:'0 0 440 440',class:'example-svg',role:'img','aria-label':'Esquema didáctico de una pieza con abertura: comparación de líneas rectas y recorridos curvos; sin asignarles rendimiento mecánico'});
+ const title=(value,x,y,size=14)=>svg.append(svgEl('text',{x,y,fill:'#203942','font-size':size,'font-weight':'600'},value));
+ const plate=(y,curved)=>{
+  svg.append(svgEl('rect',{x:38,y,width:364,height:150,rx:17,fill:'#eef3f0',stroke:'#bacdc6','stroke-width':1.6}));
+  const cy=y+77,cx=220;
+  for(let i=-4;i<=4;i++){
+   const offset=i*13,pts=[];
+   for(let j=0;j<=80;j++){
+    const x=56+j*328/80,side=offset===0?1:Math.sign(offset);
+    const bend=curved?side*(54-Math.min(54,Math.abs(offset)))*Math.exp(-Math.pow((x-cx)/62,2)):0;
+    pts.push([x,cy+offset+bend]);
+   }
+   const d=pts.map((p,k)=>(k?'L':'M')+p.map(v=>v.toFixed(2)).join(',')).join(' ');
+   svg.append(svgEl('path',{d,stroke:curved?'#168963':'#7656bd','stroke-width':curved?2.5:2.1,opacity:curved?0.94:0.78,fill:'none'}));
+  }
+  // La abertura se dibuja encima de las líneas: comparación conceptual, no simulación de tensiones.
+  svg.append(svgEl('circle',{cx,cy,r:38,fill:'#ffffff',stroke:'#668980','stroke-width':5}));
+  svg.append(svgEl('circle',{cx,cy,r:44,fill:'none',stroke:'#cadad4','stroke-width':1.3,'stroke-dasharray':'3 6'}));
+  for(let a=0;a<8;a++){const t=a*Math.PI/4;svg.append(svgEl('circle',{cx:cx+49*Math.cos(t),cy:cy+49*Math.sin(t),r:2.3,fill:'#7f928c'}));}
+ };
+ title('A · Caminos rectos',38,34);
+ plate(45,false);
+ title('B · Caminos curvos',38,227);
+ plate(238,true);
+ title('UNA MISMA PIEZA · DOS IDEAS PARA EXPLORAR',51,422,11);
+ return svg;
+}
 function exampleSVG(kind){
+ if(kind==='engineering-question')return engineeringChallengeSVG();
  const svg=svgEl('svg',{viewBox:'0 0 440 440',class:'example-svg',role:'img','aria-label':kind==='biology'?'Espiral logarítmica con radios de10,20y40milímetros':kind.startsWith('hyperbola')?'Curva de la familia hiperbólica y trayectoria que se cortan en el punto0,2': 'Rectas radiales y espiral logarítmica con ángulo80grados'});
  let range=kind==='biology'?45:kind.startsWith('hyperbola')?3.25:6;
  const scale=185/range,fx=x=>220+x*scale,fy=y=>220-y*scale;
@@ -228,7 +260,7 @@ function renderSlide(){
    img.alt='Figura '+n+' original de Galanin y Feodorova (2017): geometría de refuerzo isogonal con k='+originalFigure[1];
    graph.append(img);
   }else graph.append(exampleSVG(s.graph));
-  const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':originalFigure?'Figura '+(Number(originalFigure[1])+9)+' original: Galanin y Feodorova (2017), p. 10 del PDF oficial.':s.graph?.startsWith('materials')?'Reconstrucción matemática para explicar el modelo.':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
+  const cap=document.createElement('p');cap.className='graph-caption';cap.textContent=s.graph==='engineering-question'?'Comparación conceptual: ninguna opción se presenta como superior sin un análisis mecánico.':s.graph==='biology'?'Expansión radial ilustrativa. W = 2, r₀ = 10 mm.':originalFigure?'Figura '+(Number(originalFigure[1])+9)+' original: Galanin y Feodorova (2017), p. 10 del PDF oficial.':s.graph?.startsWith('materials')?'Reconstrucción matemática para explicar el modelo.':s.graph.startsWith('hyperbola')?'Morado: familia conocida. Verde: trayectoria con ángulo de 45°.':'Morado: rectas radiales. Verde: espiral con ángulo de 80°.';graph.append(cap);
   const copy=document.createElement('div');copy.className='example-copy';copy.innerHTML=bodyHTML(s);
   if(s.referenceUrl){
    const link=document.createElement('a');link.className='paper-link';link.href=s.referenceUrl;link.target='_blank';link.rel='noopener';
@@ -267,7 +299,7 @@ function dispatch(action){
   if(action.type==='toggle-families'){state.phase=0;familiesVisible=!familiesVisible;updateGeometry();}
   if(action.type==='example-phase'){examplePhase=Math.max(0,Math.min(8,Number(action.phase)||0));manualExampleStage=true;updateRadialExample();}
  }
- try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible,schema:2}));}catch(_){}
+ try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible,schema:3}));}catch(_){}
 }
 function toggleDialog(id){const d=$(id);if(d.open)d.close();else d.showModal();}
 function fullscreen(){if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch(()=>{});}
