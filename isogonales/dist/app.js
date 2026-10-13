@@ -4,8 +4,11 @@ const M=globalThis.PresentationModel,$=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let saved;try{saved=JSON.parse(localStorage.getItem('uq-isogonales-v1')||'null');}catch(_){}
-// Migrar marcadores guardados de la versión anterior a la nueva diapositiva de contenido.
-if(saved&&saved.schema!==2&&Number.isInteger(saved.slide)&&saved.slide>=1)saved.slide+=1;
+// Migrar los índices guardados: v1 añadió contenido; v3 añade el reto tras el contenido.
+if(saved&&Number.isInteger(saved.slide)){
+ if(saved.schema!==2&&saved.schema!==3&&saved.slide>=1)saved.slide+=1;
+ if(saved.schema!==3&&saved.slide>=2)saved.slide+=1;
+}
 let state=M.initial(saved);
 const blockCount=slide=>slide?.body?.length||0;
 const countFor=slide=>Math.max(1,blockCount(slide));
@@ -296,7 +299,7 @@ function dispatch(action){
   if(action.type==='toggle-families'){state.phase=0;familiesVisible=!familiesVisible;updateGeometry();}
   if(action.type==='example-phase'){examplePhase=Math.max(0,Math.min(8,Number(action.phase)||0));manualExampleStage=true;updateRadialExample();}
  }
- try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible,schema:2}));}catch(_){}
+ try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible,schema:3}));}catch(_){}
 }
 function toggleDialog(id){const d=$(id);if(d.open)d.close();else d.showModal();}
 function fullscreen(){if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch(()=>{});}
