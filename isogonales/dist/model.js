@@ -23,15 +23,42 @@ const slides=[
   {
     "title": "Contenido de la exposición",
     "kind": "agenda",
-    "duration": 30,
+    "duration": 25,
     "body": [],
     "notes": "Presentar la ruta: fundamentos geométricos, demostración, ejemplo, aplicación científica y conclusiones con referencias. Cada apartado es un botón que lleva a su primera diapositiva. Destinar aproximadamente treinta segundos.",
     "section": "Introducción"
   },
   {
+    "title": "Un reto antes de las ecuaciones",
+    "kind": "example",
+    "graph": "engineering-question",
+    "duration": 35,
+    "section": "Introducción",
+    "body": [
+      {
+        "type": "text",
+        "value": "Imagina que debemos diseñar una pieza ligera de avión con una abertura para una unión."
+      },
+      {
+        "type": "text",
+        "value": "Su forma altera la manera en que las cargas actúan sobre ella. Necesitamos estudiar diferentes recorridos de refuerzo."
+      },
+      {
+        "type": "text",
+        "value": "¿Trazarías líneas rectas o explorarías caminos curvos? ¿Cómo construirías estos últimos sin dibujarlos al azar?"
+      },
+      {
+        "type": "text",
+        "value": "Una regla geométrica de ángulo constante puede generar esos caminos. Veamos de dónde sale esa regla."
+      }
+    ],
+    "notes": "SITUACIÓN DIDÁCTICA, NO RESULTADO EXPERIMENTAL. Mostrar el esquema A/B sin decir cuál es mejor. Preguntar al grupo cuál investigaría y cómo encontraría caminos curvos sin dibujar a mano. La aeronáutica es un contexto plausible de diseño, no una pieza de avión ensayada en el trabajo de 2017. Proponer que la condición isogonal resuelve la construcción de geometrías; determinar rendimiento mecánico exige un modelo físico.",
+    "source": "Situación didáctica propuesta para la exposición; ilustración conceptual propia."
+  },
+  {
     "title": "Dos familias monoparamétricas",
     "kind": "theory",
-    "duration": 30,
+    "duration": 25,
     "body": [
       {
         "type": "text",
@@ -64,7 +91,7 @@ const slides=[
   {
     "title": "Elegimos una curva de cada familia",
     "kind": "theory",
-    "duration": 30,
+    "duration": 25,
     "body": [
       {
         "type": "text",
@@ -89,7 +116,7 @@ const slides=[
   {
     "title": "La curva conocida",
     "kind": "theory",
-    "duration": 30,
+    "duration": 25,
     "body": [
       {
         "type": "text",
@@ -115,7 +142,7 @@ const slides=[
   {
     "title": "La curva buscada",
     "kind": "theory",
-    "duration": 35,
+    "duration": 30,
     "body": [
       {
         "type": "text",
@@ -141,7 +168,7 @@ const slides=[
   {
     "title": "¿Por qué trazamos las tangentes?",
     "kind": "theory",
-    "duration": 35,
+    "duration": 30,
     "body": [
       {
         "type": "text",
@@ -178,7 +205,7 @@ const slides=[
   {
     "title": "El ángulo constante",
     "kind": "theory",
-    "duration": 35,
+    "duration": 30,
     "body": [
       {
         "type": "text",
@@ -775,33 +802,29 @@ const slides=[
     "section": "Ejemplo desarrollado"
   },
   {
-    "title": "¿Qué problema resuelve la investigación?",
+    "title": "¿Qué hicieron los investigadores con esta idea?",
     "kind": "example",
     "graph": "materials-intro",
     "duration": 25,
     "body": [
       {
         "type": "text",
-        "value": "Una placa de material compuesto combina una matriz con fibras que ayudan a soportar cargas."
+        "value": "Volvamos a la pieza con abertura. El primer paso no es prometer que un recorrido será mejor, sino describir distintas formas de organizar sus refuerzos."
       },
       {
         "type": "text",
-        "value": "No siempre es conveniente orientar las fibras en líneas rectas: cerca de agujeros y cambios de sección las tensiones y deformaciones pueden variar mucho."
+        "value": "Galanin y Feodorova (2017) construyeron configuraciones curvas mediante trayectorias isogonales sobre líneas de referencia."
       },
       {
         "type": "text",
-        "value": "Galanin y Feodorova (2017) estudian cómo diseñar distribuciones curvilíneas de refuerzo mediante trayectorias isogonales."
+        "value": "Después formularon sistemas de ecuaciones diferenciales para analizar las deformaciones de esas estructuras."
       },
       {
         "type": "text",
-        "value": "Su objetivo es modelar estas estructuras y analizar los sistemas diferenciales que describen sus deformaciones."
-      },
-      {
-        "type": "text",
-        "value": "Pregunta que conecta con nuestro trabajo: ¿cómo construir una familia de curvas con una orientación angular prescrita?"
+        "value": "La aportación es doble: generar configuraciones geométricas y disponer de un modelo matemático para estudiarlas."
       }
     ],
-    "notes": "Describir primero el material compuesto, placa, matriz y fibras. Indicar que el artículo de 2017 desarrolla sistemas diferenciales de elasticidad lineal anisótropa no homogénea y analiza el tipo de sistemas por un método determinantal. No afirmar ensayos, resistencia mayor, reducción de masa ni mejoras cuantitativas no probadas. La limitación de refuerzo rectilíneo cerca de aberturas está descrita en la introducción del artículo de Feodorova (2019).",
+    "notes": "El problema didáctico de avión motiva la pregunta; el artículo original estudia construcciones planas en elasticidad lineal anisótropa y no homogénea, no un ensayo aeronáutico concreto. Diferenciar etapa geométrica de análisis mecánico. Comenzar recordando: ¿cómo decidir dónde van las líneas? Del reto a la familia isogonal y a la formulación de ecuaciones.",
     "source": "Galanin y Feodorova (2017), Preprint 33.",
     "referenceUrl": "https://www.keldysh.ru/papers/2017/prep2017_33.pdf",
     "section": "Aplicación científica"
@@ -934,19 +957,19 @@ const slides=[
     "body": [
       {
         "type": "text",
-        "value": "En 2019, Feodorova desarrolla un modelo estructural bidimensional de elasticidad lineal no homogénea para materiales compuestos con fibras curvilíneas."
+        "value": "Feodorova (2019) amplió el análisis mediante un modelo bidimensional de elasticidad lineal para materiales reforzados con recorridos curvos."
       },
       {
         "type": "text",
-        "value": "Estudia tres enfoques de disposición: líneas coordenadas, trayectorias isogonales y trayectorias helicoidales."
+        "value": "Comparó tres formas de organizar esos recorridos, entre ellas las trayectorias isogonales."
       },
       {
         "type": "text",
-        "value": "Obtiene soluciones particulares de problemas de contorno y plantea recomendaciones para el refuerzo de construcciones planas."
+        "value": "Obtuvo soluciones particulares de problemas de contorno y presentó recomendaciones para estudiar el refuerzo de estructuras planas."
       },
       {
         "type": "text",
-        "value": "Conexión con nuestra exposición: una ecuación diferencial construye una geometría; otra modelación analiza su comportamiento mecánico."
+        "value": "Así, la geometría permite proponer recorridos; el modelo físico ayuda a examinar cómo se deformaría la pieza."
       }
     ],
     "notes": "Basado en el resumen editorial del artículo 2019 (Materials Science Forum 945, 338–343). Es continuación temática de 2017, no sostener comparaciones cuantitativas que no constan en el resumen.",
@@ -1254,31 +1277,36 @@ const slides=[
     "section": "Complementos"
   },
   {
-    "title": "La construcción y la ecuación",
+    "title": "Del ángulo al problema real",
     "kind": "recap",
     "duration": 20,
     "body": [
       {
         "type": "text",
-        "value": "La geometría relaciona las pendientes de ambas familias."
+        "value": "¿Qué aprendimos del reto inicial? No necesitamos inventar curvas: podemos imponer una regla geométrica precisa."
       },
       {
         "type": "eq",
-        "tex": "f^{\\prime}(x)=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}",
-        "color": "purple",
-        "emphasis": false,
-        "alt": "f^{\\prime}(x)=\\frac{y^{\\prime}-k}{1+ky^{\\prime}}"
-      },
-      {
-        "type": "eq",
-        "tex": "G\\left(x,y,\\frac{y^{\\prime}-k}{1+ky^{\\prime}}\\right)=0",
+        "tex": "G\\left(x,y,\\dfrac{y'-k}{1+ky'}\\right)=0",
+        "alt": "G\\left(x,y,\\dfrac{y'-k}{1+ky'}\\right)=0",
         "color": "green",
-        "emphasis": true,
-        "alt": "G\\left(x,y,\\frac{y^{\\prime}-k}{1+ky^{\\prime}}\\right)=0"
+        "emphasis": true
+      },
+      {
+        "type": "text",
+        "value": "La EDO construye la familia buscada. En investigación, esas geometrías pueden describir posibles recorridos de refuerzo."
+      },
+      {
+        "type": "text",
+        "value": "Los estudios de 2017 y 2019 dan el siguiente paso: formulan modelos mecánicos y analizan sus ecuaciones."
+      },
+      {
+        "type": "text",
+        "value": "Conclusión: una condición geométrica se convierte en una herramienta para formular y estudiar problemas de ingeniería."
       }
     ],
-    "notes": "Recuperar la idea central y permitir volver al diagrama con el índice si hay preguntas. No añadir nuevos resultados.",
-    "source": "Piskunov (1977), § 15; Trujillo Salazar (2026), ED 1.7.",
+    "notes": "VOLVER AL RETO INICIAL. 1) La forma no se elige al azar: ángulo constante y EDO. 2) Ecuación diferencial resuelve el problema geométrico. 3) Artículos Galanin y Feodorova 2017; Feodorova 2019 relacionan esas familias con modelos de deformación en estructuras planas. No decir que se probó una pieza aeronáutica, ni que un patrón necesariamente optimiza la resistencia. El caso aeronáutico fue un ejemplo didáctico. Cierre oral sugerido: «No hemos diseñado un avión; hemos visto cómo una pregunta de diseño puede convertirse en una condición geométrica, una ecuación diferencial y un problema de modelación».",
+    "source": "Piskunov (1977), § 15; Galanin y Feodorova (2017); Feodorova (2019).",
     "section": "Conclusiones y referencias"
   },
   {
@@ -1298,7 +1326,7 @@ const slides=[
     "section": "Conclusiones y referencias"
   }
 ];
-const sections=[{"title":"Fundamentos geométricos","slide":2},{"title":"Demostración matemática","slide":8},{"title":"Ejemplo desarrollado","slide":15},{"title":"Aplicación científica","slide":24},{"title":"Conclusiones y referencias","slide":35}];
+const sections=[{"title":"Fundamentos geométricos","slide":3},{"title":"Demostración matemática","slide":9},{"title":"Ejemplo desarrollado","slide":16},{"title":"Aplicación científica","slide":25},{"title":"Conclusiones y referencias","slide":36}];
 const clamp=(value,max)=>Math.max(0,Math.min(max,Number.isFinite(Number(value))?Math.round(Number(value)):0));
 function initial(saved){return {slide:clamp(saved?.slide,slides.length-1),phase:clamp(saved?.phase,4)};}
 function transition(state,action){
