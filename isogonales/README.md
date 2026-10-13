@@ -4,9 +4,17 @@ Presentación web de Diego Alejandro Marulanda, Maestría en Biomatemáticas, Un
 
 ## Recorrido
 
-Presentación de 33 diapositivas principales, 5 complementarias opcionales y un tiempo sugerido de 20 minutos (incluye el video original de 95 segundos). El deslizador de geometría es persistente. El ejemplo `y=Cx` mantiene un segundo plano y un deslizador independiente desde las rectas hasta las espirales polares.
+Presentación de 34 diapositivas principales, 5 complementarias opcionales y un tiempo sugerido de 20 minutos (incluye el video original de 95 segundos). El deslizador de geometría es persistente. El ejemplo `y=Cx` mantiene un segundo plano y un deslizador independiente desde las rectas hasta las espirales polares.
 
 Las ecuaciones se revelan progresivamente. La integración se desarrolla en etapas: separación de variables → ecuación integral completa → descomposición → primitivas. El gráfico de la espiral se prolonga hacia el origen, al cual **se aproxima sin alcanzarlo**.
+
+## Situación didáctica y cierre
+
+Después del contenido se plantea un **reto de diseño aeronáutico ficticio**: una placa de avión con abertura y dos posibles disposiciones de recorridos de refuerzo. Es una comparación conceptual sin predicción de rendimiento; no corresponde a un ensayo ni a un prototipo documentado en el artículo de 2017.
+
+La exposición pasa de esa pregunta a las familias de curvas, la relación angular entre tangentes, la EDO isogonal y el ejemplo de espirales. En la aplicación, Galanin y Feodorova (2017) permiten conectar trayectorias curvilíneas con sistemas diferenciales para estudiar deformaciones en estructuras planas. Feodorova (2019) aporta un modelo bidimensional de elasticidad y resultados sobre problemas de contorno. La conclusión vuelve a la pregunta inicial y separa construcción geométrica de análisis mecánico.
+
+La nueva diapositiva mantiene el revelado progresivo y una gráfica SVG conceptual, compatible con tablet. La versión principal conserva **20 minutos sugeridos**, incluido el video de 95 segundos.
 
 ## Fuentes utilizadas
 
