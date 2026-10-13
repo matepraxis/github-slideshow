@@ -23,7 +23,7 @@ const slides=[
   {
     "title": "Contenido de la exposición",
     "kind": "agenda",
-    "duration": 25,
+    "duration": 20,
     "body": [],
     "notes": "Presentar la ruta: fundamentos geométricos, demostración, ejemplo, aplicación científica y conclusiones con referencias. Cada apartado es un botón que lleva a su primera diapositiva. Destinar aproximadamente treinta segundos.",
     "section": "Introducción"
@@ -205,7 +205,7 @@ const slides=[
   {
     "title": "El ángulo constante",
     "kind": "theory",
-    "duration": 30,
+    "duration": 25,
     "body": [
       {
         "type": "text",
@@ -1279,7 +1279,7 @@ const slides=[
   {
     "title": "Del ángulo al problema real",
     "kind": "recap",
-    "duration": 20,
+    "duration": 30,
     "body": [
       {
         "type": "text",
