@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),M=require('./dist/model.js');
-assert.equal(M.slides.length,38);
-assert.equal(M.slides.filter(s=>!s.optional).length,33);
+assert.equal(M.slides.length,39);
+assert.equal(M.slides.filter(s=>!s.optional).length,34);
 assert.equal(M.slides.filter(s=>s.optional).length,5);
 assert.equal(M.slides.reduce((t,s)=>t+s.duration,0),1200);
 const app=M.slides.filter(s=>s.graph?.startsWith('materials'));
@@ -16,12 +16,12 @@ for(const slide of M.slides)for(const block of slide.body){
  assert.ok(!/Thurairajah|urinal|orina|salpicaduras|splash.free/i.test(value));
  assert.ok(!/Escobar/i.test(value));
 }
-assert.ok(M.slides[25].referenceUrl.endsWith('#page=10'));
 assert.ok(M.slides[26].referenceUrl.endsWith('#page=10'));
 assert.ok(M.slides[27].referenceUrl.endsWith('#page=10'));
-assert.ok(M.slides[28].referenceUrl.endsWith('#page=16'));
-assert.ok(M.slides[28].body.some(b=>(b.tex||'').includes('\\omega_1=\\omega_2')));
-assert.ok(M.slides[28].body.some(b=>(b.value||'').includes('par complejo conjugado')));
-assert.ok(M.slides[28].body.some(b=>(b.value||'').includes('cuatro raíces reales')));
-assert.ok(M.slides[19].body.some(b=>(b.tex||'').includes('\\int')));
+assert.ok(M.slides[28].referenceUrl.endsWith('#page=10'));
+assert.ok(M.slides[29].referenceUrl.endsWith('#page=16'));
+assert.ok(M.slides[29].body.some(b=>(b.tex||'').includes('\\omega_1=\\omega_2')));
+assert.ok(M.slides[29].body.some(b=>(b.value||'').includes('par complejo conjugado')));
+assert.ok(M.slides[29].body.some(b=>(b.value||'').includes('cuatro raíces reales')));
+assert.ok(M.slides[20].body.some(b=>(b.tex||'').includes('\\int')));
 console.log('Aplicación: materiales 2017/2019, 3 patrones, DOI, fuentes y 20 minutos.');
