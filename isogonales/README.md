@@ -4,7 +4,7 @@ Presentación web de Diego Alejandro Marulanda, Maestría en Biomatemáticas, Un
 
 ## Recorrido
 
-Presentación de 34 diapositivas principales, 5 complementarias opcionales y un tiempo sugerido de 20 minutos (incluye el video original de 95 segundos). El deslizador de geometría es persistente. El ejemplo `y=Cx` mantiene un segundo plano y un deslizador independiente desde las rectas hasta las espirales polares.
+Presentación de 34 diapositivas principales, 5 complementarias opcionales y un tiempo sugerido de 20 minutos (incluye el video geométrico corregido, versión 7, de 95 segundos en 4K UHD). El deslizador de geometría es persistente. El ejemplo `y=Cx` mantiene un segundo plano y un deslizador independiente desde las rectas hasta las espirales polares.
 
 Las ecuaciones se revelan progresivamente. La integración se desarrolla en etapas: separación de variables → ecuación integral completa → descomposición → primitivas. El gráfico de la espiral se prolonga hacia el origen, al cual **se aproxima sin alcanzarlo**.
 
@@ -60,3 +60,7 @@ node --check isogonales/dist/app.js
 ```
 
 GitHub Actions ejecuta las pruebas tras las actualizaciones. Las pruebas automáticas no sustituyen la revisión visual real en escritorio y tablet. Los PR deben revisarse antes de fusionarse o desplegarse.
+
+## Video geométrico 4K
+
+La diapositiva audiovisual reproduce `dist/assets/isogonales.mp4`, reemplazado por la versión 7 (3840×2160, 30 FPS, 95 s) con notación `y=Cx`, `k=tan(gamma)` y `r=Ae^(theta/k)`. El parámetro de versión en `dist/app.js` evita que el navegador reutilice la copia antigua. El renderizador reproducible está en `video/render_trayectorias_isogonales_v7.py`. La película no tiene audio.
