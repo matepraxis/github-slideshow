@@ -93,6 +93,20 @@ const close=()=>new Promise(resolve=>server.close(resolve));
   await page.keyboard.press('ArrowRight');
   assert.ok((await page.locator('#slide-content').innerText()).includes('EDO')||(await page.locator('#slide-content .katex').count())>0);
   await capture('07-conclusion-aplicada.png');
+  await go(38);
+  assert.equal(await page.locator('#slide-title').innerText(),'Referencias');
+  assert.equal(await page.locator('#slide-content .references p').count(),9);
+  for(const journal of ['Keldysh Institute Preprints','Materials Science Forum','Isis','Proceedings of the National Academy of Sciences','Journal of Paleontology']){
+   const matches=await page.locator('.references i').filter({hasText:journal}).count();
+   assert.equal(matches,1,'Debe estar en cursiva la revista/publicación '+journal);
+  }
+  for(const article of ['Reinforcement of Planar Constructions','Determination of Fiber-Structure','Outline of a History of Differential Geometry','Transformation Theory of Isogonal Trajectories','Geometric analysis of shell coiling']){
+   const wrong=await page.locator('.references a i').filter({hasText:article}).count();
+   assert.equal(wrong,0,'Un título de artículo quedó en cursiva: '+article);
+  }
+  const books=await page.locator('.references i').allTextContents();
+  assert.ok(books.includes('Cálculo diferencial e integral')&&books.includes('Elementos'),'Los títulos de libros deben estar en cursiva');
+  await capture('09-bibliografia-cursivas-escritorio.png');
   await page.setViewportSize({width:700,height:1080});
   await go(1);
   await capture('08-contenido-tablet.png',true);
@@ -101,6 +115,10 @@ const close=()=>new Promise(resolve=>server.close(resolve));
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
   assert.ok(overflow<=2,'Desbordamiento horizontal en tablet: '+overflow);
   await capture('06-integracion-tablet.png',true);
+  await go(38);
+  const refOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
+  assert.ok(refOverflow<=2,'Desbordamiento horizontal en bibliografía de tablet: '+refOverflow);
+  await capture('10-bibliografia-cursivas-tablet.png',true);
   assert.deepEqual(errors,[],'Errores de JavaScript de navegador');
   console.log('Navegador: familias, integración, polares, aplicación y tablet correctos. Capturas en '+screenshots);
  }finally{await browser.close();await close();}

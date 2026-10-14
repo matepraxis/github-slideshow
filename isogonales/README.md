@@ -79,3 +79,7 @@ Pruebas específicas:
 node isogonales/test-history.cjs
 node isogonales/history-browser.cjs
 ```
+
+## Criterio tipográfico bibliográfico
+
+En la diapositiva de referencias, los **libros** se citan con el título en cursiva; para los **artículos científicos** el título va en redonda y el nombre de la revista o serie editorial se presenta en cursiva. El mismo criterio se aplica a las publicaciones citadas en la cronología y en los pies de fuente. Se conservan los enlaces y las duraciones de las 40 diapositivas.
