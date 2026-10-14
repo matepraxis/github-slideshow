@@ -1,0 +1,46 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const M=require('./dist/model.js');
+const source=fs.readFileSync(path.join(__dirname,'dist/app.js'),'utf8');
+const hash=s=>{let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0;}return h.toString(16).padStart(8,'0');};
+const history=M.slides[2];
+assert.equal(history.kind,'history');
+assert.equal(history.title,'Breve historia de las trayectorias isogonales');
+assert.equal(history.section,'Introducción');
+assert.equal(history.duration,55);
+assert.equal(history.body.length,5);
+assert.ok(history.body[0].value.includes('1698'));
+assert.ok(history.body[1].value.includes('1716'));
+assert.ok(history.body[2].value.includes('1933'));
+assert.ok(history.body[3].value.includes('1942'));
+assert.ok(history.body[4].value.includes('90 grados'));
+assert.ok(history.source.includes('10.1086/346723'));
+assert.ok(history.source.includes('10.1073/pnas.28.8.328'));
+assert.equal(M.slides.length,40);
+assert.equal(M.slides.filter(s=>!s.optional).length,35);
+assert.equal(M.slides.filter(s=>s.optional).length,5);
+assert.equal(M.slides.reduce((n,s)=>n+s.duration,0),1255);
+assert.equal(M.slides.filter((s,i)=>i!==2).reduce((n,s)=>n+s.duration,0),1200);
+// Huella exacta del modelo anterior al PR histórico: incluye todos los cuerpos, fuentes y notas.
+assert.equal(hash(JSON.stringify(M.slides.filter((s,i)=>i!==2))),'98c429e0','Se modificó una diapositiva preexistente');
+assert.deepEqual(M.sections.map(s=>s.slide),[4,10,17,26,37]);
+assert.equal(M.slides[3].title,'Un reto antes de las ecuaciones');
+assert.equal(M.slides[4].title,'Dos familias monoparamétricas');
+assert.ok(source.includes("s.kind==='history'"));
+assert.ok(source.includes('schema:4'));
+assert.ok(source.includes('historia-1698.svg'));
+assert.ok(source.includes('historia-1942.svg'));
+assert.ok(source.includes('doi.org/10.1086/346723'));
+assert.ok(source.includes('doi.org/10.1073/pnas.28.8.328'));
+assert.ok(source.includes('EuclidElementsBk01Prop32_Heath1908.php'));
+for(const name of ['historia-1698.svg','historia-1942.svg']){
+ const img=fs.readFileSync(path.join(__dirname,'dist/assets',name),'utf8');
+ assert.ok(img.includes('<svg')&&img.includes('</svg>'));
+ assert.ok(img.includes('Ilustraci'));
+}
+const theorem=M.slides.find(s=>s.title==='El ángulo constante');
+assert.ok(theorem?.source.includes('proposición 32'));
+assert.ok(theorem?.notes.includes('ángulo exterior'));
+console.log('Historia: +1 lámina, 55 s añadidos, 39 originales íntegros, ilustraciones locales y bibliografía válidas.');
