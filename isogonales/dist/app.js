@@ -4,10 +4,11 @@ const M=globalThis.PresentationModel,$=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let saved;try{saved=JSON.parse(localStorage.getItem('uq-isogonales-v1')||'null');}catch(_){}
-// Migrar los índices guardados: v1 añadió contenido; v3 añade el reto tras el contenido.
-if(saved&&Number.isInteger(saved.slide)){
+// Mantener la diapositiva original de cada sesión: v4 agrega historia en índice 2.
+if(saved&&Number.isInteger(saved.slide)&&saved.schema!==4){
  if(saved.schema!==2&&saved.schema!==3&&saved.slide>=1)saved.slide+=1;
  if(saved.schema!==3&&saved.slide>=2)saved.slide+=1;
+ if(saved.slide>=2)saved.slide+=1;
 }
 let state=M.initial(saved);
 const blockCount=slide=>slide?.body?.length||0;
@@ -239,6 +240,39 @@ function renderSlide(){
    li.append(button);list.append(li);
   });
   content.append(list);
+ }else if(s.kind==='history'){
+  const board=document.createElement('div');board.className='history-board';
+  const timeline=document.createElement('div');timeline.className='history-timeline';
+  const visuals=document.createElement('div');visuals.className='history-visuals';
+  const milestones=[
+   ['1698','Johann Bernoulli','Struik (1933)'],
+   ['1716','G. W. Leibniz','Struik (1933)'],
+   ['1933','D. J. Struik','Isis, 19(1)'],
+   ['1942','Kasner y De Cicco','PNAS, 28(8)']
+  ];
+  milestones.forEach(([year,author,citation],i)=>{
+   const entry=document.createElement('article');entry.className='history-event reveal-block';
+   entry.setAttribute('data-reveal-index',i);entry.hidden=i>=reveal;
+   const date=document.createElement('span');date.className='history-year';date.textContent=year;
+   const copy=document.createElement('div');copy.className='history-event-copy';
+   const heading=document.createElement('strong');heading.textContent=author;
+   const statement=document.createElement('p');statement.textContent=s.body[i].value;
+   const origin=document.createElement('small');origin.textContent=citation;
+   copy.append(heading,statement,origin);entry.append(date,copy);timeline.append(entry);
+  });
+  const renderPicture=(index,filename,alt,caption)=>{
+   const figure=document.createElement('figure');figure.className='history-illustration reveal-block';
+   figure.setAttribute('data-reveal-index',index);figure.hidden=index>=reveal;
+   const image=document.createElement('img');image.src='assets/'+filename;image.alt=alt;image.loading='eager';
+   const figcaption=document.createElement('figcaption');figcaption.textContent=caption;
+   figure.append(image,figcaption);visuals.append(figure);
+  };
+  renderPicture(0,'historia-1698.svg','Ilustración original de manuscrito de 1698 con una curva y líneas geométricas','Ilustración conceptual, no facsímil');
+  renderPicture(3,'historia-1942.svg','Ilustración original de artículo matemático de 1942 con trayectorias cruzadas','Ilustración conceptual, no facsímil');
+  const idea=document.createElement('div');idea.className='history-takeaway reveal-block';
+  idea.setAttribute('data-reveal-index',4);idea.hidden=4>=reveal;
+  idea.innerHTML='<strong>Caso particular</strong><span>Trayectorias ortogonales '+renderMath('\\gamma=90^\\circ',false)+'</span><small>Las trayectorias isogonales conservan un ángulo '+renderMath('\\gamma',false)+' cualquiera.</small>';
+  visuals.append(idea);board.append(timeline,visuals);content.append(board);
  }else if(s.kind==='closing')content.innerHTML='<p class="closing-title">Gracias</p><p>Preguntas y discusión</p>';
  else if(s.kind==='video'){
   const video=document.createElement('video');video.className='film';video.controls=true;video.playsInline=true;video.preload='metadata';video.src='assets/isogonales.mp4?v=7';video.setAttribute('aria-label','Animación de las trayectorias isogonales,95 segundos');content.append(video);const p=document.createElement('p');p.innerHTML=prose(s.body[0].value);content.append(p);
@@ -302,7 +336,7 @@ function dispatch(action){
   if(action.type==='toggle-families'){state.phase=0;familiesVisible=!familiesVisible;updateGeometry();}
   if(action.type==='example-phase'){examplePhase=Math.max(0,Math.min(8,Number(action.phase)||0));manualExampleStage=true;updateRadialExample();}
  }
- try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible,schema:3}));}catch(_){}
+ try{localStorage.setItem('uq-isogonales-v1',JSON.stringify({...state,reveal,examplePhase,familiesVisible,schema:4}));}catch(_){}
 }
 function toggleDialog(id){const d=$(id);if(d.open)d.close();else d.showModal();}
 function fullscreen(){if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch(()=>{});}
