@@ -5,7 +5,7 @@ for(let i=17;i<=24;i++){
  assert.ok(M.slides[i].body.some(b=>b.type==='text'),'Faltan justificaciones '+i);
 }
 const body=i=>M.slides[i].body.map(b=>b.tex||b.value).join(' ');
-for(const [idx,key] of [[18,'y=Cx'],[18,'x-ky'],[19,'z+x'],[20,'1+z^2'],[21,'\\ln|x|'],[22,'x^2+y^2'],[23,'Ae^{\\theta/k}'],[24,'\\tan\\gamma']]){
+for(const [idx,key] of [[17,'y=Cx'],[18,'x-ky'],[19,'z+x'],[20,'1+z^2'],[21,'\\ln|x|'],[22,'x^2+y^2'],[23,'Ae^{\\theta/k}'],[24,'\\tan\\gamma']]){
  assert.ok(body(idx).includes(key),'No se encuentra '+key+' en '+idx);
 }
 assert.ok(body(21).includes('Integramos a ambos lados'));
