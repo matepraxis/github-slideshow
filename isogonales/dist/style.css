@@ -98,3 +98,9 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 #controls .lab-shortcut{font-size:clamp(11px,1.02cqw,14px);font-weight:650;text-decoration:none;color:#126b52;background:#eaf6ef;border:1px solid #c9e5d5;border-radius:7px;padding:7px 10px;white-space:nowrap}
 #controls .lab-shortcut:hover{background:#d6efdf}
 @media(max-width:640px){#controls .lab-shortcut{font-size:11px;padding:6px 7px}}
+
+/* Referencias ampliadas: presentación en dos columnas sin cambiar las demás diapositivas. */
+#stage.references .references{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(5px,.65cqw,9px) clamp(14px,1.65cqw,24px);font-size:clamp(12px,1.03cqw,15px);line-height:1.23;align-content:center}
+#stage.references .references p{min-width:0;overflow-wrap:anywhere}
+#stage.references .references .ref-detail{display:block;color:#69716c;font-size:.9em;line-height:1.18}
+@media(max-width:760px){#stage.references .references{grid-template-columns:1fr;font-size:14px;gap:11px}}
