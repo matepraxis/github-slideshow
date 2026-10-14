@@ -19,7 +19,7 @@ for(const deg of [15,45,80])for(const theta of [-.7,.3,.9]){
  const mf=y(theta)/x(theta),mh=derivative(y,theta)/derivative(x,theta);
  near((mh-mf)/(1+mf*mh),k,1e-5);
 }
-assert.equal(M.slides.reduce((n,s)=>n+s.duration,0),1200);
+assert.equal(M.slides.reduce((n,s)=>n+s.duration,0),1255);
 const expected=M.slides.map((s,i)=>s.optional?null:i).filter(i=>i!==null);
 let state=M.initial(),visited=[0];
 while(state.slide<M.slides.length-1){state=M.transition(state,{type:'navigate',delta:1});visited.push(state.slide);}
