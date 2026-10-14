@@ -21,19 +21,19 @@ const context={PresentationModel:M,PresentationLatex:require('./dist/latex.js'),
 context.globalThis=context;vm.runInNewContext(fs.readFileSync(__dirname+'/dist/app.js','utf8'),context);
 const svg=nodes['geometry-svg'],sameGroups=groups();
 assert.equal(sameGroups.length,6);
-nodes.next.click();assert.equal(JSON.parse(storage.value).slide,7);assert.equal(JSON.parse(storage.value).reveal,2);assert.equal(nodes['geometry-svg'],svg);assert.equal(nodes.phase.value,4);assert.deepEqual(groups(),sameGroups);
-buttons()[16].click();assert.equal(nodes.geometry.hidden,true);assert.equal(nodes['example-geometry'].hidden,false);
+nodes.next.click();assert.equal(JSON.parse(storage.value).slide,8);assert.equal(JSON.parse(storage.value).reveal,2);assert.equal(nodes['geometry-svg'],svg);assert.equal(nodes.phase.value,4);assert.deepEqual(groups(),sameGroups);
+buttons()[17].click();assert.equal(nodes.geometry.hidden,true);assert.equal(nodes['example-geometry'].hidden,false);
 nodes['example-phase'].listeners.input({target:{value:'6'}});assert.equal(JSON.parse(storage.value).examplePhase,6);assert.equal(nodes.phase.value,4);
-buttons()[11].click();assert.equal(nodes['example-geometry'].hidden,true);assert.equal(nodes.geometry.hidden,false);assert.equal(nodes.phase.value,4);assert.deepEqual(groups(),sameGroups);
+buttons()[12].click();assert.equal(nodes['example-geometry'].hidden,true);assert.equal(nodes.geometry.hidden,false);assert.equal(nodes.phase.value,4);assert.deepEqual(groups(),sameGroups);
 nodes.phase.listeners.input({target:{value:'2'}});assert.equal(JSON.parse(storage.value).phase,2);
-nodes.previous.click();assert.equal(nodes.phase.value,2);assert.equal(JSON.parse(storage.value).reveal,M.slides[10].body.length);
+nodes.previous.click();assert.equal(nodes.phase.value,2);assert.equal(JSON.parse(storage.value).reveal,M.slides[11].body.length);
 for(let i=0;i<M.slides.length;i++){
  buttons()[i].click();assert.equal(nodes.phase.value,2);assert.deepEqual(groups(),sameGroups);
  const allHTML=e=>e.innerHTML+e.children.map(allHTML).join('');
  assert.ok(!allHTML(nodes['slide-content']).includes('NaN'));
 }
 // Recorrido de aceptación: rectas, selección, cálculo, polares y verificación.
-buttons()[16].click();
+buttons()[17].click();
 assert.equal(nodes['example-phase'].value,0);
 assert.equal(JSON.parse(storage.value).reveal,1);
 nodes.next.click();assert.equal(nodes['example-phase'].value,0);
@@ -41,10 +41,10 @@ nodes.next.click();assert.equal(nodes['example-phase'].value,1);
 nodes.next.click();assert.equal(nodes['example-phase'].value,1);
 nodes.next.click();assert.equal(nodes['example-phase'].value,2);
 nodes.next.click();assert.equal(nodes['example-phase'].value,2);
-nodes.next.click();assert.equal(JSON.parse(storage.value).slide,17);
+nodes.next.click();assert.equal(JSON.parse(storage.value).slide,18);
 assert.equal(nodes['example-phase'].value,3);
-buttons()[22].click();assert.equal(nodes['example-phase'].value,6);
-buttons()[23].click();assert.equal(nodes['example-phase'].value,7);
+buttons()[23].click();assert.equal(nodes['example-phase'].value,6);
+buttons()[24].click();assert.equal(nodes['example-phase'].value,7);
 nodes.next.click();assert.equal(nodes['example-phase'].value,7);
 nodes.next.click();assert.equal(nodes['example-phase'].value,8);
 const polarLayer=nodes['example-svg'].children.find(e=>e.attrs['data-e-from']==='6'&&e.attrs['data-e-until']==='8');
@@ -54,7 +54,7 @@ assert.equal(nodes['example-phase'].value,0);
 assert.equal(JSON.parse(storage.value).examplePhase,0);
 
 // El botón de familias debe cambiar efectivamente la visibilidad del SVG.
-buttons()[3].click();
+buttons()[4].click();
 const preview=nodes['geometry-svg'].children.find(e=>e.attrs['data-family-preview']==='true');
 assert.ok(preview);
 const familyButton=nodes['slide-content'].children.find(e=>e.tagName==='BUTTON');
@@ -72,5 +72,5 @@ assert.equal(agendaButtons.length,5);
 agendaButtons[2].children[0].click();
 assert.equal(JSON.parse(storage.value).slide,M.sections[2].slide);
 assert.equal(nodes['section-current'].textContent,'Ejemplo desarrollado');
-assert.equal(JSON.parse(storage.value).schema,3);
+assert.equal(JSON.parse(storage.value).schema,4);
 console.log('Interacciones: el SVG conserva sus nodos y etapa en '+M.slides.length+' diapositivas.');
