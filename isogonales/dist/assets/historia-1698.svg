@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340" role="img" aria-label="Ilustración vectorial conceptual: correspondencia matemática de 1698">
+<defs><linearGradient id="paper" x2="1" y2="1"><stop stop-color="#faf2dd"/><stop offset="1" stop-color="#e8d6ad"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#325b4e" flood-opacity=".13"/></filter></defs>
+<rect width="760" height="340" rx="16" fill="#edf4ed"/>
+<g transform="translate(48 24)" filter="url(#shadow)"><rect width="664" height="292" rx="10" fill="url(#paper)" stroke="#c6b28d" stroke-width="2"/>
+<path d="M32 58H628 M32 80H628 M32 102H628" stroke="#c9bb98" opacity=".32"/>
+<text x="36" y="37" font-family="Georgia,serif" font-size="16" fill="#755a43">Correspondencia sobre curvas y trayectorias</text>
+<text x="36" y="102" font-family="Georgia,serif" font-size="60" fill="#7b5538">1698</text>
+<text x="39" y="133" font-family="Georgia,serif" font-size="18" fill="#73563b">Johann Bernoulli · Leibniz</text>
+<path d="M36 154 C101 157 147 171 205 158 M36 170 C100 169 131 177 178 173 M36 187 C104 183 157 188 199 183 M36 203 C81 200 133 209 178 205" fill="none" stroke="#926b4d" stroke-width="2" opacity=".62"/>
+<g transform="translate(297 39)"><rect width="320" height="204" rx="8" fill="#f5eedb" opacity=".72" stroke="#c4b18c"/>
+<path d="M16 107H307M157 12V192" fill="none" stroke="#8b9b91" stroke-width="1.5"/>
+<g fill="none" stroke-width="4" stroke-linecap="round"><path d="M40 170C95 99 115 90 157 107S235 144 283 42" stroke="#138e68"/><path d="M70 23C125 56 127 86 157 107S209 164 271 177" stroke="#7b58a3"/></g>
+<circle cx="157" cy="107" r="6" fill="#bd7b34"/><path d="M158 102l26-31" stroke="#b26f21" stroke-width="2"/><text x="191" y="66" font-family="Georgia,serif" font-size="21" fill="#855a29">P</text>
+</g><text x="326" y="272" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#8a7b60">Ilustración original · no manuscrito histórico</text></g></svg>

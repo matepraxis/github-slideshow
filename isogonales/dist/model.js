@@ -29,6 +29,21 @@ const slides=[
     "section": "Introducción"
   },
   {
+    "title": "Breve historia de las trayectorias isogonales",
+    "kind": "history",
+    "duration": 55,
+    "section": "Introducción",
+    "body": [
+      {"type":"text","value":"En 1698, Johann Bernoulli utilizó el término «trayectoria» en correspondencia con Leibniz."},
+      {"type":"text","value":"En 1716, Leibniz retomó el problema de las trayectorias ortogonales."},
+      {"type":"text","value":"En 1933, D. J. Struik documentó estos antecedentes en su historia de la geometría diferencial."},
+      {"type":"text","value":"En 1942, Edward Kasner y John De Cicco publicaron un estudio específico sobre trayectorias isogonales de familias isotérmicas."},
+      {"type":"text","value":"Las trayectorias ortogonales son el caso particular de las isogonales con un ángulo constante de 90 grados."}
+    ],
+    "notes": "Historia breve, 55 segundos añadidos al recorrido existente, sin recortar ninguna diapositiva. Según Struik (1933), la voz trayectoria aparece en una carta de Johann Bernoulli a Leibniz (1698) y Leibniz abordó el problema de las ortogonales en 1716. La publicación de Kasner y De Cicco (1942) estudia explícitamente trayectorias isogonales, no se presenta como fecha de invención del concepto. Las dos imágenes son ilustraciones vectoriales propias, no reproducciones de documentos históricos. Cerrar recordando que gamma=90° es el caso ortogonal.",
+    "source": "Struik (1933), Isis 19(1), 92–120, doi:10.1086/346723; Kasner y De Cicco (1942), PNAS 28(8), 328–333, doi:10.1073/pnas.28.8.328."
+  },
+  {
     "title": "Un reto antes de las ecuaciones",
     "kind": "example",
     "graph": "engineering-question",
@@ -223,8 +238,8 @@ const slides=[
         "value": "La diferencia angular es constante en cada intersección regular: esa es la condición isogonal."
       }
     ],
-    "notes": "No incluir la comprobación numérica 135=55+80; explicar únicamente la relación geométrica y orientar al punto P en la figura.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "notes": "No incluir la comprobación numérica 135=55+80; explicar únicamente la relación geométrica y orientar al punto P en la figura. El teorema del ángulo exterior se documenta en Euclides, Elementos, Libro I, proposición 32; aplicarlo solo bajo la configuración geométrica de los ángulos del triángulo trazado.",
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8; Euclides, Elementos, Libro I, proposición 32 (ed. Heath, 1908).",
     "action": 4,
     "section": "Fundamentos geométricos"
   },
@@ -1326,7 +1341,7 @@ const slides=[
     "section": "Conclusiones y referencias"
   }
 ];
-const sections=[{"title":"Fundamentos geométricos","slide":3},{"title":"Demostración matemática","slide":9},{"title":"Ejemplo desarrollado","slide":16},{"title":"Aplicación científica","slide":25},{"title":"Conclusiones y referencias","slide":36}];
+const sections=[{"title":"Fundamentos geométricos","slide":4},{"title":"Demostración matemática","slide":10},{"title":"Ejemplo desarrollado","slide":17},{"title":"Aplicación científica","slide":26},{"title":"Conclusiones y referencias","slide":37}];
 const clamp=(value,max)=>Math.max(0,Math.min(max,Number.isFinite(Number(value))?Math.round(Number(value)):0));
 function initial(saved){return {slide:clamp(saved?.slide,slides.length-1),phase:clamp(saved?.phase,4)};}
 function transition(state,action){

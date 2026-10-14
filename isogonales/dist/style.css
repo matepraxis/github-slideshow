@@ -98,3 +98,32 @@ dialog{border:1px solid #c8d6ce;border-radius:6px;box-shadow:0 20px 60px #0003;m
 #controls .lab-shortcut{font-size:clamp(11px,1.02cqw,14px);font-weight:650;text-decoration:none;color:#126b52;background:#eaf6ef;border:1px solid #c9e5d5;border-radius:7px;padding:7px 10px;white-space:nowrap}
 #controls .lab-shortcut:hover{background:#d6efdf}
 @media(max-width:640px){#controls .lab-shortcut{font-size:11px;padding:6px 7px}}
+
+/* Referencias ampliadas: presentación en dos columnas sin cambiar las demás diapositivas. */
+#stage.references .references{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(5px,.65cqw,9px) clamp(14px,1.65cqw,24px);font-size:clamp(12px,1.03cqw,15px);line-height:1.23;align-content:center}
+#stage.references .references p{min-width:0;overflow-wrap:anywhere}
+#stage.references .references .ref-detail{display:block;color:#69716c;font-size:.9em;line-height:1.18}
+@media(max-width:760px){#stage.references .references{grid-template-columns:1fr;font-size:14px;gap:11px}}
+
+/* Una única página histórica después del índice, sin alterar el resto. */
+#stage.history #layout{display:block;top:21%;bottom:14%;left:7.2%;right:7.2%}
+#stage.history #slide-content{height:100%;display:block}
+.history-board{height:100%;min-height:0;display:grid;grid-template-columns:minmax(0,1.22fr) minmax(0,.78fr);gap:clamp(18px,2.4cqw,35px);align-items:stretch}
+.history-timeline{display:flex;flex-direction:column;justify-content:space-between;gap:clamp(5px,.7cqw,11px);min-height:0;border-left:3px solid #dce9df;margin-left:21px;padding-left:18px}
+.history-event{display:grid;grid-template-columns:clamp(55px,6cqw,82px) minmax(0,1fr);align-items:start;gap:12px;position:relative;padding:6px 0}
+.history-event:before{content:'';position:absolute;left:-28px;top:16px;width:12px;height:12px;border-radius:100%;background:#138e68;border:3px solid white;box-shadow:0 0 0 2px #c9e2d3}
+.history-year{font-size:clamp(18px,2.05cqw,29px);font-weight:750;color:#138e68;line-height:1.15;font-variant-numeric:tabular-nums}
+.history-event-copy{min-width:0;display:flex;flex-direction:column;gap:3px;font-size:clamp(11px,1.13cqw,16px);line-height:1.27}
+.history-event-copy strong{font-size:clamp(13px,1.28cqw,18px);color:#314b3e}
+.history-event-copy small{font-size:.78em;color:#6b756e}
+.history-visuals{display:flex;flex-direction:column;justify-content:space-between;gap:clamp(7px,1cqw,13px);min-height:0}
+.history-illustration{padding:0;margin:0;min-height:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.history-illustration img{width:100%;height:auto;min-height:0;max-height:100%;object-fit:contain;border:1px solid #dae4de;border-radius:9px;box-shadow:0 4px 16px #1c342017}
+.history-illustration figcaption{font-size:clamp(10px,.79cqw,12px);color:#65756e;text-align:center;padding-top:4px}
+.history-takeaway{flex:0 0 auto;background:#e9f5ec;border-left:4px solid #138e68;border-radius:7px;padding:9px 12px;display:flex;flex-direction:column;gap:3px;font-size:clamp(12px,1.15cqw,17px);line-height:1.24;color:#244b39}
+.history-takeaway strong{font-size:.9em}.history-takeaway small{font-size:.79em}
+#stage.history [data-reveal-index].just-revealed{animation:history-reveal .48s ease-out both}
+@keyframes history-reveal{from{opacity:0;transform:translateX(13px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:760px){#stage.history #layout{position:static;display:block}#stage.history #slide-content{height:auto}.history-board{grid-template-columns:1fr;gap:18px}.history-timeline{margin-left:10px;padding-left:15px;gap:12px}.history-event{grid-template-columns:57px minmax(0,1fr);gap:9px}.history-year{font-size:19px}.history-event-copy{font-size:14px}.history-event-copy strong{font-size:16px}.history-visuals{gap:11px}.history-illustration img{max-height:220px}.history-takeaway{font-size:15px}}
+@media(prefers-reduced-motion:reduce){#stage.history [data-reveal-index].just-revealed{animation:none}}
+@media print{#stage.history [data-reveal-index][hidden]{display:block!important}}

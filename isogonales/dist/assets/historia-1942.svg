@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340" role="img" aria-label="Ilustración vectorial conceptual de artículo sobre trayectorias isogonales en 1942">
+<defs><linearGradient id="sheet" x2="1" y2="1"><stop stop-color="#fffefa"/><stop offset="1" stop-color="#e5efe9"/></linearGradient></defs>
+<rect width="760" height="340" rx="16" fill="#edf4ed"/>
+<g transform="translate(45 22)"><rect x="0" y="0" width="670" height="296" rx="11" fill="url(#sheet)" stroke="#c9dcd0" stroke-width="2"/>
+<text x="29" y="39" font-family="Georgia,serif" font-size="18" font-weight="bold" letter-spacing="1" fill="#2e6251">INVESTIGACIÓN MATEMÁTICA</text><text x="579" y="43" font-family="Georgia,serif" font-size="30" fill="#16856d">1942</text>
+<path d="M30 57H642" stroke="#b4d0bd" stroke-width="2"/>
+<text x="30" y="89" font-family="Georgia,serif" font-size="21" fill="#254d3f">Trayectorias isogonales</text>
+<text x="30" y="113" font-family="Georgia,serif" font-size="15" fill="#5a7668">Kasner y De Cicco · familias isotérmicas</text>
+<path d="M30 133H305M30 147H276M30 161H300M30 175H263M30 189H303M30 203H250" stroke="#97ab9f" stroke-width="2" opacity=".7"/>
+<rect x="347" y="74" width="288" height="182" rx="8" fill="#e8f2ea" stroke="#c3dbcb"/>
+<g transform="translate(491 165)" fill="none"><circle r="10" stroke="#b1d4c0" stroke-width="1"/><circle r="35" stroke="#b1d4c0" stroke-width="1"/><circle r="67" stroke="#b1d4c0" stroke-width="1"/>
+<g stroke="#668bc4" stroke-width="2.4"><path d="M-120 0H120M0 -80V80 M-87 -76L87 76M-87 76L87 -76"/></g>
+<path d="M-14 -9C-8 -29 10 -36 25 -17C56 21 18 59 -25 49C-77 37 -79 -22 -45 -48" stroke="#15936c" stroke-width="4" stroke-linecap="round"/></g>
+<text x="35" y="264" font-family="Georgia,serif" font-style="italic" font-size="16" fill="#516b5d">γ = constante</text>
+<text x="354" y="276" font-family="Georgia,serif" font-size="13" fill="#688071">Esquema geométrico original</text></g></svg>
