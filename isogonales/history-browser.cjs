@@ -52,7 +52,7 @@ const server=http.createServer((req,res)=>{
   // Navegar fuera y volver reinicia correctamente el revelado para la toma tablet.
   await go(3);
   await go(2);
-  for(let i=0;i<4;i++await page.keyboard.press('ArrowRight');
+  for(let i=0;i<4;i++)await page.keyboard.press('ArrowRight');
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
   assert.ok(overflow<=2,'Desbordamiento horizontal en tablet: '+overflow);
   await page.screenshot({path:path.join(screens,'historia-05-tablet.png'),fullPage:true});
