@@ -4,7 +4,7 @@ Presentación web de Diego Alejandro Marulanda, Maestría en Biomatemáticas, Un
 
 ## Recorrido
 
-Presentación de 34 diapositivas principales, 5 complementarias opcionales y un tiempo sugerido de 20 minutos (incluye el video geométrico corregido, versión 7, de 95 segundos en 4K UHD). El deslizador de geometría es persistente. El ejemplo `y=Cx` mantiene un segundo plano y un deslizador independiente desde las rectas hasta las espirales polares.
+Presentación de 35 diapositivas principales, 5 complementarias opcionales y un tiempo sugerido de 20 minutos y 55 segundos (incluye el video geométrico corregido, versión 7, de 95 segundos en 4K UHD). El deslizador de geometría es persistente. El ejemplo `y=Cx` mantiene un segundo plano y un deslizador independiente desde las rectas hasta las espirales polares.
 
 Las ecuaciones se revelan progresivamente. La integración se desarrolla en etapas: separación de variables → ecuación integral completa → descomposición → primitivas. El gráfico de la espiral se prolonga hacia el origen, al cual **se aproxima sin alcanzarlo**.
 
@@ -14,7 +14,7 @@ Después del contenido se plantea un **reto de diseño aeronáutico ficticio**: 
 
 La exposición pasa de esa pregunta a las familias de curvas, la relación angular entre tangentes, la EDO isogonal y el ejemplo de espirales. En la aplicación, Galanin y Feodorova (2017) permiten conectar trayectorias curvilíneas con sistemas diferenciales para estudiar deformaciones en estructuras planas. Feodorova (2019) aporta un modelo bidimensional de elasticidad y resultados sobre problemas de contorno. La conclusión vuelve a la pregunta inicial y separa construcción geométrica de análisis mecánico.
 
-La nueva diapositiva mantiene el revelado progresivo y una gráfica SVG conceptual, compatible con tablet. La versión principal conserva **20 minutos sugeridos**, incluido el video de 95 segundos.
+La nueva diapositiva mantiene el revelado progresivo y una gráfica SVG conceptual, compatible con tablet. La versión principal dura **20 minutos y 55 segundos sugeridos**, incluido el video de 95 segundos. Se añadieron 55 segundos dedicados a historia; ninguna diapositiva previa fue recortada.
 
 ## Fuentes utilizadas
 
@@ -35,7 +35,7 @@ Las diapositivas de k=1, k=2 y k=3 presentan recortes de las **figuras originale
 
 ## Tabla de contenido
 
-Después de la portada se muestra un índice interactivo con cinco secciones, enlazadas a su primera diapositiva. Cada lámina principal muestra un indicador discreto de la sección actual. El índice del panel inferior sigue ofreciendo navegación por todas las láminas. La ruta mantiene 20 minutos sugeridos.
+Después de la portada se muestra un índice interactivo con cinco secciones, enlazadas a su primera diapositiva. Cada lámina principal muestra un indicador discreto de la sección actual. El índice del panel inferior sigue ofreciendo navegación por todas las láminas. La ruta mantiene las duraciones originales más 55 segundos de contexto histórico (20:55 en total).
 
 ## Uso
 
@@ -64,3 +64,18 @@ GitHub Actions ejecuta las pruebas tras las actualizaciones. Las pruebas automá
 ## Video geométrico 4K
 
 La diapositiva audiovisual reproduce `dist/assets/isogonales.mp4`, reemplazado por la versión 7 (3840×2160, 30 FPS, 95 s) con notación `y=Cx`, `k=tan(gamma)` y `r=Ae^(theta/k)`. El parámetro de versión en `dist/app.js` evita que el navegador reutilice la copia antigua. El renderizador reproducible está en `video/render_trayectorias_isogonales_v7.py`. La película no tiene audio.
+
+## Antecedentes históricos (diapositiva 3)
+
+Se incorpora **una única lámina histórica** inmediatamente después del índice y antes del reto aeronáutico. Sus cinco revelados presentan 1698 (carta de Johann Bernoulli), 1716 (Leibniz y ortogonales), 1933 (síntesis historiográfica de Struik), 1942 (artículo sobre trayectorias isogonales de Kasner y De Cicco) y el caso particular `gamma=90°`. Dos ilustraciones vectoriales originales en `dist/assets/historia-1698.svg` y `dist/assets/historia-1942.svg` acompañan la secuencia. **No son fotografías, facsímiles ni ilustraciones procedentes de los artículos originales.**
+
+Fuentes: Struik, D. J. (1933), *Isis*, 19(1), 92–120, https://doi.org/10.1086/346723; Kasner, E., y De Cicco, J. (1942), *PNAS*, 28(8), 328–333, https://doi.org/10.1073/pnas.28.8.328. La demostración utiliza también el teorema del ángulo exterior, identificado en Euclides, *Elementos*, Libro I, proposición 32 (ed. Heath, 1908), https://www.maths.tcd.ie/~dwilkins/Euclid/Elements_Heath1908/BookI/EuclidElementsBk01Prop32_Heath1908.php.
+
+Invariantes de regresión: las 39 diapositivas anteriores tienen exactamente el mismo orden, tiempo, contenido, notas y fuentes después de excluir el nuevo índice 2. La duración anterior (1200 s) no se reduce: 1200 + 55 = 1255 s. Persistencia de navegación v4 actualizada para migrar sesiones anteriores. El MP4 de la versión 7 permanece inalterado.
+
+Pruebas específicas:
+
+```sh
+node isogonales/test-history.cjs
+node isogonales/history-browser.cjs
+```
