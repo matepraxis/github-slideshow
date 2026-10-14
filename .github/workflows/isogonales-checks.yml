@@ -25,6 +25,7 @@ jobs:
           node --check isogonales/dist/app.js
           node --check isogonales/history-browser.cjs
           node --check isogonales/test-history.cjs
+          node --check isogonales/test-bibliography.cjs
           node --check isogonales/dist/latex.js
           node --check isogonales/dist/laboratorio/math.js
           node --check isogonales/dist/laboratorio/app.js
@@ -40,6 +41,7 @@ jobs:
           node isogonales/test-context.cjs
           node isogonales/test-story.cjs
           node isogonales/test-history.cjs
+          node isogonales/test-bibliography.cjs
           node isogonales/lab-tests.cjs
 
       - name: Instalar Chromium para revisión visual
