@@ -3,6 +3,8 @@
 const M=globalThis.PresentationModel,$=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+// Referencias breves: libros y publicaciones en cursiva, títulos de artículos en redonda.
+const citationHTML=value=>escape(value).replace(/\b(Cálculo diferencial e integral|Elementos|Isis|PNAS|Materials Science Forum|Journal of Paleontology|Keldysh Institute Preprints|Proceedings of the National Academy of Sciences)\b/g,'<em>$1</em>');
 let saved;try{saved=JSON.parse(localStorage.getItem('uq-isogonales-v1')||'null');}catch(_){}
 // Mantener la diapositiva original de cada sesión: v4 agrega historia en índice 2.
 if(saved&&Number.isInteger(saved.slide)&&saved.schema!==4){
@@ -224,7 +226,7 @@ function renderSlide(){
  stage.className=radialSlide(state.slide)?'example-workspace'+(state.slide===radialStart+4?' integral-focus':''):s.kind+(s.graph?' example':s.kind==='example'||s.kind==='recap'||s.kind==='references'?' wide':'');
  $('slide-title').textContent=s.title;
  $('section-current').textContent=s.section&&s.kind!=='cover'&&s.kind!=='agenda'?s.section:'';
- $('geometry').hidden=s.kind!=='theory';$('example-geometry').hidden=!radialSlide(state.slide);$('source-line').textContent=s.source||'';
+ $('geometry').hidden=s.kind!=='theory';$('example-geometry').hidden=!radialSlide(state.slide);$('source-line').innerHTML=citationHTML(s.source||'');
  content.innerHTML='';
  if(s.kind==='cover'){
   content.innerHTML='<p class="cover-title">TRAYECTORIAS ISOGONALES</p><p class="cover-author">Diego Alejandro Marulanda<br>Maestría en Biomatemáticas</p><p class="cover-course">Ecuaciones Diferenciales<br>Docente: Carlos Andrés Trujillo Salazar</p>';
@@ -257,7 +259,7 @@ function renderSlide(){
    const copy=document.createElement('div');copy.className='history-event-copy';
    const heading=document.createElement('strong');heading.textContent=author;
    const statement=document.createElement('p');statement.textContent=s.body[i].value;
-   const origin=document.createElement('small');origin.textContent=citation;
+   const origin=document.createElement('small');origin.innerHTML=citationHTML(citation);
    copy.append(heading,statement,origin);entry.append(date,copy);timeline.append(entry);
   });
   const renderPicture=(index,filename,alt,caption)=>{
@@ -281,12 +283,12 @@ function renderSlide(){
   +'<p><a href="https://es.scribd.com/document/728964611/N-Piskunov-Calculo-Diferencial-e-Integral-Tomo-II-Editorial-Mir-1977-Esp" target="_blank" rel="noopener">Piskunov, N. (1977). <i>Cálculo diferencial e integral</i>, tomo II.</a><span class="ref-detail">Editorial Mir, § 15. Base conceptual de la demostración y las trayectorias.</span></p>'
   +'<p>Trujillo Salazar, C. A. (2026). <i>ED 1.7: EDO homogéneas.</i><span class="ref-detail">Apuntes de clase, Universidad del Quindío. Procedimiento de sustitución homogénea.</span></p>'
   +'<p>Trujillo Salazar, C. A. (2026). <i>ED 1.8: trayectorias ortogonales e isogonales.</i><span class="ref-detail">Apuntes de clase, Universidad del Quindío. Relación angular, derivación y eliminación del parámetro.</span></p>'
-  +'<p><a href="https://doi.org/10.20948/prepr-2017-33" target="_blank" rel="noopener">Galanin, M. P., y Feodorova, N. A. (2017). <i>Reinforcement of Planar Constructions along Isogonal Trajectories.</i></a><span class="ref-detail">Keldysh Institute Preprint 33. DOI: 10.20948/prepr-2017-33.</span></p>'
-  +'<p><a href="https://doi.org/10.4028/www.scientific.net/MSF.945.338" target="_blank" rel="noopener">Feodorova, N. (2019). <i>Determination of Fiber-Structure for the Effective Reinforcement of Planar Composite-Material Constructions.</i></a><span class="ref-detail">Materials Science Forum, 945, 338–343.</span></p>'
-  +'<p><a href="https://doi.org/10.1086/346723" target="_blank" rel="noopener">Struik, D. J. (1933). <i>Outline of a History of Differential Geometry: I.</i></a><span class="ref-detail"><i>Isis</i>, 19(1), 92–120. Antecedentes históricos de las trayectorias.</span></p>'
-  +'<p><a href="https://doi.org/10.1073/pnas.28.8.328" target="_blank" rel="noopener">Kasner, E., y De Cicco, J. (1942). <i>Transformation Theory of Isogonal Trajectories of Isothermal Families.</i></a><span class="ref-detail"><i>PNAS</i>, 28(8), 328–333. Tratamiento explícito de trayectorias isogonales.</span></p>'
+  +'<p><a href="https://doi.org/10.20948/prepr-2017-33" target="_blank" rel="noopener">Galanin, M. P., y Feodorova, N. A. (2017). Reinforcement of Planar Constructions along Isogonal Trajectories.</a><span class="ref-detail"><i>Keldysh Institute Preprints</i>, n.º 33. DOI: 10.20948/prepr-2017-33.</span></p>'
+  +'<p><a href="https://doi.org/10.4028/www.scientific.net/MSF.945.338" target="_blank" rel="noopener">Feodorova, N. (2019). Determination of Fiber-Structure for the Effective Reinforcement of Planar Composite-Material Constructions.</a><span class="ref-detail"><i>Materials Science Forum</i>, 945, 338–343.</span></p>'
+  +'<p><a href="https://doi.org/10.1086/346723" target="_blank" rel="noopener">Struik, D. J. (1933). Outline of a History of Differential Geometry: I.</a><span class="ref-detail"><i>Isis</i>, 19(1), 92–120. Antecedentes históricos de las trayectorias.</span></p>'
+  +'<p><a href="https://doi.org/10.1073/pnas.28.8.328" target="_blank" rel="noopener">Kasner, E., y De Cicco, J. (1942). Transformation Theory of Isogonal Trajectories of Isothermal Families.</a><span class="ref-detail"><i>Proceedings of the National Academy of Sciences</i>, 28(8), 328–333. Tratamiento explícito de trayectorias isogonales.</span></p>'
   +'<p><a href="https://www.maths.tcd.ie/~dwilkins/Euclid/Elements_Heath1908/BookI/EuclidElementsBk01Prop32_Heath1908.php" target="_blank" rel="noopener">Euclides. <i>Elementos</i>, Libro I, proposición 32.</a><span class="ref-detail">Edición de T. L. Heath (1908). Ángulo exterior de un triángulo.</span></p>'
-  +'<p><a href="https://doi.org/10.2307/1301992" target="_blank" rel="noopener">Raup, D. M. (1966). <i>Geometric analysis of shell coiling: General problems.</i></a><span class="ref-detail">Journal of Paleontology, 40(5), 1178–1190. Complemento opcional.</span></p></div>';
+  +'<p><a href="https://doi.org/10.2307/1301992" target="_blank" rel="noopener">Raup, D. M. (1966). Geometric analysis of shell coiling: General problems.</a><span class="ref-detail"><i>Journal of Paleontology</i>, 40(5), 1178–1190. Complemento opcional.</span></p></div>';
  }else if(s.graph&&!radialSlide(state.slide)){
   const graph=document.createElement('div');graph.className='example-graph';
   const originalFigure=s.graph.match(/^materials-k([123])$/);
@@ -317,7 +319,7 @@ function renderSlide(){
  updateNotes();document.querySelectorAll('#contents-list button').forEach((e,i)=>e.setAttribute('aria-current',i===state.slide?'true':'false'));
  // El estado y el contador de pasos se actualizan en syncReveal().
 }
-function updateNotes(){const s=M.slides[state.slide],elapsed=M.slides.slice(0,state.slide).reduce((a,b)=>a+b.duration,0),time=n=>Math.floor(n/60)+':'+String(n%60).padStart(2,'0');$('notes-title').textContent=s.title;$('notes-time').textContent=s.optional?'Complemento opcional; fuera de los 20 minutos.':'Tiempo sugerido: '+time(elapsed)+'–'+time(elapsed+s.duration);$('notes-body').textContent=s.notes;$('notes-source').textContent=s.source?'Fuente: '+s.source:'';}
+function updateNotes(){const s=M.slides[state.slide],elapsed=M.slides.slice(0,state.slide).reduce((a,b)=>a+b.duration,0),time=n=>Math.floor(n/60)+':'+String(n%60).padStart(2,'0');$('notes-title').textContent=s.title;$('notes-time').textContent=s.optional?'Complemento opcional; fuera de los 20 minutos.':'Tiempo sugerido: '+time(elapsed)+'–'+time(elapsed+s.duration);$('notes-body').textContent=s.notes;$('notes-source').innerHTML=s.source?'Fuente: '+citationHTML(s.source):'';}
 function dispatch(action){
  const previous=state;
  if(action.type==='step'){
