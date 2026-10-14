@@ -223,8 +223,8 @@ const slides=[
         "value": "La diferencia angular es constante en cada intersección regular: esa es la condición isogonal."
       }
     ],
-    "notes": "No incluir la comprobación numérica 135=55+80; explicar únicamente la relación geométrica y orientar al punto P en la figura.",
-    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8.",
+    "notes": "No incluir la comprobación numérica 135=55+80; explicar únicamente la relación geométrica y orientar al punto P en la figura. El teorema del ángulo exterior se documenta en Euclides, Elementos, Libro I, proposición 32; aplicarlo solo bajo la configuración geométrica de los ángulos del triángulo trazado.",
+    "source": "Piskunov (1977), tomo II, § 15; Trujillo Salazar (2026), ED 1.8; Euclides, Elementos, Libro I, proposición 32 (ed. Heath, 1908).",
     "action": 4,
     "section": "Fundamentos geométricos"
   },
