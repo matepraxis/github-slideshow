@@ -37,6 +37,7 @@ jobs:
           node isogonales/test-notation.cjs
           node isogonales/test-context.cjs
           node isogonales/test-story.cjs
+          node isogonales/test-history.cjs
           node isogonales/lab-tests.cjs
 
       - name: Instalar Chromium para revisión visual
@@ -46,6 +47,7 @@ jobs:
       - name: Prueba de presentación en navegador real
         run: |
           node isogonales/browser-smoke.cjs
+          node isogonales/history-browser.cjs
           node isogonales/lab-browser.cjs
       - name: Guardar capturas para revisión humana
         uses: actions/upload-artifact@v4
