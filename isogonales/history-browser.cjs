@@ -49,8 +49,10 @@ const server=http.createServer((req,res)=>{
   await page.keyboard.press('ArrowLeft');
   assert.equal(await page.locator('#slide-title').innerText(),'Breve historia de las trayectorias isogonales');
   await page.setViewportSize({width:700,height:1050});
+  // Navegar fuera y volver reinicia correctamente el revelado para la toma tablet.
+  await go(3);
   await go(2);
-  for(let i=0;i<4;i++)await page.keyboard.press('ArrowRight');
+  for(let i=0;i<4;i++await page.keyboard.press('ArrowRight');
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
   assert.ok(overflow<=2,'Desbordamiento horizontal en tablet: '+overflow);
   await page.screenshot({path:path.join(screens,'historia-05-tablet.png'),fullPage:true});
