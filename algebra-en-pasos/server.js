@@ -18,7 +18,7 @@ function proxyAudio(req,res,url,redirects=0){
   });
   up.on('timeout',()=>up.destroy(new Error('Tiempo agotado')));
   up.on('error',()=>{if(!res.headersSent)res.writeHead(502);res.end('Audio no disponible');});
-  req.on('close',()=>up.destroy());up.end();
+  res.on('close',()=>up.destroy());up.end();
 }
 http.createServer((req,res)=>{
   const pathname=new URL(req.url,'http://localhost').pathname;
