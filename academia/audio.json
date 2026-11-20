@@ -1,0 +1,37 @@
+{
+  "equivalencias": {
+    "url": "https://resource2.heygen.ai/text_to_speech/062b409d73ad44c39ac9f2448b9c97d7/40ded5e9651a43a58b77f72699b95688/id=e594c57ba5684cae8d06e894de5e2b20.wav",
+    "duration": 136.098,
+    "marks": [
+      0.325,
+      10.11,
+      21.108,
+      32.404,
+      43.226,
+      50.689,
+      61.538,
+      71.459,
+      81.013,
+      92.141,
+      103.237,
+      113.728,
+      123.881
+    ]
+  },
+  "cuantificadores": {
+    "url": "https://resource2.heygen.ai/text_to_speech/062b409d73ad44c39ac9f2448b9c97d7/40ded5e9651a43a58b77f72699b95688/id=307d6276d4964cd8a7d377863b900a67.wav",
+    "duration": 92.406,
+    "marks": [
+      0.278,
+      9.198,
+      19.629,
+      23.339,
+      33.168,
+      43.522,
+      51.823,
+      60.599,
+      69.191,
+      80.319
+    ]
+  }
+}
