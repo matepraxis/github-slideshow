@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c2531">
+<meta name="description" content="Aprende a construir demostraciones con clases guiadas de lógica, cuantificadores, conjuntos, ínfimos e inducción.">
+<title>Laboratorio de Demostraciones · Estudio universitario</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="/app.css"></head>
+<body>
+<header class="nav"><div class="brand"><span class="mark">∴</span> Laboratorio de Demostraciones</div><span class="navhint">LÓGICA · CONJUNTOS · ANÁLISIS REAL</span></header>
+<main class="container" id="home">
+<section class="hero"><span class="eyebrow">Estudio universitario · Clases guiadas</span>
+<h1>Entender el <em>porqué</em> de cada demostración.</h1>
+<p>Una ruta de estudio construida a partir de tus apuntes: definiciones, estrategias, inferencias y comprobaciones. Cada clase muestra de dónde sale cada paso.</p>
+<div class="statement">Una demostración no es una sucesión de símbolos: es una cadena de afirmaciones respaldadas por razones.</div>
+<div class="stats"><div><b>7</b><small>clases de estudio</small></div><div><b>2</b><small>clases narradas</small></div><div><b>76</b><small>pasos justificados</small></div></div>
+</section>
+<div class="sectionhead"><h2>Tu ruta de aprendizaje</h2><span>De la lógica formal a la inducción</span></div><div class="catalog" id="catalog"><p>Cargando clases...</p></div>
+</main>
+<main class="container study" id="study" hidden>
+<button type="button" id="back" class="back">← Todas las clases</button>
+<div class="heading"><div class="eyebrow" id="category"></div><h1 id="lessonTitle"></h1><p id="lessonSubtitle"></p><div id="tags" class="tags"></div></div>
+<div class="layout"><div class="maincol">
+<div class="player" id="player"><div class="board" id="board"><span id="stepIndicator" class="eyebrow"></span><div id="stepTitle" class="steptitle"></div><div id="formula" class="math"></div><div id="formula2" class="math secondary"></div><p id="stepNote" class="stepnote"></p><div class="boardstamp">JUSTIFICACIÓN MATEMÁTICA</div></div>
+<div class="controlbar"><input id="seek" class="seek" type="range" min="0" max="1" step="1" value="0" aria-label="Progreso de la clase"><div class="ctrlrow">
+<button type="button" class="ctrl" id="prev" title="Paso anterior">⏮</button>
+<button type="button" class="ctrl" id="rewind" title="Retroceder 10 segundos" hidden>↶10</button>
+<button type="button" class="ctrl primary" id="play" title="Reproducir">▶</button>
+<button type="button" class="ctrl" id="next" title="Siguiente paso">⏭</button>
+<span id="clock" class="clock"></span><div class="grow"></div>
+<select id="speed" class="speed" aria-label="Velocidad" hidden><option value="0.85">0,85×</option><option value="1" selected>1×</option><option value="1.15">1,15×</option><option value="1.3">1,3×</option></select>
+<button type="button" class="ctrl" id="full" title="Pantalla completa">⛶</button></div></div>
+<div id="status" class="status" role="status"></div></div>
+<section class="sectionbox explanation"><h2>Lo que significa este paso</h2><p id="explain"></p></section>
+<section class="sectionbox"><h2>Explora el concepto</h2><p id="visualIntro" class="muted"></p><div id="visual"></div></section>
+<section class="sectionbox"><h2>Comprueba que comprendiste</h2><p id="question"></p><div id="answers" class="answers"></div><div id="feedback" class="feedback" hidden></div></section>
+<div class="actions"><button class="minor" id="restart">↶ Volver al primer paso</button><button class="minor" id="copyLink">⧉ Copiar enlace de la clase</button></div>
+</div><aside class="sidebar"><h2>Demostración paso a paso</h2><ol id="stepList"></ol></aside>
+</div></main>
+<footer>Laboratorio de Demostraciones · Elaborado a partir de los temas y ejercicios de tus apuntes</footer>
+<audio id="voice" preload="metadata"></audio>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="/app.js"></script>
+</body></html>
