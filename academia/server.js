@@ -10,7 +10,7 @@ const audioData=JSON.parse(fs.readFileSync(path.join(root,'audio.json'),'utf8'))
 function streamAudio(req,res,url,redirects=0){
  if(redirects>4){res.writeHead(502);return res.end('Redirecciones excesivas');}
  const permitted=new URL(url);
- if(permitted.protocol!=='https:' || !/(^|\.)heygen\.ai$/.test(permitted.hostname)){res.writeHead(502);return res.end('Origen no permitido');}
+ if(permitted.protocol!=='https:' || !/(^|\.)(heygen\.ai|amazonaws\.com|cloudfront\.net)$/.test(permitted.hostname)){res.writeHead(502);return res.end('Origen no permitido');}
  const headers={};if(req.headers.range)headers.range=req.headers.range;
  const remote=https.request(url,{method:req.method==='HEAD'?'HEAD':'GET',headers,timeout:25000},up=>{
   if(up.statusCode>=300&&up.statusCode<400&&up.headers.location)return streamAudio(req,res,new URL(up.headers.location,url).toString(),redirects+1);
@@ -30,7 +30,7 @@ http.createServer((req,res)=>{
   if(!Object.prototype.hasOwnProperty.call(audioData,id)){res.writeHead(404);return res.end('No existe narración');}
   return streamAudio(req,res,audioData[id].url);
  }
- const allowed={'/':'index.html','/index.html':'index.html','/lessons.json':'lessons.json','/audio.json':'audio.json'};
+ const allowed={'/':'index.html','/index.html':'index.html','/lessons.json':'lessons.json','/audio.json':'audio.json','/app.js':'app.js','/app.css':'app.css'};
  if(!allowed[pathname]){res.writeHead(404);return res.end('No existe la página');}
  const filepath=path.join(root,allowed[pathname]);const ext=path.extname(filepath);
  fs.stat(filepath,(err,st)=>{
