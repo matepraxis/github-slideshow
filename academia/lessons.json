@@ -1,0 +1,692 @@
+{
+  "name": "Laboratorio de Demostraciones",
+  "version": 1,
+  "lessons": [
+    {
+      "id": "equivalencias",
+      "icon": "⇔",
+      "title": "Equivalencias lógicas",
+      "subtitle": "Transformar proposiciones sin perder su significado",
+      "pages": "1–2",
+      "category": "Lógica proposicional",
+      "visual": "truth",
+      "objective": "Reconocer cuándo dos expresiones dicen exactamente lo mismo y justificar cada transformación.",
+      "quiz": {
+        "prompt": "¿Cuál es la equivalencia correcta de A → B?",
+        "choices": [
+          "A ∧ B",
+          "¬A ∨ B",
+          "A ∨ ¬B"
+        ],
+        "correct": 1,
+        "why": "El condicional A → B es falso únicamente cuando A es verdadera y B es falsa. Por eso equivale a ¬A ∨ B."
+      },
+      "steps": [
+        {
+          "title": "La idea de equivalencia",
+          "tex": "A\\equiv B",
+          "sub": "",
+          "note": "Dos fórmulas equivalentes tienen el mismo valor de verdad en cualquier interpretación.",
+          "voice": "Una equivalencia lógica significa que dos fórmulas siempre comparten su valor de verdad. No basta con que se parezcan; cada cambio necesita una ley precisa."
+        },
+        {
+          "title": "Las leyes de partida",
+          "tex": "A\\to B\\equiv\\neg A\\lor B",
+          "sub": "",
+          "note": "Ley del condicional.",
+          "voice": "Primero recordamos la ley del condicional. Decir si A entonces B, equivale a decir no A, o bien B. Esta es la herramienta que usaremos sin cambiar el significado."
+        },
+        {
+          "title": "Bicondicional",
+          "tex": "A\\leftrightarrow B\\equiv(A\\to B)\\land(B\\to A)",
+          "sub": "",
+          "note": "Deben cumplirse las dos implicaciones.",
+          "voice": "El bicondicional afirma dos direcciones simultáneas. A implica B y B implica A. Por eso reemplazarlo requiere una conjunción entre los dos condicionales."
+        },
+        {
+          "title": "Primera expresión del taller",
+          "tex": "\\neg(p\\leftrightarrow q)\\lor\\neg r",
+          "sub": "",
+          "note": "El orden de la disyunción no altera su valor.",
+          "voice": "Tomamos la expresión de la primera página de tus apuntes. Se trata de negar el bicondicional de pe y cu, o negar erre. Empezaremos aplicando conmutatividad."
+        },
+        {
+          "title": "Conmutativa de la disyunción",
+          "tex": "\\neg r\\lor\\neg(p\\leftrightarrow q)",
+          "sub": "",
+          "note": "Mismos términos, distinto orden.",
+          "voice": "Por la propiedad conmutativa podemos invertir los dos miembros de una disyunción. Todavía no hemos hecho ningún cambio de significado."
+        },
+        {
+          "title": "Reconocer un condicional",
+          "tex": "r\\to\\neg(p\\leftrightarrow q)",
+          "sub": "",
+          "note": "Se usa ¬A ∨ B ≡ A → B.",
+          "voice": "Ahora la expresión empieza por no erre, o bien una proposición. Podemos reconocerla como un condicional con antecedente erre y consecuente la negación del bicondicional."
+        },
+        {
+          "title": "Sustituir el bicondicional",
+          "tex": "r\\to\\neg[(p\\to q)\\land(q\\to p)]",
+          "sub": "",
+          "note": "Reemplazamos una subfórmula por otra equivalente.",
+          "voice": "Dentro del consecuente sustituimos el bicondicional por la conjunción de dos condicionales. Los paréntesis importan porque la negación afecta a toda esa conjunción."
+        },
+        {
+          "title": "Aplicar De Morgan",
+          "tex": "r\\to[\\neg(p\\to q)\\lor\\neg(q\\to p)]",
+          "sub": "",
+          "note": "La negación de una conjunción es disyunción de negaciones.",
+          "voice": "Aplicamos De Morgan: negar A y B es lo mismo que no A, o no B. La negación alcanza a cada condicional y cambia la conjunción por disyunción."
+        },
+        {
+          "title": "Otra aplicación del condicional",
+          "tex": "r\\to[(p\\to q)\\to\\neg(q\\to p)]",
+          "sub": "",
+          "note": "¬A ∨ ¬B ≡ A → ¬B.",
+          "voice": "Observa la parte interior. No A, o no B, puede escribirse como A implica no B. Así obtenemos la fórmula equivalente que aparece al final del primer apartado."
+        },
+        {
+          "title": "Segundo apartado: De Morgan",
+          "tex": "\\neg(p\\land r)\\land(\\neg q\\lor p)",
+          "sub": "",
+          "note": "Es el segundo ejercicio de equivalencias.",
+          "voice": "En el apartado be aparece una conjunción con dos componentes. El primero es una conjunción negada y el segundo es una disyunción. Analizamos cada parte de manera separada."
+        },
+        {
+          "title": "Traducir ambos componentes",
+          "tex": "(\\neg p\\lor\\neg r)\\land(\\neg q\\lor p)",
+          "sub": "",
+          "note": "Primero De Morgan y luego los condicionales.",
+          "voice": "De Morgan convierte no pe y erre en no pe o no erre. Después podemos reconocer ambas disyunciones como condicionales, conservando la conjunción externa."
+        },
+        {
+          "title": "Forma equivalente final",
+          "tex": "(p\\to\\neg r)\\land(q\\to p)",
+          "sub": "",
+          "note": "Cada paso se justifica con una ley distinta.",
+          "voice": "Llegamos a pe implica no erre, y cu implica pe. Comprender la ley que autoriza cada línea es más importante que recordar una secuencia de símbolos."
+        },
+        {
+          "title": "Una forma más compacta",
+          "tex": "\\neg[(p\\to\\neg r)\\to\\neg(q\\to p)]",
+          "sub": "",
+          "note": "A ∧ B ≡ ¬(A → ¬B).",
+          "voice": "El taller también presenta una escritura más compacta. Una conjunción A y B equivale a negar que A implique no B. Son dos expresiones distintas pero lógicamente equivalentes."
+        }
+      ]
+    },
+    {
+      "id": "cuantificadores",
+      "icon": "∀",
+      "title": "Cuantificadores y testigos",
+      "subtitle": "Comprender por qué el orden de ∀ y ∃ cambia todo",
+      "pages": "3–4",
+      "category": "Lógica de predicados",
+      "visual": "quantifier",
+      "objective": "Interpretar el alcance de ∀ y ∃, construir testigos y refutar proposiciones.",
+      "quiz": {
+        "prompt": "Sobre ℝ, ¿cuál afirmación es verdadera?",
+        "choices": [
+          "∃x ∀y (y=x)",
+          "∀y ∃x (y=x)",
+          "Las dos"
+        ],
+        "correct": 1,
+        "why": "Dado cualquier y real, podemos escoger x=y. No existe un único x real igual a todos los números reales."
+      },
+      "steps": [
+        {
+          "title": "Los dos cuantificadores",
+          "tex": "\\forall x\\,P(x)\\qquad\\exists x\\,P(x)",
+          "sub": "",
+          "note": "Para todo / existe al menos uno.",
+          "voice": "El cuantificador universal exige que la propiedad se cumpla para todos los elementos del dominio. El existencial solo pide que al menos uno la cumpla."
+        },
+        {
+          "title": "La primera afirmación",
+          "tex": "\\exists x\\in\\mathbb R\\;\\forall y\\in\\mathbb R:\\ y=x",
+          "sub": "",
+          "note": "Primero se fija un solo x; después se examinan todos los y.",
+          "voice": "Esta afirmación dice que existe un único número real elegido de antemano que es igual a todos los números reales. Parece simple, pero exige algo imposible."
+        },
+        {
+          "title": "Refutación con un contraejemplo variable",
+          "tex": "y=x+1",
+          "sub": "Para refutarla tomamos el equis que supuestamente sirve para todos. Elegimos ye igual a equis más uno, que también es real. Ese ye nunca es igual a equis.",
+          "note": "x+1\\neq x",
+          "voice": "Una elección que funciona para cualquier x que hayan fijado."
+        },
+        {
+          "title": "Justificación algebraica",
+          "tex": "x+1=x\\Rightarrow 1=0",
+          "sub": "",
+          "note": "Contradicción en los números reales.",
+          "voice": "Si insistimos en que equis más uno es equis, al restar equis en ambos miembros concluiríamos uno igual a cero. Esto contradice las propiedades de los números reales."
+        },
+        {
+          "title": "La negación correcta",
+          "tex": "\\neg\\exists x\\,\\forall y\\,P(x,y)\\equiv\\forall x\\,\\exists y\\,\\neg P(x,y)",
+          "sub": "",
+          "note": "Al negar, cada cuantificador cambia y la propiedad también se niega.",
+          "voice": "La negación del existe es para todo. Y la negación del para todo es existe. En consecuencia, para cada equis se puede encontrar algún ye que es diferente."
+        },
+        {
+          "title": "La segunda afirmación",
+          "tex": "\\forall y\\in\\mathbb R\\;\\exists x\\in\\mathbb R:\\ y=x",
+          "sub": "",
+          "note": "Ahora x puede elegirse en función de y.",
+          "voice": "Aquí cambiamos el orden. Nos dan un ye cualquiera y luego nos permiten escoger un equis. Esa libertad hace verdadera la proposición."
+        },
+        {
+          "title": "Construir un testigo",
+          "tex": "x=y",
+          "sub": "",
+          "note": "El testigo depende del valor de y.",
+          "voice": "Para demostrarla basta escoger equis igual al ye que nos entregaron. Como ye es un real, el equis elegido también pertenece a los reales."
+        },
+        {
+          "title": "Verificación",
+          "tex": "y=x\\quad\\text{porque}\\quad x=y",
+          "sub": "",
+          "note": "La igualdad se cumple por reflexividad y simetría.",
+          "voice": "Al sustituir equis igual a ye, la condición queda ye igual a ye. Esta es precisamente la propiedad reflexiva de la igualdad."
+        },
+        {
+          "title": "La diferencia fundamental",
+          "tex": "\\exists x\\forall y\\neq\\forall y\\exists x",
+          "sub": "",
+          "note": "El orden de cuantificadores no se puede intercambiar libremente.",
+          "voice": "En la primera fórmula el testigo equis debe funcionar para todos los ye. En la segunda podemos elegir un equis nuevo cada vez que cambia ye. Ese detalle cambia el valor de verdad."
+        },
+        {
+          "title": "Una estrategia para los ejercicios",
+          "tex": "\\text{Universal: arbitrario}\\quad\\text{Existencial: testigo}",
+          "sub": "",
+          "note": "Para refutar un universal basta un contraejemplo.",
+          "voice": "Para probar un para todo tomamos un elemento arbitrario. Para probar un existe, construimos un testigo. Para refutar un existe para todo, mostramos cómo elegir un contraejemplo frente a cualquier candidato."
+        }
+      ]
+    },
+    {
+      "id": "alcance",
+      "icon": "∃",
+      "title": "Ámbito de los cuantificadores",
+      "subtitle": "Evitar variables ligadas, ambigüedades y negaciones incorrectas",
+      "pages": "5",
+      "category": "Lógica de predicados",
+      "visual": "scope",
+      "objective": "Distinguir cuantificadores vinculantes y variables libres; reescribir sin captura accidental.",
+      "quiz": {
+        "prompt": "¿Qué sucede con ∃x(A↔B) cuando x no aparece libre en A ni B y el dominio es no vacío?",
+        "choices": [
+          "Equivale a A↔B",
+          "Equivale a ¬(A↔B)",
+          "Siempre es falso"
+        ],
+        "correct": 0,
+        "why": "Como la fórmula interior no depende de x, y el dominio tiene elementos, existe un x si y solo si la fórmula interior es verdadera."
+      },
+      "steps": [
+        {
+          "title": "El ejercicio de la quinta página",
+          "tex": "\\neg\\{\\exists x[(\\forall x(P(x)\\lor R(x)))\\leftrightarrow(\\exists x\\neg S(x))]\\}",
+          "sub": "",
+          "note": "La misma letra x se usa en tres cuantificadores distintos.",
+          "voice": "En tus apuntes aparece un ejercicio con varios cuantificadores sobre equis. Antes de aplicar leyes es imprescindible identificar qué aparición de equis gobierna cada cuantificador."
+        },
+        {
+          "title": "El problema del alcance",
+          "tex": "\\exists x[\\underbrace{\\forall x(\\cdots)}_{A}\\leftrightarrow\\underbrace{\\exists x(\\cdots)}_{B}]",
+          "sub": "",
+          "note": "Los cuantificadores internos ligan sus propias variables.",
+          "voice": "Dentro del corchete, cada equis de los predicados está ligada por un cuantificador más cercano. Por tanto, el existe exterior no controla ninguna equis libre de la parte interna."
+        },
+        {
+          "title": "Renombrar variables ligadas",
+          "tex": "A:=\\forall u(P(u)\\lor R(u))",
+          "sub": "Para trabajar con claridad renombramos la variable de un cuantificador interno como u, y la del otro como ve. Esta sustitución no cambia el contenido lógico.",
+          "note": "B:=\\exists v\\,\\neg S(v)",
+          "voice": "Renombrar las variables ligadas evita confusiones; no cambia el significado."
+        },
+        {
+          "title": "Cuantificador exterior vacuo",
+          "tex": "\\exists x(A\\leftrightarrow B)\\equiv A\\leftrightarrow B",
+          "sub": "",
+          "note": "Esto vale cuando el dominio es no vacío, como ℝ.",
+          "voice": "Ahora A y B son proposiciones completas que no dependen de equis. Si el dominio no está vacío, el existe exterior no añade ninguna condición. Es un cuantificador vacuo."
+        },
+        {
+          "title": "Estructura lógica central",
+          "tex": "\\neg(A\\leftrightarrow B)",
+          "sub": "",
+          "note": "Negamos un bicondicional entre dos proposiciones completas.",
+          "voice": "La expresión importante se reduce a la negación de un bicondicional. Conviene resolver primero esa estructura y solo después desarrollar los cuantificadores."
+        },
+        {
+          "title": "Negación del bicondicional",
+          "tex": "\\neg(A\\leftrightarrow B)\\equiv(A\\land\\neg B)\\lor(\\neg A\\land B)",
+          "sub": "",
+          "note": "A y B deben tener valores de verdad diferentes.",
+          "voice": "Un bicondicional es falso exactamente cuando A y B tienen distinto valor de verdad. Por eso su negación ocurre en dos casos: A verdadera y B falsa, o A falsa y B verdadera."
+        },
+        {
+          "title": "Negar el existencial interno",
+          "tex": "\\neg B=\\neg\\exists v\\neg S(v)\\equiv\\forall v\\,S(v)",
+          "sub": "",
+          "note": "Negación de ∃ y doble negación.",
+          "voice": "Como B dice que existe un ve para el cual no ese, su negación afirma que para todo ve sí se cumple ese. Aquí se cambió el cuantificador y se aplicó doble negación."
+        },
+        {
+          "title": "Negar el universal interno",
+          "tex": "\\neg A=\\neg\\forall u(P(u)\\lor R(u))",
+          "sub": "Negar que para todo u se cumple pe o erre significa que existe al menos un u donde ambas son falsas. Cambia el universal por existencial, y De Morgan cambia o por y.",
+          "note": "\\equiv\\exists u(\\neg P(u)\\land\\neg R(u))",
+          "voice": "Negación de ∀ y ley de De Morgan."
+        },
+        {
+          "title": "Componer la respuesta",
+          "tex": "(A\\land\\forall vS(v))\\lor[(\\exists u(\\neg P(u)\\land\\neg R(u)))\\land B]",
+          "sub": "",
+          "note": "A y B conservan sus definiciones anteriores.",
+          "voice": "Sustituimos las negaciones calculadas en los dos casos de la disyunción. En el primero queda A y para todo ve ese. En el segundo, existe un u donde fallan pe y erre, junto con B."
+        },
+        {
+          "title": "Lección metodológica",
+          "tex": "\\text{Alcance}\\to\\text{Renombre}\\to\\text{Equivalencia}",
+          "sub": "",
+          "note": "La prioridad es respetar qué variable liga cada cuantificador.",
+          "voice": "En ejercicios anidados, primero delimitamos el alcance, luego renombramos variables ligadas si es necesario y finalmente aplicamos equivalencias. Ese orden evita errores formales que no se ven a simple vista."
+        }
+      ]
+    },
+    {
+      "id": "conjuntos",
+      "icon": "△",
+      "title": "Conjuntos y diferencia simétrica",
+      "subtitle": "Demostrar una identidad y refutar una igualdad falsa",
+      "pages": "6–7",
+      "category": "Teoría de conjuntos",
+      "visual": "sets",
+      "objective": "Comprender la diferencia simétrica, usar contraejemplos y demostrar por pertenencia.",
+      "quiz": {
+        "prompt": "¿Cuál identidad es válida para todos los conjuntos A, B y C?",
+        "choices": [
+          "(A △ B) △ C = C △ (A △ C)",
+          "A ∩ (B △ C) = (A ∩ B) △ (A ∩ C)",
+          "A △ A = A"
+        ],
+        "correct": 1,
+        "why": "La intersección distribuye sobre la diferencia simétrica. En cambio A △ A es el conjunto vacío, y la primera igualdad no es universal."
+      },
+      "steps": [
+        {
+          "title": "Definir la diferencia simétrica",
+          "tex": "A\\triangle B=(A\\setminus B)\\cup(B\\setminus A)",
+          "sub": "",
+          "note": "Pertenecer a uno de los conjuntos, pero no a ambos.",
+          "voice": "La diferencia simétrica reúne los elementos que pertenecen a exactamente uno de los dos conjuntos. Por eso usamos las dos diferencias de conjuntos y luego su unión."
+        },
+        {
+          "title": "La igualdad que se intenta refutar",
+          "tex": "(A\\triangle B)\\triangle C\\stackrel{?}{=}C\\triangle(A\\triangle C)",
+          "sub": "",
+          "note": "No asumimos que la propiedad sea verdadera.",
+          "voice": "El primer apartado presenta una supuesta identidad. Para refutar una igualdad entre conjuntos basta encontrar un solo ejemplo en que los dos lados sean diferentes."
+        },
+        {
+          "title": "Elegimos conjuntos concretos",
+          "tex": "A=\\{1\\},\\ B=\\{2\\},\\ C=\\{3\\}",
+          "sub": "",
+          "note": "Son pequeños y permiten calcular a mano.",
+          "voice": "Escogemos tres conjuntos de un solo elemento, todos diferentes. Esta elección facilita identificar qué elementos quedan en cada diferencia simétrica."
+        },
+        {
+          "title": "Calculamos el lado izquierdo",
+          "tex": "A\\triangle B=\\{1,2\\}",
+          "sub": "Primero A diferencia simétrica B es uno, dos. Al compararlo con C, que contiene tres, ninguno coincide, por eso el resultado del lado izquierdo es uno, dos, tres.",
+          "note": "(A\\triangle B)\\triangle C=\\{1,2,3\\}",
+          "voice": "Los tres elementos aparecen una sola vez."
+        },
+        {
+          "title": "Calculamos el lado derecho",
+          "tex": "A\\triangle C=\\{1,3\\}",
+          "sub": "Para el lado derecho A diferencia simétrica C es uno, tres. Luego C diferencia simétrica con ese conjunto deja solo el uno, porque el tres aparece en los dos.",
+          "note": "C\\triangle(A\\triangle C)=\\{1\\}",
+          "voice": "El elemento 3 se elimina por aparecer en ambos conjuntos."
+        },
+        {
+          "title": "El contraejemplo refuta la igualdad",
+          "tex": "\\{1,2,3\\}\\neq\\{1\\}",
+          "sub": "",
+          "note": "Una proposición universal cae con un solo contraejemplo.",
+          "voice": "Los dos resultados son conjuntos diferentes, así que la igualdad original es falsa. Observa que nunca intentamos demostrar algo que no era cierto."
+        },
+        {
+          "title": "La identidad del segundo apartado",
+          "tex": "A\\cap(B\\triangle C)=(A\\cap B)\\triangle(A\\cap C)",
+          "sub": "",
+          "note": "Esta sí es una identidad válida.",
+          "voice": "El apartado be plantea una propiedad diferente: la intersección se distribuye sobre la diferencia simétrica. Esta vez vamos a justificarla para conjuntos arbitrarios."
+        },
+        {
+          "title": "Desarrollar la definición",
+          "tex": "A\\cap[(B\\setminus C)\\cup(C\\setminus B)]",
+          "sub": "",
+          "note": "Sustituimos B △ C por su definición.",
+          "voice": "Partimos del miembro izquierdo y sustituimos la diferencia simétrica por la unión de dos diferencias. Es una aplicación directa de la definición."
+        },
+        {
+          "title": "Distribuir la intersección",
+          "tex": "[A\\cap(B\\setminus C)]\\cup[A\\cap(C\\setminus B)]",
+          "sub": "",
+          "note": "Usamos la ley distributiva entre intersección y unión.",
+          "voice": "Aplicamos la propiedad distributiva y obtenemos dos partes. En una están los elementos de A y B que no están en C; en la otra, los de A y C que no están en B."
+        },
+        {
+          "title": "Reescribir como diferencias",
+          "tex": "[(A\\cap B)\\setminus(A\\cap C)]\\cup[(A\\cap C)\\setminus(A\\cap B)]",
+          "sub": "",
+          "note": "La equivalencia se comprueba por pertenencia.",
+          "voice": "Cuando estamos dentro de A y B, excluir A y C equivale a excluir C. Se hace el argumento simétrico para la otra parte. Así llegamos a dos diferencias entre las intersecciones."
+        },
+        {
+          "title": "Reconocer la diferencia simétrica",
+          "tex": "\\boxed{(A\\cap B)\\triangle(A\\cap C)}",
+          "sub": "",
+          "note": "La identidad queda demostrada para conjuntos arbitrarios.",
+          "voice": "La unión de esas dos diferencias es, por definición, la diferencia simétrica de A intersección B y A intersección C. Por tanto, la igualdad queda demostrada."
+        }
+      ]
+    },
+    {
+      "id": "cotas",
+      "icon": "≤",
+      "title": "Ínfimo, supremo y orden",
+      "subtitle": "De las definiciones a una cadena de desigualdades",
+      "pages": "8",
+      "category": "Análisis real",
+      "visual": "bounds",
+      "objective": "Distinguir cotas, ínfimo y supremo y demostrar sus relaciones bajo inclusión.",
+      "quiz": {
+        "prompt": "Si A⊆B y A es no vacío, ambos conjuntos son acotados, ¿cuál desigualdad es correcta?",
+        "choices": [
+          "inf A ≤ inf B",
+          "inf B ≤ inf A",
+          "sup B ≤ sup A"
+        ],
+        "correct": 1,
+        "why": "Toda cota inferior de B también lo es de A; el ínfimo de B no puede superar al de A."
+      },
+      "steps": [
+        {
+          "title": "Hipótesis necesarias",
+          "tex": "\\varnothing\\neq A\\subseteq B\\subseteq\\mathbb R",
+          "sub": "",
+          "note": "Suponemos A y B acotados para que sus extremos sean reales.",
+          "voice": "En el quinto ejercicio queremos relacionar ínfimos y supremos cuando A está contenido en B. Para trabajar con números reales suponemos A no vacío y ambos conjuntos acotados."
+        },
+        {
+          "title": "Qué es una cota inferior",
+          "tex": "m\\le a\\quad(\\forall a\\in A)",
+          "sub": "",
+          "note": "La cota inferior no tiene que pertenecer a A.",
+          "voice": "Una cota inferior es un número que no supera a ningún elemento del conjunto. Puede pertenecer o no al conjunto; lo esencial es que la desigualdad se cumpla para todos."
+        },
+        {
+          "title": "Definir ínfimo",
+          "tex": "\\inf A=\\text{mayor cota inferior de }A",
+          "sub": "",
+          "note": "Es mayor o igual a cualquier otra cota inferior.",
+          "voice": "El ínfimo es la mayor entre todas las cotas inferiores. Para demostrar que un número es el ínfimo hay que verificar que es cota inferior y que ninguna cota inferior puede ser mayor."
+        },
+        {
+          "title": "Definir supremo",
+          "tex": "\\sup A=\\text{menor cota superior de }A",
+          "sub": "",
+          "note": "El supremo es la menor cota superior.",
+          "voice": "De forma dual, una cota superior supera a todos los elementos y el supremo es la menor de esas cotas. Los dos conceptos son herramientas centrales del análisis real."
+        },
+        {
+          "title": "Comparar los ínfimos",
+          "tex": "\\inf B\\le\\inf A",
+          "sub": "",
+          "note": "Toda cota inferior de B es también cota inferior de A.",
+          "voice": "Como A está contenido en B, todos los elementos de A también están en B. El ínfimo de B es menor o igual que cada elemento de A, luego es una cota inferior de A. Por ser ínfimo, inf A no puede ser menor."
+        },
+        {
+          "title": "Comparar ínfimo y supremo de A",
+          "tex": "\\inf A\\le a\\le\\sup A\\quad(a\\in A)",
+          "sub": "Como A no está vacío, podemos escoger un elemento a. Por definición del ínfimo y del supremo, a queda entre los dos. Por transitividad obtenemos inf A menor o igual que sup A.",
+          "note": "\\therefore\\ \\inf A\\le\\sup A",
+          "voice": "Escogemos a∈A porque A no es vacío."
+        },
+        {
+          "title": "Comparar los supremos",
+          "tex": "\\sup A\\le\\sup B",
+          "sub": "",
+          "note": "Toda cota superior de B también es cota superior de A.",
+          "voice": "De manera similar, el supremo de B es una cota superior para todos los elementos de A, porque A está contenido en B. El supremo de A es la menor cota superior, y por eso no puede superar a sup B."
+        },
+        {
+          "title": "Encadenar desigualdades",
+          "tex": "\\boxed{\\inf B\\le\\inf A\\le\\sup A\\le\\sup B}",
+          "sub": "",
+          "note": "Cada comparación se ha justificado por definiciones y transitividad.",
+          "voice": "Unimos los tres resultados por transitividad. Obtenemos la cadena que aparece en tus apuntes. No es una regla para memorizar sin pruebas: proviene directamente de las definiciones."
+        },
+        {
+          "title": "Comprobar con intervalos",
+          "tex": "A=[2,4],\\quad B=[1,5]",
+          "sub": "Visualiza A como el intervalo de dos a cuatro y B como el intervalo más grande, de uno a cinco. El conjunto mayor puede extenderse más hacia la izquierda y más hacia la derecha.",
+          "note": "1\\le2\\le4\\le5",
+          "voice": "Un ejemplo ayuda a ver el sentido de las desigualdades."
+        },
+        {
+          "title": "Cuidado con hipótesis",
+          "tex": "A\\neq\\varnothing,\\quad A,B\\text{ acotados}",
+          "sub": "",
+          "note": "Sin estas hipótesis, los extremos reales pueden no existir.",
+          "voice": "Antes de usar infimos y supremos reales, siempre revisamos si los conjuntos son no vacíos y acotados. En un examen riguroso también se justifican estas condiciones."
+        }
+      ]
+    },
+    {
+      "id": "contradiccion",
+      "icon": "⊥",
+      "title": "Aproximación al ínfimo",
+      "subtitle": "La prueba esencial con un h positivo",
+      "pages": "9",
+      "category": "Análisis real",
+      "visual": "epsilon",
+      "objective": "Comprender la propiedad de aproximación del ínfimo y demostrarla por contradicción.",
+      "quiz": {
+        "prompt": "Si a=inf S y h>0, ¿qué puede garantizarse?",
+        "choices": [
+          "Existe x∈S con x<a+h",
+          "Existe x∈S con x=a",
+          "Todos x∈S cumplen x<a+h"
+        ],
+        "correct": 0,
+        "why": "La propiedad del ínfimo asegura algún elemento dentro del margen h, no necesariamente un mínimo ni todos los elementos."
+      },
+      "steps": [
+        {
+          "title": "El enunciado",
+          "tex": "\\forall h>0\\ \\exists x\\in S:\\ x<\\inf S+h",
+          "sub": "",
+          "note": "S es no vacío y está acotado inferiormente.",
+          "voice": "En el sexto ejercicio aparece una propiedad fundamental del ínfimo. Para cualquier distancia positiva h, siempre hay un elemento del conjunto que queda por debajo de inf S más h."
+        },
+        {
+          "title": "Comprender la idea geométrica",
+          "tex": "a=\\inf S,\\quad a\\le x<a+h",
+          "sub": "",
+          "note": "Los puntos de S pueden acercarse al ínfimo tanto como queramos.",
+          "voice": "Piensa en a como el extremo inferior del conjunto. Aunque el extremo no pertenezca a S, podemos encontrar elementos de S arbitrariamente cerca de a por la derecha."
+        },
+        {
+          "title": "Qué debemos probar",
+          "tex": "\\exists x\\in S:\\ x<a+h",
+          "sub": "",
+          "note": "No decimos que todos los x funcionen.",
+          "voice": "El enunciado es existencial: basta encontrar algún x del conjunto dentro del margen h. No es necesario que todos los puntos de S estén cerca del ínfimo."
+        },
+        {
+          "title": "Negar para demostrar por contradicción",
+          "tex": "\\neg\\exists x\\in S\\ (x<a+h)",
+          "sub": "Suponemos que el enunciado es falso. Entonces ningún elemento queda por debajo de a más h. Equivalentemente, todos los elementos de S serían mayores o iguales a ese número.",
+          "note": "\\equiv\\forall x\\in S\\ (x\\ge a+h)",
+          "voice": "Negar ∃ cambia a ∀ y negar < cambia a ≥."
+        },
+        {
+          "title": "Consecuencia de la negación",
+          "tex": "a+h\\le x\\quad(\\forall x\\in S)",
+          "sub": "",
+          "note": "A+h sería una cota inferior de S.",
+          "voice": "Como la desigualdad se cumple para todos los elementos, a más h sería una cota inferior del conjunto. Aquí usamos solamente la definición de cota inferior."
+        },
+        {
+          "title": "Usar el carácter de ínfimo",
+          "tex": "a+h\\le\\inf S=a",
+          "sub": "",
+          "note": "El ínfimo debe ser mayor o igual a toda cota inferior.",
+          "voice": "Pero a fue definido como la mayor cota inferior. Toda cota inferior, incluida a más h, debe ser menor o igual que a. Obtenemos así a más h menor o igual que a."
+        },
+        {
+          "title": "La contradicción",
+          "tex": "a+h\\le a\\Rightarrow h\\le0",
+          "sub": "Restamos a de ambos miembros y concluimos h menor o igual que cero. Eso contradice nuestra hipótesis inicial de que h es estrictamente positivo.",
+          "note": "\\text{pero}\\quad h>0",
+          "voice": "La hipótesis h>0 excluye esa conclusión."
+        },
+        {
+          "title": "Conclusión lógica",
+          "tex": "\\boxed{\\exists x\\in S:\\ x<\\inf S+h}",
+          "sub": "",
+          "note": "La negación conduce a una imposibilidad.",
+          "voice": "Como la negación produjo una contradicción, la proposición original debe ser verdadera. Esa es la estructura de una demostración indirecta rigurosa."
+        },
+        {
+          "title": "Ejemplo concreto",
+          "tex": "S=(0,1),\\quad\\inf S=0",
+          "sub": "",
+          "note": "Para 0<h<1 sirve x=h/2.",
+          "voice": "Considera el intervalo abierto entre cero y uno. Su ínfimo es cero, aunque cero no pertenece al conjunto. Para h pequeño y positivo, tomar equis igual a h medios da un punto de S menor que h."
+        },
+        {
+          "title": "La advertencia conceptual",
+          "tex": "\\inf S\\text{ no tiene por qué pertenecer a }S",
+          "sub": "",
+          "note": "Aproximar el ínfimo no implica alcanzarlo.",
+          "voice": "Esta propiedad explica por qué el ínfimo es distinto de un mínimo. Puedes aproximarte tanto como quieras sin que el valor extremo forme parte del conjunto."
+        }
+      ]
+    },
+    {
+      "id": "induccion",
+      "icon": "∏",
+      "title": "Inducción matemática",
+      "subtitle": "Demostrar una identidad de productos finitos",
+      "pages": "10",
+      "category": "Demostraciones",
+      "visual": "product",
+      "objective": "Distinguir caso base, hipótesis inductiva y paso inductivo en una identidad algebraica.",
+      "quiz": {
+        "prompt": "En la inducción, ¿qué se hace al pasar de k a k+1?",
+        "choices": [
+          "Se supone válida la igualdad para todos los n",
+          "Se multiplica la identidad para k por el factor nuevo 1+x^(2^k)",
+          "Se toma x=1 para simplificar"
+        ],
+        "correct": 1,
+        "why": "El producto hasta k+1 es el producto hasta k multiplicado por el nuevo factor correspondiente al índice k+1."
+      },
+      "steps": [
+        {
+          "title": "La identidad del taller",
+          "tex": "\\prod_{i=1}^{n}(1+x^{2^{i-1}})=\\frac{1-x^{2^n}}{1-x}",
+          "sub": "",
+          "note": "n≥1 y x≠1.",
+          "voice": "En el último ejercicio queremos demostrar una fórmula para un producto de factores. La variable ene es un entero positivo. Además, la fracción de la derecha exige que equis sea distinto de uno."
+        },
+        {
+          "title": "¿Qué significa el símbolo producto?",
+          "tex": "\\prod_{i=1}^{3}(1+x^{2^{i-1}})",
+          "sub": "El símbolo pi mayúscula indica multiplicar los términos al variar el índice. Para tres factores obtenemos uno más equis, por uno más equis cuadrado, por uno más equis a la cuarta.",
+          "note": "=(1+x)(1+x^2)(1+x^4)",
+          "voice": "Es una multiplicación de factores, no una suma."
+        },
+        {
+          "title": "Estructura de inducción",
+          "tex": "P(1),\\quad P(k)\\Rightarrow P(k+1)",
+          "sub": "",
+          "note": "Caso base, hipótesis inductiva y paso inductivo.",
+          "voice": "Una demostración por inducción tiene tres partes. Comprobamos el primer caso, suponemos verdadera la fórmula para un índice k arbitrario y, usando esa hipótesis, demostramos el caso k más uno."
+        },
+        {
+          "title": "Caso base: n=1",
+          "tex": "\\prod_{i=1}^{1}(1+x^{2^{i-1}})=1+x",
+          "sub": "Para ene igual a uno, el producto es uno más equis. La fracción también es uno más equis porque la diferencia de cuadrados permite cancelar uno menos equis, siempre que equis sea diferente de uno.",
+          "note": "\\frac{1-x^2}{1-x}=1+x",
+          "voice": "Usamos 1−x²=(1−x)(1+x) y x≠1."
+        },
+        {
+          "title": "Hipótesis inductiva",
+          "tex": "\\prod_{i=1}^{k}(1+x^{2^{i-1}})=\\frac{1-x^{2^k}}{1-x}",
+          "sub": "",
+          "note": "Suponemos esta identidad para un k≥1.",
+          "voice": "Ahora suponemos que la identidad es cierta para un entero positivo k. Todavía no sabemos que sea cierta para k más uno; esa es precisamente la afirmación que vamos a demostrar."
+        },
+        {
+          "title": "El objetivo k+1",
+          "tex": "\\prod_{i=1}^{k+1}(1+x^{2^{i-1}})",
+          "sub": "Nuestro objetivo es demostrar la fórmula cuando el producto contiene un factor adicional. Fíjate en que el exponente del numerador pasa de dos a la k a dos a la k más uno.",
+          "note": "=\\frac{1-x^{2^{k+1}}}{1-x}",
+          "voice": "Debemos obtener la misma forma con k+1."
+        },
+        {
+          "title": "Separar el último factor",
+          "tex": "\\prod_{i=1}^{k+1}(1+x^{2^{i-1}})",
+          "sub": "Separar el último factor es la idea clave. El producto hasta k más uno es el producto anterior multiplicado por uno más equis elevado a dos a la k.",
+          "note": "=\\left[\\prod_{i=1}^{k}(1+x^{2^{i-1}})\\right](1+x^{2^k})",
+          "voice": "El término nuevo se obtiene poniendo i=k+1."
+        },
+        {
+          "title": "Aplicar la hipótesis",
+          "tex": "=\\frac{1-x^{2^k}}{1-x}(1+x^{2^k})",
+          "sub": "",
+          "note": "Sustituimos el producto hasta k por la expresión supuesta.",
+          "voice": "La hipótesis inductiva nos permite reemplazar todo el producto entre corchetes por su fracción equivalente. Esta es la única vez que necesitamos usar la hipótesis."
+        },
+        {
+          "title": "Diferencia de cuadrados",
+          "tex": "(1-x^{2^k})(1+x^{2^k})=1-x^{2^{k+1}}",
+          "sub": "",
+          "note": "Se usa (1−a)(1+a)=1−a².",
+          "voice": "El numerador tiene un producto notable. Si tomamos a igual a equis elevado a dos a la k, entonces uno menos a por uno más a es uno menos a al cuadrado."
+        },
+        {
+          "title": "Cerrar el paso inductivo",
+          "tex": "\\frac{1-x^{2^{k+1}}}{1-x}",
+          "sub": "",
+          "note": "La forma coincide exactamente con P(k+1).",
+          "voice": "Al sustituir la diferencia de cuadrados obtenemos precisamente la fracción que queríamos para k más uno. Con ello se completa el paso inductivo."
+        },
+        {
+          "title": "Concluir por inducción",
+          "tex": "\\boxed{\\forall n\\ge1\\quad P(n)}",
+          "sub": "",
+          "note": "La identidad es válida para todos los enteros positivos, con x≠1.",
+          "voice": "Como el caso base es verdadero y cada caso implica el siguiente, el principio de inducción nos asegura que la fórmula se cumple para todo entero positivo ene."
+        },
+        {
+          "title": "Detalle adicional: x=1",
+          "tex": "\\left.\\prod_{i=1}^{n}(1+x^{2^{i-1}})\\right|_{x=1}=2^n",
+          "sub": "",
+          "note": "El producto existe en x=1; la fórmula fraccionaria no está definida allí.",
+          "voice": "Como observación adicional, si equis vale uno el producto de la izquierda sí existe y vale dos elevado a ene. Lo que no está definido es el cociente de la derecha, por eso la restricción equis distinto de uno debe quedar explícita."
+        }
+      ]
+    }
+  ]
+}
