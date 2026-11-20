@@ -1,0 +1,1030 @@
+{
+  "title": "Álgebra en Pasos",
+  "version": "2.0.0",
+  "lessons": [
+    {
+      "id": "1",
+      "title": "Productos notables y factorización",
+      "subtitle": "La propiedad distributiva y los axiomas de la igualdad",
+      "topic": "Ecuación polinómica",
+      "equation": "(x+3)^2+x^2=8x+21",
+      "audio": "https://resource2.heygen.ai/text_to_speech/062b409d73ad44c39ac9f2448b9c97d7/40ded5e9651a43a58b77f72699b95688/id=dde056b935264e819521f22e0f7f2cfa.wav",
+      "audioDuration": 235.551,
+      "steps": [
+        {
+          "title": "El problema",
+          "math": "(x+3)^2+x^2=8x+21",
+          "sub": "",
+          "note": "¿Qué valores de x hacen verdadera esta igualdad?",
+          "say": "Vamos a resolver el primer ejercicio de nivelación de álgebra de octavo. La ecuación es: equis más tres, todo al cuadrado, más equis al cuadrado, igual a ocho equis más veintiuno. Nuestro objetivo es encontrar todos los valores de equis que hacen verdadera esta igualdad.",
+          "law": "Planteamiento de la ecuación",
+          "at": 0.275
+        },
+        {
+          "title": "Propiedades de la igualdad",
+          "math": "a=b\\Rightarrow a+c=b+c",
+          "sub": "a=b,\\ c\\ne 0\\Rightarrow \\frac{a}{c}=\\frac{b}{c}",
+          "note": "La misma operación en ambos miembros conserva la igualdad.",
+          "say": "Una regla fundamental: cuando sumamos, restamos, multiplicamos o dividimos por un número distinto de cero, debemos realizar la misma operación en ambos miembros de la ecuación. Así conservamos la igualdad.",
+          "law": "Propiedad aditiva y multiplicativa de la igualdad",
+          "at": 17.98
+        },
+        {
+          "title": "Cuadrado de un binomio",
+          "math": "(x+3)^2=(x+3)(x+3)",
+          "sub": "",
+          "note": "No es simplemente x² + 9.",
+          "say": "Empecemos por el cuadrado del binomio. Equis más tres, todo al cuadrado, significa equis más tres, multiplicado por equis más tres. No significa solamente equis al cuadrado más nueve.",
+          "law": "Definición de potencia",
+          "at": 31.153
+        },
+        {
+          "title": "Propiedad distributiva",
+          "math": "(x+3)(x+3)",
+          "sub": "=x\\cdot x+x\\cdot 3+3\\cdot x+3\\cdot 3",
+          "note": "Multiplicamos término a término.",
+          "say": "Aplicamos la propiedad distributiva. Equis por equis da equis al cuadrado. Equis por tres da tres equis. Tres por equis da otros tres equis. Y tres por tres da nueve.",
+          "law": "Propiedad distributiva",
+          "at": 42.955
+        },
+        {
+          "title": "Términos semejantes",
+          "math": "x^2+3x+3x+9",
+          "sub": "=x^2+6x+9",
+          "note": "3x + 3x = 6x.",
+          "say": "Ahora agrupamos términos semejantes. Tres equis más tres equis son seis equis. Por tanto, el cuadrado desarrollado es equis al cuadrado, más seis equis, más nueve.",
+          "law": "Asociativa de la adición y reducción",
+          "at": 54.196
+        },
+        {
+          "title": "Sustituir equivalentes",
+          "math": "x^2+6x+9+x^2=8x+21",
+          "sub": "",
+          "note": "Reemplazamos el binomio por su desarrollo.",
+          "say": "Reemplazamos esa expresión en la ecuación original. Queda equis al cuadrado, más seis equis, más nueve, más otro equis al cuadrado, igual a ocho equis más veintiuno.",
+          "law": "Sustitución de expresiones equivalentes",
+          "at": 66.34
+        },
+        {
+          "title": "Reducción algebraica",
+          "math": "x^2+x^2+6x+9=8x+21",
+          "sub": "2x^2+6x+9=8x+21",
+          "note": "Agrupamos los términos del mismo grado.",
+          "say": "Reducimos los términos semejantes del primer miembro. Equis al cuadrado más equis al cuadrado son dos equis al cuadrado. Obtenemos dos equis al cuadrado, más seis equis, más nueve, igual a ocho equis más veintiuno.",
+          "law": "Conmutativa y asociativa de la adición",
+          "at": 77.52
+        },
+        {
+          "title": "Propiedad aditiva",
+          "math": "2x^2+6x+9\\color{#16848a}{-8x}=8x+21\\color{#16848a}{-8x}",
+          "sub": "",
+          "note": "Restamos 8x en ambos miembros.",
+          "say": "Queremos llevar la ecuación a la forma igual a cero. Primero restamos ocho equis en ambos miembros, de acuerdo con la propiedad aditiva de la igualdad.",
+          "law": "Propiedad aditiva de la igualdad",
+          "at": 91.411
+        },
+        {
+          "title": "Simplificación",
+          "math": "2x^2+(6x-8x)+9=(8x-8x)+21",
+          "sub": "2x^2-2x+9=21",
+          "note": "El inverso aditivo anula 8x − 8x.",
+          "say": "En el lado izquierdo, seis equis menos ocho equis es menos dos equis. En el derecho, ocho equis menos ocho equis es cero. Queda dos equis al cuadrado, menos dos equis, más nueve, igual a veintiuno.",
+          "law": "Inverso aditivo y reducción de términos",
+          "at": 100.626
+        },
+        {
+          "title": "Restar 21 en ambos miembros",
+          "math": "2x^2-2x+9\\color{#16848a}{-21}=21\\color{#16848a}{-21}",
+          "sub": "2x^2-2x-12=0",
+          "note": "9 − 21 = −12 y 21 − 21 = 0.",
+          "say": "Después restamos veintiuno a ambos miembros. El lado derecho queda en cero. En el izquierdo, nueve menos veintiuno es menos doce.",
+          "law": "Propiedad aditiva de la igualdad",
+          "at": 115.052
+        },
+        {
+          "title": "Propiedad multiplicativa",
+          "math": "\\frac{2x^2-2x-12}{2}=\\frac{0}{2}",
+          "sub": "x^2-x-6=0",
+          "note": "Dividimos ambos miembros por 2, que es distinto de cero.",
+          "say": "Así obtenemos dos equis al cuadrado, menos dos equis, menos doce, igual a cero. Todos los coeficientes tienen factor común dos. Dividimos los dos miembros entre dos, que es distinto de cero, por la propiedad multiplicativa de la igualdad.",
+          "law": "Propiedad multiplicativa de la igualdad (2 ≠ 0)",
+          "at": 123.585
+        },
+        {
+          "title": "Encontrar dos números",
+          "math": "x^2-x-6=0",
+          "sub": "a\\cdot b=-6,\\quad a+b=-1",
+          "note": "Buscamos dos números cuyo producto sea −6 y cuya suma sea −1.",
+          "say": "La ecuación simplificada es equis al cuadrado, menos equis, menos seis, igual a cero. Para factorizar buscamos dos números enteros cuyo producto sea menos seis y cuya suma sea menos uno.",
+          "law": "Definición de factorización",
+          "at": 138.704
+        },
+        {
+          "title": "Factorización",
+          "math": "(-3)\\cdot 2=-6,\\quad -3+2=-1",
+          "sub": "(x-3)(x+2)=0",
+          "note": "Comprobamos la suma y el producto.",
+          "say": "Esos números son menos tres y más dos. Su producto es menos seis, y su suma es menos uno. Entonces el trinomio se factoriza como equis menos tres, multiplicado por equis más dos.",
+          "law": "Producto y suma para trinomio mónico",
+          "at": 151.192
+        },
+        {
+          "title": "Propiedad del producto nulo",
+          "math": "(x-3)(x+2)=0",
+          "sub": "x-3=0\\quad\\text{o}\\quad x+2=0",
+          "note": "Si el producto es cero, al menos un factor vale cero.",
+          "say": "Aplicamos la propiedad del producto nulo. Si el producto de dos números reales es cero, al menos uno de los factores debe ser cero.",
+          "law": "Propiedad del producto nulo",
+          "at": 163.819
+        },
+        {
+          "title": "Despejar las soluciones",
+          "math": "x-3=0\\Rightarrow x-3+3=0+3\\Rightarrow x=3",
+          "sub": "x+2=0\\Rightarrow x+2-2=0-2\\Rightarrow x=-2",
+          "note": "Sumamos o restamos lo mismo en ambos miembros.",
+          "say": "Primer factor: equis menos tres igual a cero. Sumamos tres a ambos miembros y obtenemos equis igual a tres. Segundo factor: equis más dos igual a cero. Restamos dos a ambos miembros y obtenemos equis igual a menos dos.",
+          "law": "Propiedad aditiva de la igualdad",
+          "at": 171.894
+        },
+        {
+          "title": "Comprobar x = 3",
+          "math": "(3+3)^2+3^2=36+9=45",
+          "sub": "8(3)+21=24+21=45",
+          "note": "Ambos miembros tienen el mismo valor.",
+          "say": "Comprobemos la primera solución. Si equis vale tres, el lado izquierdo es seis al cuadrado más tres al cuadrado: treinta y seis más nueve, igual a cuarenta y cinco. El lado derecho es ocho por tres, más veintiuno: también cuarenta y cinco.",
+          "law": "Sustitución en la ecuación original",
+          "at": 188.092
+        },
+        {
+          "title": "Comprobar x = −2",
+          "math": "(-2+3)^2+(-2)^2=1+4=5",
+          "sub": "8(-2)+21=-16+21=5",
+          "note": "Ambos miembros tienen el mismo valor.",
+          "say": "Comprobemos la segunda. Si equis vale menos dos, el lado izquierdo es uno al cuadrado más menos dos al cuadrado: uno más cuatro, igual a cinco. El lado derecho es ocho por menos dos, más veintiuno: menos dieciséis más veintiuno, igual a cinco.",
+          "law": "Sustitución en la ecuación original",
+          "at": 203.906
+        },
+        {
+          "title": "Conclusión",
+          "math": "\\boxed{x=3}\\qquad\\boxed{x=-2}",
+          "sub": "",
+          "note": "Dos soluciones verificadas en la ecuación original.",
+          "say": "Las dos soluciones cumplen la ecuación original: equis igual a tres y equis igual a menos dos. Lo importante no es pasar términos cambiando signos por memoria, sino justificar cada operación mediante las propiedades de la igualdad.",
+          "law": "Conjunto solución y verificación",
+          "at": 221.146
+        }
+      ],
+      "quiz": {
+        "q": "¿Por qué podemos restar 8x en ambos miembros?",
+        "answers": [
+          "Porque cualquier término cambia de signo al cruzar el igual",
+          "Porque sumar el mismo inverso aditivo a ambos miembros conserva la igualdad",
+          "Porque el término tiene x"
+        ],
+        "correct": 1,
+        "why": "La propiedad aditiva permite sumar −8x a los dos miembros. Así no se altera la igualdad."
+      }
+    },
+    {
+      "id": "2",
+      "title": "Productos de binomios y ecuación polinómica",
+      "subtitle": "Desarrollo completo y axiomas aplicados en ambos miembros",
+      "topic": "Ecuación polinómica",
+      "equation": "(x-2)(x+4)+3x^2=(x+2)(x+3)+6x-2",
+      "steps": [
+        {
+          "title": "Leer el ejercicio",
+          "math": "(x-2)(x+4)+3x^2=(x+2)(x+3)+6x-2",
+          "sub": "",
+          "law": "Planteamiento",
+          "say": "En este ejercicio resolveremos una ecuación polinómica. Primero desarrollaremos los dos productos de binomios, después aplicaremos los axiomas de la igualdad y finalmente factorizaremos. Ningún término cambiará de miembro sin justificar la operación.",
+          "note": ""
+        },
+        {
+          "title": "Primer producto: identificar factores",
+          "math": "(x-2)(x+4)",
+          "sub": "(a+b)(c+d)=ac+ad+bc+bd",
+          "law": "Propiedad distributiva",
+          "say": "Empecemos con equis menos dos por equis más cuatro. Aplicaremos dos veces la propiedad distributiva: cada término del primer paréntesis multiplica a cada término del segundo.",
+          "note": ""
+        },
+        {
+          "title": "Escribir los cuatro productos",
+          "math": "(x-2)(x+4)",
+          "sub": "=x\\cdot x+x\\cdot4+(-2)\\cdot x+(-2)\\cdot4",
+          "law": "Propiedad distributiva",
+          "say": "Escribimos los cuatro productos sin omitir ninguno: equis por equis, equis por cuatro, menos dos por equis, y menos dos por cuatro.",
+          "note": ""
+        },
+        {
+          "title": "Resolver cada multiplicación",
+          "math": "x\\cdot x+x\\cdot4+(-2)\\cdot x+(-2)\\cdot4",
+          "sub": "=x^2+4x-2x-8",
+          "law": "Reglas de signos y producto",
+          "say": "Efectuamos las multiplicaciones. Equis por equis es equis al cuadrado. Equis por cuatro es cuatro equis. Menos dos por equis es menos dos equis, y menos dos por cuatro es menos ocho.",
+          "note": ""
+        },
+        {
+          "title": "Agrupar términos semejantes",
+          "math": "x^2+(4x-2x)-8",
+          "sub": "=x^2+2x-8",
+          "law": "Asociatividad de la adición",
+          "say": "Los términos cuatro equis y menos dos equis son semejantes porque tienen la misma variable con el mismo exponente. Sumamos sus coeficientes, y obtenemos dos equis.",
+          "note": ""
+        },
+        {
+          "title": "Añadir el término restante",
+          "math": "(x^2+2x-8)+3x^2",
+          "sub": "",
+          "law": "Sustitución de expresiones equivalentes",
+          "say": "En el lado izquierdo de la ecuación original también aparece más tres equis al cuadrado. Lo mantenemos; no podemos olvidarlo al desarrollar el binomio.",
+          "note": ""
+        },
+        {
+          "title": "Reordenar y reducir la izquierda",
+          "math": "x^2+3x^2+2x-8",
+          "sub": "=4x^2+2x-8",
+          "law": "Conmutativa y asociativa de la adición",
+          "say": "Reordenamos por conmutatividad y agrupamos por asociatividad. Equis al cuadrado más tres equis al cuadrado produce cuatro equis al cuadrado. El resto permanece igual.",
+          "note": ""
+        },
+        {
+          "title": "Segundo producto: empezar",
+          "math": "(x+2)(x+3)",
+          "sub": "",
+          "law": "Propiedad distributiva",
+          "say": "Ahora trabajamos el lado derecho. Tenemos equis más dos multiplicado por equis más tres. También debemos escribir los cuatro productos.",
+          "note": ""
+        },
+        {
+          "title": "Los cuatro productos del lado derecho",
+          "math": "(x+2)(x+3)",
+          "sub": "=x\\cdot x+x\\cdot3+2\\cdot x+2\\cdot3",
+          "law": "Propiedad distributiva",
+          "say": "Multiplicamos equis por equis, equis por tres, dos por equis y dos por tres. Verificar cada combinación evita errores en productos notables.",
+          "note": ""
+        },
+        {
+          "title": "Calcular los productos",
+          "math": "x\\cdot x+x\\cdot3+2\\cdot x+2\\cdot3",
+          "sub": "=x^2+3x+2x+6",
+          "law": "Producto algebraico",
+          "say": "Los resultados son equis al cuadrado, más tres equis, más dos equis, más seis.",
+          "note": ""
+        },
+        {
+          "title": "Reducir los semejantes",
+          "math": "x^2+(3x+2x)+6",
+          "sub": "=x^2+5x+6",
+          "law": "Asociatividad y suma de coeficientes",
+          "say": "Agrupamos tres equis y dos equis; su suma es cinco equis. El segundo producto es equis al cuadrado más cinco equis más seis.",
+          "note": ""
+        },
+        {
+          "title": "Incorporar todo el lado derecho",
+          "math": "(x^2+5x+6)+6x-2",
+          "sub": "",
+          "law": "Sustitución de equivalentes",
+          "say": "El lado derecho original contenía, además del producto, más seis equis y menos dos. Conservamos los dos términos.",
+          "note": ""
+        },
+        {
+          "title": "Reordenar la derecha",
+          "math": "x^2+(5x+6x)+(6-2)",
+          "sub": "",
+          "law": "Asociativa y conmutativa",
+          "say": "Usamos conmutatividad y asociatividad para reunir términos del mismo grado: los que contienen equis y los términos independientes.",
+          "note": ""
+        },
+        {
+          "title": "Reducir la derecha",
+          "math": "x^2+(5x+6x)+(6-2)",
+          "sub": "=x^2+11x+4",
+          "law": "Reducción de términos semejantes",
+          "say": "Cinco equis más seis equis es once equis. Seis menos dos es cuatro. Ahora el lado derecho está reducido.",
+          "note": ""
+        },
+        {
+          "title": "Nueva ecuación equivalente",
+          "math": "4x^2+2x-8=x^2+11x+4",
+          "sub": "",
+          "law": "Sustitución y transitividad de la igualdad",
+          "say": "Sustituimos los desarrollos correctos de ambos miembros. Esta ecuación es equivalente a la inicial: conserva exactamente sus soluciones.",
+          "note": ""
+        },
+        {
+          "title": "Restar x² en ambos miembros",
+          "math": "4x^2+2x-8\\color{#0f8992}{-x^2}=x^2+11x+4\\color{#0f8992}{-x^2}",
+          "sub": "",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "Para reunir los términos cuadráticos en la izquierda, sumamos el inverso aditivo de equis al cuadrado en los dos miembros; es decir, restamos equis al cuadrado a ambos lados.",
+          "note": ""
+        },
+        {
+          "title": "Simplificar esa resta",
+          "math": "(4x^2-x^2)+2x-8=11x+4",
+          "sub": "3x^2+2x-8=11x+4",
+          "law": "Inverso aditivo",
+          "say": "Cuatro equis al cuadrado menos uno equis al cuadrado es tres equis al cuadrado. A la derecha, equis al cuadrado menos equis al cuadrado da cero.",
+          "note": ""
+        },
+        {
+          "title": "Restar 11x en ambos miembros",
+          "math": "3x^2+2x-8\\color{#0f8992}{-11x}=11x+4\\color{#0f8992}{-11x}",
+          "sub": "",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "Ahora queremos quitar once equis del lado derecho. Por la propiedad aditiva, restamos once equis en ambos miembros.",
+          "note": ""
+        },
+        {
+          "title": "Simplificar la nueva igualdad",
+          "math": "3x^2+(2x-11x)-8=4",
+          "sub": "3x^2-9x-8=4",
+          "law": "Inverso aditivo y términos semejantes",
+          "say": "Dos equis menos once equis es menos nueve equis, y once equis menos once equis es cero. La igualdad permanece verdadera.",
+          "note": ""
+        },
+        {
+          "title": "Restar 4 a ambos miembros",
+          "math": "3x^2-9x-8\\color{#0f8992}{-4}=4\\color{#0f8992}{-4}",
+          "sub": "",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "Restamos cuatro a cada miembro para dejar cero a la derecha. Esta es la forma que necesitamos para factorizar.",
+          "note": ""
+        },
+        {
+          "title": "Reducir los términos independientes",
+          "math": "3x^2-9x-8-4=0",
+          "sub": "3x^2-9x-12=0",
+          "law": "Reducción de términos independientes",
+          "say": "Menos ocho menos cuatro es menos doce. Obtenemos tres equis al cuadrado, menos nueve equis, menos doce, igual a cero.",
+          "note": ""
+        },
+        {
+          "title": "Dividir toda la igualdad entre tres",
+          "math": "\\frac{3x^2-9x-12}{\\color{#0f8992}{3}}=\\frac{0}{\\color{#0f8992}{3}}",
+          "sub": "",
+          "law": "Propiedad multiplicativa de la igualdad",
+          "say": "Como tres es distinto de cero, podemos dividir ambos miembros entre tres sin cambiar las soluciones. El denominador divide todos los términos del numerador.",
+          "note": ""
+        },
+        {
+          "title": "Simplificar la división",
+          "math": "x^2-3x-4=0",
+          "sub": "",
+          "law": "Propiedad distributiva del cociente",
+          "say": "Dividimos cada coeficiente entre tres: tres entre tres es uno; menos nueve entre tres es menos tres; menos doce entre tres es menos cuatro.",
+          "note": ""
+        },
+        {
+          "title": "Elegir números para factorizar",
+          "math": "a\\cdot b=-4,\\qquad a+b=-3",
+          "sub": "a=-4,\\quad b=1",
+          "law": "Criterio de factorización de trinomios",
+          "say": "Para factorizar equis al cuadrado menos tres equis menos cuatro, buscamos dos enteros cuyo producto sea menos cuatro y cuya suma sea menos tres. Son menos cuatro y más uno.",
+          "note": ""
+        },
+        {
+          "title": "Escribir el producto de binomios",
+          "math": "x^2-3x-4=(x-4)(x+1)",
+          "sub": "(x-4)(x+1)=0",
+          "law": "Propiedad distributiva, aplicada inversamente",
+          "say": "La factorización es equis menos cuatro, por equis más uno. Puedes comprobarla expandiendo: equis al cuadrado más equis menos cuatro equis menos cuatro.",
+          "note": ""
+        },
+        {
+          "title": "Aplicar producto nulo",
+          "math": "(x-4)(x+1)=0",
+          "sub": "x-4=0\\quad\\text{o}\\quad x+1=0",
+          "law": "Propiedad del producto nulo",
+          "say": "Si el producto de dos números reales vale cero, al menos uno de esos factores tiene que ser cero. Separamos en dos ecuaciones sencillas.",
+          "note": ""
+        },
+        {
+          "title": "Resolver el primer factor",
+          "math": "x-4=0",
+          "sub": "x-4+4=0+4\\Rightarrow x=4",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "En equis menos cuatro igual a cero, sumamos cuatro a ambos miembros. Se cancela menos cuatro con más cuatro y obtenemos equis igual a cuatro.",
+          "note": ""
+        },
+        {
+          "title": "Resolver el segundo factor",
+          "math": "x+1=0",
+          "sub": "x+1-1=0-1\\Rightarrow x=-1",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "En equis más uno igual a cero, restamos uno a ambos miembros. Obtenemos equis igual a menos uno.",
+          "note": ""
+        },
+        {
+          "title": "Verificar x = 4 en la izquierda",
+          "math": "(4-2)(4+4)+3(4)^2",
+          "sub": "=2\\cdot8+3\\cdot16=16+48=64",
+          "law": "Sustitución en la expresión original",
+          "say": "Comprobamos en la ecuación original, no en una versión posterior. Si equis vale cuatro, el lado izquierdo es dos por ocho más tres por dieciséis. Eso da sesenta y cuatro.",
+          "note": ""
+        },
+        {
+          "title": "Verificar x = 4 en la derecha",
+          "math": "(4+2)(4+3)+6(4)-2",
+          "sub": "=6\\cdot7+24-2=64",
+          "law": "Sustitución y evaluación",
+          "say": "En el lado derecho con equis igual a cuatro tenemos seis por siete, más veinticuatro, menos dos. También es sesenta y cuatro. La primera solución es válida.",
+          "note": ""
+        },
+        {
+          "title": "Verificar x = −1 en la izquierda",
+          "math": "(-1-2)(-1+4)+3(-1)^2",
+          "sub": "=(-3)(3)+3=-9+3=-6",
+          "law": "Sustitución en la expresión original",
+          "say": "Probamos equis igual a menos uno. En la izquierda queda menos tres por tres, más tres por uno. El resultado es menos seis.",
+          "note": ""
+        },
+        {
+          "title": "Verificar x = −1 en la derecha",
+          "math": "(-1+2)(-1+3)+6(-1)-2",
+          "sub": "=(1)(2)-6-2=-6",
+          "law": "Sustitución y evaluación",
+          "say": "En la derecha queda uno por dos, menos seis, menos dos. También da menos seis. La segunda solución es válida.",
+          "note": ""
+        },
+        {
+          "title": "Conjunto solución",
+          "math": "\\boxed{x=4}\\qquad\\boxed{x=-1}",
+          "sub": "",
+          "law": "Conclusión y equivalencia de ecuaciones",
+          "say": "Las dos soluciones cumplen la ecuación original. Hemos usado la distributiva para desarrollar, los axiomas de la igualdad para transformar y el producto nulo para resolver. Ningún término pasó de lado por arte de magia.",
+          "note": ""
+        }
+      ],
+      "quiz": {
+        "q": "Para pasar de 3x²−9x−8=4 a una ecuación igualada a cero, ¿cuál es la operación válida?",
+        "answers": [
+          "Restar 4 solo a la izquierda",
+          "Restar 4 a ambos miembros",
+          "Sumar 4 a ambos miembros"
+        ],
+        "correct": 1,
+        "why": "Por la propiedad aditiva, restar cuatro en ambos miembros da 3x²−9x−12=0."
+      }
+    },
+    {
+      "id": "3",
+      "title": "Ecuación racional y MCM algebraico",
+      "subtitle": "Restricciones, mínimo común múltiplo, cancelaciones y comprobación",
+      "topic": "Ecuación racional",
+      "equation": "\\frac{x-4}{x-2}+\\frac{2x-6}{x+1}=1",
+      "steps": [
+        {
+          "title": "Leer la ecuación racional",
+          "math": "\\frac{x-4}{x-2}+\\frac{2x-6}{x+1}=1",
+          "sub": "",
+          "law": "Planteamiento",
+          "say": "Este ejercicio contiene fracciones algebraicas. Antes de operar, debemos identificar dónde están definidos los cocientes. Solo después podremos utilizar el mínimo común múltiplo algebraico.",
+          "note": ""
+        },
+        {
+          "title": "Primera restricción: denominador x−2",
+          "math": "x-2\\neq0",
+          "sub": "x\\neq2",
+          "law": "Definición de división",
+          "say": "No es posible dividir entre cero. El primer denominador es equis menos dos y se anula cuando equis vale dos. Por eso dos está excluido del dominio.",
+          "note": ""
+        },
+        {
+          "title": "Segunda restricción: denominador x+1",
+          "math": "x+1\\neq0",
+          "sub": "x\\neq-1",
+          "law": "Definición de división",
+          "say": "El segundo denominador equis más uno se anula cuando equis vale menos uno. Por eso menos uno también queda excluido.",
+          "note": ""
+        },
+        {
+          "title": "Dominio de la ecuación",
+          "math": "x\\in\\mathbb R\\setminus\\{-1,2\\}",
+          "sub": "",
+          "law": "Restricciones de dominio",
+          "say": "Solo podemos considerar valores reales distintos de menos uno y dos. Esta condición se conservará durante todo el procedimiento y se revisará al final.",
+          "note": ""
+        },
+        {
+          "title": "Revisar los denominadores",
+          "math": "\\frac{x-4}{\\color{#0f8992}{x-2}}+\\frac{2x-6}{\\color{#0f8992}{x+1}}=1",
+          "sub": "",
+          "law": "Factorización previa al MCM",
+          "say": "Los denominadores son dos binomios lineales diferentes. Ya están factorizados. No comparten ningún factor algebraico no constante.",
+          "note": ""
+        },
+        {
+          "title": "Construir el MCM algebraico",
+          "math": "\\operatorname{MCM}(x-2,\\ x+1)",
+          "sub": "=(x-2)(x+1)",
+          "law": "Mínimo común múltiplo algebraico",
+          "say": "Como los factores son diferentes y ninguno está repetido, el mínimo común múltiplo es su producto: equis menos dos por equis más uno. Cada denominador divide a este producto.",
+          "note": ""
+        },
+        {
+          "title": "Justificar que el MCM no es cero",
+          "math": "x\\neq2,\\quad x\\neq-1",
+          "sub": "(x-2)(x+1)\\neq0",
+          "law": "Producto de números no nulos",
+          "say": "Por nuestras restricciones, los dos factores del mínimo común múltiplo son distintos de cero. En consecuencia, su producto no es cero, así que multiplicar por él conserva equivalencia.",
+          "note": ""
+        },
+        {
+          "title": "Multiplicar los DOS miembros",
+          "math": "(x-2)(x+1)\\left(\\frac{x-4}{x-2}+\\frac{2x-6}{x+1}\\right)",
+          "sub": "=(x-2)(x+1)\\cdot1",
+          "law": "Propiedad multiplicativa de la igualdad",
+          "say": "Multiplicamos ambos miembros completos por el mismo mínimo común múltiplo. No multiplicamos solo las fracciones, porque eso alteraría la igualdad.",
+          "note": ""
+        },
+        {
+          "title": "Distribuir el MCM sobre la suma",
+          "math": "\\frac{(x-2)(x+1)(x-4)}{x-2}",
+          "sub": "+\\frac{(x-2)(x+1)(2x-6)}{x+1}=(x-2)(x+1)",
+          "law": "Propiedad distributiva",
+          "say": "La propiedad distributiva obliga a multiplicar cada uno de los dos sumandos del lado izquierdo. A la derecha queda el mínimo común múltiplo por uno.",
+          "note": ""
+        },
+        {
+          "title": "Cancelar el primer factor común",
+          "math": "\\frac{\\color{#0f8992}{(x-2)}(x+1)(x-4)}{\\color{#0f8992}{x-2}}",
+          "sub": "=(x+1)(x-4)",
+          "law": "Inverso multiplicativo, con x ≠ 2",
+          "say": "En la primera fracción, el factor equis menos dos aparece tanto arriba como abajo. Como no es cero, podemos cancelar el factor completo, obteniendo equis más uno por equis menos cuatro.",
+          "note": ""
+        },
+        {
+          "title": "Cancelar el segundo factor común",
+          "math": "\\frac{(x-2)\\color{#0f8992}{(x+1)}(2x-6)}{\\color{#0f8992}{x+1}}",
+          "sub": "=(x-2)(2x-6)",
+          "law": "Inverso multiplicativo, con x ≠ −1",
+          "say": "En la segunda fracción cancelamos equis más uno, porque sabemos que no puede ser cero. Quedan equis menos dos por dos equis menos seis.",
+          "note": ""
+        },
+        {
+          "title": "Simplificar el miembro derecho",
+          "math": "(x-2)(x+1)\\cdot1",
+          "sub": "=(x-2)(x+1)",
+          "law": "Elemento neutro multiplicativo",
+          "say": "En el miembro derecho usamos que cualquier expresión multiplicada por uno es la misma expresión.",
+          "note": ""
+        },
+        {
+          "title": "Ecuación sin denominadores",
+          "math": "(x+1)(x-4)+(x-2)(2x-6)",
+          "sub": "=(x-2)(x+1)",
+          "law": "Sustitución de equivalentes",
+          "say": "Al reunir las tres simplificaciones ya no aparecen fracciones. Esta ecuación es equivalente a la original solo dentro del dominio permitido.",
+          "note": ""
+        },
+        {
+          "title": "Primer binomio: distributiva",
+          "math": "(x+1)(x-4)",
+          "sub": "=x\\cdot x+x(-4)+1\\cdot x+1(-4)",
+          "law": "Propiedad distributiva",
+          "say": "Desarrollamos el primer producto. Equis por equis, equis por menos cuatro, uno por equis y uno por menos cuatro. Se conservan los signos.",
+          "note": ""
+        },
+        {
+          "title": "Calcular los cuatro productos",
+          "math": "x\\cdot x+x(-4)+1\\cdot x+1(-4)",
+          "sub": "=x^2-4x+x-4",
+          "law": "Reglas del producto",
+          "say": "Efectuamos cada multiplicación: equis al cuadrado, menos cuatro equis, más equis, menos cuatro.",
+          "note": ""
+        },
+        {
+          "title": "Reducir primer producto",
+          "math": "x^2+(-4x+x)-4",
+          "sub": "=x^2-3x-4",
+          "law": "Asociatividad y términos semejantes",
+          "say": "Menos cuatro equis más uno equis es menos tres equis. El primer producto resulta equis al cuadrado menos tres equis menos cuatro.",
+          "note": ""
+        },
+        {
+          "title": "Segundo producto: distributiva",
+          "math": "(x-2)(2x-6)",
+          "sub": "=x(2x)+x(-6)+(-2)(2x)+(-2)(-6)",
+          "law": "Propiedad distributiva",
+          "say": "En el segundo producto debemos multiplicar equis por dos equis, equis por menos seis, menos dos por dos equis, y menos dos por menos seis.",
+          "note": ""
+        },
+        {
+          "title": "Calcular segundo producto",
+          "math": "x(2x)+x(-6)+(-2)(2x)+(-2)(-6)",
+          "sub": "=2x^2-6x-4x+12",
+          "law": "Reglas de signos",
+          "say": "Los términos obtenidos son dos equis al cuadrado, menos seis equis, menos cuatro equis y más doce. Observa que menos por menos es más.",
+          "note": ""
+        },
+        {
+          "title": "Reducir segundo producto",
+          "math": "2x^2+(-6x-4x)+12",
+          "sub": "=2x^2-10x+12",
+          "law": "Suma de términos semejantes",
+          "say": "Agrupamos los términos lineales. Menos seis equis y menos cuatro equis suman menos diez equis.",
+          "note": ""
+        },
+        {
+          "title": "Producto del lado derecho",
+          "math": "(x-2)(x+1)",
+          "sub": "=x\\cdot x+x\\cdot1+(-2)x+(-2)\\cdot1",
+          "law": "Propiedad distributiva",
+          "say": "También debemos desarrollar correctamente el lado derecho. Escribimos los cuatro productos sin saltarnos ninguno.",
+          "note": ""
+        },
+        {
+          "title": "Calcular el miembro derecho",
+          "math": "x^2+x-2x-2",
+          "sub": "=x^2-x-2",
+          "law": "Términos semejantes",
+          "say": "Efectuamos las operaciones y reducimos equis menos dos equis, que es menos equis. El resultado es equis al cuadrado menos equis menos dos.",
+          "note": ""
+        },
+        {
+          "title": "Sustituir todos los desarrollos",
+          "math": "(x^2-3x-4)+(2x^2-10x+12)",
+          "sub": "=x^2-x-2",
+          "law": "Sustitución y transitividad",
+          "say": "Sustituimos los dos productos de la izquierda y el producto de la derecha. Cada sustitución conserva la igualdad.",
+          "note": ""
+        },
+        {
+          "title": "Reagrupar términos de la izquierda",
+          "math": "(x^2+2x^2)+(-3x-10x)+(-4+12)",
+          "sub": "=x^2-x-2",
+          "law": "Conmutativa y asociativa de la adición",
+          "say": "Agrupamos por grados en el miembro izquierdo. Primero los cuadrados, después los términos lineales y finalmente las constantes.",
+          "note": ""
+        },
+        {
+          "title": "Reducir ambos miembros",
+          "math": "3x^2-13x+8=x^2-x-2",
+          "sub": "",
+          "law": "Reducción de términos semejantes",
+          "say": "Efectuamos: uno más dos son tres equis al cuadrado; menos tres menos diez son menos trece equis; menos cuatro más doce es ocho.",
+          "note": ""
+        },
+        {
+          "title": "Restar x² en ambos miembros",
+          "math": "3x^2-13x+8\\color{#0f8992}{-x^2}=x^2-x-2\\color{#0f8992}{-x^2}",
+          "sub": "",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "Restamos equis al cuadrado a ambos miembros para reunir los términos de grado dos en la izquierda. El mismo inverso aditivo se aplica a cada lado.",
+          "note": ""
+        },
+        {
+          "title": "Simplificar la resta de cuadrados",
+          "math": "2x^2-13x+8=-x-2",
+          "sub": "",
+          "law": "Inverso aditivo",
+          "say": "Tres equis al cuadrado menos equis al cuadrado da dos equis al cuadrado. A la derecha se cancela el término cuadrático.",
+          "note": ""
+        },
+        {
+          "title": "Sumar x a ambos miembros",
+          "math": "2x^2-13x+8\\color{#0f8992}{+x}=-x-2\\color{#0f8992}{+x}",
+          "sub": "",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "Queremos eliminar menos equis del lado derecho. Por eso sumamos equis en ambos miembros. No se trata de moverlo y cambiarle el signo sin explicación.",
+          "note": ""
+        },
+        {
+          "title": "Reducir términos lineales",
+          "math": "2x^2-12x+8=-2",
+          "sub": "",
+          "law": "Inverso aditivo y reducción",
+          "say": "Menos trece equis más equis equivale a menos doce equis. En la derecha menos equis más equis se anula.",
+          "note": ""
+        },
+        {
+          "title": "Sumar dos a ambos miembros",
+          "math": "2x^2-12x+8\\color{#0f8992}{+2}=-2\\color{#0f8992}{+2}",
+          "sub": "",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "Sumamos dos a ambos miembros para obtener cero en la derecha. Es una aplicación explícita del axioma aditivo.",
+          "note": ""
+        },
+        {
+          "title": "Reducir constantes",
+          "math": "2x^2-12x+10=0",
+          "sub": "",
+          "law": "Reducción de términos independientes",
+          "say": "Ocho más dos es diez. En el lado derecho menos dos más dos da cero. Ya tenemos una ecuación cuadrática en forma general.",
+          "note": ""
+        },
+        {
+          "title": "Dividir los dos miembros entre 2",
+          "math": "\\frac{2x^2-12x+10}{\\color{#0f8992}{2}}=\\frac{0}{\\color{#0f8992}{2}}",
+          "sub": "",
+          "law": "Propiedad multiplicativa de la igualdad",
+          "say": "Como dos no es cero, dividimos los dos miembros completos entre dos. La solución no cambia al realizar esta operación reversible.",
+          "note": ""
+        },
+        {
+          "title": "Simplificar cada coeficiente",
+          "math": "x^2-6x+5=0",
+          "sub": "",
+          "law": "Distributiva del cociente",
+          "say": "Dividimos dos entre dos, menos doce entre dos y diez entre dos. La ecuación simplificada es equis al cuadrado menos seis equis más cinco igual a cero.",
+          "note": ""
+        },
+        {
+          "title": "Encontrar los dos números",
+          "math": "a\\cdot b=5,\\qquad a+b=-6",
+          "sub": "a=-1,\\qquad b=-5",
+          "law": "Factorización de trinomios",
+          "say": "Necesitamos dos números cuyo producto sea cinco y cuya suma sea menos seis. Menos uno por menos cinco da más cinco, y su suma da menos seis.",
+          "note": ""
+        },
+        {
+          "title": "Factorizar la ecuación",
+          "math": "x^2-6x+5=(x-1)(x-5)",
+          "sub": "(x-1)(x-5)=0",
+          "law": "Distributiva, en sentido inverso",
+          "say": "Escribimos el trinomio como el producto de equis menos uno por equis menos cinco. La expansión devuelve exactamente los términos de la ecuación.",
+          "note": ""
+        },
+        {
+          "title": "Usar producto nulo",
+          "math": "(x-1)(x-5)=0",
+          "sub": "x-1=0\\quad\\text{o}\\quad x-5=0",
+          "law": "Propiedad del producto nulo",
+          "say": "Como el producto vale cero, al menos uno de los factores debe ser cero. De aquí surgen dos ecuaciones lineales.",
+          "note": ""
+        },
+        {
+          "title": "Resolver x−1=0",
+          "math": "x-1=0",
+          "sub": "x-1+1=0+1\\Rightarrow x=1",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "Al primer factor sumamos uno a ambos miembros. Obtenemos equis igual a uno.",
+          "note": ""
+        },
+        {
+          "title": "Resolver x−5=0",
+          "math": "x-5=0",
+          "sub": "x-5+5=0+5\\Rightarrow x=5",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "Al segundo factor sumamos cinco en ambos miembros. Obtenemos equis igual a cinco.",
+          "note": ""
+        },
+        {
+          "title": "Revisar el dominio",
+          "math": "1\\neq2,\\quad1\\neq-1",
+          "sub": "5\\neq2,\\quad5\\neq-1",
+          "law": "Restricciones de los denominadores",
+          "say": "Aunque obtuvimos dos raíces algebraicas, todavía debemos comprobar que ninguna hace cero un denominador. Tanto uno como cinco son admisibles.",
+          "note": ""
+        },
+        {
+          "title": "Comprobar x=1: primera fracción",
+          "math": "\\left.\\frac{x-4}{x-2}\\right|_{x=1}",
+          "sub": "=\\frac{1-4}{1-2}=\\frac{-3}{-1}=3",
+          "law": "Sustitución y reglas de signos",
+          "say": "Para equis igual a uno, la primera fracción vale menos tres entre menos uno, que es tres.",
+          "note": ""
+        },
+        {
+          "title": "Comprobar x=1: segunda fracción",
+          "math": "\\left.\\frac{2x-6}{x+1}\\right|_{x=1}",
+          "sub": "=\\frac{2-6}{1+1}=\\frac{-4}{2}=-2",
+          "law": "Sustitución y división",
+          "say": "La segunda fracción para equis igual a uno vale menos cuatro entre dos, es decir menos dos.",
+          "note": ""
+        },
+        {
+          "title": "Comprobar x=1: suma original",
+          "math": "3+(-2)=1",
+          "sub": "1=1",
+          "law": "Verificación de la ecuación original",
+          "say": "Sumamos los dos valores y obtenemos uno. Coincide con el miembro derecho, así que equis igual a uno es solución.",
+          "note": ""
+        },
+        {
+          "title": "Comprobar x=5: primera fracción",
+          "math": "\\left.\\frac{x-4}{x-2}\\right|_{x=5}",
+          "sub": "=\\frac{5-4}{5-2}=\\frac13",
+          "law": "Sustitución y simplificación",
+          "say": "Para equis igual a cinco, la primera fracción es uno entre tres.",
+          "note": ""
+        },
+        {
+          "title": "Comprobar x=5: segunda fracción",
+          "math": "\\left.\\frac{2x-6}{x+1}\\right|_{x=5}",
+          "sub": "=\\frac{10-6}{5+1}=\\frac46=\\frac23",
+          "law": "Sustitución y fracciones equivalentes",
+          "say": "La segunda fracción es cuatro entre seis. Simplificamos entre dos y obtenemos dos tercios.",
+          "note": ""
+        },
+        {
+          "title": "Comprobar x=5: suma original",
+          "math": "\\frac13+\\frac23=\\frac33=1",
+          "sub": "",
+          "law": "Suma de fracciones de igual denominador",
+          "say": "Uno tercio más dos tercios son tres tercios, es decir uno. La segunda solución también verifica la ecuación original.",
+          "note": ""
+        },
+        {
+          "title": "Conclusión con restricciones",
+          "math": "\\boxed{x=1}\\quad\\text{y}\\quad\\boxed{x=5}",
+          "sub": "x\\in\\mathbb R\\setminus\\{-1,2\\}",
+          "law": "Dominio y comprobación final",
+          "say": "Hemos justificado restricciones, mínimo común múltiplo, multiplicación en los dos miembros, cancelaciones, factorización y comprobación. Las soluciones admisibles son equis igual a uno y equis igual a cinco.",
+          "note": ""
+        }
+      ],
+      "quiz": {
+        "q": "¿Por qué es válido cancelar el factor (x−2) después de multiplicar por el MCM?",
+        "answers": [
+          "Porque cualquier factor se puede cancelar aunque valga cero",
+          "Porque antes excluimos x=2 y así el factor no vale cero",
+          "Porque es una suma de fracciones"
+        ],
+        "correct": 1,
+        "why": "La cancelación exige denominador distinto de cero. Por eso el estudio del dominio se realiza antes de multiplicar."
+      }
+    },
+    {
+      "id": "4",
+      "title": "Ecuación cuadrática y discriminante",
+      "subtitle": "Desde el binomio al cuadrado hasta justificar la ausencia de raíces reales",
+      "topic": "Ecuación cuadrática",
+      "equation": "2(x-1)^2+3=x",
+      "steps": [
+        {
+          "title": "Leer la ecuación",
+          "math": "2(x-1)^2+3=x",
+          "sub": "",
+          "law": "Planteamiento",
+          "say": "En el cuarto ejercicio debemos desarrollar el cuadrado, dejar la ecuación en la forma general y utilizar el discriminante para decidir si existen soluciones reales.",
+          "note": ""
+        },
+        {
+          "title": "Interpretar el cuadrado",
+          "math": "(x-1)^2=(x-1)(x-1)",
+          "sub": "",
+          "law": "Definición de potencia",
+          "say": "Elevar un binomio al cuadrado significa multiplicarlo por sí mismo. No podemos elevar al cuadrado solamente la equis y el uno e ignorar el término mixto.",
+          "note": ""
+        },
+        {
+          "title": "Aplicar la distributiva",
+          "math": "(x-1)(x-1)",
+          "sub": "=x\\cdot x+x(-1)+(-1)x+(-1)(-1)",
+          "law": "Propiedad distributiva",
+          "say": "Hacemos los cuatro productos: equis por equis, equis por menos uno, menos uno por equis y menos uno por menos uno.",
+          "note": ""
+        },
+        {
+          "title": "Resolver los productos",
+          "math": "x\\cdot x+x(-1)+(-1)x+(-1)(-1)",
+          "sub": "=x^2-x-x+1",
+          "law": "Reglas de signos",
+          "say": "Efectuamos cada multiplicación. En particular, menos uno por menos uno es más uno.",
+          "note": ""
+        },
+        {
+          "title": "Reducir términos semejantes",
+          "math": "x^2+(-x-x)+1",
+          "sub": "=x^2-2x+1",
+          "law": "Asociatividad y reducción",
+          "say": "Menos equis menos equis es menos dos equis. Por tanto, el cuadrado del binomio contiene tres términos: equis al cuadrado, menos dos equis, más uno.",
+          "note": ""
+        },
+        {
+          "title": "Sustituir en la ecuación",
+          "math": "2(x^2-2x+1)+3=x",
+          "sub": "",
+          "law": "Sustitución de equivalentes",
+          "say": "Reemplazamos el cuadrado desarrollado en la ecuación original. Todavía tenemos un factor dos delante del paréntesis y un más tres fuera.",
+          "note": ""
+        },
+        {
+          "title": "Distribuir el factor 2",
+          "math": "2(x^2-2x+1)",
+          "sub": "=2x^2-4x+2",
+          "law": "Propiedad distributiva",
+          "say": "Multiplicamos dos por cada término del trinomio: dos por equis al cuadrado, dos por menos dos equis, y dos por uno.",
+          "note": ""
+        },
+        {
+          "title": "Recuperar la igualdad completa",
+          "math": "2x^2-4x+2+3=x",
+          "sub": "",
+          "law": "Sustitución de equivalentes",
+          "say": "Reincorporamos el más tres de la ecuación original y mantenemos el equis del miembro derecho. No podemos olvidar ese término independiente.",
+          "note": ""
+        },
+        {
+          "title": "Reducir términos independientes",
+          "math": "2x^2-4x+(2+3)=x",
+          "sub": "2x^2-4x+5=x",
+          "law": "Asociatividad de la adición",
+          "say": "Sumamos dos y tres para obtener cinco. La ecuación es dos equis al cuadrado menos cuatro equis más cinco igual a equis.",
+          "note": ""
+        },
+        {
+          "title": "Restar x a ambos miembros",
+          "math": "2x^2-4x+5\\color{#0f8992}{-x}=x\\color{#0f8992}{-x}",
+          "sub": "",
+          "law": "Propiedad aditiva de la igualdad",
+          "say": "Restamos equis a ambos miembros. Es la misma operación aplicada a los dos lados, por lo que la ecuación resultante es equivalente.",
+          "note": ""
+        },
+        {
+          "title": "Escribir la forma general",
+          "math": "2x^2-5x+5=0",
+          "sub": "ax^2+bx+c=0",
+          "law": "Inverso aditivo y reducción",
+          "say": "Menos cuatro equis menos equis son menos cinco equis. A la derecha equis menos equis es cero. Ya está en la forma general.",
+          "note": ""
+        },
+        {
+          "title": "Identificar a, b y c",
+          "math": "2x^2-5x+5=0",
+          "sub": "a=2,\\qquad b=-5,\\qquad c=5",
+          "law": "Identificación de coeficientes",
+          "say": "Comparamos con a equis cuadrado más be equis más ce igual a cero. El coeficiente a es dos, be es menos cinco y ce es cinco. Es esencial conservar el signo de be.",
+          "note": ""
+        },
+        {
+          "title": "Definir el discriminante",
+          "math": "\\Delta=b^2-4ac",
+          "sub": "",
+          "law": "Definición del discriminante",
+          "say": "El discriminante es be al cuadrado menos cuatro veces a por ce. Su signo nos dice cuántas soluciones reales tiene la ecuación cuadrática.",
+          "note": ""
+        },
+        {
+          "title": "Sustituir los coeficientes",
+          "math": "\\Delta=(-5)^2-4(2)(5)",
+          "sub": "",
+          "law": "Sustitución numérica",
+          "say": "Sustituimos be por menos cinco, a por dos y ce por cinco. Los paréntesis alrededor de menos cinco son importantes porque se eleva al cuadrado el número completo.",
+          "note": ""
+        },
+        {
+          "title": "Calcular el cuadrado",
+          "math": "(-5)^2=(-5)(-5)=25",
+          "sub": "",
+          "law": "Definición de potencia y reglas de signos",
+          "say": "Menos cinco al cuadrado es menos cinco por menos cinco. Producto de dos números negativos es positivo, así que da veinticinco.",
+          "note": ""
+        },
+        {
+          "title": "Calcular el producto restante",
+          "math": "4ac=4\\cdot2\\cdot5=40",
+          "sub": "",
+          "law": "Asociatividad del producto",
+          "say": "Cuatro por dos por cinco es cuarenta. Ya podemos efectuar la resta del discriminante.",
+          "note": ""
+        },
+        {
+          "title": "Obtener el discriminante",
+          "math": "\\Delta=25-40",
+          "sub": "\\boxed{\\Delta=-15}",
+          "law": "Sustracción de números enteros",
+          "say": "Veinticinco menos cuarenta es menos quince. Observamos que el discriminante es estrictamente negativo.",
+          "note": ""
+        },
+        {
+          "title": "Interpretar el signo",
+          "math": "\\Delta=-15<0",
+          "sub": "",
+          "law": "Criterio de existencia de raíces reales",
+          "say": "Cuando el discriminante es negativo, no hay raíz cuadrada real del discriminante. Por tanto, no hay soluciones reales para la ecuación.",
+          "note": ""
+        },
+        {
+          "title": "Relacionarlo con la fórmula general",
+          "math": "x=\\frac{-b\\pm\\sqrt{\\Delta}}{2a}",
+          "sub": "x=\\frac{5\\pm\\sqrt{-15}}{4}",
+          "law": "Fórmula cuadrática y radicando",
+          "say": "Si intentáramos usar la fórmula cuadrática, aparecería la raíz cuadrada de menos quince. Ningún número real elevado al cuadrado da menos quince, por lo que no podemos obtener valores reales.",
+          "note": ""
+        },
+        {
+          "title": "Conclusión del ejercicio",
+          "math": "\\boxed{S_{\\mathbb R}=\\varnothing}",
+          "sub": "",
+          "law": "Conjunto solución en los reales",
+          "say": "La ecuación dos por equis menos uno al cuadrado más tres, igual a equis, no tiene soluciones reales. No es un fracaso del procedimiento: el discriminante permite justificar formalmente esa conclusión.",
+          "note": ""
+        }
+      ],
+      "quiz": {
+        "q": "Si Δ=−15, ¿qué podemos afirmar para las soluciones reales?",
+        "answers": [
+          "Hay dos soluciones reales",
+          "Hay una única solución real",
+          "No existen soluciones reales"
+        ],
+        "correct": 2,
+        "why": "El cuadrado de un número real no puede ser negativo; por eso no se puede obtener raíz cuadrada real de −15."
+      }
+    }
+  ]
+}
