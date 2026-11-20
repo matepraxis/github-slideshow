@@ -1,59 +1,92 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0d303e"><meta name="description" content="Clases de nivelación final de álgebra para octavo. Animaciones, narración y axiomas paso a paso."><title>Álgebra en Pasos · Grado Octavo</title>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0d303e">
+<meta name="description" content="Cuatro clases narradas de nivelación de Álgebra para grado octavo: axiomas de la igualdad, productos notables, MCM algebraico, factorización y discriminante, sin saltos.">
+<title>Álgebra en Pasos · Nivelación final · Cuatro clases</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <style>
 :root{--ink:#132f3d;--muted:#607680;--teal:#15818a;--line:#dce8e9;--bg:#f4f8f9;--white:#fff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #85ced3;outline-offset:2px}header{display:flex;align-items:center;justify-content:space-between;background:#fff;padding:16px clamp(16px,5vw,64px);border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;font-weight:850;font-size:19px;letter-spacing:-.05em}.brandmark{display:grid;place-items:center;background:var(--ink);color:#fff;border-radius:12px;width:40px;height:40px;font:28px Georgia,serif}header .label{font-size:12px;font-weight:750;color:var(--muted)}main{max-width:1190px;margin:auto;padding:0 22px}.hero{padding:76px 0 36px}.overline{text-transform:uppercase;color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.12em}.hero h1{font-size:clamp(42px,7vw,77px);line-height:1.05;letter-spacing:-.067em;max-width:790px;margin:16px 0 20px}.hero p{max-width:720px;color:var(--muted);font-size:18px}.motto{border-left:4px solid var(--teal);padding:8px 0 8px 18px!important;margin-top:28px;color:var(--ink)!important;font-size:16px!important}.sectitle{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:25px}.sectitle h2{font-size:24px;letter-spacing:-.04em}.sectitle small{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-bottom:75px}.card{display:flex;flex-direction:column;text-align:left;background:white;border:1px solid var(--line);border-radius:19px;padding:24px;min-height:245px;box-shadow:0 6px 20px #153b4710;color:inherit;transition:.2s}.card:not(:disabled):hover{transform:translateY(-3px);border-color:#78c0c3;box-shadow:0 18px 35px #0b3d4a1c}.card:disabled{cursor:default;opacity:.68}.cardhead{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:850;color:var(--teal)}.card h3{font-size:21px;letter-spacing:-.035em;line-height:1.2;margin:24px 0 9px}.kind{color:var(--muted);font-size:13px}.eq{display:flex;align-items:center;margin:18px 0;min-height:46px;max-width:100%;overflow:auto;font-size:16px}.eq .katex-display{margin:.2em 0}.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);color:var(--teal);font-weight:750;font-size:13px}.view{padding:24px 0 65px}.back{background:transparent;border:0;padding:10px 0;color:var(--teal);font-weight:800}.view h1{font-size:clamp(25px,3.8vw,40px);letter-spacing:-.055em;margin:11px 0 0}.hint{color:var(--muted);margin:7px 0 24px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}.player{background:white;border-radius:18px;overflow:hidden;box-shadow:0 16px 38px #12343e14;border:1px solid var(--line)}.stage{aspect-ratio:16/9;position:relative;background:linear-gradient(165deg,#fff,#f7fdfd);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;text-align:center;padding:34px 25px;overflow:hidden}.stage:before{content:"";position:absolute;inset:0;opacity:.24;background-image:radial-gradient(#b1d4d7 1px,transparent 1px);background-size:24px 24px;pointer-events:none}.stage>*{position:relative}.step-label{font-size:12px;letter-spacing:.13em;color:var(--teal);font-weight:850}.stage-title{font-size:clamp(21px,3vw,33px);font-weight:850;letter-spacing:-.04em}.math{font-size:clamp(14px,2.0vw,26px);max-width:100%;overflow:auto;width:100%;padding:10px 1px}.math .katex-display{margin:.1em 0}.math.secondary{font-size:clamp(13px,1.55vw,22px);color:#137881}.note{color:#607f87;font-size:clamp(12px,1.4vw,15px);max-width:660px}.overlay{position:absolute;right:19px;bottom:19px;border:0;background:#104e57;color:white;width:51px;height:51px;border-radius:100%;font-size:21px;box-shadow:0 7px 16px #132f3c39}.controls{padding:13px 19px 19px;border-top:1px solid var(--line)}.controls input{width:100%;accent-color:var(--teal)}.ctrlrow{display:flex;align-items:center;gap:8px;margin-top:9px}.ctl{border:1px solid var(--line);background:white;color:var(--ink);height:39px;min-width:41px;border-radius:10px;font-weight:800}.ctl:hover{background:#eef7f7}.ctl.main{background:#126b75;color:white;border-color:#126b75;min-width:49px}.clock{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}.space{flex:1}select{background:white;border:1px solid var(--line);border-radius:9px;padding:8px 5px;color:var(--ink)}.status{font-size:12px;padding:9px 18px;color:#3a7379;background:#eaf7f7;border-top:1px solid var(--line)}.transcript{background:white;padding:21px 24px;border:1px solid var(--line);border-radius:17px;margin-top:16px}.transcript b{color:var(--teal);font-size:12px;letter-spacing:.08em;text-transform:uppercase}.transcript p{color:#48606b;line-height:1.75;margin-bottom:0}.side{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden}.side h2{font-size:17px;margin:0;padding:18px 17px 10px}.steps{list-style:none;padding:0 9px 12px;margin:0;max-height:620px;overflow-y:auto}.steps button{width:100%;display:flex;gap:9px;align-items:center;background:none;border:0;text-align:left;padding:10px;border-radius:10px;color:#4a6470}.steps button:hover{background:#f0f8f8}.steps button.active{background:#e7f5f5;color:#0f6870}.steps em{font-style:normal;background:#edf2f3;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:12px;font-weight:850}.steps .active em{background:#c8e7e8}.steps span{flex:1;font-size:13px;font-weight:650}.steps small{font-size:11px;color:#80949b}footer{text-align:center;font-size:12px;color:#81929a;background:#fff;padding:22px;border-top:1px solid var(--line)}[hidden]{display:none!important}:fullscreen .stage{height:calc(100vh - 110px);aspect-ratio:auto}@media(max-width:900px){.layout{grid-template-columns:1fr}}@media(max-width:640px){main{padding:0 15px}header .label{display:none}.hero{padding-top:45px}.hero p{font-size:16px}.cards{grid-template-columns:1fr;gap:12px}.card{min-height:210px;padding:20px}.stage{min-height:245px;padding:15px 7px;gap:6px}.math{font-size:15px}.math.secondary{font-size:13px}.overlay{right:9px;bottom:9px;width:41px;height:41px}.controls{padding:12px}.ctrlrow{gap:5px}.ctl{min-width:35px}.clock{font-size:11px}.transcript{padding:16px}}
 </style>
-</head><body>
-<header><div class="brand"><span class="brandmark">∑</span> Álgebra en Pasos</div><span class="label">MATEMÁTICAS · OCTAVO · 2026</span></header>
-<main id="home"><section class="hero"><div class="overline">Clases audiovisuales · Nivelación final</div><h1>El álgebra se construye con razones.</h1><p>Aprende a resolver cada ecuación paso a paso. Reproduce la explicación, comprende el axioma utilizado y comprueba tus soluciones.</p><p class="motto">No se trata de «pasar términos al otro lado», sino de conservar la igualdad.</p></section><div class="sectitle"><h2>Ejercicios de nivelación</h2><small>1 clase disponible · 3 en preparación</small></div><div class="cards" id="cards"></div></main>
-<main class="view" id="view" hidden><button class="back" id="back">← Volver a los ejercicios</button><div class="overline">Clase 01 · Resolución justificada</div><h1>Productos notables y propiedades de la igualdad</h1><p class="hint">18 pasos · Narración clara · Pausa, repite o selecciona cualquier momento.</p><div class="layout"><div><div class="player" id="player"><div class="stage" id="stage"><div class="step-label" id="stepLabel"></div><div class="stage-title" id="stageTitle"></div><div class="math" id="math1"></div><div class="math secondary" id="math2"></div><div class="note" id="note"></div><button class="overlay" id="overlay" aria-label="Reproducir o pausar">▶</button></div><div class="controls"><input id="seek" type="range" min="0" max="235.551" step="0.1" value="0" aria-label="Progreso de clase"><div class="ctrlrow"><button class="ctl" id="prev" title="Paso anterior">⏮</button><button class="ctl" id="rewind" title="Retroceder diez segundos">↶10</button><button class="ctl main" id="play" aria-label="Reproducir">▶</button><button class="ctl" id="next" title="Paso siguiente">⏭</button><span class="clock" id="clock">0:00 / 3:55</span><span class="space"></span><select id="speed" aria-label="Velocidad"><option value="0.8">0,8×</option><option value="1" selected>1×</option><option value="1.15">1,15×</option><option value="1.3">1,3×</option></select><button class="ctl" id="full" title="Pantalla completa">⛶</button></div></div><div class="status" id="status">Pulsa reproducir para escuchar la explicación.</div></div><div class="transcript"><b id="textTitle">Narración del paso</b><p id="transcript"></p></div></div><aside class="side"><h2>Procedimiento paso a paso</h2><ol class="steps" id="steps"></ol></aside></div></main>
-<footer>Álgebra en Pasos · Recursos de matemáticas para grado octavo</footer>
-<audio id="narrator" preload="metadata"></audio><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script>
-(function(){
-'use strict';
-var audio=document.getElementById('narrator'),current=-1,fallback=false,duration=235.551;
-var externalAudio='https://resource2.heygen.ai/text_to_speech/062b409d73ad44c39ac9f2448b9c97d7/40ded5e9651a43a58b77f72699b95688/id=dde056b935264e819521f22e0f7f2cfa.wav';
-var el=function(x){return document.getElementById(x);};
-var clock=function(t){return Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0');};
-var lessons=[
- ['Productos notables y propiedades de la igualdad','Ecuación polinómica','(x+3)^2+x^2=8x+21',true],
- ['Productos de binomios y factorización','Ecuación polinómica','(x-2)(x+4)+3x^2=(x+2)(x+3)+6x-2',false],
- ['Restricciones y MCM algebraico','Ecuación racional','\\frac{x-4}{x-2}+\\frac{2x-6}{x+1}=1',false],
- ['Discriminante y soluciones reales','Ecuación cuadrática','2(x-1)^2+3=x',false]
-];
-var scenes=[
-[0.275,'El problema','(x+3)^2+x^2=8x+21','','¿Qué valores de x hacen verdadera esta igualdad?','Vamos a resolver el primer ejercicio de nivelación de álgebra de octavo. La ecuación es: equis más tres, todo al cuadrado, más equis al cuadrado, igual a ocho equis más veintiuno. Nuestro objetivo es encontrar todos los valores de equis que hacen verdadera esta igualdad.'],
-[17.980,'Propiedades de la igualdad','a=b\\Rightarrow a+c=b+c','a=b,\\ c\\ne 0\\Rightarrow \\frac{a}{c}=\\frac{b}{c}','La misma operación en ambos miembros conserva la igualdad.','Una regla fundamental: cuando sumamos, restamos, multiplicamos o dividimos por un número distinto de cero, debemos realizar la misma operación en ambos miembros de la ecuación. Así conservamos la igualdad.'],
-[31.153,'Cuadrado de un binomio','(x+3)^2=(x+3)(x+3)','','No es simplemente x² + 9.','Empecemos por el cuadrado del binomio. Equis más tres, todo al cuadrado, significa equis más tres, multiplicado por equis más tres. No significa solamente equis al cuadrado más nueve.'],
-[42.955,'Propiedad distributiva','(x+3)(x+3)','=x\\cdot x+x\\cdot 3+3\\cdot x+3\\cdot 3','Multiplicamos término a término.','Aplicamos la propiedad distributiva. Equis por equis da equis al cuadrado. Equis por tres da tres equis. Tres por equis da otros tres equis. Y tres por tres da nueve.'],
-[54.196,'Términos semejantes','x^2+3x+3x+9','=x^2+6x+9','3x + 3x = 6x.','Ahora agrupamos términos semejantes. Tres equis más tres equis son seis equis. Por tanto, el cuadrado desarrollado es equis al cuadrado, más seis equis, más nueve.'],
-[66.340,'Sustituir equivalentes','x^2+6x+9+x^2=8x+21','','Reemplazamos el binomio por su desarrollo.','Reemplazamos esa expresión en la ecuación original. Queda equis al cuadrado, más seis equis, más nueve, más otro equis al cuadrado, igual a ocho equis más veintiuno.'],
-[77.520,'Reducción algebraica','x^2+x^2+6x+9=8x+21','2x^2+6x+9=8x+21','Agrupamos los términos del mismo grado.','Reducimos los términos semejantes del primer miembro. Equis al cuadrado más equis al cuadrado son dos equis al cuadrado. Obtenemos dos equis al cuadrado, más seis equis, más nueve, igual a ocho equis más veintiuno.'],
-[91.411,'Propiedad aditiva','2x^2+6x+9\\color{#16848a}{-8x}=8x+21\\color{#16848a}{-8x}','','Restamos 8x en ambos miembros.','Queremos llevar la ecuación a la forma igual a cero. Primero restamos ocho equis en ambos miembros, de acuerdo con la propiedad aditiva de la igualdad.'],
-[100.626,'Simplificación','2x^2+(6x-8x)+9=(8x-8x)+21','2x^2-2x+9=21','El inverso aditivo anula 8x − 8x.','En el lado izquierdo, seis equis menos ocho equis es menos dos equis. En el derecho, ocho equis menos ocho equis es cero. Queda dos equis al cuadrado, menos dos equis, más nueve, igual a veintiuno.'],
-[115.052,'Restar 21 en ambos miembros','2x^2-2x+9\\color{#16848a}{-21}=21\\color{#16848a}{-21}','2x^2-2x-12=0','9 − 21 = −12 y 21 − 21 = 0.','Después restamos veintiuno a ambos miembros. El lado derecho queda en cero. En el izquierdo, nueve menos veintiuno es menos doce.'],
-[123.585,'Propiedad multiplicativa','\\frac{2x^2-2x-12}{2}=\\frac{0}{2}','x^2-x-6=0','Dividimos ambos miembros por 2, que es distinto de cero.','Así obtenemos dos equis al cuadrado, menos dos equis, menos doce, igual a cero. Todos los coeficientes tienen factor común dos. Dividimos los dos miembros entre dos, que es distinto de cero, por la propiedad multiplicativa de la igualdad.'],
-[138.704,'Encontrar dos números','x^2-x-6=0','a\\cdot b=-6,\\quad a+b=-1','Buscamos dos números cuyo producto sea −6 y cuya suma sea −1.','La ecuación simplificada es equis al cuadrado, menos equis, menos seis, igual a cero. Para factorizar buscamos dos números enteros cuyo producto sea menos seis y cuya suma sea menos uno.'],
-[151.192,'Factorización','(-3)\\cdot 2=-6,\\quad -3+2=-1','(x-3)(x+2)=0','Comprobamos la suma y el producto.','Esos números son menos tres y más dos. Su producto es menos seis, y su suma es menos uno. Entonces el trinomio se factoriza como equis menos tres, multiplicado por equis más dos.'],
-[163.819,'Propiedad del producto nulo','(x-3)(x+2)=0','x-3=0\\quad\\text{o}\\quad x+2=0','Si el producto es cero, al menos un factor vale cero.','Aplicamos la propiedad del producto nulo. Si el producto de dos números reales es cero, al menos uno de los factores debe ser cero.'],
-[171.894,'Despejar las soluciones','x-3=0\\Rightarrow x-3+3=0+3\\Rightarrow x=3','x+2=0\\Rightarrow x+2-2=0-2\\Rightarrow x=-2','Sumamos o restamos lo mismo en ambos miembros.','Primer factor: equis menos tres igual a cero. Sumamos tres a ambos miembros y obtenemos equis igual a tres. Segundo factor: equis más dos igual a cero. Restamos dos a ambos miembros y obtenemos equis igual a menos dos.'],
-[188.092,'Comprobar x = 3','(3+3)^2+3^2=36+9=45','8(3)+21=24+21=45','Ambos miembros tienen el mismo valor.','Comprobemos la primera solución. Si equis vale tres, el lado izquierdo es seis al cuadrado más tres al cuadrado: treinta y seis más nueve, igual a cuarenta y cinco. El lado derecho es ocho por tres, más veintiuno: también cuarenta y cinco.'],
-[203.906,'Comprobar x = −2','(-2+3)^2+(-2)^2=1+4=5','8(-2)+21=-16+21=5','Ambos miembros tienen el mismo valor.','Comprobemos la segunda. Si equis vale menos dos, el lado izquierdo es uno al cuadrado más menos dos al cuadrado: uno más cuatro, igual a cinco. El lado derecho es ocho por menos dos, más veintiuno: menos dieciséis más veintiuno, igual a cinco.'],
-[221.146,'Conclusión','\\boxed{x=3}\\qquad\\boxed{x=-2}','','Dos soluciones verificadas en la ecuación original.','Las dos soluciones cumplen la ecuación original: equis igual a tres y equis igual a menos dos. Lo importante no es pasar términos cambiando signos por memoria, sino justificar cada operación mediante las propiedades de la igualdad.']
-];
-function math(elem,tex){elem.textContent=tex;if(window.katex&&tex){try{window.katex.render(tex,elem,{displayMode:true,throwOnError:false,strict:'ignore'});}catch(e){elem.textContent=tex;}}elem.hidden=!tex;}
-function build(){lessons.forEach(function(l,i){var b=document.createElement('button');b.className='card';b.disabled=!l[3];var c=document.createElement('div');c.className='cardhead';c.innerHTML='<span>EJERCICIO '+(i+1)+'</span><span>'+(l[3]?'● Disponible':'Próximamente')+'</span>';var h=document.createElement('h3');h.textContent=l[0];var k=document.createElement('div');k.className='kind';k.textContent=l[1];var f=document.createElement('div');f.className='eq';math(f,l[2]);var bottom=document.createElement('div');bottom.className='foot';bottom.textContent=l[3]?'▶ Ver clase narrada':'En preparación';b.append(c,h,k,f,bottom);if(l[3])b.addEventListener('click',open);el('cards').append(b);});}
-function sceneAt(t){var n=0;for(var i=1;i<scenes.length;i++)if(t>=scenes[i][0])n=i;return n;}
-function show(i){i=Math.max(0,Math.min(scenes.length-1,i));if(i===current)return;current=i;var s=scenes[i];el('stepLabel').textContent='PASO '+String(i+1).padStart(2,'0')+' / 18';el('stageTitle').textContent=s[1];math(el('math1'),s[2]);math(el('math2'),s[3]);el('note').textContent=s[4];el('textTitle').textContent='Narración · Paso '+(i+1);el('transcript').textContent=s[5];Array.from(el('steps').children).forEach(function(li,j){li.firstElementChild.classList.toggle('active',i===j);});}
-function sync(){var t=audio.currentTime||0;show(sceneAt(t));el('seek').value=t;el('clock').textContent=clock(t)+' / '+clock(duration);}
-function jump(t){audio.currentTime=Math.max(0,Math.min(duration-.1,t));sync();}
-function open(){el('home').hidden=true;el('view').hidden=false;el('steps').innerHTML='';scenes.forEach(function(s,i){var li=document.createElement('li'),b=document.createElement('button');b.type='button';var num=document.createElement('em'),label=document.createElement('span'),tm=document.createElement('small');num.textContent=String(i+1).padStart(2,'0');label.textContent=s[1];tm.textContent=clock(s[0]);b.append(num,label,tm);b.addEventListener('click',function(){jump(s[0]);});li.append(b);el('steps').append(li);});audio.src='/audio';audio.playbackRate=Number(el('speed').value);audio.load();current=-1;show(0);sync();location.hash='ejercicio-1';window.scrollTo(0,0);}
-async function toggle(){if(!audio.paused){audio.pause();return;}try{await audio.play();}catch(e){el('status').textContent='No se pudo cargar la narración. Revisa la conexión.';}}
-el('back').addEventListener('click',function(){audio.pause();el('home').hidden=false;el('view').hidden=true;location.hash='inicio';});el('play').addEventListener('click',toggle);el('overlay').addEventListener('click',toggle);el('prev').addEventListener('click',function(){jump(scenes[Math.max(0,current-1)][0]);});el('next').addEventListener('click',function(){jump(scenes[Math.min(current+1,scenes.length-1)][0]);});el('rewind').addEventListener('click',function(){jump(audio.currentTime-10);});el('seek').addEventListener('input',function(e){jump(Number(e.target.value));});el('speed').addEventListener('change',function(e){audio.playbackRate=Number(e.target.value);});el('full').addEventListener('click',function(){if(!document.fullscreenElement)el('player').requestFullscreen&&el('player').requestFullscreen();else document.exitFullscreen&&document.exitFullscreen();});
-audio.addEventListener('timeupdate',sync);audio.addEventListener('seeked',sync);audio.addEventListener('play',function(){el('play').textContent='Ⅱ';el('overlay').textContent='Ⅱ';el('status').textContent='Reproduciendo clase · Narración clara en español';});audio.addEventListener('pause',function(){el('play').textContent='▶';el('overlay').textContent='▶';if(audio.currentTime<duration-.5)el('status').textContent='En pausa. Puedes repetir cualquier paso.';});audio.addEventListener('waiting',function(){el('status').textContent='Cargando narración...';});audio.addEventListener('ended',function(){el('play').textContent='▶';el('overlay').textContent='▶';el('status').textContent='Clase finalizada. Reproduce de nuevo cuando quieras.';});audio.addEventListener('error',function(){if(!fallback){fallback=true;audio.src=externalAudio;audio.load();el('status').textContent='Cargando narración desde servidor alternativo...';}else{el('status').textContent='Audio temporalmente no disponible; puedes revisar los pasos sin narración.';}});
-document.addEventListener('keydown',function(e){if(e.code==='Space'&&!el('view').hidden&&!e.target.closest('button,select,input')){e.preventDefault();toggle();}});
-build();if(location.hash==='#ejercicio-1')open();
-})();
-</script></body></html>
+<style>
+.hero h1{max-width:1040px}.hero p{max-width:840px}.card{min-height:270px}.cardhead span:last-child{font-size:11px;color:#28808a}.card .eq{font-size:clamp(12px,1.25vw,16px)}.stage{min-height:340px;gap:9px;padding:24px 21px}.stage .math{font-size:clamp(15px,1.95vw,27px)}.stage .math.secondary{font-size:clamp(13px,1.6vw,21px)}.stage-enter .math,.stage-enter .stage-title,.stage-enter .note{animation:rise .32s ease both}@keyframes rise{from{opacity:.08;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}.lawbar{border:1px solid #cfe6e8;border-radius:9px;background:#eaf7f6;padding:6px 12px;font-size:clamp(11px,1.1vw,13px);font-weight:780;color:#096b73;max-width:97%;text-align:center}.hint{font-size:15px}.badge-soft{display:inline-block;color:#2a7179;background:#e9f5f4;border:1px solid #d2e6e6;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:760;margin:14px 0 3px}.extra{background:#fff;border-radius:17px;padding:21px 24px;margin-top:16px;border:1px solid var(--line)}.extra h3{font-size:16px;letter-spacing:-.02em;margin:0 0 9px}.extra p{color:#4a6370;line-height:1.75;font-size:15px;margin:0 0 12px}.extra .choices{display:grid;gap:9px}.quiz-option{padding:11px 14px;border:1px solid #dbe8e8;border-radius:11px;background:#fff;text-align:left;color:#263e48}.quiz-option:hover{border-color:#8ac4c7;background:#f4fbfb}.quiz-option.selected{background:#e9f8f6;border-color:#1a8890}.quiz-feedback{border-top:1px solid #dbe8e8;margin-top:15px;padding-top:14px;font-size:14px;color:#28686e;line-height:1.6}.voice-tools{background:#fff;padding:15px 0 0;margin-top:13px;border-top:1px solid #dbe8e8;display:flex;gap:8px;flex-wrap:wrap;align-items:center}.voice-tools label{font-size:13px;font-weight:720;color:#45656f}.voice-tools select{flex:1;min-width:220px;max-width:100%;padding:8px 10px}.voice-tools .small{border:1px solid #cfe1e3;background:#eef8f7;color:#0f6871;border-radius:9px;padding:8px 12px;font-weight:730;font-size:13px}.voice-tools p{flex-basis:100%;font-size:12px;color:#778c94;margin:0}.controls .ctrlrow{flex-wrap:wrap}.player:fullscreen{background:#fff;display:flex;flex-direction:column}.player:fullscreen .stage{flex:1;aspect-ratio:auto;min-height:0}.player:fullscreen .controls{flex-shrink:0}.lettertext{letter-spacing:-.025em}.fineprint{font-size:12px;color:var(--muted);margin-bottom:12px}.intro-stripe{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:22px}.intro-stripe span{font-size:12px;border:1px solid #d7e6e7;border-radius:7px;padding:6px 9px;color:#55727a;background:#fff}.status{font-size:12px}.side .steps{max-height:690px}@media(max-width:620px){.hero h1{font-size:43px}.stage{min-height:280px;gap:5px;padding:14px 8px}.stage .math{font-size:15px}.stage .math.secondary{font-size:13px}.lawbar{font-size:11px}.voice-tools{align-items:stretch}.voice-tools select{min-width:100%}.extra{padding:16px}.card{min-height:230px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><span class="brandmark">∑</span> Álgebra en Pasos</div><span class="label">MATEMÁTICAS · GRADO OCTAVO · NIVELACIÓN FINAL</span></header>
+<main id="home">
+ <section class="hero">
+  <div class="overline">Clases audiovisuales · Nivelación final 2026</div>
+  <h1>Comprender cada paso. <span style="color:#15818a">Justificar cada operación.</span></h1>
+  <p>Los cuatro ejercicios de la evaluación, desarrollados sin saltos y con explicación por voz. Mira cómo se aplica cada axioma de la igualdad, cómo se factoriza y cómo se comprueban las soluciones.</p>
+  <p class="motto">Nunca «pasa al otro lado»: suma, resta, multiplica o divide correctamente los dos miembros de una ecuación.</p>
+  <div class="intro-stripe"><span>4 ejercicios resueltos</span><span>116 pasos justificados</span><span>Narración en español</span><span>Comprobaciones completas</span></div>
+ </section>
+ <section>
+  <div class="sectitle"><h2>Elige una clase</h2><small>Las cuatro clases están disponibles</small></div>
+  <div class="cards" id="cards"><p>Cargando las clases...</p></div>
+ </section>
+</main>
+<main class="view" id="view" hidden>
+ <button class="back" id="back" type="button">← Volver a los cuatro ejercicios</button>
+ <div class="overline">Lección animada · Operaciones justificadas</div>
+ <h1 id="lessonTitle">Nivelación final de Álgebra</h1>
+ <p class="hint" id="lessonSubtitle"></p>
+ <div class="badge-soft" id="audioBadge">Narración en español</div>
+ <div class="layout">
+  <div>
+   <div class="player" id="player">
+    <div class="stage" id="stage">
+     <div class="step-label" id="stepLabel">PASO</div>
+     <div class="stage-title" id="stageTitle"></div>
+     <div class="math" id="mathMain"></div>
+     <div class="math secondary" id="mathSecondary"></div>
+     <div class="lawbar" id="lawTitle">Propiedad de la igualdad</div>
+     <div class="note" id="stageNote"></div>
+     <button id="bigPlay" class="overlay" type="button" aria-label="Reproducir o pausar explicación">▶</button>
+    </div>
+    <div class="controls">
+     <input id="seek" type="range" min="0" max="1" step="1" value="0" aria-label="Progreso de la explicación">
+     <div class="ctrlrow">
+      <button class="ctl" id="prev" type="button" title="Paso anterior">⏮</button>
+      <button class="ctl" id="replay10" type="button" title="Retroceder 10 segundos">↶10</button>
+      <button class="ctl main" id="play" type="button" aria-label="Reproducir narración">▶</button>
+      <button class="ctl" id="next" type="button" title="Paso siguiente">⏭</button>
+      <span class="clock" id="clock"></span>
+      <span class="space"></span>
+      <select id="speed" aria-label="Velocidad de la voz"><option value="0.8">0,8×</option><option value="0.9">0,9×</option><option value="1" selected>1×</option><option value="1.15">1,15×</option><option value="1.3">1,3×</option></select>
+      <button class="ctl" id="full" type="button" title="Pantalla completa">⛶</button>
+     </div>
+     <div id="voiceTools" class="voice-tools" hidden>
+      <label for="voiceChoice">Escoge la voz:</label>
+      <select id="voiceChoice" aria-label="Voz española disponible"><option value="">Español automático</option></select>
+      <button class="small" id="testVoice" type="button">▶ Probar voz</button>
+      <p id="voiceHelp">Selecciona una voz natural en español.</p>
+     </div>
+    </div>
+    <div class="status" role="status" id="status">Selecciona reproducir para comenzar.</div>
+   </div>
+   <div class="transcript">
+    <div class="overline">Justificación explicada</div>
+    <p id="transcript"></p>
+   </div>
+   <section class="extra" id="quiz">
+    <h3 id="quizTitle">Comprueba tu comprensión</h3>
+    <p id="quizQuestion"></p>
+    <div class="choices" id="quizAnswers"></div>
+    <div class="quiz-feedback" id="quizFeedback" hidden></div>
+   </section>
+   <div style="padding:18px 0 0">
+     <button class="ctl" id="restart" style="width:auto;padding:0 15px" type="button">↶ Repetir desde el principio</button>
+   </div>
+  </div>
+  <aside class="side"><h2>Procedimiento completo</h2><ol class="steps" id="steps"></ol></aside>
+ </div>
+</main>
+<footer>Álgebra en Pasos · Evaluación final de ecuaciones cuadráticas y racionales · Grado octavo</footer>
+<audio id="audio" preload="metadata"></audio>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="/app_v2.js"></script>
+</body>
+</html>
