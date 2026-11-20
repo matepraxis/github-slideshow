@@ -24,9 +24,12 @@ http.createServer((req,res)=>{
   const pathname=new URL(req.url,'http://localhost').pathname;
   if(pathname==='/api/health'){res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});return res.end(JSON.stringify({ok:true,service:'algebra-en-pasos'}));}
   if(pathname==='/audio'){return proxyAudio(req,res,audioURL);}
-  if(pathname!=='/' && pathname!=='/index.html'){res.writeHead(404);return res.end('No encontrado');}
-  const filename=path.join(ROOT,'index.html');
-  fs.stat(filename,(err,stat)=>{if(err){res.writeHead(500);return res.end('Página no disponible');}
-  res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Length':stat.size,'Cache-Control':'no-store'});
+  const files={'/':'index.html','/index.html':'index.html','/app_v2.js':'app_v2.js','/lessons.json':'lessons.json'};
+  if(!Object.prototype.hasOwnProperty.call(files,pathname)){res.writeHead(404);return res.end('No encontrado');}
+  const filename=path.join(ROOT,files[pathname]);
+  const type=pathname.endsWith('.json')?'application/json; charset=utf-8':pathname.endsWith('.js')?'text/javascript; charset=utf-8':'text/html; charset=utf-8';
+  fs.stat(filename,(err,stat)=>{if(err||!stat.isFile()){res.writeHead(500);return res.end('Página no disponible');}
+  res.writeHead(200,{'Content-Type':type,'Content-Length':stat.size,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});
+  if(req.method==='HEAD')return res.end();
   fs.createReadStream(filename).pipe(res);});
 }).listen(PORT,'0.0.0.0',()=>console.log('Álgebra en Pasos, puerto '+PORT));
